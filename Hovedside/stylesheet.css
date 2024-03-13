@@ -1,3 +1,7 @@
-h1 {
+body {
+    background-color: black;
+}
+
+#storOverskrift {
     font-size: 30px;
 }
