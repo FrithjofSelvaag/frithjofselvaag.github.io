@@ -1,12 +1,10 @@
 body {
     background-color: black;
 }
-
 h1 {
     font-size: 30px;
     color: white;
 }
-
 /* navbaren */
 header {
     display: flex;
@@ -38,7 +36,6 @@ header .topnav {
     display: flex;
     justify-content: space-between;
 }
-
 .fa-chart-bar {
     color: white;
     font-size: 30px;
@@ -46,8 +43,6 @@ header .topnav {
     display: none;
     cursor: pointer;
 }
-
-
 @media(max-width: 600px) {
     header nav {
         display: none;
@@ -58,12 +53,7 @@ header .topnav {
 
     header {
         flex-direction: column;
-      
-        
-
     }
-
-
     header .topnav {
         width: 100%;
     }
