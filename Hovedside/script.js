@@ -1,6 +1,6 @@
-const burgerEl = document.querySelector('.fa-chart-bar')
+let burgerEl = document.querySelector('.fa-chart-bar')
 
-const navEl = document.querySelector('nav')
+let navEl = document.querySelector('nav')
 
 burgerEl.addEventListener('click', showNav)
 
