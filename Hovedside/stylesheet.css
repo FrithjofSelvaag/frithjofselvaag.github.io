@@ -2,6 +2,85 @@ body {
     background-color: black;
 }
 
-#storOverskrift {
+h1 {
     font-size: 30px;
+    color: white;
 }
+
+/* navbaren */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkblue;
+    align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header nav {
+    display: flex;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+header a:hover {
+  background-color: #ffffff;
+  color: darkblue;
+  border-radius: 10px
+}
+header .topnav a {
+    font-size: 20px;
+    font-weight: bold;
+}
+header .topnav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-chart-bar {
+    color: white;
+    font-size: 30px;
+    padding: 5px 20px;
+    display: none;
+    cursor: pointer;
+}
+
+
+@media(max-width: 600px) {
+    header nav {
+        display: none;
+    }
+    header nav{
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+      
+        
+
+    }
+
+
+    header .topnav {
+        width: 100%;
+    }
+    .fa-chart-bar {
+        display: flex;
+        align-items: center;
+    }
+    header nav.show {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+}
+.fa-chart-bar:hover {
+ background-color: white;
+  color:darkblue;
+  border-radius: 10px;
+}
+
