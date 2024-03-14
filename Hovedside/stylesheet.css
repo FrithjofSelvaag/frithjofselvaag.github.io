@@ -1,17 +1,18 @@
 body {
-    background-color: black;
+    background-color: white;
 }
 h1 {
     font-size: 30px;
-    color: white;
+    color: black;
 }
 /* navbaren */
+
 header {
     display: flex;
     justify-content: space-between;
-    background-color: darkblue;
     align-items: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(5, 163, 215);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 header nav {
     display: flex;
@@ -22,15 +23,15 @@ header a {
     text-decoration: none;
     padding: 20px;
 }
-
 header a:hover {
-  background-color: #ffffff;
-  color: darkblue;
-  border-radius: 10px
+    background-color: none;
+    color: rgba(255, 255, 255, 0.725);
+    border-radius: 10px;
 }
 header .topnav a {
     font-size: 20px;
     font-weight: bold;
+    margin-left: auto;
 }
 header .topnav {
     display: flex;
@@ -46,9 +47,21 @@ header .topnav {
 header select {
     margin-right: 10px;
     display: flex;
+    border-radius: 5px;
+    font-family: monospace;
+    background-color: rgb(5, 163, 215);
+    color: white;
+    border-style: none;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
 }
 
 @media(max-width: 600px) {
+/*     header select {
+        display: none;
+    } */
     header nav {
         display: none;
         flex-direction: column;
@@ -57,12 +70,19 @@ header select {
         flex-direction: column;
         padding-bottom: 10px;
     }
+
     header .topnav {
         width: 100%;
     }
+
     .fa-chart-bar {
         display: flex;
         align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    .topnav a {
+        margin-right: auto;
     }
     header nav.show {
         display: flex;
@@ -78,13 +98,12 @@ header select {
         background-color: darkblue;
         color: white;
         border-style: hidden;
-    }
-    header select {
-        display: none;
+        width: 100px;
+        height: 40px;
+        margin-left: auto;
     }
 }
 .fa-chart-bar:hover {
- background-color: white;
-  color:darkblue;
-  border-radius: 10px;
+    color: white;
+    border-radius: 10px;
 }
