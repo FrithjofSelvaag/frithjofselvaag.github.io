@@ -57,11 +57,10 @@ header select {
     text-align: center;
     margin-left: auto;
 }
-
 @media(max-width: 600px) {
-/*     header select {
+    header select {
         display: none;
-    } */
+    }
     header nav {
         display: none;
         flex-direction: column;
@@ -95,7 +94,7 @@ header select {
         text-align: center;
         border-radius: 5px;
         font-family: monospace;
-        background-color: darkblue;
+        background-color: rgb(5, 163, 215);
         color: white;
         border-style: hidden;
         width: 100px;
