@@ -1,3 +1,5 @@
+
+
 //hamburger-meny
 
 let burgerEl = document.querySelector('.fa-chart-bar')
@@ -8,7 +10,7 @@ burgerEl.addEventListener('click', showNav)
 
 function showNav() {
     navEl.classList.toggle('show')
-    selectEL.classList.toggle('show')
+    selectEl.classList.toggle('show')
 }
 
 // ColorPalate
@@ -19,7 +21,7 @@ let header = document.querySelector('header')
 let chartBar = document.querySelector('.fa-chart-bar')
 
 
-selectEl.addEventListener("input", colorPalate)
+selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
 
@@ -33,9 +35,9 @@ function colorPalate(){
     }
     else if (selectEl.value === "black") {
         body.style.backgroundColor = 'black'
+        selectEl.style.backgroundColor = 'indigo'
         header.style.backgroundColor = 'indigo'
         h1.style.color = 'white'
-        selectEl.style.backgroundColor = 'indigo'
         
     }
 }
