@@ -12,12 +12,30 @@ function showNav() {
 }
 
 // ColorPalate
-let selectEL = document.getElementById('ColorPalate')
-let navbarEL = document.getElementById('header')
+let selectEl = document.querySelector('select')
+let body = document.body
+let h1 = document.querySelector('h1')
+let header = document.querySelector('header')
+let chartBar = document.querySelector('.fa-chart-bar')
 
 
-selectEL.addEventListener("change", colorPalate())
+selectEl.addEventListener("input", colorPalate)
 
 function colorPalate(){
 
+    if (selectEl.value === "white") {
+        header.style.backgroundColor = 'rgb(5, 163, 215)'
+        body.style.backgroundColor = 'white'
+        h1.style.color = 'black'
+        chartBar.style.color = 'white'
+        selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
+
+    }
+    else if (selectEl.value === "black") {
+        body.style.backgroundColor = 'black'
+        header.style.backgroundColor = 'indigo'
+        h1.style.color = 'white'
+        selectEl.style.backgroundColor = 'indigo'
+        
+    }
 }
