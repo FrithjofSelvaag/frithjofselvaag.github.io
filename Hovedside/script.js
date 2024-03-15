@@ -23,7 +23,7 @@ let chartBar = document.querySelector('.fa-chart-bar')
 
 selectEl.addEventListener("change", colorPalate)
 
-function colorPalate(){
+function colorPalate(value){
 
     let r = Math.floor(Math.random()*256)
     let g = Math.floor(Math.random()*256)
@@ -38,8 +38,8 @@ function colorPalate(){
     }
     else if (selectEl.value === "black") {
         body.style.backgroundColor = 'black'
-        selectEl.style.backgroundColor = 'indigo'
-        header.style.backgroundColor = 'indigo'
+        selectEl.style.backgroundColor = 'gray'
+        header.style.backgroundColor = 'gray'
         h1.style.color = 'white'
         chartBar.style.color = 'white'
     }
