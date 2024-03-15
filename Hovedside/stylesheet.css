@@ -5,6 +5,7 @@ body {
 h1 {
     font-size: 30px;
     color: black;
+    margin-left: 20px;
 }
 /* navbaren */
 
@@ -108,9 +109,30 @@ header select:hover{
     header select:hover.show{
         color: rgb(255, 255, 255, 0.725);
     }
+/*     .spillboks div {
+    }
+ */
+    .spillboks{
+        flex-direction: column;
+    }
 }
 .fa-chart-bar:hover {
     color: white;
     border-radius: 10px;
 }
 
+/* spill osv */
+.spillboks div{
+    height: 200px;
+    background-color: rgba(211, 211, 211, 0.151);
+    max-width: 600px;
+    display: flex;
+    margin: 8px;
+    margin-top: 10px;
+}
+.spillboks {
+    display: flex;
+    margin: auto;
+    max-width: 90%;
+    justify-content: space-between;
+}
