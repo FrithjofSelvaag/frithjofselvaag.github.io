@@ -104,6 +104,9 @@ header select:hover{
         height: 40px;
         margin-left: auto;
     }
+    header select:hover.show{
+        color: rgb(255, 255, 255, 0.725);
+    }
 }
 .fa-chart-bar:hover {
     color: white;
