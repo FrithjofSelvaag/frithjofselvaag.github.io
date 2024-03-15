@@ -55,6 +55,7 @@
         let header = document.querySelector('header')
 
 
+
         selectEl.addEventListener("change", colorPalate)
 
         function colorPalate(){
@@ -62,15 +63,12 @@
             if (selectEl.value === "white") {
                 header.style.backgroundColor = 'rgb(5, 163, 215)'
                 body.style.backgroundColor = 'white'
-                h1.style.color = 'black'
-                chartBar.style.color = 'white'
                 selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
 
             }
             else if (selectEl.value === "black") {
                 body.style.backgroundColor = 'black'
                 header.style.backgroundColor = 'indigo'
-                h1.style.color = 'white'
                 selectEl.style.backgroundColor = 'indigo'
                 
             }
