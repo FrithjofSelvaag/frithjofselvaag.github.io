@@ -57,6 +57,9 @@ header select {
     text-align: center;
     margin-left: auto;
 }
+header select:hover{
+    color: rgb(255, 255, 255, 0.725);
+}
 @media(max-width: 600px) {
     header select {
         display: none;
@@ -106,3 +109,4 @@ header select {
     color: white;
     border-radius: 10px;
 }
+
