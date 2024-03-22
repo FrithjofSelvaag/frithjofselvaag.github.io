@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    background-color: rgb(43, 135, 209);
+}
+
+.tiles {
+    margin: 100px auto;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 16px;
+}
+
+.tile {
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.183);
+    cursor: pointer;
+    border-radius: 10px;
+}
