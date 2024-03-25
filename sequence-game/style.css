@@ -11,9 +11,9 @@ body {
     gap: 16px;
 }
 
-.tile {
+.tiles div{
     height: 120px;
-    background-color: rgba(0, 0, 0, 0.183);
+    background-color: rgba(0, 0, 0, 0.153);
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 10px; 
 }
