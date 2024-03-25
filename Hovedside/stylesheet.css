@@ -2,15 +2,15 @@ body {
     background-color: white;
     margin: 0px;
 }
-h1 {
+main div a {
     font-size: 30px;
     color: black;
     text-align: center;
     margin-bottom: 50px;
     margin-top:50px;
 }
-/* navbaren */
 
+/* navbaren */  
 header {
     display: flex;
     justify-content: space-between;
@@ -111,9 +111,6 @@ header select:hover{
     header select:hover.show{
         color: rgb(255, 255, 255, 0.725);
     }
-/*     .spillboks div {
-    }
- */
     .spillboks{
         flex-direction: column;
     }
