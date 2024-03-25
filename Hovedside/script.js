@@ -27,7 +27,7 @@ let header = document.querySelector('header')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
-let lorem = document.querySelectorAll('main div h1')
+let lorem = document.querySelectorAll('main div a')
 
 
 selectEl.addEventListener("change", colorPalate)
