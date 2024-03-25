@@ -1,13 +1,12 @@
-
-
+//kode for at div-elementet er klikkbar og sender seg til nettsiden
+function goToPage(url) {
+    window.location.href = url
+}
 //hamburger-meny
 
 let burgerEl = document.querySelector('.fa-chart-bar')
-
 let navEl = document.querySelector('nav')
-
 let mainDivEl = document.querySelector('.spillboks div')
-
 let mainEl = document.querySelector('.spillboks')
 
 
@@ -27,7 +26,8 @@ let header = document.querySelector('header')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
-let lorem = document.querySelectorAll('main div a')
+let lorem = document.querySelectorAll('main div h1')
+let boksene = document.querySelectorAll('.spillboks div')
 
 
 selectEl.addEventListener("change", colorPalate)
@@ -47,7 +47,14 @@ function colorPalate(){
         lorem.forEach(function(lorem) {
             lorem.style.color = 'black'
         })
-    }
+        for (let h = 0; h < boksene.length; h++) {
+            boksene[h].addEventListener('mouseover', function(){
+                boksene[h].style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 1)'
+            })
+            boksene[h].addEventListener('mouseout', function(){
+                boksene[h].style.boxShadow = 'none'
+            })}}
+
     else if (selectEl.value === "black") {
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
@@ -57,7 +64,14 @@ function colorPalate(){
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
         })
-    }
+        for (let h = 0; h < boksene.length; h++) {
+            boksene[h].addEventListener('mouseover', function(){
+                boksene[h].style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 1)'
+            })
+            boksene[h].addEventListener('mouseout', function(){
+                boksene[h].style.boxShadow = 'none'
+            })}}
+
     else if (selectEl.value === "colors") {
         body.style.backgroundColor = `rgb(${r},${g},${b})`
         r = Math.floor(Math.random()*256)
@@ -78,5 +92,14 @@ function colorPalate(){
         lorem.forEach(function(lorem) {
             lorem.style.color = `rgb(${g},${b},${r})`
         })
-    }
+        r = Math.floor(Math.random()*256)
+        g = Math.floor(Math.random()*256)
+        b = Math.floor(Math.random()*256)
+        for (let h = 0; h < boksene.length; h++) {
+            boksene[h].addEventListener('mouseover', function(){
+                boksene[h].style.boxShadow = `0px 0px 20px rgba(${r}, ${g}, ${b}, 1)`
+            })
+            boksene[h].addEventListener('mouseout', function(){
+                boksene[h].style.boxShadow = 'none'
+            })}}
 }
