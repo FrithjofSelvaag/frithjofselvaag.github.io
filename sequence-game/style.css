@@ -33,6 +33,7 @@ body {
     background-color: rgb(254, 217, 32);
     transition: background-color 0.5s ease;
     font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
 }
 #knapp:hover {
     background-color: white;
@@ -49,8 +50,10 @@ body {
 #text {
     font-size: 40px;
     color: white;
+    font-family: Helvetica, Arial, sans-serif;
 }
 #p {
     font-size: 40px;
     color: rgb(163, 163, 163);
+    font-family: Helvetica, Arial, sans-serif;
 }
