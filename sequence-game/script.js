@@ -41,25 +41,34 @@ function sjekkRekkefolge() {
             document.write(`
             <h1 style="color: white;
             text-align: center;
-            font-size: 40px;
-            padding-top: 100px;
+            font-size: 22px;
+            padding-top: 125px;
+            font-family: Helvetica, Arial, sans-serif;
             ">Sqeuence Memory</h1>
             <h1 style="color: white;
             text-align: center;
-            font-size: 40px;
-            padding-top: 10px;
-            ">level ${level}</h1>
-            
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 100px;
+            padding-top: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Level ${level}</h1>
+            <h1 style="color: white;
+            text-align: center;
+            font-size: 22px;
+            padding-top: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Better Luck Next Time</h1>
             `)
 
             let nyKnapp = document.createElement('button')
-            nyKnapp.textContent = ('Prøv Igjen')
+            nyKnapp.textContent = ('Try Again')
             nyKnapp.classList.add('knapp')
             document.body.appendChild(nyKnapp)
 
             nyKnapp.style.display = 'flex'
             nyKnapp.style.margin = 'auto'
-            nyKnapp.style.marginTop = '100px'
+            nyKnapp.style.marginTop = '20px'
             nyKnapp.style.width = '160px'
             nyKnapp.style.height = '50px'
             nyKnapp.style.justifyContent = 'center'
@@ -70,6 +79,7 @@ function sjekkRekkefolge() {
             nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
             nyKnapp.style.transition = 'background-color 0.5s ease'
             nyKnapp.style.fontSize = '25px'
+            nyKnapp.style.fontFamily = 'Helvetica, Arial, sans-serif'
 
             let nyKnapp2 = document.createElement('button')
             nyKnapp2.textContent = ('Hjem')
@@ -85,16 +95,18 @@ function sjekkRekkefolge() {
             nyKnapp2.style.fontWeight = '40px'
             nyKnapp2.style.border = 'none'
             nyKnapp2.style.borderRadius = '5px'
-            nyKnapp2.style.backgroundColor = 'rgb(254, 217, 32)'
+            nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
             nyKnapp2.style.transition = 'background-color 0.5s ease'
             nyKnapp2.style.fontSize = '25px'
+            nyKnapp2.style.fontFamily = 'Helvetica, Arial, sans-serif'
+
 
             nyKnapp2.addEventListener('mouseenter', function() {
                 nyKnapp2.style.backgroundColor = 'white'
             })
             
             nyKnapp2.addEventListener('mouseleave', function() {
-                nyKnapp2.style.backgroundColor = 'rgb(254, 217, 32)'
+                nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
             })
             nyKnapp.addEventListener('mouseenter', function() {
                 nyKnapp.style.backgroundColor = 'white'
@@ -115,6 +127,7 @@ function sjekkRekkefolge() {
             setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
             setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
         }}
+
     if (klikkedeBokser.length === blinkBokser.length) {
         let match = true
         for (let i = 0; i < klikkedeBokser.length; i++) {
@@ -127,9 +140,9 @@ function sjekkRekkefolge() {
             console.log('Du har trykket på div-elementene i riktig rekkefølge!')
             level +=1
 
-            document.body.style.backgroundColor = 'rgb(70, 180, 255)'
+            document.body.style.backgroundColor = 'rgb(70, 190, 255)'
 
-            setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 400)
+            setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 350)
 
             text.innerHTML = level
 
