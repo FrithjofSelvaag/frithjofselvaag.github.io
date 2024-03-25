@@ -2,13 +2,6 @@ body {
     background-color: white;
     margin: 0px;
 }
-main div a {
-    font-size: 30px;
-    color: black;
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top:50px;
-}
 
 /* navbaren */  
 header {
@@ -121,6 +114,12 @@ header select:hover{
 }
 
 /* spill osv */
+.spillboks {
+    display: flex;
+    margin: auto;
+    max-width: 90%;
+    justify-content: space-between;
+}
 .spillboks div{
     height: 200px;
     background-color: rgba(211, 211, 211, 0.151);
@@ -128,10 +127,31 @@ header select:hover{
     display: flex;
     margin: 8px;
     margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
-.spillboks {
-    display: flex;
-    margin: auto;
-    max-width: 90%;
-    justify-content: space-between;
+.spillboks div .spillOverskrift {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top:50px;
+    text-decoration: none;
+    display: inline-block; 
+    width: 100%;
+}
+
+.spillboks div h1 {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top:0px;
+    text-decoration: none;
+}
+
+.spillboks div:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+
 }
