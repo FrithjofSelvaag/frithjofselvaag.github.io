@@ -82,7 +82,7 @@ function sjekkRekkefolge() {
             nyKnapp.style.fontFamily = 'Helvetica, Arial, sans-serif'
 
             let nyKnapp2 = document.createElement('button')
-            nyKnapp2.textContent = ('Hjem')
+            nyKnapp2.textContent = ('Home')
             nyKnapp2.classList.add('knapp')
             document.body.appendChild(nyKnapp2)
 
