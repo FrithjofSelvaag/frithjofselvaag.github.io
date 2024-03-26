@@ -130,6 +130,7 @@ header select:hover{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .spillboks div .spillOverskrift {
     font-size: 30px;
