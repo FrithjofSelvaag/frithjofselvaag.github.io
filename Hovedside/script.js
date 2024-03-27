@@ -129,3 +129,7 @@ else if (localStorage.teller == 3){
     selectEl.value = "colors"
     colorPalate()
 }
+
+setTimeout(function(){
+    document.body.style.transition = 'background-color 1s ease'
+}, 100)
