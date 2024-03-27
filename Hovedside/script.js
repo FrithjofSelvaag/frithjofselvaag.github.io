@@ -40,6 +40,9 @@ function colorPalate(){
     let b = Math.floor(Math.random()*256)
 
     if (selectEl.value === "white") {
+
+        localStorage.teller = 1
+
         header.style.backgroundColor = 'rgb(5, 163, 215)'
         body.style.backgroundColor = 'white'
         h1.style.color = 'black'
@@ -57,6 +60,9 @@ function colorPalate(){
             })}}
 
     else if (selectEl.value === "black") {
+
+        localStorage.teller = 2
+
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         header.style.backgroundColor = 'black'
@@ -74,6 +80,9 @@ function colorPalate(){
             })}}
 
     else if (selectEl.value === "colors") {
+
+        localStorage.teller = 3
+
         body.style.backgroundColor = `rgb(${r},${g},${b})`
         r = Math.floor(Math.random()*256)
         g = Math.floor(Math.random()*256)
@@ -103,4 +112,20 @@ function colorPalate(){
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
             })}}
+}
+
+if (!localStorage.teller) {
+    localStorage.teller = 1
+} 
+if(localStorage.teller == 1){
+    selectEl.value = "white"
+    colorPalate()
+}
+else if (localStorage.teller == 2){
+    selectEl.value = "black"
+    colorPalate()
+}
+else if (localStorage.teller == 3){
+    selectEl.value = "colors"
+    colorPalate()
 }
