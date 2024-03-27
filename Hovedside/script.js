@@ -29,13 +29,6 @@ let home = document.querySelector('div a')
 let lorem = document.querySelectorAll('main div h1')
 let boksene = document.querySelectorAll('.spillboks div')
 
-
-
-
-
-
-
-
 selectEl.addEventListener("change", colorPalate)
 
 
