@@ -211,6 +211,7 @@ function colorPalate(){
     if (selectEl.value === "white") {
 
         localStorage.teller = 1
+
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -284,3 +285,7 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
+
+setTimeout(function(){
+    document.body.style.transition = 'background-color 1s ease'
+}, 100)
