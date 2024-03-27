@@ -153,6 +153,7 @@ function sjekkRekkefolge() {
         if (match === true) {
             console.log('Du har trykket på klossene i riktig rekkefølge!')
             level +=1
+            document.body.style.transition = 'background-color 1s ease'
 
             if (selectEl.value === "white"){
                 document.body.style.backgroundColor = 'rgb(70, 190, 255)'
@@ -208,6 +209,8 @@ selectEl.addEventListener("change", colorPalate)
 function colorPalate(){
 
     if (selectEl.value === "white") {
+
+        localStorage.teller = 1
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -226,14 +229,6 @@ function colorPalate(){
             boksene.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
         })
 
-/*         for (let h = 0; h < boksene.length; h++) {
-            boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.3)'
-            })
-            boksene[h].addEventListener('mouseout', function(){
-                boksene[h].style.boxShadow = 'none'
-            })} */
-
             selectEl.addEventListener('mouseenter', function() {
                 selectEl.style.color = 'rgba(0,0,0, 0.55)'
             })
@@ -243,6 +238,9 @@ function colorPalate(){
         }
 
     else if (selectEl.value === "black") {
+
+        localStorage.teller = 2
+
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         selectEl.style.color = 'white'
@@ -268,3 +266,21 @@ function colorPalate(){
             selectEl.style.color = 'white'
         })
     }}
+
+//local storage, bevarer light/dark mode
+let h2El = document.querySelector('h2')
+let knappEl = document.getElementById('knapp')
+
+console.log(localStorage.teller)
+//hvis teller ikke kesisterer i localstorage skal den settes til 1
+if (!localStorage.teller) {
+    localStorage.teller = 1
+} 
+if(localStorage.teller == 1){
+    selectEl.value = "white"
+    colorPalate()
+}
+else if (localStorage.teller == 2){
+    selectEl.value = "black"
+    colorPalate()
+}
