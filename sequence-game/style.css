@@ -20,6 +20,9 @@ body {
     border-radius: 10px; 
     transition: background-color 0.2s ease;
 }
+.tiles div:hover{
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
 .knapp {
     display: flex;
     margin: auto;
@@ -107,3 +110,4 @@ header select {
 header select:hover{
     color: rgb(0, 0, 0, 0.55);
 }
+
