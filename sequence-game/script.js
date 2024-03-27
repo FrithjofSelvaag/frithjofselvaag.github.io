@@ -24,7 +24,13 @@ function sequenceBlink(){
             if(g < level){
                 setTimeout(function(){blinkBokser[g].style.backgroundColor = 'white'}, 150)
                 setTimeout(function(){
-                    blinkBokser[g].style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+
+                    if(selectEl.value === "black"){
+                        blinkBokser[g].style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
+                    }
+                    else if(selectEl.value === "white"){
+                        blinkBokser[g].style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+                    }
                     g++
                     rekkefolgen()
                 }, 600)
@@ -38,56 +44,28 @@ function sequenceBlink(){
 function sjekkRekkefolge() {
     for (let i = 0; i < klikkedeBokser.length; i++) {
         if (klikkedeBokser[i] !== blinkBokser[i]) {
-            if(selectEl.value === "white"){
-                document.write(`
-                <h1 style="color: white;
-                text-align: center;
-                font-size: 22px;
-                padding-top: 125px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Sqeuence Memory</h1>
-                <h1 style="color: white;
-                text-align: center;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                font-size: 100px;
-                padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Level ${level}</h1>
-                <h1 style="color: white;
-                text-align: center;
-                font-size: 22px;
-                padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Better Luck Next Time</h1>
-                `)
-                
-            }
-            else if(selectEl.value === "black"){
-
-                document.write(`
-                <h1 style="color: white;
-                text-align: center;
-                font-size: 22px;
-                padding-top: 125px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Sqeuence Memory</h1>
-                <h1 style="color: white;
-                text-align: center;
-                margin-top: 0px;
-                margin-bottom: 0px;
-                font-size: 100px;
-                padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Level ${level}</h1>
-                <h1 style="color: white;
-                text-align: center;
-                font-size: 22px;
-                padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
-                ">Better Luck Next Time</h1>
-                `)
-            }
+            document.write(`
+            <h1 style="color: white;
+            text-align: center;
+            font-size: 22px;
+            padding-top: 125px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Sqeuence Memory</h1>
+            <h1 style="color: white;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-size: 100px;
+            padding-top: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Level ${level}</h1>
+            <h1 style="color: white;
+            text-align: center;
+            font-size: 22px;
+            padding-top: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Better Luck Next Time</h1>
+            `)
 
             let nyKnapp = document.createElement('button')
             nyKnapp.textContent = ('Try Again')
@@ -181,8 +159,8 @@ function sjekkRekkefolge() {
                 setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 350)
             }
             else if(selectEl.value === "black"){
-                document.body.style.backgroundColor = 'orange'
-                setTimeout(function(){document.body.style.backgroundColor = 'darkblue'}, 350)
+                document.body.style.backgroundColor = 'rgb(150, 75, 0)'
+                setTimeout(function(){document.body.style.backgroundColor = 'rgb(17, 17, 17)'}, 300)
             }
 
             text.innerHTML = level
@@ -200,12 +178,17 @@ function sjekkRekkefolge() {
 for (let h = 0; h < boksene.length; h++) {
     boksene[h].addEventListener('click', function() {
         setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgba(255, 255, 255, 0.7)'
+            boksene[h].style.backgroundColor = 'rgba(255, 255, 255, 1)'
         }, 0)
-    
+
+        if(selectEl.value === "white"){
         setTimeout(function(){
             boksene[h].style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-        }, 80)
+        }, 80)}
+        else if(selectEl.value === "black"){
+        setTimeout(function(){
+            boksene[h].style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
+        }, 80)}
 
         klikkedeBokser.push(boksene[h])
         sjekkRekkefolge()
@@ -218,32 +201,70 @@ let body = document.body
 let header = document.querySelector('header')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
+let lenkene = document.querySelectorAll('a')
 
 selectEl.addEventListener("change", colorPalate)
+
 function colorPalate(){
 
     if (selectEl.value === "white") {
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
-        chartBar.style.color = 'white'
-        lorem.forEach(function(lorem) {
-            lorem.style.color = 'black'
+        selectEl.style.color = 'black'
+        lenkene.forEach(function(lenkene){
+            lenkene.style.color = 'black'
+
+            lenkene.addEventListener('mouseenter', function() {
+                lenkene.style.color = 'rgba(0,0,0, 0.55)'
+            })
+            lenkene.addEventListener('mouseleave', function() {
+                lenkene.style.color = 'black'
+            })
         })
-        for (let h = 0; h < boksene.length; h++) {
+        boksene.forEach(function(boksene){
+            boksene.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+        })
+
+/*         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 1)'
+                boksene[h].style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.3)'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}}
+            })} */
+
+            selectEl.addEventListener('mouseenter', function() {
+                selectEl.style.color = 'rgba(0,0,0, 0.55)'
+            })
+            selectEl.addEventListener('mouseleave', function() {
+                selectEl.style.color = 'black'
+            })
+        }
 
     else if (selectEl.value === "black") {
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
+        selectEl.style.color = 'white'
         header.style.backgroundColor = 'black'
-        h1.style.color = 'white'
-        chartBar.style.color = 'white'
-        lorem.forEach(function(lorem) {
-            lorem.style.color = 'white'
-        })}}
+        lenkene.forEach(function(lenkene){
+            lenkene.style.color = 'white'
+
+            lenkene.addEventListener('mouseenter', function() {
+                lenkene.style.color = 'rgba(255,255,255, 0.55)'
+            })
+            lenkene.addEventListener('mouseleave', function() {
+                lenkene.style.color = 'white'
+            })
+        })
+        boksene.forEach(function(boksene){
+            boksene.style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
+        })
+
+        selectEl.addEventListener('mouseenter', function() {
+            selectEl.style.color = 'rgba(255,255,255, 0.55)'
+        })
+        selectEl.addEventListener('mouseleave', function() {
+            selectEl.style.color = 'white'
+        })
+    }}
