@@ -1,3 +1,7 @@
+let currentCoins = document.querySelector('.currentCoins')
+
+currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
+
 let color = "white"
 let boksene = document.querySelectorAll('div div')
 let knapp = document.querySelector('.knapp')
@@ -44,6 +48,7 @@ function sequenceBlink(){
 function sjekkRekkefolge() {
     for (let i = 0; i < klikkedeBokser.length; i++) {
         if (klikkedeBokser[i] !== blinkBokser[i]) {
+            giPoints()
             document.write(`
             <h1 style="color: white;
             text-align: center;
@@ -77,26 +82,34 @@ function sjekkRekkefolge() {
             nyKnapp2.classList.add('knapp')
             document.body.appendChild(nyKnapp2)
 
-            nyKnapp2.addEventListener('mouseenter', function() {
-                nyKnapp2.style.backgroundColor = 'white'
-            })
-            
-            nyKnapp2.addEventListener('mouseleave', function() {
-                nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-            })
+            let nyKnapp3 = document.createElement('button')
+            nyKnapp3.textContent = ('Save Score')
+            nyKnapp3.classList.add('knapp')
+            document.body.appendChild(nyKnapp3)
+
             nyKnapp.addEventListener('mouseenter', function() {
                 nyKnapp.style.backgroundColor = 'white'
             })
-            
             nyKnapp.addEventListener('mouseleave', function() {
                 nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
             })
-
             nyKnapp.addEventListener('click', function(){
                 location.reload()
             })
+            nyKnapp2.addEventListener('mouseenter', function() {
+                nyKnapp2.style.backgroundColor = 'white'
+            })
+            nyKnapp2.addEventListener('mouseleave', function() {
+                nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+            })
             nyKnapp2.addEventListener('click', function(){
                 window.location.href = '../Hovedside/index.html'
+            })
+            nyKnapp3.addEventListener('mouseenter', function() {
+                nyKnapp3.style.backgroundColor = 'white'
+            })
+            nyKnapp3.addEventListener('mouseleave', function() {
+                nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
             })
             nyKnapp.style.display = 'flex'
             nyKnapp.style.margin = 'auto'
@@ -125,6 +138,20 @@ function sjekkRekkefolge() {
             nyKnapp2.style.fontSize = '25px'
             nyKnapp2.style.fontFamily = 'Helvetica, Arial, sans-serif'
 
+            nyKnapp3.style.display = 'flex'
+            nyKnapp3.style.margin = '20px auto'
+            nyKnapp3.style.width = '160px'
+            nyKnapp3.style.height = '50px'
+            nyKnapp3.style.justifyContent = 'center'
+            nyKnapp3.style.alignItems = 'center'
+            nyKnapp3.style.fontWeight = '40px'
+            nyKnapp3.style.border = 'none'
+            nyKnapp3.style.borderRadius = '5px'
+            nyKnapp3.style.transition = 'background-color 0.5s ease'
+            nyKnapp3.style.fontSize = '25px'
+            nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
+            nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+
             if(selectEl.value === "white"){
                 nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                 nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
@@ -139,9 +166,55 @@ function sjekkRekkefolge() {
                 setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
                 setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
             }
-        }}
-            
+            nyKnapp3.addEventListener('click', function(){
+                    document.body.innerHTML = ""
+                    document.write(`
+                    <h1 style="color: white;
+                    text-align: center;
+                    font-size: 22px;
+                    padding-top: 125px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    ">Sqeuence Memory</h1>
+                    <h1 style="color: white;
+                    text-align: center;
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    font-size: 100px;
+                    padding-top: 0px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    ">Level ${level}</h1>
+                    <h1 style="color: white;
+                    text-align: center;
+                    font-size: 22px;
+                    padding-top: 0px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    ">Write Your Name</h1>
+                    `)
+                    let labelEl = document.createElement('label')
+                    labelEl.classList.add('label')
+                    document.body.appendChild(labelEl)
+                    let inputEl = document.createElement('input')
+                    inputEl.classList.add('input')
+                    labelEl.appendChild(inputEl)
 
+                    labelEl.style.color = 'white'
+                    labelEl.style.display = 'flex'
+                    labelEl.style.margin = 'auto'
+                    labelEl.style.justifyContent = 'center'
+                
+                    inputEl.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter') {
+                            let playerName = String(inputEl.value)
+                            let highscore = level
+                            localStorage.setItem('highscore', highscore)
+                            localStorage.setItem('playerName', playerName)
+                            console.log(localStorage.getItem('playerName'))
+                            console.log(localStorage.getItem('highscore'))
+                            window.location.href = '../leaderboard/leaderboard.html'
+                        }
+                    })
+                })}}
+            
     if (klikkedeBokser.length === blinkBokser.length) {
         let match = true
         for (let i = 0; i < klikkedeBokser.length; i++) {
@@ -289,3 +362,14 @@ else if (localStorage.teller == 2){
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
+
+//score oppsettet
+if(!localStorage.getItem('score')){
+    localStorage.setItem('score', 0)
+}
+function giPoints(){
+    let currentScore = localStorage.getItem('score')
+    let newScore = Number(currentScore) + Number(level - 1)
+    localStorage.setItem('score', newScore)
+    console.log(newScore)
+}
