@@ -346,7 +346,7 @@ let h2El = document.querySelector('h2')
 let knappEl = document.getElementById('knapp')
 
 console.log(localStorage.teller)
-//hvis teller ikke kesisterer i localstorage skal den settes til 1
+//hvis teller ikke eksisterer i localstorage skal den settes til 1
 if (!localStorage.teller) {
     localStorage.teller = 1
 } 
