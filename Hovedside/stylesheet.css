@@ -154,5 +154,9 @@ header select:hover{
 
 .spillboks div:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
 
+.currentCoins{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
