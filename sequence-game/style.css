@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     background-color: rgb(43, 135, 209);
+    cursor:default;
 }
 
 .tiles {
