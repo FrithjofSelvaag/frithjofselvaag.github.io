@@ -37,7 +37,7 @@ body {
     font-size: 25px;
     font-family: Helvetica, Arial, sans-serif;
 }
-#knapp:hover {
+.knapp:hover {
     background-color: white;
 }
 
