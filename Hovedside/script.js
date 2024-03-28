@@ -133,3 +133,7 @@ else if (localStorage.teller == 3){
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
+
+let currentCoins = document.querySelector('.currentCoins')
+
+currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
