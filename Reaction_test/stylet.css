@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.reaksjon-tid-container{
+    position: relative;
+    height: 500px;
+    width: 100%;
+    line-height: 1;
+}
+
+.klikkbar {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  background: limegreen;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+
+.slutt-skjerm,
+.hovd-meny {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #0d3b66;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.hovd-meny.active,
+.slutt-skjerm.active {
+  display: grid;
+  place-items: center;
+}
+
+.hovd-meny {
+  cursor: pointer;
+}
+
+.reaksjon-tid-container .container {
+  max-width: 700px;
+  padding: 0 32px;
+}
+
+.hovd-meny h1 {
+  font-size: 70px;
+  margin: 8px 0;
+}
+
+.reaksjon-tid-container .container p {
+  font-size: 20px;
+  line-height: 2;
+  font-weight: 800;
+  margin: 0;
+}
+
+.slutt-skjerm h1 {
+  font-size: 30px;
+}
+
+.reaksjon-tid-tekst {
+  font-size: 100px;
+  font-weight: 900;
+}
+
+.slutt-skjerm .spill-igjen-btn {
+  border: none;
+  background: #faf0ca;
+  font-size: 20px;
+  padding: 8px 32px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: #111;
+}
