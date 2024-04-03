@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    background-color: rgb(43, 135, 209);
+    transition: background-color 1s ease;
+    cursor:default;
+}
+
+.tiles {
+    margin: 10px auto 50px;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 16px;
+    padding-top: 0px;   
+}
+
+.tiles div{
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.153);
+    cursor: pointer;
+    border-radius: 10px; 
+    transition: background-color 0.2s ease;
+}
+
+.tiles div:hover{
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+       
+}
+#StartKnapp {
+    display: flex;
+    margin: auto;
+    height: 50px;
+    width: 90px;
+    justify-content: center;
+    align-items:center;
+    /* font-weight: 40px;  gjør ingen ting */
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(254, 217, 32);
+    transition: background-color 0.5s ease;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#StartKnapp:hover{
+    background-color: white;
+}
+
+#topp{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+     align-items:center; 
+}
+
+#level{
+    font-size: 40px;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#LevelTekst{
+    font-size: 35px;
+    color: rgb(163, 163, 163);
+    font-family: Helvetica, Arial, sans-serif;
+}
+#lives{
+    color: rgb(163, 163, 163);
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 40px;
+}
+
+#Heart1{
+    color:white;
+    font-size: 30px;
+}
+#Heart2{
+    color:white;
+    font-size: 30px;
+}
+#Heart3{
+    color:white;
+    font-size: 30px;
+}

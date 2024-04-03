@@ -48,6 +48,22 @@
         </select>
     </header>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+
+        <tbody class="tbody">
+            <tr class="nr1">
+            </tr>
+            <tr class="nr2">
+            </tr>
+        </tbody>
+    </table>
+
 
     <script>
         let selectEl = document.querySelector('select')
@@ -73,6 +89,29 @@
                 
             }
         }
+
+        //local storage
+
+        let tbody = document.querySelector('.tbody')
+        let nr1 = document.querySelector('.nr1')
+        let nr2 = document.querySelector('.nr2')
+
+        function createNewScore(){
+            let tr = document.createElement('tr')
+            tbody.appendChild(tr)
+
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName'))
+            name.classList = ('name')
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore')))
+            number.classList = ('number')
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScore()
+        console.log(localStorage.getItem('playerName') + localStorage.getItem('highscore'))
+
     </script>
 </body>
 </html>
