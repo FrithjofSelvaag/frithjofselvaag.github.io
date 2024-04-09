@@ -125,3 +125,5 @@ function blinking(){
 
 
 
+/* neste:  
+gjøre klikking mulig og gjøre at om man klikker feil / riktig får man feilmeldig/nytt level  */
