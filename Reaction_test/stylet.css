@@ -19,7 +19,7 @@ body {
   display: grid;
   place-items: center;
   font-size: 32px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #fff;
 }
 
@@ -33,7 +33,7 @@ body {
   left: 0;
   background-color: rgb(43, 135, 209);
   color: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
@@ -73,7 +73,7 @@ body {
   font-weight: 900;
 }
 
-.slutt-skjerm .spill-igjen-btn, .homeBtn {
+.slutt-skjerm .spill-igjen-btn, .homeBtn, .saveScore{
   border: none;
   font-size: 20px;
   padding: 8px;
@@ -88,11 +88,11 @@ body {
   color: #111;
 }
 
-.spill-igjen-btn:hover, .homeBtn:hover{
+.spill-igjen-btn:hover, .homeBtn:hover, .saveScore:hover{
   background-color: #fff;
 }
 
-.spill-igjen-btn{
+.spill-igjen-btn, .saveScore{
   background-color: rgb(254, 217, 32);
 }
 
