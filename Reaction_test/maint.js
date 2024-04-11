@@ -84,7 +84,7 @@ let sluttSpill = () => {
   font-size: 22px;
   padding-top: 125px;
   font-family: Helvetica, Arial, sans-serif;
-  ">Sqeuence Memory</h1>
+  ">Reaction Time</h1>
   <h1 style="color: white;
   text-align: center;
   margin-top: 0px;
@@ -92,7 +92,7 @@ let sluttSpill = () => {
   font-size: 100px;
   padding-top: 0px;
   font-family: Helvetica, Arial, sans-serif;
-  "> level</h1>
+  ">${averageResultat}ms</h1>
   <h1 style="color: white;
   text-align: center;
   font-size: 22px;
@@ -205,7 +205,7 @@ let sluttSpill = () => {
           font-size: 22px;
           padding-top: 125px;
           font-family: Helvetica, Arial, sans-serif;
-          ">Sqeuence Memory</h1>
+          ">Reaction Time</h1>
           <h1 style="color: white;
           text-align: center;
           margin-top: 0px;
@@ -213,7 +213,7 @@ let sluttSpill = () => {
           font-size: 100px;
           padding-top: 0px;
           font-family: Helvetica, Arial, sans-serif;
-          ">Level</h1>
+          ">${averageResultat}ms</h1>
           <h1 style="color: white;
           text-align: center;
           font-size: 22px;
