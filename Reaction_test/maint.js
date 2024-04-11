@@ -1,12 +1,13 @@
-const hovdMeny = document.querySelector(".hovd-meny");
-const klikkBar = document.querySelector(".klikkbar");
-const beskjed = document.querySelector(".klikkbar .mld");
-const sluttSkjerm = document.querySelector(".slutt-skjerm");
-const reaksjonTidTekst = document.querySelector(
-  ".slutt-skjerm .reaksjon-tid-tekst"
-);
-const spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn");
+let hovdMeny = document.querySelector(".hovd-meny");
+let klikkBar = document.querySelector(".klikkbar");
+let beskjed = document.querySelector(".klikkbar .mld");
+let sluttSkjerm = document.querySelector(".slutt-skjerm");
+let reaksjonTidTekst = document.querySelector(
+  ".slutt-skjerm .reaksjon-tid-tekst");
+let spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn");
+let Home = document.querySelector(".slutt-skjerm .homeBtn");
 
+//Variabler brukt i funksjoner
 let klokke;
 let grønnAktivert;
 let tidNå;
@@ -14,43 +15,52 @@ let ventPåStart;
 let ventPåGrønn;
 let resultat;
 
-const i = () => {
+//Default variabelverdier
+let i = () => {
   grønnAktivert = false;
   ventPåStart = false;
   ventPåGrønn = false;
+  //Tømmer array
   resultat = [];
 };
 
 i();
 
-const setGrønnFarge = () => {
+//Trykk nå(grønn)
+let setGrønnFarge = () => {
   klikkBar.style.backgroundColor = "#32cd32";
-  beskjed.innerHTML = "Trykk Nå!";
+  beskjed.innerHTML = "Click Now!";
   beskjed.style.color = "#111";
+  //Definerer linje 105(klikkbar funksjon)
   grønnAktivert = true;
   tidNå = Date.now();
 };
 
-const startSpill = () => {
+//Start spillet
+let startSpill = () => {
   klikkBar.style.backgroundColor = "#c1121f";
-  beskjed.innerHTML = "Vent på Fargen Grønn...";
+  beskjed.innerHTML = "Wait For the Green Color...";
   beskjed.style.color = "#fff";
 
+  //Klokke(timer)
   let tilfeldigTall = Math.floor(Math.random() * 4000 + 3000);
+  //setGrønnFarge kommer etter "tilfeldigTall" sek
   klokke = setTimeout(setGrønnFarge, tilfeldigTall);
 
   ventPåStart = false;
   ventPåGrønn = true;
 
-  console.log("Random number: ", tilfeldigTall)
+  console.log("Tilfeldig tall: ", tilfeldigTall)
 };
+
 
 hovdMeny.addEventListener("click", () => {
   hovdMeny.classList.remove("active");
   startSpill();
 });
 
-const sluttSpill = () => {
+//Slutt spillet
+let sluttSpill = () => {
   sluttSkjerm.classList.add("active");
   clearTimeout(klokke);
 
@@ -60,14 +70,16 @@ const sluttSpill = () => {
     total += s;
   });
 
+  //Utregning av gjennomsnittstid(siste oppgitte tall)
   let averageResultat = Math.round(total / resultat.length);
   console.log("Total: ", total);
-  console.log("Gjennomsnittlig Resultat: ", averageResultat);
+  console.log("Avarage Result: ", averageResultat);
 
   reaksjonTidTekst.innerHTML = `${averageResultat} ms`;
 };
 
-const aktiverReaksjonsTid = (rt) => {
+//Resultat(middlertidlig og avsluttende)
+let aktiverReaksjonsTid = (rt) => {
   klikkBar.style.backgroundColor = "#faf0ca";
   beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Trykk for å Fortsette.`;
   grønnAktivert = false;
@@ -80,14 +92,16 @@ const aktiverReaksjonsTid = (rt) => {
   }
 };
 
-const aktiverForTidlig = () => {
+//Trykket for tidlig
+let aktiverForTidlig = () => {
   klikkBar.style.backgroundColor = "#faf0ca";
-  beskjed.innerHTML = "For Tidlig! Trykk for å Fortsette";
+  beskjed.innerHTML = "Too Early! Click to Continue";
   beskjed.style.color = "#111";
   ventPåStart = true;
   clearTimeout(klokke);
 };
 
+//Underveis i testen(sender bruker til funksjon "arkiverReaksjonsTid")
 klikkBar.addEventListener("click", () => {
   if (grønnAktivert) {
     let clickTime = Date.now();
@@ -97,11 +111,13 @@ klikkBar.addEventListener("click", () => {
     return;
   }
 
+  //Fortsetter spillet 
   if (ventPåStart) {
     startSpill();
     return;
   }
 
+  //
   if (ventPåGrønn) {
     aktiverForTidlig();
   }
@@ -109,7 +125,21 @@ klikkBar.addEventListener("click", () => {
 
 spillIgjenBtn.addEventListener("click", () => {
   sluttSkjerm.classList.remove("active");
+  //Aktiverer to funksjoner 
+  //Setter definerende variabler til orginale verdier
   i();
+  //Aktiverer spillet på nytt
   startSpill();
 });
 
+
+//Navbar(Hjem)
+Home.addEventListener('mouseenter', function() {
+  Home.style.backgroundColor = 'white'
+})
+Home.addEventListener('mouseleave', function() {
+  Home.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+})
+Home.addEventListener('click', function(){
+  window.location.href = '../Hovedside/index.html'
+})
