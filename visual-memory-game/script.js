@@ -18,7 +18,8 @@ bokser eller ved å linke til en ny side jeg opierrer over til.
 
 må også lage skjerm jeg kommer til ved tap - kan kopiere litt fra henrik her. 
 */
-let bokserEls=document.querySelectorAll('div div')
+let bokserEls=document.querySelectorAll('.tiles div')
+
 /* let bokserEls=document.querySelectorAll('div div') */
 let buttonEl=document.querySelector('#StartKnapp')
 console.log(`lengde på bokserEls array: ${bokserEls.length}`)
@@ -74,14 +75,14 @@ function nesteLevel(){
 // mulig å lage noe sånnt som ,if level, 3, 6,10, 15 ,2...+5+5+ antall == roten av tall + 1 ^^2 
 if (level === 3) {
 
-    for(i=0;i<bokserEls.length;i++){
-        removeElem(bokserEls[i])
+    for(let i=0;i<bokserEls.length;i++){
+        bokserEls[i].innerHTML=``
     }
-    for (i = 0;i<16;i==0){
-        let nyBoks=docuemnt.createElement('div')
-        bokserEls.appendChild('nyBoks')
+    for (let i = 0;i<16;i==0){
+        let nyBoks=document.createElement('div')
+        bokserEls.appendChild(nyBoks)
     }
-    let tilesEl = docuemnt.querySelector('.tiles')
+    let tilesEl = document.querySelector('.tiles')
     tilesEl.style.gridTemplateColumns = `repeat(4, 120px)`; 
 }
 
