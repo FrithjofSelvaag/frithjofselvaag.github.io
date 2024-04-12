@@ -44,7 +44,7 @@ let startSpill = () => {
   beskjed.style.color = "#fff";
 
   //Klokke(timer)
-  let tilfeldigTall = Math.floor(Math.random() * 1000);
+  let tilfeldigTall = Math.floor(Math.random() * 1000 + 2000);
   //setGrønnFarge kommer etter "tilfeldigTall" sek
   klokke = setTimeout(setGrønnFarge, tilfeldigTall);
 
