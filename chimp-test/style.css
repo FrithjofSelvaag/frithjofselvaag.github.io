@@ -19,6 +19,7 @@ body {
     background-color: rgb(43, 135, 209);
     cursor: pointer;
     border-radius: 10px;
+    display: flex;
 }
 .knapp {
     display: flex;
