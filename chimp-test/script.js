@@ -27,7 +27,7 @@ function sequenceBlink() {
         do {
             i = Math.floor(Math.random() * boksene.length)
             lik = tallArray.includes(i)
-        } while (lik===true) // Sjekk om den tilfeldige boksen allerede er valgt
+        } while (lik===true)
         
         let boks = boksene[i]
         blinkBokser.push(boks)

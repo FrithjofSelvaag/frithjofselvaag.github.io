@@ -18,22 +18,13 @@ bokser eller ved å linke til en ny side jeg opierrer over til.
 
 må også lage skjerm jeg kommer til ved tap - kan kopiere litt fra henrik her. 
 */
-let bokserEls=document.querySelectorAll('.tiles div')
-
+let bokserEls=document.querySelectorAll('div div')
+let boksene = document.querySelector('.tiles')
 /* let bokserEls=document.querySelectorAll('div div') */
 let buttonEl=document.querySelector('#StartKnapp')
 console.log(`lengde på bokserEls array: ${bokserEls.length}`)
 console.log(`bokserEls: ${bokserEls}`)
 let levelEl = document.querySelector('#level')
-
-
-
-
-
-
-
-
-
 
 /* let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`) */
@@ -44,9 +35,6 @@ let hviteBokser =[]
 
 buttonEl.addEventListener('click',startSpill)
 
-
-
-
 function startSpill(){
     buttonEl.style.display = 'none'
 
@@ -56,32 +44,28 @@ function startSpill(){
 
     nesteLevel()
 }
-
-
-
-
-
-
-
+console.log(bokserEls)
 function nesteLevel(){
-    
 
-
-
-    
     let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
 
 // mulig å lage noe sånnt som ,if level, 3, 6,10, 15 ,2...+5+5+ antall == roten av tall + 1 ^^2 
 if (level === 3) {
 
-    for(let i=0;i<bokserEls.length;i++){
-        bokserEls[i].innerHTML=``
-    }
-    for (let i = 0;i<16;i==0){
+/*     for(let i=0;i<bokserEls.length;i++){
+        removeElem(bokserEls[i])
+    } */
+/*     let boksArr = Array.from(bokserEls) */
+    for (let i = 10; i<17; i++){
         let nyBoks=document.createElement('div')
-        bokserEls.appendChild(nyBoks)
+        bokserEls = document.querySelectorAll('.tiles div')
+        boksene.appendChild(nyBoks)
+        boksArr[i] = nyBoks
     }
+
+      
+    bokserEls = document.querySelectorAll('.tiles div')
     let tilesEl = document.querySelector('.tiles')
     tilesEl.style.gridTemplateColumns = `repeat(4, 120px)`; 
 }
@@ -164,7 +148,6 @@ function valgt(){
                 for(i=0;i<valgteBokser.length;i++){
                     valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
                     valgteBokser[i].classList.remove("flipped")
-                    
                 }
                 valgteBokser = []
                 hviteBokser = []
