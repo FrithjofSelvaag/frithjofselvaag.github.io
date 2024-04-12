@@ -16,7 +16,7 @@ let level = 4
 let tallArray = []
 let j = 0
 
-function sequenceBlink() {
+function sequenceBlink(blinkBoks) {
     let i
     let g = 0
     knapp.style.display = 'none'
@@ -45,6 +45,7 @@ function sequenceBlink() {
                     textEl.style.textAlign = 'center'
                     blinkBokser[i].textContent = ''
                     blinkBokser[i].appendChild(textEl)
+                    blinkBoks += blinkBokser[i]
                 }
                 let førsteBoks = blinkBokser[0]
 
@@ -58,15 +59,45 @@ function sequenceBlink() {
                 blinkBokser[0].addEventListener('click', hvit)
 
                 g++
+
             }
         }, 100)
-
         j++
         sequenceBlink()
     }
 }
+for (let h = 0; h < boksene.length; h++) {
+
+    boksene[h].addEventListener('click', function() {
+        let boksArr = []
+        boksArr.push(boksene[h])
+        for(let i = 0; i < blinkBokser.length; i++){
+            if(boksArr[0] === blinkBokser[i]){
+                boksene.forEach(function(boks){
+                    boks.innerHTML = ''
+                })
+                boksene[h].style.border = 'none'
+                boksene[h].style.transition = 'none'
+        
+                if(selectEl.value === "white"){
+                setTimeout(function(){
+                    boksene[h].style.backgroundColor = 'rgb(43, 135, 209)'
+                }, 0)}
+                else if(selectEl.value === "black"){
+                setTimeout(function(){
+                    boksene[h].style.backgroundColor = 'rgb(17, 17, 17)'
+                }, 0)}
+        
+                klikkedeBokser.push(boksene[h])
+                sjekkRekkefolge()
+                return
+            }
+        }
+    })
+}
 
 function sjekkRekkefolge() {
+    console.log(klikkedeBokser)
     for (let i = 0; i < klikkedeBokser.length; i++) {
         if (klikkedeBokser[i] !== blinkBokser[i] && blinkBokser.includes(klikkedeBokser[i])){
             giPoints()
@@ -288,29 +319,6 @@ function sjekkRekkefolge() {
 
         klikkedeBokser = []
     }
-}
-for (let h = 0; h < boksene.length; h++) {
-
-    boksene[h].addEventListener('click', function() {
-        boksene.forEach(function(boks){
-            boks.innerHTML = ''
-        })
-        boksene[h].style.backgroundColor = 'rgba(255, 255, 255, 1)'
-        boksene[h].style.border = 'none'
-        boksene[h].style.transition = 'none'
-
-        if(selectEl.value === "white"){
-        setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgb(43, 135, 209)'
-        }, 0)}
-        else if(selectEl.value === "black"){
-        setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgb(17, 17, 17)'
-        }, 0)}
-
-        klikkedeBokser.push(boksene[h])
-        sjekkRekkefolge()
-    })
 }
 
 //FARGEENDRING TIL BLACK OG WHITE MODE!
