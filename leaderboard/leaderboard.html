@@ -34,6 +34,21 @@
         margin-right: 100%;
     }
 }
+
+table {
+    margin: auto;
+    text-align: left;
+    font-size: 20px;
+    height: 100px;
+    width: 180px;
+}
+div {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+
+}
+    
     </style>
 </head>
 <body>
@@ -47,22 +62,60 @@
             <option value="black">Dark Mode</option>
         </select>
     </header>
+    <div class="leaderboard">
+        <div class="sequence">
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="visual">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="reaction">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-
-        <tbody class="tbody">
-            <tr class="nr1">
-            </tr>
-            <tr class="nr2">
-            </tr>
-        </tbody>
-    </table>
 
 
     <script>

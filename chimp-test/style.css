@@ -1,0 +1,111 @@
+body {
+    margin: 0px;
+    background-color: rgb(43, 135, 209);
+    cursor:default;
+}
+
+.tiles {
+    margin: 10px auto 30px;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(8, 80px);
+    gap: 10px;
+    padding-top: 0px; 
+    max-width: 700px;
+}
+
+.tiles div{
+    height: 80px;
+    background-color: rgb(43, 135, 209);
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+}
+.knapp {
+    display: flex;
+    margin: auto;
+    height: 50px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(254, 217, 32);
+    transition: background-color 0.5s ease;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.knapp:hover {
+    background-color: white;
+}
+
+#topp {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#text {
+    font-size: 40px;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+#p {
+    font-size: 40px;
+    color: rgb(163, 163, 163);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-width: 400px;
+}
+header nav {
+    display: flex;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+}
+header a:hover {
+    background-color: none;
+    color: rgba(0,0,0, 0.55);
+    border-radius: 10px;
+}
+header .topnav a {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto;
+}
+header .topnav {
+    display: flex;
+    justify-content: space-between;
+}
+
+header select {
+    margin-right: 10px;
+    display: flex;
+    border-radius: 5px;
+    font-family: monospace;
+    background-color: white;
+    color: black;
+    border-style: none;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+}
+header select:hover{
+    color: rgb(0, 0, 0, 0.55);
+}
+
