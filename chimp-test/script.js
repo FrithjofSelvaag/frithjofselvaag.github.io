@@ -12,7 +12,7 @@ let klikkedeBokser = []
 
 knapp.addEventListener('click', sequenceBlink)
 
-let level = 4
+let level = 3
 let tallArray = []
 let j = 0
 
@@ -115,7 +115,7 @@ function sjekkRekkefolge() {
             font-size: 100px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Level ${level - 3}</h1>
+            ">Level ${level - 2}</h1>
             <h1 style="color: white;
             text-align: center;
             font-size: 22px;
@@ -234,7 +234,7 @@ function sjekkRekkefolge() {
                     font-size: 100px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;
-                    ">Level ${level - 3}</h1>
+                    ">Level ${level - 2}</h1>
                     <h1 style="color: white;
                     text-align: center;
                     font-size: 22px;
@@ -307,7 +307,7 @@ function sjekkRekkefolge() {
             }, 300)
             }
 
-            text.innerHTML = level - 3
+            text.innerHTML = level - 2
             tallArray = []
             blinkBokser = []
             j = 0
@@ -425,7 +425,7 @@ if(!localStorage.getItem('score')){
 }
 function giPoints(){
     let currentScore = localStorage.getItem('score')
-    let newScore = Number(currentScore) + Number(level - 3)
+    let newScore = Number(currentScore) + Number(level - 2)
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
@@ -437,7 +437,7 @@ function sjekkSkjermStorrelse() {
         p.innerHTML = ''
     }
     if (window.innerWidth > 730) {
-        text.innerHTML = level-3
+        text.innerHTML = level-2
         p.innerHTML = 'level'
     }
 }
