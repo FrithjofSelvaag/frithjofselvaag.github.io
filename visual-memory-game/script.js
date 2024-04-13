@@ -16,8 +16,8 @@ bokser eller ved å linke til en ny side jeg opierrer over til.
 
 må også lage skjerm jeg kommer til ved tap - kan kopiere litt fra henrik her. 
 */
-/* let bokserEls=document.querySelectorAll('div div') */
-bokserEl=document.querySelector('.tiles')
+let bokserEls=document.querySelectorAll('div div')
+/* bokserEl=document.querySelector('.tiles') */
 
 /* let bokserEls=document.querySelectorAll('div div') */
 let buttonEl=document.querySelector('#StartKnapp')
@@ -44,9 +44,9 @@ let hviteBokser =[]
 buttonEl.addEventListener('click',startSpill)
 
 
-function lagBokser(){
+/* function lagBokser(){
     bokserEl.innerHTML=``
-}
+} */
 
 function startSpill(){
     buttonEl.style.display = 'none'
