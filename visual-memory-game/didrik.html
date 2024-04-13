@@ -48,7 +48,7 @@
         }
 
 
-        function handleClick() {
+        function handleClick() {  //når ferdig med level. alle fjernes og mister lytter før alle legges tilbake og får lytter når createboz kalles på
             console.log(this)
             for (let i = 0; i < boxEls.length; i++) {
                 boxEls[i].removeEventListener("click", handleClick)
