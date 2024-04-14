@@ -29,7 +29,7 @@ let levelEl = document.querySelector('#level')
 
 
 
-
+let erIOvergang = false
 
 
 
@@ -98,7 +98,9 @@ function startSpill(){
 function nesteLevel(){
     
     
-    
+    setTimeout(function(){
+        erIOvergang = false
+    },1400)
     let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
 
@@ -178,6 +180,11 @@ let valgtFeil = []
 let livTapt = []
 
 function valgt(){
+
+    if(erIOvergang){
+        return
+    }
+    
     
     if(hviteBokser.includes(this)){
         this.style.backgroundColor='white'
@@ -185,10 +192,13 @@ function valgt(){
         if(!valgteBokser.includes(this)){
             valgteBokser.push(this)
         }
+    }
+    
 
         if(hviteBokser.length===valgteBokser.length){
 
             levelFlash()
+            overgang=2
             setTimeout(function(){
                 for(i=0;i<valgteBokser.length;i++){
                     valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
@@ -270,14 +280,18 @@ function valgt(){
                 
                 console.log('kjørt lag bokser')
             },1000)
+            setTimeout(function(){
+                
+            },1400)
 
-            setTimeout(nesteLevel,1400)
+            setTimeout(
+                nesteLevel,1400)
             
     
         }
 
 
-    }
+    
 
 
 
@@ -315,10 +329,12 @@ function valgt(){
         
         
         console.log(`antall feil dette livet:${valgtFeil.length}`)
-        }   
+    }   
+    
         if (valgtFeil.length==3){
             livTapt.push(1)
             levelFlashTap()
+            
             
             //heeerrr
             //resterter levelet.
@@ -340,8 +356,10 @@ function valgt(){
                     valgtFeil = []
                 }, 400)
                     setTimeout(function(){
+                    
                     nesteLevel()
                 }, 1400)
+
                 }
                 if (livTapt.length==2){
                     hjerteTreEl.innerHTML=""
@@ -360,6 +378,7 @@ function valgt(){
                     valgtFeil = []
                 }, 400)
                     setTimeout(function(){
+                    
                     nesteLevel()
                 }, 1400)
                 }
@@ -557,7 +576,7 @@ function valgt(){
 function levelFlash(){
     console.log('Du har klikket på alle de rikgtige boksene')
     
-    
+        erIOvergang = true
         level +=1
         console.log(`level i levelFlash: ${level}`)
         console.log(`nåværende level: ${level}`)
@@ -571,7 +590,7 @@ function levelFlash(){
 function levelFlashTap(){
     console.log('Du klikket på feil bokser - Nå vil elevet begynne på nytt')
     console.log('Du har nå et liv mindre')
-    
+        erIOvergang = true
         console.log(`level i levelFlash: ${level}`)
         console.log(`nåværende level: ${level}`)
         document.body.style.transition = 'background-color 1s ease'
