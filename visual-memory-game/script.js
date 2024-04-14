@@ -100,7 +100,7 @@ function nesteLevel(){
     
     setTimeout(function(){
         erIOvergang = false
-    },1400)
+    },1200)
     let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
 
