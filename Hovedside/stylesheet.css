@@ -159,7 +159,6 @@ header select:hover{
 
 
 #storBoks .spillboks > div:hover {
-    transition: box-shadow 0.5s linear;
     transform: translateY(-10px);
     transition: transform 0.5s ease-in-out;
 }
