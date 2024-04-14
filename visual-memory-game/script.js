@@ -85,7 +85,7 @@ function startSpill(){
         bokserEls[h].addEventListener('click',valgt)
     }
     
-
+    erIOvergang=true
     nesteLevel()
 }
 
