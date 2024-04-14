@@ -216,7 +216,7 @@ function sjekkRekkefolge() {
                 font-size: 15px;
                 padding-top: 0px;
                 font-family: Helvetica, Arial, sans-serif;">
-                They get 9 dumbers 90% of the time!
+                They get 9 numbers 90% of the time!
                 </h1>`)
             }
 
