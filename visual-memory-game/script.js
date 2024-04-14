@@ -340,7 +340,7 @@ function valgt(){
             //resterter levelet.
 
                 if (livTapt.length==1){
-                    hjerteEnEl.innerHTML=``
+                    hjerteEnEl.innerHTML=`<i class="far fa-heart"></i>`
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
@@ -362,7 +362,7 @@ function valgt(){
 
                 }
                 if (livTapt.length==2){
-                    hjerteTreEl.innerHTML=""
+                    hjerteToEl.innerHTML=`<i class="far fa-heart"></i>`
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
@@ -383,7 +383,7 @@ function valgt(){
                 }, 1400)
                 }
                 if (livTapt.length==3){
-                    hjerteTreEl.innerHTML=""
+                    hjerteTreEl.innerHTML=`<i class="far fa-heart"></i>`
                 }
 
 

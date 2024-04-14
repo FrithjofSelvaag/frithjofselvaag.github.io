@@ -77,6 +77,7 @@ function sequenceBlink(blinkBoks) {
 function sequenceBlink2(blinkBoks) {
     monkey = 1
 
+    
     let i
     let g = 0
     knapp.style.display = 'none'
