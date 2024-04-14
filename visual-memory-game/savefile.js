@@ -46,7 +46,6 @@ let hviteBokser =[]
 buttonEl.addEventListener('click',startSpill)
 
 
-
 function lagBokser(n){
     tilesEl.innerHTML=''
 
@@ -65,8 +64,8 @@ function lagBokser(n){
 
 
 
-lagBokser(9)
 
+lagBokser(9)
 
 
 
@@ -143,7 +142,7 @@ function nesteLevel(){
     }
 
     setTimeout(function(){
-    for(let i=0;i<hviteBokser.length;i++){
+    for(i=0;i<hviteBokser.length;i++){
         hviteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
         hviteBokser[i].classList.remove("flipped")
     }
@@ -196,9 +195,13 @@ function valgt(){
                     valgteBokser[i].classList.remove("flipped")
                     
                 }
+                for(let i=0;i<valgtFeil.length;i++){
+                    valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"    
+                }
                 valgteBokser = []
                 hviteBokser = []
-            },500)
+                valgtFeil=[]
+            },400)
             setTimeout(function(){
                 levelEl.innerHTML=`${level}`
             },1000)
@@ -212,10 +215,9 @@ function valgt(){
                 
                 if(level<3){
                     antallBokser=9
-                    tilesEl.style.gridTemplateColumns = `repeat(3, 120px)`
                     lagBokser(antallBokser)
                 }
-                if(level >= 3 && level < 6){
+                if(level>=3){
                     antallBokser=16
                     tilesEl.style.gridTemplateColumns = `repeat(4, 90px)`
                     tilesEl.style.gap = '10px'
@@ -255,32 +257,7 @@ function valgt(){
                         boks.style.height =  '51px'
                     })
                 }
-                if(level >=7 && level< 11){
-                    antallBokser=25
-                    tilesEl.style.gridTemplateColumns = `repeat(5, 40px)`
-                    console.log(bokserEls.length)
-                    for(h=0;h<bokserEls.length;h++){
-                        bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                    }
-                }
-
-                if(level >=11 && level<18 ){
-                    antallBokser=36
-                    tilesEl.style.gridTemplateColumns = `repeat(6, 40px)`
-                    console.log(bokserEls.length)
-                    for(h=0;h<bokserEls.length;h++){
-                        bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                    }
-                }
-                if(level >=18 && level<25 ){
-                    antallBokser=49
-                    tilesEl.style.gridTemplateColumns = `repeat(7, 40px)`
-                    console.log(bokserEls.length)
-                    for(h=0;h<bokserEls.length;h++){
-                        bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                    }
-                }
-
+                
                 
 
 
@@ -337,90 +314,63 @@ function valgt(){
         }
         
         
-        
-        
-        console.log(`valgtFeil.legnth:${valgtFeil.length}`)
+        console.log(`antall feil dette livet:${valgtFeil.length}`)
         }   
         if (valgtFeil.length==3){
             livTapt.push(1)
-            valgtFeil.length = []
+            levelFlashTap()
+            
+            //heeerrr
             //resterter levelet.
 
                 if (livTapt.length==1){
-                    hjerteEnEl.innerHTML=""
+                    hjerteEnEl.innerHTML=``
                     
                     setTimeout(function(){
-                        for(leti=0;i<valgteBokser.length;i++){
+                        for(let i=0;i<valgteBokser.length;i++){
                             valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
                             valgteBokser[i].classList.remove("flipped") 
                         }
+                        for(let i=0;i<valgtFeil.length;i++){
+                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            
+                        }
                     hviteBokser = []
                     valgteBokser = []
-                    },250)
-                }
+                    valgtFeil = []
+                }, 400)
                     setTimeout(function(){
                     nesteLevel()
-                }, 900)
+                }, 1400)
                 }
                 if (livTapt.length==2){
-                    hjerteToEl.innerHTML=""
+                    hjerteTreEl.innerHTML=""
                     
                     setTimeout(function(){
-                        for(leti=0;i<valgteBokser.length;i++){
+                        for(let i=0;i<valgteBokser.length;i++){
                             valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
                             valgteBokser[i].classList.remove("flipped") 
                         }
+                        for(let i=0;i<valgtFeil.length;i++){
+                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            
+                        }
                     hviteBokser = []
                     valgteBokser = []
-                }, 250)
+                    valgtFeil = []
+                }, 400)
                     setTimeout(function(){
                     nesteLevel()
-                }, 900)
+                }, 1400)
                 }
                 if (livTapt.length==3){
                     hjerteTreEl.innerHTML=""
                 }
 
 
-                
-                       
-                    if(level >=11 && level<18 ){
-                        antallBokser=36
-                        tilesEl.style.gridTemplateColumns = `repeat(6, 40px)`
-                        console.log(bokserEls.length)
-                        for(h=0;h<bokserEls.length;h++){
-                            bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                        }
-                    }
-                    if(level >=18 && level<25 ){
-                        antallBokser=49
-                        tilesEl.style.gridTemplateColumns = `repeat(7, 40px)`
-                        console.log(bokserEls.length)
-                        for(h=0;h<bokserEls.length;h++){
-                            bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                        }
-                    }                 
-                    
-
-                    lagBokser(antallBokser)
-                    
-                    bokserEls=document.querySelectorAll('.tiles > div') /* hvorfor må dette defineres igjenn. sameme greia over før jeg kunne console.logge 
-                                                                        bokserEls.length og bokseEls */
-                    for(let h=0;h<bokserEls.length;h++){
-                        bokserEls[h].addEventListener('click',valgt)
-                    }
-                    
-                    console.log('kjørt lag bokser')
-                }1000
-
-                setTimeout(nesteLevel,1400)
-            }
-
             
-
-
             
-        
+        }
         if(livTapt.length===3){
 
             setTimeout(function(){
@@ -587,6 +537,7 @@ function valgt(){
                 })//slutt på ny skjerm
             },50)//slutt på setTimeout løkke
         }
+    }
         
         
         
@@ -600,7 +551,7 @@ function valgt(){
 
 
 
-
+}
 /* } */ // slutter blinkbokser
 
 function levelFlash(){
@@ -631,7 +582,6 @@ function levelFlashTap(){
 }
 
 
-
 //document.body.style.backgroundColor = 'rgb(70, 190, 255)'
 //                setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 350)
 
@@ -657,38 +607,25 @@ antall bokser som blinker skal øke med 1 hver gang
 
 
 
-/* 
+/* funker ikke når alt er innenfor en funksjon - vil ha sånn at jeg kan klikke på bokser før start
+
+hvorfor dobbler level da?
+
+det funker ikke når det ikke er over 9 bokser. 
 
 
+
+nå slutter den halveis, men 
+
+let klikkeBokser = level+2   //antall bokser som blir hvite
+    console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
+
+
+er innenfor funskjonen
+
+om dette er utenfor stiger ikke klikkbokser og det funker evig med 3 bokser.
+
+når innefor som nå. funker fint til 9 bokser
 
 endre fra i = 0 til let i = 0 i for løkker
-*/
-
-
-/* Spørre didrik: */
-
-/* funker ikke å resette de blå blokken etter at jeg har klart alle eller bommet alle. DEn spiller ikke alltid, og da skjer det ikke noe
-før boksene fjernes og startes igjenn  
-
-Hadde vært flott med en flip effeky, men jeg får ikke fjernet den igjenn uten en flip til. Antakeligvis litt av samme problem 
-for det funker innimellom det også
-
-jeg klarer ikke endre på stylen/høyden på boksene. Dette gjør at jeg ikke kan miske dem så de matcher skjermen når mengden øker. 
-
-skal dette vare for evig? blir veldig små bokser og umuligå ha kontroll på alt. 
-*/
-
-
-
-
-
-/* gjøre før det. 
-legge inn hjerter. 
-
-tilpasse størreslene på boksene
-
-gjøre responsiv
-
-fikse en metode for eig økning av bokser.
-Om ikke evig kan vi stoppe på level 49 og gå over til en Bra spillr skjerm.  
 */
