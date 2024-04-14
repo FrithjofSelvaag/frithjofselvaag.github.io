@@ -203,8 +203,18 @@ function sjekkRekkefolge() {
             font-size: 22px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Can You Do Better Than a Monkey?</h1>
+            ">Can You Do Better Than a Chimp?</h1>
             `)
+            if(monkey === 1){
+                document.write(`
+                <h1 style="color: white;
+                text-align: center;
+                font-size: 15px;
+                padding-top: 0px;
+                font-family: Helvetica, Arial, sans-serif;">
+                They get 9 dumbers 90% of the time!
+                </h1>`)
+            }
 
             let nyKnapp = document.createElement('button')
             nyKnapp.textContent = ('Try Again')
