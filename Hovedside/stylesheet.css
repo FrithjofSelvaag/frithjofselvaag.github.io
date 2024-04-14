@@ -58,6 +58,19 @@ header select {
 header select:hover{
     color: rgb(255, 255, 255, 0.725);
 }
+
+
+/* måtte ha denne før mediaquarien */
+.spillboks {
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-rows: repeat(1,1); */
+    gap:10px;
+    max-width: 90%;
+    
+}
+
 @media(max-width: 600px) {
     header select {
         display: none;
@@ -106,6 +119,7 @@ header select:hover{
         color: rgb(255, 255, 255, 0.725);
     }
     .spillboks{
+        display: flex;
         flex-direction: column;
     }
 }
@@ -124,15 +138,7 @@ header select:hover{
     align-items: center;
 }
 
-.spillboks {
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    /* grid-template-rows: repeat(1,1); */
-    gap:10px;
-    max-width: 90%;
-    
-}
 .spillboks div{
     height: 200px;
     background-color: rgba(211, 211, 211, 0.151);
