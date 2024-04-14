@@ -114,12 +114,24 @@ header select:hover{
     border-radius: 10px;
 }
 
+
+
 /* spill osv */
-.spillboks {
+
+#storBoks{
     display: flex;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.spillboks {
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-rows: repeat(1,1); */
+    gap:10px;
     max-width: 90%;
-    justify-content: space-between;
+    
 }
 .spillboks div{
     height: 200px;
