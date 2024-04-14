@@ -250,7 +250,7 @@ function valgt(){
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
                     bokserEls.forEach(function(boks){
-                        boks.style.height = '51px'
+                        boks.style.height =  '51px'
                     })
                 }
                 
@@ -307,15 +307,38 @@ function valgt(){
             livTapt.push(1)
             valgtFeil.length = []
             //resterter levelet.
-            if (livTapt.length==1){
-                hjerteEnEl.remove()
-            }
-            if (livTapt.length==2){
-                hjerteTreEl.innerHTML=""
-            }
-            if (livTapt.length==3){
-                hjerteToEl.innerHTML=""
-            }
+
+                if (livTapt.length==1){
+                    hjerteEnEl.remove()
+                    hviteBokser = []
+                    valgteBokser = []
+                    setTimeout(function(){
+                    bokserEls.forEach(function(boks){
+                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+                    })
+                }, 250)
+                    setTimeout(function(){
+                    nesteLevel()
+                }, 900)
+                }
+                if (livTapt.length==2){
+                    hjerteTreEl.innerHTML=""
+                    hviteBokser = []
+                    valgteBokser = []
+                    setTimeout(function(){
+                    bokserEls.forEach(function(boks){
+                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+                    })
+                }, 250)
+                    setTimeout(function(){
+                    nesteLevel()
+                }, 900)
+                }
+                if (livTapt.length==3){
+                    hjerteToEl.innerHTML=""
+                }
+
+
             
             
         }
