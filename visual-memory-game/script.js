@@ -266,6 +266,17 @@ function valgt(){
                     bokserEls.forEach(function(boks){
                         boks.style.height =  '51px'
                     })
+                }if(level>=15){
+                    antallBokser=64
+                    tilesEl.style.gridTemplateColumns = `repeat(8, 45px)`
+                    tilesEl.style.gap = '5px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height =  '45px'
+                    })
+                }if(level>=18){
+                    document.write('congratulations You won')
                 }
                 
                 
