@@ -3,7 +3,7 @@ let currentCoins = document.querySelector('.currentCoins')
 currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
 
 let color = "white"
-let boksene = document.querySelectorAll('div div')
+let boksene = document.querySelectorAll('.tiles div')
 let knapp = document.querySelector('.knapp')
 let knapp2 = document.querySelector('.knapp2')
 let text = document.querySelector('#text')
@@ -401,7 +401,8 @@ function sjekkRekkefolge() {
                 if(monkey === 1){
                     setTimeout(function(){
                     sequenceBlink2()
-                    }, 700)
+                    timer()
+                    }, 800)
                 }
 
         }
@@ -409,6 +410,44 @@ function sjekkRekkefolge() {
         klikkedeBokser = []
     }
 }
+//timer
+let btnStart2 = document.querySelector(".knapp2")
+let progressBar = document.querySelector(".progress-inner")
+let prog = document.querySelector('.progress')
+
+btnStart2.addEventListener('click', timer)
+
+function timer(){
+    let interval = 300
+
+    let countdown = setInterval(()=>{
+        interval--
+
+        let progressWidth = interval / 300 * 100
+        progressBar.style.backgroundColor = 'white'
+        progressBar.style.position = 'absolute'
+        progressBar.style.width = '100%'
+        progressBar.style.height = '100%'
+
+        prog.style.margin = 'auto'
+        prog.style.border = 'solid black'
+        prog.style.backgroundColor = ''
+        prog.style.height = '20px'
+        prog.style.marginTop = '20px'
+        prog.style.width = '600px'
+        prog.style.position = 'relative'
+
+        
+        if(interval > 0){
+            progressBar.style.width = progressWidth + "%"
+        }
+        else{
+            progressBar.style.width = "0%"
+            clearInterval(countdown)
+        }
+    }, 10.5)
+}
+
 
 //FARGEENDRING TIL BLACK OG WHITE MODE!
 let selectEl = document.querySelector('select')
