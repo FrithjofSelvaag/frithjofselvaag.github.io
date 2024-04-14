@@ -129,9 +129,9 @@ function sjekkRekkefolge() {
             font-size: 22px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Are You Better Than a monkey?</h1>
+            ">Can You Do Better Than a monkey?</h1>
             `)
-
+            
             let nyKnapp = document.createElement('button')
             nyKnapp.textContent = ('Try Again')
             nyKnapp.classList.add('knapp')
@@ -345,6 +345,7 @@ function colorPalate(){
 
         localStorage.teller = 1
 
+        currentCoins.style.color = 'black'
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -375,6 +376,7 @@ function colorPalate(){
 
         localStorage.teller = 2
 
+        currentCoins.style.color = 'white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         selectEl.style.color = 'white'
