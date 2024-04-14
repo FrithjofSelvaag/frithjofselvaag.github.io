@@ -339,8 +339,8 @@ function valgt(){
             //heeerrr
             //resterter levelet.
 
-                if (livTapt.length==1){
-                    hjerteEnEl.innerHTML=`<i class="far fa-heart"></i>`
+                if (livTapt.length==1){ 
+                    hjerteEnEl.style.color = 'rgb(140, 0, 0)'
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
@@ -361,7 +361,7 @@ function valgt(){
                 }, 1400)
                 }
                 if (livTapt.length==2){
-                    hjerteToEl.innerHTML=`<i class="far fa-heart"></i>`
+                    hjerteToEl.style.color = 'rgb(140, 0, 0)'
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
@@ -382,7 +382,7 @@ function valgt(){
                 }, 1400)
                 }
                 if (livTapt.length==3){
-                    hjerteTreEl.innerHTML=`<i class="far fa-heart"></i>`
+                    hjerteTreEl.style.color = 'rgb(140, 0, 0)'
                 }
 
 
