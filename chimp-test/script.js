@@ -5,21 +5,29 @@ currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
 let color = "white"
 let boksene = document.querySelectorAll('div div')
 let knapp = document.querySelector('.knapp')
+let knapp2 = document.querySelector('.knapp2')
 let text = document.querySelector('#text')
 
 let blinkBokser = []
 let klikkedeBokser = []
 
 knapp.addEventListener('click', sequenceBlink)
+knapp2.addEventListener('click', sequenceBlink2)
 
 let level = 4
 let tallArray = []
 let j = 0
 
+let classic
+let monkey
+
 function sequenceBlink(blinkBoks) {
+    classic = 1
+
     let i
     let g = 0
     knapp.style.display = 'none'
+    knapp2.style.display = 'none'
     
     if (j < level) {
         let lik = false
@@ -64,6 +72,69 @@ function sequenceBlink(blinkBoks) {
         }, 100)
         j++
         sequenceBlink()
+    }
+}
+function sequenceBlink2(blinkBoks) {
+    monkey = 1
+
+    let i
+    let g = 0
+    knapp.style.display = 'none'
+    knapp2.style.display = 'none'
+    
+    if (j < level) {
+        let lik = false
+
+        do {
+            i = Math.floor(Math.random() * boksene.length)
+            lik = tallArray.includes(i)
+        } while (lik===true)
+        
+        let boks = boksene[i]
+        blinkBokser.push(boks)
+        tallArray.push(i)
+
+        setTimeout(function rekkefolgen2() {
+            if (g < level) {
+                for (let i = 0; i < level; i++) {
+                    blinkBokser[i].style.border = '1px solid white'
+                    let textEl = document.createElement("p")
+                    textEl.textContent = i + 1
+                    textEl.style.color = 'white'
+                    textEl.style.fontSize = '40px'
+                    textEl.style.margin = 'auto'
+                    textEl.style.textAlign = 'center'
+                    blinkBokser[i].textContent = ''
+                    blinkBokser[i].appendChild(textEl)
+                    blinkBoks += blinkBokser[i]
+                }
+
+
+                setTimeout(function(){
+                    if(blinkBokser[0] === klikkedeBokser[0]){
+                        return
+                    } else{
+                        blinkBokser.forEach(function(boks){
+                            boks.style.transition = "none"
+                            boks.style.backgroundColor = 'white'
+                        })
+                        førsteBoks.removeEventListener('click', hvit)
+                    }}, 3000)
+
+                    function hvit(){
+                        blinkBokser.forEach(function(boks){
+                            boks.style.backgroundColor = 'white'
+                        })
+                        
+                        førsteBoks.removeEventListener('click', hvit)
+                    }
+                    blinkBokser[0].addEventListener('click', hvit)
+                g++
+
+            }
+        }, 100)
+        j++
+        sequenceBlink2()
     }
 }
 for (let h = 0; h < boksene.length; h++) {
@@ -131,7 +202,7 @@ function sjekkRekkefolge() {
             font-family: Helvetica, Arial, sans-serif;
             ">Can You Do Better Than a monkey?</h1>
             `)
-            
+
             let nyKnapp = document.createElement('button')
             nyKnapp.textContent = ('Try Again')
             nyKnapp.classList.add('knapp')
@@ -320,7 +391,12 @@ function sjekkRekkefolge() {
             j = 0
 
             setTimeout(function(){
-                sequenceBlink()
+                if(classic === 1){
+                    sequenceBlink()
+                }
+                if(monkey === 1){
+                    sequenceBlink2()
+                }
             }, 400)
         }
 

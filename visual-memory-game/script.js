@@ -319,7 +319,7 @@ function valgt(){
                 }, 250)
                     setTimeout(function(){
                     nesteLevel()
-                }, 900)
+                }, 300)
                 }
                 if (livTapt.length==2){
                     hjerteTreEl.innerHTML=""
