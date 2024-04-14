@@ -235,7 +235,7 @@ function sjekkRekkefolge() {
                     setTimeout(function(){
                     sequenceBlink2()
                     timer()
-                    }, 2200)
+                    }, 2500)
                 }
             }else if(hjerteArr.length === 2){
                 hjerteToEl.style.color = 'rgb(140, 0, 0)'
@@ -291,7 +291,7 @@ function sjekkRekkefolge() {
                     setTimeout(function(){
                     sequenceBlink2()
                     timer()
-                    }, 2200)
+                    }, 2500)
                 }
             }else{
                 giPoints()
@@ -332,7 +332,7 @@ function sjekkRekkefolge() {
                     font-size: 15px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;">
-                    They get 9 dumbers 90% of the time!
+                    Chimps get 9 dumbers 90% of the time!
                     </h1>`)
                 }
     
