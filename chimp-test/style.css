@@ -3,7 +3,40 @@ body {
     background-color: rgb(43, 135, 209);
     cursor:default;
 }
-
+.knapper {
+    display: flex;
+    flex-direction: row;
+}
+.knapp {
+    display: flex;
+    margin: auto;
+    height: 50px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(254, 217, 32);
+    transition: background-color 0.5s ease;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.knapp2 {
+    display: flex;
+    margin: auto;
+    height: 50px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(254, 217, 32);
+    transition: background-color 0.5s ease;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+}
 .tiles {
     margin: 10px auto 30px;
     width: max-content;
@@ -21,21 +54,6 @@ body {
     cursor: pointer;
     border-radius: 10px;
     display: flex;
-}
-.knapp {
-    display: flex;
-    margin: auto;
-    height: 50px;
-    width: 90px;
-    justify-content: center;
-    align-items: center;
-    font-weight: 40px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(254, 217, 32);
-    transition: background-color 0.5s ease;
-    font-size: 25px;
-    font-family: Helvetica, Arial, sans-serif;
 }
 .knapp:hover {
     background-color: white;
