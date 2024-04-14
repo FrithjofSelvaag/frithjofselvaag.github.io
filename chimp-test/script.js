@@ -12,7 +12,7 @@ let klikkedeBokser = []
 
 knapp.addEventListener('click', sequenceBlink)
 
-let level = 3
+let level = 4
 let tallArray = []
 let j = 0
 
@@ -105,9 +105,17 @@ function sjekkRekkefolge() {
             <h1 style="color: white;
             text-align: center;
             font-size: 22px;
-            padding-top: 125px;
+            padding-top: 80px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Sqeuence Memory</h1>
+            ">Chimp Test</h1>
+            <h1 style="color: white;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            font-size: 50px;
+            padding-top: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            ">Numbers</h1>
             <h1 style="color: white;
             text-align: center;
             margin-top: 0px;
@@ -115,13 +123,13 @@ function sjekkRekkefolge() {
             font-size: 100px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Level ${level - 2}</h1>
+            ">${level}</h1>
             <h1 style="color: white;
             text-align: center;
             font-size: 22px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Better Luck Next Time</h1>
+            ">Are You Better Than a monkey?</h1>
             `)
 
             let nyKnapp = document.createElement('button')
@@ -234,7 +242,7 @@ function sjekkRekkefolge() {
                     font-size: 100px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;
-                    ">Level ${level - 2}</h1>
+                    ">${level} Numbers</h1>
                     <h1 style="color: white;
                     text-align: center;
                     font-size: 22px;
@@ -307,7 +315,6 @@ function sjekkRekkefolge() {
             }, 300)
             }
 
-            text.innerHTML = level - 2
             tallArray = []
             blinkBokser = []
             j = 0
@@ -425,7 +432,7 @@ if(!localStorage.getItem('score')){
 }
 function giPoints(){
     let currentScore = localStorage.getItem('score')
-    let newScore = Number(currentScore) + Number(level - 2)
+    let newScore = Number(currentScore) + Number(level - 3)
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
@@ -437,8 +444,8 @@ function sjekkSkjermStorrelse() {
         p.innerHTML = ''
     }
     if (window.innerWidth > 730) {
-        text.innerHTML = level-2
-        p.innerHTML = 'level'
+        text.innerHTML = level-3
+        p.innerHTML = 'Number'
     }
 }
 window.addEventListener('resize', sjekkSkjermStorrelse)

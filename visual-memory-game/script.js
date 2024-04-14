@@ -38,7 +38,7 @@ let levelEl = document.querySelector('#level')
 /* let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`) */
 let tilesEl=document.querySelector('.tiles')
-bokserEls=document.querySelectorAll('.tiles > div')
+let bokserEls=document.querySelectorAll('.tiles > div')
 
 let level=1
 let hviteBokser =[] 
@@ -55,7 +55,8 @@ function lagBokser(n){
         tilesEl.innerHTML+=`<div></div>`
         
     }
-      
+    bokserEls=document.querySelectorAll('.tiles > div')
+    
 
     
 }
@@ -66,7 +67,6 @@ function lagBokser(n){
 
 lagBokser(9)
 
-bokserEls=document.querySelectorAll('.tiles > div')
 
 
 
@@ -85,6 +85,7 @@ function startSpill(){
     for(h=0;h<bokserEls.length;h++){
         bokserEls[h].addEventListener('click',valgt)
     }
+    
 
     nesteLevel()
 }
@@ -212,14 +213,47 @@ function valgt(){
                 if(level<3){
                     antallBokser=9
                     tilesEl.style.gridTemplateColumns = `repeat(3, 120px)`
+                    lagBokser(antallBokser)
                 }
                 if(level >= 3 && level < 6){
                     antallBokser=16
-                    tilesEl.style.gridTemplateColumns = `repeat(4, 60px)`
+                    tilesEl.style.gridTemplateColumns = `repeat(4, 90px)`
+                    tilesEl.style.gap = '10px'
                     console.log(bokserEls.length)
-                    for(h=0;h<bokserEls.length;h++){
-                        bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                    }
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '90px'
+                    })
+                    // I fix Joffen :)
+            
+                    
+                }if(level>=6){
+                    antallBokser=25
+                    tilesEl.style.gridTemplateColumns = `repeat(5, 72px)`
+                    tilesEl.style.gap = '8px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '72px'
+                    })
+                }if(level>=9){
+                    antallBokser=36
+                    tilesEl.style.gridTemplateColumns = `repeat(6, 60px)`
+                    tilesEl.style.gap = '6px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '60px'
+                    })
+                }if(level>=12){
+                    antallBokser=49
+                    tilesEl.style.gridTemplateColumns = `repeat(7, 51px)`
+                    tilesEl.style.gap = '5px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height =  '51px'
+                    })
                 }
                 if(level >=7 && level< 11){
                     antallBokser=25
@@ -249,7 +283,7 @@ function valgt(){
 
                 
 
-                lagBokser(antallBokser)
+
                 
                 bokserEls=document.querySelectorAll('.tiles > div') //hvorfor må dette defineres igjenn. sameme greia over før jeg kunne console.logge 
                                                                     //bokserEls
@@ -309,90 +343,40 @@ function valgt(){
         }   
         if (valgtFeil.length==3){
             livTapt.push(1)
-            
-            
-            
-            if (livTapt.length==1){
-                hjerteEnEl.innerHTML="" //putte inn en hjerte som er gjennomsiktig/tomt her
-            }                           //putter hele hjerter fra font awesome når liv og tommee når ikke liv
-            if (livTapt.length==2){
-                hjerteTreEl.innerHTML=""
-            }
-            if (livTapt.length==3){
-                hjerteToEl.innerHTML=""
-            }
-
+            valgtFeil.length = []
             //resterter levelet.
 
-            levelFlashTap()
-            if (livTapt.length<3){ //skjer ikke sisste gangen slik at den ikke kjører mens vi endrer side. 3 siden denne skjer etter vi øker lengden
-                setTimeout(function(){
-                    for(let i=0;i<valgteBokser.length;i++){
-                        valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
-                        valgteBokser[i].classList.remove("flipped")
-                        
-                    }
-                    valgteBokser = []
+                if (livTapt.length==1){
+                    hjerteEnEl.remove()
                     hviteBokser = []
-                },500)
-                /* setTimeout(function(){
-                    for (let i =0;i<valgtFeil.length;i++){
-                    valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"    funket ikke
-                    if(!valgtFeil[i].classList.contains("flipped")){
-                        valgtFeil[i].classList.add("flipped")
-                    }
-                    else{ valgtFeil[i].classList.remove("flipped")}
-                    
-                    
-                    }
-                    valgtFeil=[]
-                },500) */
-                setTimeout(function(){
-                    for (let i =0;i<valgtFeil.length;i++){
-                    valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"  //funker ikke alltid. Hvorfor ikke?
-                    /* valgtFeil[i].classList.add("flipped") */
-                    
-                        console.log('fjerenr blå')
-                    }                   /* Dette funker ikke. Tregner hjelp med å få dem til å flippe kun en gang */
-                                        /* Får ikke til de flipped greiene - spør her - fargeting funker kun innemellom og aner ikke hvorfor */
-                    valgtFeil = []
-                },501)
-                
-
-                
-                
-                
-                
-                
-                setTimeout(function(){
-                    for(let i=0;i<bokserEls.length;i++){
-                        bokserEls[i].removeEventListener("click",valgt) 
-                    }
+                    valgteBokser = []
+                    setTimeout(function(){
+                    bokserEls.forEach(function(boks){
+                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+                    })
+                }, 250)
+                    setTimeout(function(){
+                    nesteLevel()
+                }, 900)
+                }
+                if (livTapt.length==2){
+                    hjerteTreEl.innerHTML=""
+                    hviteBokser = []
+                    valgteBokser = []
+                    setTimeout(function(){
+                    bokserEls.forEach(function(boks){
+                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
+                    })
+                }, 250)
+                    setTimeout(function(){
+                    nesteLevel()
+                }, 900)
+                }
+                if (livTapt.length==3){
+                    hjerteToEl.innerHTML=""
+                }
 
 
-                    console.log(`level ved length===lenght: ${level}`)
-                    
-                    if(level<3){
-                        antallBokser=9
-                        tilesEl.style.gridTemplateColumns = `repeat(3, 120px)`
-                    }
-                    if(level >= 3 && level < 6){
-                        antallBokser=16
-                        tilesEl.style.gridTemplateColumns = `repeat(4, 60px)`
-                        console.log(bokserEls.length)
-                        for(h=0;h<bokserEls.length;h++){
-                            bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                        }
-                            
-                    }
-                    if(level >=7 && level< 11){
-                        antallBokser=25
-                        tilesEl.style.gridTemplateColumns = `repeat(5, 40px)`
-                        console.log(bokserEls.length)
-                        for(h=0;h<bokserEls.length;h++){
-                            bokserEls[h].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                        }
-                        }
             
                        
                     if(level >=11 && level<18 ){
