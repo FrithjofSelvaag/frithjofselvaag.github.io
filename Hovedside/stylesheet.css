@@ -153,14 +153,15 @@ header select:hover{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.5s ease;
+    transition: transform 1s ease-in-out;
 }
 
 
 
 #storBoks .spillboks > div:hover {
     transition: box-shadow 0.5s linear;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    transition: transform 0.5s ease-in-out;
 }
 #storBoks .spillboks > div > h1{
     font-size: 20px;
