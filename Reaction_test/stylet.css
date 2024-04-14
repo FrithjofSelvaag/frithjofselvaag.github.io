@@ -4,6 +4,8 @@
 
 body {
   margin: 0;
+  font-family:"Roboto", sans-serif;
+
 }
 
 .reaksjon-tid-container{
@@ -19,7 +21,7 @@ body {
   display: grid;
   place-items: center;
   font-size: 32px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   color: #fff;
 }
 
@@ -33,7 +35,7 @@ body {
   left: 0;
   background-color: rgb(43, 135, 209);
   color: #fff;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   text-align: center;
 }
 
@@ -107,7 +109,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   min-width: 400px;
 }
 header nav {

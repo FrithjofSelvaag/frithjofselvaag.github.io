@@ -2,6 +2,8 @@ body {
     margin: 0px;
     background-color: rgb(43, 135, 209);
     cursor:default;
+    font-family:"Roboto", sans-serif;
+
 }
 .knapper {
     display: flex;
@@ -20,7 +22,7 @@ body {
     background-color: rgb(254, 217, 32);
     transition: background-color 0.5s ease;
     font-size: 25px;
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
 }
 .knapp2 {
     display: flex;
@@ -35,7 +37,7 @@ body {
     background-color: rgb(254, 217, 32);
     transition: background-color 0.5s ease;
     font-size: 25px;
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
 }
 .tiles {
     margin: 0px auto 30px;
@@ -71,12 +73,12 @@ body {
     margin-top: 0px;
     font-size: 40px;
     color: white;
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
 }
 #p {
     font-size: 40px;
     color: rgb(163, 163, 163);
-    font-family: Helvetica, Arial, sans-serif;
+    /* font-family: Helvetica, Arial, sans-serif; */
 }
 
 /* navbar */
@@ -85,7 +87,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     min-width: 400px;
 }
 header nav {
