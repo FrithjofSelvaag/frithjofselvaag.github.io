@@ -8,6 +8,10 @@ let knapp = document.querySelector('.knapp')
 let knapp2 = document.querySelector('.knapp2')
 let text = document.querySelector('#text')
 
+let hjerteEnEl =document.querySelector('#Heart1')
+let hjerteToEl =document.querySelector('#Heart2')
+let hjerteTreEl =document.querySelector('#Heart3')
+
 let blinkBokser = []
 let klikkedeBokser = []
 
@@ -197,7 +201,7 @@ function sjekkRekkefolge() {
             font-size: 100px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">${level}</h1>
+            ">${level-1}</h1>
             <h1 style="color: white;
             text-align: center;
             font-size: 22px;
@@ -326,7 +330,7 @@ function sjekkRekkefolge() {
                     font-size: 100px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;
-                    ">${level} Numbers</h1>
+                    ">${level-1} Numbers</h1>
                     <h1 style="color: white;
                     text-align: center;
                     font-size: 22px;
