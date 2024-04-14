@@ -154,7 +154,7 @@ header select:hover{
     justify-content: center;
     cursor: pointer;
     transition: transform 1s ease-in-out, background-color 1s ease-in-out;
-    
+    border-radius: 5px;
 }
 
 
