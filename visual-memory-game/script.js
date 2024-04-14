@@ -342,7 +342,6 @@ function valgt(){
                     setTimeout(function(){
                     nesteLevel()
                 }, 1400)
-
                 }
                 if (livTapt.length==2){
                     hjerteTreEl.innerHTML=""

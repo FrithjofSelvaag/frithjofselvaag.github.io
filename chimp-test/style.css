@@ -38,7 +38,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 .tiles {
-    margin: 10px auto 30px;
+    margin: 0px auto 30px;
     width: max-content;
     display: grid;
     grid-template-columns: repeat(8, 80px);
@@ -68,6 +68,7 @@ body {
 }
 
 #text {
+    margin-top: 0px;
     font-size: 40px;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
