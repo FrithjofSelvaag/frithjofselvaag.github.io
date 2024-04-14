@@ -144,7 +144,7 @@ header select:hover{
 
 #storBoks .spillboks div{
     height: 200px;
-    background-color: rgba(211, 211, 211, 0.151);
+    background-color: rgba(211, 211, 211, 0.192);
     max-width: 600px;
     display: flex;
     margin: 8px;
@@ -159,7 +159,6 @@ header select:hover{
 
 
 #storBoks .spillboks > div:hover {
-    box-shadow: 0px 0px 5px rgb(164, 164, 164);
     transition: box-shadow 0.5s linear;
     transform: translateY(-5px);
 }
