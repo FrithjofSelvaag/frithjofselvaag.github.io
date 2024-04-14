@@ -314,17 +314,25 @@ function valgt(){
         }   
         if (valgtFeil.length==3){
             livTapt.push(1)
-            valgtFeil.length = []
+            
+            //heeerrr
             //resterter levelet.
 
                 if (livTapt.length==1){
-                    hjerteEnEl.innerHTML
+                    hjerteEnEl.innerHTML=``
+                    
+                    setTimeout(function(){
+                        for(let i=0;i<valgteBokser.length;i++){
+                            valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            valgteBokser[i].classList.remove("flipped") 
+                        }
+                        for(let i=0;i<valgtFeil.length;i++){
+                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            
+                        }
                     hviteBokser = []
                     valgteBokser = []
-                    setTimeout(function(){
-                    bokserEls.forEach(function(boks){
-                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-                    })
+                    valgtFeil = []
                 }, 250)
                     setTimeout(function(){
                     nesteLevel()
@@ -332,19 +340,26 @@ function valgt(){
                 }
                 if (livTapt.length==2){
                     hjerteTreEl.innerHTML=""
+                    
+                    setTimeout(function(){
+                        for(let i=0;i<valgteBokser.length;i++){
+                            valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            valgteBokser[i].classList.remove("flipped") 
+                        }
+                        for(let i=0;i<valgtFeil.length;i++){
+                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            
+                        }
                     hviteBokser = []
                     valgteBokser = []
-                    setTimeout(function(){
-                    bokserEls.forEach(function(boks){
-                        boks.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-                    })
+                    valgtFeil = []
                 }, 250)
                     setTimeout(function(){
                     nesteLevel()
                 }, 900)
                 }
                 if (livTapt.length==3){
-                    hjerteToEl.innerHTML=""
+                    hjerteTreEl.innerHTML=""
                 }
 
 
