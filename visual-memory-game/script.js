@@ -38,7 +38,7 @@ let levelEl = document.querySelector('#level')
 /* let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`) */
 let tilesEl=document.querySelector('.tiles')
-bokserEls=document.querySelectorAll('.tiles > div')
+let bokserEls=document.querySelectorAll('.tiles > div')
 
 let level=1
 let hviteBokser =[] 
@@ -54,7 +54,8 @@ function lagBokser(n){
         tilesEl.innerHTML+=`<div></div>`
         
     }
-      
+    bokserEls=document.querySelectorAll('.tiles > div')
+    
 
     
 }
@@ -66,7 +67,6 @@ function lagBokser(n){
 
 lagBokser(9)
 
-bokserEls=document.querySelectorAll('.tiles > div')
 
 
 console.log(`BokserEls: ${bokserEls}`)
@@ -84,6 +84,7 @@ function startSpill(){
     for(h=0;h<bokserEls.length;h++){
         bokserEls[h].addEventListener('click',valgt)
     }
+    
 
     nesteLevel()
 }
@@ -210,22 +211,52 @@ function valgt(){
                 
                 if(level<3){
                     antallBokser=9
+                    lagBokser(antallBokser)
                 }
                 if(level>=3){
                     antallBokser=16
-                    tilesEl.style.gridTemplateColumns = `repeat(4, 60px)`
+                    tilesEl.style.gridTemplateColumns = `repeat(4, 90px)`
+                    tilesEl.style.gap = '10px'
                     console.log(bokserEls.length)
-                    for(h=0;h<bokserEls.length;h++){
-                        bokserEls[i].style.height="60px" // hvorfor fuker ikke dette!!!!!! :( :( :(  
-                    }
-                    
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '90px'
+                    })
+                    // I fix Joffen :)
             
                     
+                }if(level>=6){
+                    antallBokser=25
+                    tilesEl.style.gridTemplateColumns = `repeat(5, 72px)`
+                    tilesEl.style.gap = '8px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '72px'
+                    })
+                }if(level>=9){
+                    antallBokser=36
+                    tilesEl.style.gridTemplateColumns = `repeat(6, 60px)`
+                    tilesEl.style.gap = '6px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '60px'
+                    })
+                }if(level>=12){
+                    antallBokser=49
+                    tilesEl.style.gridTemplateColumns = `repeat(7, 51px)`
+                    tilesEl.style.gap = '5px'
+                    console.log(bokserEls.length)
+                    lagBokser(antallBokser)
+                    bokserEls.forEach(function(boks){
+                        boks.style.height = '51px'
+                    })
                 }
                 
                 
 
-                lagBokser(antallBokser)
+
                 
                 bokserEls=document.querySelectorAll('.tiles > div') //hvorfor må dette defineres igjenn. sameme greia over før jeg kunne console.logge 
                                                                     //bokserEls
