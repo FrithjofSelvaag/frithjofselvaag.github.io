@@ -195,9 +195,13 @@ function valgt(){
                     valgteBokser[i].classList.remove("flipped")
                     
                 }
+                for(let i=0;i<valgtFeil.length;i++){
+                    valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"    
+                }
                 valgteBokser = []
                 hviteBokser = []
-            },500)
+                valgtFeil=[]
+            },400)
             setTimeout(function(){
                 levelEl.innerHTML=`${level}`
             },1000)
@@ -314,6 +318,7 @@ function valgt(){
         }   
         if (valgtFeil.length==3){
             livTapt.push(1)
+            levelFlashTap()
             
             //heeerrr
             //resterter levelet.
@@ -333,10 +338,10 @@ function valgt(){
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
-                }, 250)
+                }, 400)
                     setTimeout(function(){
                     nesteLevel()
-                }, 900)
+                }, 1400)
                 }
                 if (livTapt.length==2){
                     hjerteTreEl.innerHTML=""
@@ -353,10 +358,10 @@ function valgt(){
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
-                }, 250)
+                }, 400)
                     setTimeout(function(){
                     nesteLevel()
-                }, 900)
+                }, 1400)
                 }
                 if (livTapt.length==3){
                     hjerteTreEl.innerHTML=""
@@ -563,6 +568,18 @@ function levelFlash(){
     }, 350)
 }
 
+function levelFlashTap(){
+    console.log('Du klikket på feil bokser - Nå vil elevet begynne på nytt')
+    console.log('Du har nå et liv mindre')
+    
+        console.log(`level i levelFlash: ${level}`)
+        console.log(`nåværende level: ${level}`)
+        document.body.style.transition = 'background-color 1s ease'
+        document.body.style.backgroundColor = 'red'
+        setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+        console.log('endrer farge tilbake nå') 
+    }, 350)
+}
 
 
 //document.body.style.backgroundColor = 'rgb(70, 190, 255)'
