@@ -359,7 +359,6 @@ function valgt(){
                     
                     nesteLevel()
                 }, 1400)
-
                 }
                 if (livTapt.length==2){
                     hjerteToEl.innerHTML=`<i class="far fa-heart"></i>`

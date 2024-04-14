@@ -109,18 +109,20 @@ function sequenceBlink2(blinkBoks) {
                     blinkBokser[i].appendChild(textEl)
                     blinkBoks += blinkBokser[i]
                 }
+                let førsteBoks = blinkBokser[0]
 
 
                 setTimeout(function(){
+                    førsteBoks.removeEventListener('click', hvit)
                     if(blinkBokser[0] === klikkedeBokser[0]){
                         return
                     } else{
                         blinkBokser.forEach(function(boks){
-                            boks.style.transition = "none"
+                            boks.style.transition = "background-color 0.2s ease"
                             boks.style.backgroundColor = 'white'
                         })
-                        førsteBoks.removeEventListener('click', hvit)
-                    }}, 3000)
+                    }
+                }, 3000)
 
                     function hvit(){
                         blinkBokser.forEach(function(boks){
@@ -391,14 +393,18 @@ function sjekkRekkefolge() {
             blinkBokser = []
             j = 0
 
-            setTimeout(function(){
+
                 if(classic === 1){
+                    setTimeout(function(){
                     sequenceBlink()
+                    }, 400)
                 }
                 if(monkey === 1){
+                    setTimeout(function(){
                     sequenceBlink2()
+                    }, 700)
                 }
-            }, 400)
+
         }
 
         klikkedeBokser = []
@@ -520,11 +526,13 @@ function sjekkSkjermStorrelse() {
     if (window.innerWidth < 730) {
         text.innerHTML = 'Skjermen er for liten, venligst bruk en pc'
         text.style.textAlign = 'center'
-        p.innerHTML = ''
+        text.style.marginTop = '200px'
+        text.style.marginBottom = '1000px'
     }
     if (window.innerWidth > 730) {
-        text.innerHTML = level-3
-        p.innerHTML = 'Number'
+        text.innerHTML = ''
+        text.style.marginTop = '0px'
+        text.style.marginBottom = '0px'
     }
 }
 window.addEventListener('resize', sjekkSkjermStorrelse)
