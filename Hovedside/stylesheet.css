@@ -153,7 +153,7 @@ header select:hover{
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
     border-radius: 5px;
 }
 
@@ -161,7 +161,7 @@ header select:hover{
 
 #storBoks .spillboks > div:hover {
     transform: translateY(-10px);
-    transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
     background-color: rgba(211, 211, 211, 0.5);
 }
 #storBoks .spillboks > div > h1{
