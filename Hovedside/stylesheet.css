@@ -61,7 +61,7 @@ header select:hover{
 
 
 /* måtte ha denne før mediaquarien */
-.spillboks {
+#storBoks .spillboks {
 
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -72,6 +72,12 @@ header select:hover{
 }
 
 @media(max-width: 600px) {
+
+    #storBoks .spillboks{
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
     header select {
         display: none;
     }
@@ -118,10 +124,7 @@ header select:hover{
     header select:hover.show{
         color: rgb(255, 255, 255, 0.725);
     }
-    .spillboks{
-        display: flex;
-        flex-direction: column;
-    }
+    
 }
 .fa-chart-bar:hover {
     color: white;
@@ -139,7 +142,7 @@ header select:hover{
 }
 
 
-.spillboks div{
+#storBoks .spillboks div{
     height: 200px;
     background-color: rgba(211, 211, 211, 0.151);
     max-width: 600px;
@@ -150,10 +153,28 @@ header select:hover{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: transform 0.5s ease;
 }
-.spillboks div .spillOverskrift {
+
+
+
+#storBoks .spillboks > div:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    transform: translateY(-5px);
+}
+#storBoks .spillboks > div > h1{
+    font-size: 20px;
+    color: rgb(243, 234, 234);
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top:0px;
+    text-decoration: none;
+}
+
+
+#storBoks .spillboks div .spillOverskrift{
     font-size: 30px;
-    color: black;
+    color: rgb(255, 0, 0);
     text-align: center;
     margin-bottom: 0px;
     margin-top:50px;
@@ -161,19 +182,13 @@ header select:hover{
     display: inline-block; 
     width: 100%;
 }
-
-.spillboks div h1 {
-    font-size: 20px;
-    color: black;
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top:0px;
-    text-decoration: none;
+#storBoks .spillBoks div:hover .spillOverskrift{
+    color: rgb(231, 63, 2);
 }
 
-.spillboks div:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-}
+
+
+
 
 .currentCoins{
     color: white;
