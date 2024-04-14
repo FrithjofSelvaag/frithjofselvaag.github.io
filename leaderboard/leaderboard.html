@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/Hovedside/stylesheet.css">
 
     <style>
@@ -14,16 +16,70 @@
     body{
         font-family:"Roboto", sans-serif;
     }
-        @media(max-width: 600px) {
+        /* navbaren */  
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+header nav {
+    display: flex;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    padding: 20px;
+}
+header a:hover {
+    background-color: none;
+    color: rgba(0,0,0, 0.55);
+    border-radius: 10px; 
+}
+header .topnav a {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto;
+}
+header .topnav {
+    display: flex;
+    justify-content: space-between;
+}
+.fa-chart-bar {
+    color: black;
+    font-size: 30px;
+    padding: 5px 20px;
+    display: none;
+    cursor: pointer;
+}
+header select {
+    margin-right: 10px;
+    display: flex;
+    border-radius: 5px;
+    font-family: monospace; 
+    background-color: white;
+    color: black;
+    border-style: none;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+}
+header select:hover{
+    color: rgb(0, 0, 0, 0.55);
+}
+@media(max-width: 600px) {
     header select {
-        display: flex;
+        display: none;
     }
     header nav {
-        display: flex;
-        flex-direction: unset;
+        display: none;
+        flex-direction: column;
     }
     header {
-        flex-direction: unset;
+        flex-direction: column;
         padding-bottom: 10px;
     }
 
@@ -38,8 +94,36 @@
         text-align: center;
     }
     .topnav a {
-        margin-right: 100%;
+        margin-right: auto;
     }
+    header nav.show {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    header select.show {
+        display: flex;
+        text-align: center;
+        border-radius: 5px;
+        font-family: monospace;
+        background-color: white;
+        color: black;
+        border-style: hidden;
+        width: 100px;
+        height: 40px;
+        margin-left: auto;
+    }
+    header select:hover.show{
+        color: rgb(0, 0, 0, 0.55);
+    }
+    .spillboks{
+        flex-direction: column;
+    }
+}
+.fa-chart-bar:hover {
+    color: black;
+    border-radius: 10px;
 }
 
 table {
@@ -62,6 +146,7 @@ div {
     <header id="header">
         <div class="topnav">
             <a href="/Hovedside/index.html">HOME</a>
+            <i class="fa-regular fa-chart-bar fa-rotate-180"></i>
         </div>
     
         <select>

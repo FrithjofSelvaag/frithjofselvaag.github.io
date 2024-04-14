@@ -104,13 +104,25 @@ body {
   justify-content: center;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* navbaren */  
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-  min-width: 400px;
 }
 header nav {
   display: flex;
@@ -119,12 +131,12 @@ header nav {
 header a {
   color: black;
   text-decoration: none;
-  padding: 15px;
+  padding: 20px;
 }
 header a:hover {
   background-color: none;
   color: rgba(0,0,0, 0.55);
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 header .topnav a {
   font-size: 20px;
@@ -135,12 +147,18 @@ header .topnav {
   display: flex;
   justify-content: space-between;
 }
-
+.fa-chart-bar {
+  color: black;
+  font-size: 30px;
+  padding: 5px 20px;
+  display: none;
+  cursor: pointer;
+}
 header select {
   margin-right: 10px;
   display: flex;
   border-radius: 5px;
-  font-family: monospace;
+  font-family: monospace; 
   background-color: white;
   color: black;
   border-style: none;
@@ -152,4 +170,58 @@ header select {
 header select:hover{
   color: rgb(0, 0, 0, 0.55);
 }
+@media(max-width: 600px) {
+  header select {
+      display: none;
+  }
+  header nav {
+      display: none;
+      flex-direction: column;
+  }
+  header {
+      flex-direction: column;
+      padding-bottom: 10px;
+  }
 
+  header .topnav {
+      width: 100%;
+  }
+
+  .fa-chart-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+  }
+  .topnav a {
+      margin-right: auto;
+  }
+  header nav.show {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+  }
+  header select.show {
+      display: flex;
+      text-align: center;
+      border-radius: 5px;
+      font-family: monospace;
+      background-color: white;
+      color: black;
+      border-style: hidden;
+      width: 100px;
+      height: 40px;
+      margin-left: auto;
+  }
+  header select:hover.show{
+      color: rgb(0, 0, 0, 0.55);
+  }
+  .spillboks{
+      flex-direction: column;
+  }
+}
+.fa-chart-bar:hover {
+  color: black;
+  border-radius: 10px;
+}
