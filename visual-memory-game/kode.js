@@ -377,7 +377,7 @@ function valgt(){
                 }
 
 
-            
+                
                        
                     if(level >=11 && level<18 ){
                         antallBokser=36
@@ -406,7 +406,7 @@ function valgt(){
                     }
                     
                     console.log('kjørt lag bokser')
-                },1000
+                }1000
 
                 setTimeout(nesteLevel,1400)
             }

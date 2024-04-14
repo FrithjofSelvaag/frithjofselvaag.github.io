@@ -293,11 +293,20 @@ function valgt(){
         },200)
 
         //risteeffekt kun for de to første feilene.
-        if(valgtFeil.length<3){
-            this.classList.add("shake")
+        if(livTapt.length<2){                    /* når vi taper et liv går livTapt.length opp en. tap --> 1 tap --> 2. Er da to på sisste livet */
+            this.classList.add("shake")          /* shake gjelder altså for de to første forøkene.  */
         setTimeout(function(){
             feilBoks.classList.remove("shake")
         },250)
+        
+        }
+        else if(livTapt.length==2){              /* her her vi for sisste livet - Siden valgtFeil øker før denne spilles vil feil --> length 1 */
+            if(valgtFeil.length!=3){             /* Så kjøres denne. så feil --> lengde 2. denn spilles. Denne spilles sisste gang ved length 3*/
+                this.classList.add("shake")      /* Da tar vi den bort fordi det så stygt ut å ha den ide skjermen gikk til home - try again - leaderboard siden*/
+                setTimeout(function(){
+                    feilBoks.classList.remove("shake")
+                },250)
+            }
         }
         
         
@@ -309,7 +318,7 @@ function valgt(){
             //resterter levelet.
 
                 if (livTapt.length==1){
-                    hjerteEnEl.remove()
+                    hjerteEnEl.innerHTML
                     hviteBokser = []
                     valgteBokser = []
                     setTimeout(function(){
@@ -508,6 +517,7 @@ function valgt(){
                 })//slutt på ny skjerm
             },50)//slutt på setTimeout løkke
         }
+    }
         
         
         
@@ -521,7 +531,7 @@ function valgt(){
 
 
 
-
+}
 /* } */ // slutter blinkbokser
 
 function levelFlash(){
