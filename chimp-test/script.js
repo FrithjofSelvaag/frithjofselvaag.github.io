@@ -203,7 +203,7 @@ function sjekkRekkefolge() {
             font-size: 22px;
             padding-top: 0px;
             font-family: Helvetica, Arial, sans-serif;
-            ">Can You Do Better Than a monkey?</h1>
+            ">Can You Do Better Than a Monkey?</h1>
             `)
 
             let nyKnapp = document.createElement('button')
