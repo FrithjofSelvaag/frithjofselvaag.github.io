@@ -235,7 +235,7 @@ function sjekkRekkefolge() {
                     setTimeout(function(){
                     sequenceBlink2()
                     timer()
-                    }, 1800)
+                    }, 2200)
                 }
             }else if(hjerteArr.length === 2){
                 hjerteToEl.style.color = 'rgb(140, 0, 0)'
@@ -291,7 +291,7 @@ function sjekkRekkefolge() {
                     setTimeout(function(){
                     sequenceBlink2()
                     timer()
-                    }, 1800)
+                    }, 2200)
                 }
             }else{
                 giPoints()
