@@ -108,9 +108,11 @@ function sequenceBlink2(blinkBoks) {
                     blinkBokser[i].appendChild(textEl)
                     blinkBoks += blinkBokser[i]
                 }
+                let førsteBoks = blinkBokser[0]
 
 
                 setTimeout(function(){
+                    førsteBoks.removeEventListener('click', hvit)
                     if(blinkBokser[0] === klikkedeBokser[0]){
                         return
                     } else{
@@ -119,7 +121,6 @@ function sequenceBlink2(blinkBoks) {
                             boks.style.backgroundColor = 'white'
                         })
                     }
-                    førsteBoks.removeEventListener('click', hvit)
                 }, 3000)
 
                     function hvit(){
@@ -400,7 +401,7 @@ function sjekkRekkefolge() {
                 if(monkey === 1){
                     setTimeout(function(){
                     sequenceBlink2()
-                    }, 400)
+                    }, 700)
                 }
 
         }
