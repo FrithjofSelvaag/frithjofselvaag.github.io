@@ -292,7 +292,6 @@ klikkBar.addEventListener("click", () => {
 });
 
 //Dark Mode
-let currentCoins = document.querySelector(".currentCoins")
 let header = document.querySelector("#header")
 let selectEl = document.querySelector("select")
 let lenkene = document.querySelectorAll("a")
@@ -305,7 +304,6 @@ function colorPalate(){
 
       localStorage.teller = 1
 
-      currentCoins.style.color = 'black'
       header.style.backgroundColor = 'white'
       hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
       selectEl.style.backgroundColor = 'white'
@@ -333,7 +331,6 @@ function colorPalate(){
 
       localStorage.teller = 2
 
-      currentCoins.style.color = 'white'
       hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
       selectEl.style.backgroundColor = 'black'
       selectEl.style.color = 'white'
