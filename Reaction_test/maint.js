@@ -44,7 +44,7 @@ let startSpill = () => {
   beskjed.style.color = "#fff";
 
   //Klokke(timer)
-  let tilfeldigTall = Math.floor(Math.random() * 1000);
+  let tilfeldigTall = Math.floor(Math.random() * 1000 + 2000);
   //setGrønnFarge kommer etter "tilfeldigTall" sek
   klokke = setTimeout(setGrønnFarge, tilfeldigTall);
 
@@ -140,6 +140,7 @@ let sluttSpill = () => {
   nyKnapp3.addEventListener('mouseleave', function() {
       nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
   })
+   document.body.style.backgroundColor = "rgb(43, 135, 209)" 
   nyKnapp.style.display = 'flex'
   nyKnapp.style.backgroundColor = "rgb(254, 217, 32)"
   nyKnapp.style.margin = 'auto'
@@ -182,21 +183,19 @@ let sluttSpill = () => {
   nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
   nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
 
-/*   if(selectEl.value === "white"){
+   if(selectEl.value === "white"){
       nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
       nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.body.style.transition = 'background-color 1s ease'
-      setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
-      setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
+      document.hovdMeny.style.transition = 'background-color 1s ease'
+      document.body.style.backgroundColor = 'rgb(43, 135, 209)'
   }
   else if(selectEl.value === "black"){
       nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
       nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
       document.body.style.transition = 'background-color 1s ease'
-      setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
-      setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
-  } */
-  document.body.style.backgroundColor = "rgb(43, 135, 209)"
+      document.body.style.backgroundColor = 'black'
+  } 
+  
   nyKnapp3.addEventListener('click', function(){
           document.body.innerHTML = ""
           document.write(`
@@ -292,35 +291,88 @@ klikkBar.addEventListener("click", () => {
   }
 });
 
-spillIgjenBtn.addEventListener("click", () => {
-  sluttSkjerm.classList.remove("active");
-  //Aktiverer to funksjoner 
-  //Setter definerende variabler til orginale verdier
-  i();
-  //Aktiverer spillet på nytt
-  startSpill()
-})
+//Dark Mode
+let currentCoins = document.querySelector(".currentCoins")
+let header = document.querySelector("#header")
+let selectEl = document.querySelector("select")
+let lenkene = document.querySelectorAll("a")
+let con = document.querySelector(".container")
 
+selectEl.addEventListener("change", colorPalate)
 
-//Navbar(Hjem)
-Home.addEventListener('mouseenter', function() {
-  Home.style.backgroundColor = 'white'
-})
-Home.addEventListener('mouseleave', function() {
-  Home.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-})
-Home.addEventListener('click', function(){
-  window.location.href = '../Hovedside/index.html'
-})
+function colorPalate(){
 
-inputEl.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-      let playerName = String(inputEl.value)
-      let highscore = averageResultat
-      localStorage.setItem('highscore', highscore)
-      localStorage.setItem('playerName', playerName)
-      console.log(localStorage.getItem('playerName'))
-      console.log(localStorage.getItem('highscore'))
-      window.location.href = '../leaderboard/leaderboard.html'
-  }
-})
+  if (selectEl.value === "white")   {
+
+      localStorage.teller = 1
+
+      currentCoins.style.color = 'black'
+      header.style.backgroundColor = 'white'
+      hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
+      selectEl.style.backgroundColor = 'white'
+      selectEl.style.color = 'black'
+
+      lenkene.forEach(function(lenkene){
+          lenkene.style.color = 'black'
+
+          lenkene.addEventListener('mouseenter', function() {
+              lenkene.style.color = 'rgba(0,0,0, 0.55)'
+          })
+          lenkene.addEventListener('mouseleave', function() {
+              lenkene.style.color = 'black'
+          })
+      })
+          selectEl.addEventListener('mouseenter', function() {
+              selectEl.style.color = 'rgba(0,0,0, 0.55)'
+          })
+          selectEl.addEventListener('mouseleave', function() {
+              selectEl.style.color = 'black'
+          })
+      }
+
+  else if (selectEl.value === "black") {
+
+      localStorage.teller = 2
+
+      currentCoins.style.color = 'white'
+      hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
+      selectEl.style.backgroundColor = 'black'
+      selectEl.style.color = 'white'
+      header.style.backgroundColor = 'black'
+      
+      lenkene.forEach(function(lenkene){
+          lenkene.style.color = 'white'
+
+          lenkene.addEventListener('mouseenter', function() {
+              lenkene.style.color = 'rgba(255,255,255, 0.55)'
+          })
+          lenkene.addEventListener('mouseleave', function() {
+              lenkene.style.color = 'white'
+          })
+      })
+      selectEl.addEventListener('mouseenter', function() {
+          selectEl.style.color = 'rgba(255,255,255, 0.55)'
+      })
+      selectEl.addEventListener('mouseleave', function() {
+          selectEl.style.color = 'white'
+      })
+  }}
+
+  console.log(localStorage.teller)
+//hvis teller ikke eksisterer i localstorage skal den settes til 1
+if (!localStorage.teller) {
+    localStorage.teller = 1
+} 
+if(localStorage.teller == 1){
+    selectEl.value = "white"
+    colorPalate()
+}
+else if (localStorage.teller == 2){
+    selectEl.value = "black"
+    colorPalate()
+}
+
+setTimeout(function(){
+    document.body.style.transition = 'background-color 1s ease'
+}, 100)
+

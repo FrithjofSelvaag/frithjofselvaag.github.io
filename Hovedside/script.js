@@ -53,7 +53,7 @@ function colorPalate(){
         })
         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 1)'
+                boksene[h].style.boxShadow = 'none'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'

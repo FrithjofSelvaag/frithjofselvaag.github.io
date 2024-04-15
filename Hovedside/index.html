@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Benchmark</title>
+    <!-- Roboto font:  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="stylesheet.css">
@@ -25,8 +30,9 @@
             <option value="colors">Random</option>
         </select>
     </header>
+
     <h1 style="text-align: center; font-size: 40px;">Human Benchmark</h1>
-    
+    <main id="storBoks"> 
     <main class="spillboks">
         <div onclick="goToPage('../sequence-game/index.html')">
             <h1 class="spillOverskrift">Sequence Memory</h1>
@@ -40,22 +46,24 @@
             <h1 class="spillOverskrift">Reaction Time</h1>
             <h1>Test your visual reflexes</h1>
         </div>
+    
+    
+        <div onclick="goToPage('../chimp-test/index.html')">
+            <h1 class="spillOverskrift">Chimp-test
+            </h1>
+            <h1>Remember an increasing number of blocks in order</h1>
+        </div>
+        <div>
+            <h1 class="spillOverskrift">Sequence Memory</h1>
+            <h1>Remember an increasing sequence pattern</h1>
+        </div>
+        <div>
+            <h1 class="spillOverskrift">Sequence Memory</h1>
+            <h1>Remember an increasing sequence pattern</h1>
+        </div>
+    
     </main>
-    <main class="spillboks">
-        <div>
-            <h1 class="spillOverskrift">Sequence Memory</h1>
-            <h1>Remember an increasing sequence pattern</h1>
-        </div>
-        <div>
-            <h1 class="spillOverskrift">Sequence Memory</h1>
-            <h1>Remember an increasing sequence pattern</h1>
-        </div>
-        <div>
-            <h1 class="spillOverskrift">Sequence Memory</h1>
-            <h1>Remember an increasing sequence pattern</h1>
-        </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
