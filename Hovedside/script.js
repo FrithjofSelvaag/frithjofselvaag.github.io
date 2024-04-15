@@ -21,13 +21,15 @@ function showNav() {
 // ColorPalate
 let selectEl = document.querySelector('select')
 let body = document.body
-let h1 = document.querySelector('h1')
+let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
-let lorem = document.querySelectorAll('main div h1')
+let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
 let boksene = document.querySelectorAll('.spillboks div')
+
+let spillOverskriftEl=document.querySelector('.spillOverskrift')
 
 selectEl.addEventListener("change", colorPalate)
 
@@ -41,32 +43,53 @@ function colorPalate(){
 
     if (selectEl.value === "white") {
 
-        localStorage.teller = 1
+            localStorage.teller = 1
 
-        header.style.backgroundColor = 'rgb(5, 163, 215)'
-        body.style.backgroundColor = 'white'
-        h1.style.color = 'black'
-        selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
-        chartBar.style.color = 'white'
-        lorem.forEach(function(lorem) {
-            lorem.style.color = 'black'
-        })
-        for (let h = 0; h < boksene.length; h++) {
+            header.style.backgroundColor = 'rgb(5, 163, 215)'
+            body.style.backgroundColor = 'white'
+            /* h1El.style.color = 'white' */
+            selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
+            chartBar.style.color = 'white'
+            /* spillOverskriftEl.style.color = 'black' */
+            lorem.forEach(function(lorem) {
+                lorem.style.color = 'black'
+            })
+            for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = 'none'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}}
+            })}
+        
+        
+        
+            for (let i = 0; i < boksene.length; i++) {
+                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                 boksene[i].addEventListener('mouseenter', function(){
+                    spillNavn.style.color = "orange"
+                })
+                boksene[i].addEventListener('mouseleave', function(){
+                    spillNavn.style.color = "black"
+                })
+            }
+        
+        }
+        
+        
+        
+
+
 
     else if (selectEl.value === "black") {
 
         localStorage.teller = 2
-
+        spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         header.style.backgroundColor = 'black'
-        h1.style.color = 'white'
+        /* h1El.style.color = 'white' */
+        spillOverskriftEl.style.color = 'white'
         chartBar.style.color = 'white'
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
@@ -77,41 +100,57 @@ function colorPalate(){
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}}
+            })}
+            
+            for (let i = 0; i < boksene.length; i++) {
+                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                boksene[i].addEventListener('mouseenter', function(){
+                    spillNavn.style.color = "orange"
+                });
+                boksene[i].addEventListener('mouseleave', function(){
+                    spillNavn.style.color = "white"
+                })
+            }
+        }
 
-    else if (selectEl.value === "colors") {
 
-        localStorage.teller = 3
 
-        body.style.backgroundColor = `rgb(${r},${g},${b})`
-        r = Math.floor(Math.random()*256)
-        g = Math.floor(Math.random()*256)
-        b = Math.floor(Math.random()*256)
-        selectEl.style.backgroundColor = `rgb(${g},${r},${b})`
-        r = Math.floor(Math.random()*256)
-        g = Math.floor(Math.random()*256)
-        b = Math.floor(Math.random()*256)
-        header.style.backgroundColor = `rgb(${b},${g},${r})`
-        r = Math.floor(Math.random()*256)
-        g = Math.floor(Math.random()*256)
-        b = Math.floor(Math.random()*256)
-        chartBar.style.color = `rgb(${g},${b},${r})`
-        r = Math.floor(Math.random()*256)
-        g = Math.floor(Math.random()*256)
-        b = Math.floor(Math.random()*256)
-        lorem.forEach(function(lorem) {
-            lorem.style.color = `rgb(${g},${b},${r})`
-        })
-        r = Math.floor(Math.random()*256)
-        g = Math.floor(Math.random()*256)
-        b = Math.floor(Math.random()*256)
-        for (let h = 0; h < boksene.length; h++) {
-            boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.boxShadow = `0px 0px 20px rgba(${r}, ${g}, ${b}, 1)`
+
+
+        else if (selectEl.value === "colors") {
+
+            localStorage.teller = 3
+
+            body.style.backgroundColor = `rgb(${r},${g},${b})`
+            r = Math.floor(Math.random()*256)
+            g = Math.floor(Math.random()*256)
+            b = Math.floor(Math.random()*256)
+            selectEl.style.backgroundColor = `rgb(${g},${r},${b})`
+            r = Math.floor(Math.random()*256)
+            g = Math.floor(Math.random()*256)
+            b = Math.floor(Math.random()*256)
+            header.style.backgroundColor = `rgb(${b},${g},${r})`
+            r = Math.floor(Math.random()*256)
+            g = Math.floor(Math.random()*256)
+            b = Math.floor(Math.random()*256)
+            chartBar.style.color = `rgb(${g},${b},${r})`
+            r = Math.floor(Math.random()*256)
+            g = Math.floor(Math.random()*256)
+            b = Math.floor(Math.random()*256)
+            lorem.forEach(function(lorem) {
+                lorem.style.color = `rgb(${g},${b},${r})`
             })
-            boksene[h].addEventListener('mouseout', function(){
-                boksene[h].style.boxShadow = 'none'
-            })}}
+            r = Math.floor(Math.random()*256)
+            g = Math.floor(Math.random()*256)
+            b = Math.floor(Math.random()*256)
+            for (let h = 0; h < boksene.length; h++) {
+                boksene[h].addEventListener('mouseover', function(){
+                    boksene[h].style.boxShadow = `0px 0px 20px rgba(${r}, ${g}, ${b}, 1)`
+                })
+                boksene[h].addEventListener('mouseout', function(){
+                    boksene[h].style.boxShadow = 'none'
+                })}
+        }
 }
 
 if (!localStorage.teller) {
@@ -136,4 +175,4 @@ setTimeout(function(){
 
 let currentCoins = document.querySelector('.currentCoins')
 
-currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
+
