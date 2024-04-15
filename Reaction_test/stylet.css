@@ -66,9 +66,6 @@ body {
   margin: 0;
 }
 
-.slutt-skjerm h1 {
-  font-size: 30px;
-}
 
 .reaksjon-tid-tekst {
   font-size: 100px;
@@ -103,18 +100,6 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* navbaren */  
 header {
