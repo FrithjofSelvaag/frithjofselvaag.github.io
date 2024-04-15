@@ -26,17 +26,14 @@ header a {
 }
 header a:hover {
     background-color: none;
-    color: rgba(0,0,0, 0.55);
+    
     border-radius: 10px;
 }
 header select:hover{
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.55);
+    
 }
-/* header select:hover, header select.show{
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.55); 
-} */
+
 header .topnav a {
     font-size: 20px;
     font-weight: bold;
@@ -221,12 +218,11 @@ header select {
     font-size: 100px;
     padding-bottom: 20px;
     display: flex;
-    
     justify-content: center;
 }
 #tittelSymbol{
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 20px;
-    background-color: rgb(5, 163, 215);
+    /* background-color: rgb(5, 163, 215); */
 }

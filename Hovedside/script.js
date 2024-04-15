@@ -19,14 +19,16 @@ burgerEl.addEventListener('click', showNav)
 } */
 
 // ColorPalate
-let selectEl = document.querySelector('select')
+let tittelSymbolEl = document.querySelector('#tittelSymbol')
+let selectEl = document.querySelector('header select')
 let body = document.body
 let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
 let headerSkrift = document.querySelector('header a')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
-let home = document.querySelector('div a')
+let homeEl = document.querySelector('header a')
+
 let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
 let boksene = document.querySelectorAll('.spillboks div')
 
@@ -46,11 +48,12 @@ function colorPalate(){
     let r = Math.floor(Math.random()*256)
     let g = Math.floor(Math.random()*256)
     let b = Math.floor(Math.random()*256)
+    
 
     if (selectEl.value === "white") {
 
             localStorage.teller = 1
-
+            tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
             header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
             body.style.backgroundColor = 'white'
             /* h1El.style.color = 'white' */
@@ -63,13 +66,27 @@ function colorPalate(){
             lorem.forEach(function(lorem) {
                 lorem.style.color = 'black'
             })
+            leaderboardEl.addEventListener('mouseover',function(){
+                leaderboardEl.style.color="rgba(0, 0, 0, 0.55)"
+            })
+            leaderboardEl.addEventListener('mouseout',function(){
+                leaderboardEl.style.color="black"
+
+            })
+
+            homeEl.addEventListener('mouseover',function(){
+                homeEl.style.color="rgba(0, 0, 0, 0.55"
+            })
+            homeEl.addEventListener('mouseout',function(){
+                homeEl.style.color="black"
+            })
             
 
             selectEl.addEventListener('mouseover',function(){
-                selectEl.color='rgba (0, 0, 0, 0.55)'
+                selectEl.style.color="rgba(0, 0, 0, 0.55)"
             })
             selectEl.addEventListener('mouseout',function(){
-                selectEl.color='rgba(0, 0, 0, 0.55)'
+                selectEl.style.color="black"
             })
             /* for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
@@ -99,7 +116,7 @@ function colorPalate(){
 
 
     else if (selectEl.value === "black") {
-
+        tittelSymbolEl.style.backgroundColor="black"
         localStorage.teller = 2
         spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
@@ -111,15 +128,35 @@ function colorPalate(){
         headerSkrift.style.color='white'
         leaderboardEl.style.color="white"
         chartBar.style.color = 'white'
+
+
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
         })
         selectEl.addEventListener('mouseover',function(){
-            selectEl.color='rgba (255,255,255, 0.725)'
+            selectEl.style.color='rgba(255, 255, 255, 0.55)'
         })
         selectEl.addEventListener('mouseout',function(){
-            selectEl.color='rgba (255,255,255, 0.725)'
+            selectEl.style.color="white"
         })
+
+        leaderboardEl.addEventListener('mouseover',function(){
+            leaderboardEl.style.color="rgba(255, 255, 255, 0.55)"
+
+        })
+
+        leaderboardEl.addEventListener('mouseout',function(){
+            leaderboardEl.style.color="white"
+
+        })
+        homeEl.addEventListener('mouseover',function(){
+            homeEl.style.color="rgba(255, 255, 255, 0.55"
+        })
+        homeEl.addEventListener('mouseout',function(){
+            homeEl.style.color="white"
+        })
+
+
         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 1)'
