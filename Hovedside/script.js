@@ -21,17 +21,24 @@ function showNav() {
 // ColorPalate
 let selectEl = document.querySelector('select')
 let body = document.body
-let h1 = document.querySelector('h1')
+let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
-let lorem = document.querySelectorAll('main div h1')
+let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
 let boksene = document.querySelectorAll('.spillboks div')
+
+
+/* let spillNavn=document.querySelector('#storBoks .spillboks div spillOverskrift') */
 
 selectEl.addEventListener("change", colorPalate)
 
-
+/* nyKnapp.addEventListener('mouseenter', function() {
+    nyKnapp.style.backgroundColor = 'white'
+})
+nyKnapp.addEventListener('mouseleave', function() {
+    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32 */
 
 function colorPalate(){
 
@@ -45,7 +52,7 @@ function colorPalate(){
 
         header.style.backgroundColor = 'rgb(5, 163, 215)'
         body.style.backgroundColor = 'white'
-        h1.style.color = 'black'
+        h1El.style.color = 'black'
         selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
         chartBar.style.color = 'white'
         lorem.forEach(function(lorem) {
@@ -57,7 +64,26 @@ function colorPalate(){
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}}
+            })}
+        
+        
+        
+        for (let i = 0; i < boksene.length; i++) {
+            let spillNavn = boksene[i].querySelector('.spillOverskrift');
+            boksene[i].addEventListener('mouseenter', function(){
+                spillNavn.style.color = "orange";
+            });
+            boksene[i].addEventListener('mouseleave', function(){
+                spillNavn.style.color = "black";
+            });
+}
+        
+        }
+        
+        
+        
+
+
 
     else if (selectEl.value === "black") {
 
@@ -66,7 +92,7 @@ function colorPalate(){
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         header.style.backgroundColor = 'black'
-        h1.style.color = 'white'
+        h1El.style.color = 'white'
         chartBar.style.color = 'white'
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
@@ -78,6 +104,10 @@ function colorPalate(){
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
             })}}
+
+
+
+
 
     else if (selectEl.value === "colors") {
 
