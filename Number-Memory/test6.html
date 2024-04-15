@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number memory</title>
+</head>
+<body>
+    <h1>Number memory</h1>
+    <p class="instructions">Remember an increasingly larger number</p>
+    <button class="start">Start game</button>
+
+    <script>
+        let number;
+        let score = 0;
+        let digits = 1; // Antall sifre i det første tallet
+
+        let startBtn = document.querySelector('.start');
+        let instructionEl = document.querySelector('.instructions');
+
+        startBtn.addEventListener("click", function(){
+            startBtn.remove();
+            instructionEl.remove();
+
+            numberRound();
+        });
+
+        function createNumber(digits) {
+            let min = Math.pow(10, digits - 1);
+            let max = Math.pow(10, digits) - 1;
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function numberRound(){
+            number = createNumber(digits);
+
+            let numberBox = document.createElement('div');
+            numberBox.textContent = number;
+            document.body.appendChild(numberBox);
+
+            let timer = document.createElement('button');
+            timer.innerText = "Next";
+            document.body.appendChild(timer);
+
+            timer.addEventListener("click", function(){
+                numberBox.remove();
+                timer.remove();
+                guessRound();
+            });
+        }
+
+        function guessRound(){
+            let guess = document.createElement('input');
+            document.body.appendChild(guess);
+
+            let guessButton = document.createElement('button');
+            guessButton.innerText = "Guess";
+            document.body.appendChild(guessButton);
+
+            guessButton.addEventListener("click", function(){
+                let answer = guess.value;
+
+                if (answer === number.toString()) {
+                    score++;
+                    digits++; // Øker antallet sifre for neste tall
+                    moveToNextPage();
+                } else {
+                    moveToScoreScreen();
+                }
+            });
+        }
+
+        function moveToScoreScreen(){
+            // Fjern gjetteknappen og inndatafeltet
+            let guessButton = document.querySelector('button');
+            let guess = document.querySelector('input');
+            guessButton.remove();
+            guess.remove();
+
+            // Lag HTML-innhold for tapsskjermen
+            let scoreScreenContent = `
+                <h2>Game Over!</h2>
+                <p>Your score: ${score}</p>
+                <button class="restart">Restart Game</button>
+            `;
+
+            // Sett inn tapsskjermen i kroppen
+            document.body.innerHTML = scoreScreenContent;
+
+            // Lytt til restart-knappen
+            let restartBtn = document.querySelector('.restart');
+            restartBtn.addEventListener('click', function(){
+                restartBtn.remove();
+                score = 0;
+                digits = 1;
+                numberRound();
+            });
+        }
+
+        function moveToNextPage() {
+            let nextPageContent = `
+                <h2>Congratulations!</h2>
+                <p>You got the correct answer!</p>
+                <button class="next">Next Level</button>
+            `;
+
+            document.body.innerHTML = nextPageContent;
+
+            let nextBtn = document.querySelector('.next');
+            nextBtn.addEventListener('click', function(){
+                nextBtn.remove();
+                numberRound();
+            });
+        }
+    </script>
+</body>
+</html>
