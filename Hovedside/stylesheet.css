@@ -197,22 +197,16 @@ header select:hover{
 
 
 
+
 #tittelSymbol h1{
-    color:red;
-    
-    font-size: 40px;
 
+    color:white;
+    font-size: 70px;
     margin: auto;
-    max-width:350px;
-    transition:0.5s ease;
+    display: flex;
+    justify-content: center;
 }
 
-
-
-
-#tittelSymbol h1:hover{
-    color:red;
-}
 /* trenger ikke siden ejg har fjernet coins for å fikse navnbar */
 /* .currentCoins{
     color: white;
@@ -220,15 +214,17 @@ header select:hover{
 } */
 
 #tittelSymbol .fa-fingerprint{
-    color:rgb(28, 144, 183);;
+    color:white;
     
     font-size: 100px;
     padding-bottom: 20px;
     display: flex;
-    align-items: center;
+    
     justify-content: center;
 }
 #tittelSymbol{
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(5, 163, 215);
 }
