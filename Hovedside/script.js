@@ -23,6 +23,7 @@ let selectEl = document.querySelector('select')
 let body = document.body
 let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
+let headerSkrift = document.querySelector('header a')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
@@ -45,22 +46,31 @@ function colorPalate(){
 
             localStorage.teller = 1
 
-            header.style.backgroundColor = 'rgb(5, 163, 215)'
+            header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
             body.style.backgroundColor = 'white'
             /* h1El.style.color = 'white' */
-            selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
+            selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
+            selectEl.style.color='black'
+            headerSkrift.style='black'
             chartBar.style.color = 'white'
             /* spillOverskriftEl.style.color = 'black' */
             lorem.forEach(function(lorem) {
                 lorem.style.color = 'black'
             })
-            for (let h = 0; h < boksene.length; h++) {
+
+            selectEl.addEventListener('mouseenter',function(){
+                selectEl.color='rgba (0,0,0, 0.725)'
+            })
+            selectEl.addEventListener('mouseleave',function(){
+                selectEl.color='rgba (0,0,0, 0.725)'
+            })
+            /* for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = 'none'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}
+            })} */
         
         
         
@@ -86,13 +96,21 @@ function colorPalate(){
         localStorage.teller = 2
         spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
-        selectEl.style.backgroundColor = 'black'
-        header.style.backgroundColor = 'black'
+        selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+        selectEl.style.coloe='white'
+        header.style.backgroundColor = 'rgb(17, 17, 17)'
         /* h1El.style.color = 'white' */
         spillOverskriftEl.style.color = 'white'
+        headerSkrift.style='white'
         chartBar.style.color = 'white'
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
+        })
+        selectEl.addEventListener('mouseenter',function(){
+            selectEl.color='rgba (255,255,255, 0.725)'
+        })
+        selectEl.addEventListener('mouseleave',function(){
+            selectEl.color='rgba (255,255,255, 0.725)'
         })
         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
