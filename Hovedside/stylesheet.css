@@ -1,6 +1,8 @@
 body {
     background-color: white;
     margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
     font-family:"Roboto", sans-serif;
 }
 
@@ -60,7 +62,7 @@ header select:hover{
 }
 
 
-/* måtte ha denne før mediaquarien */
+
 
 
 
@@ -134,7 +136,9 @@ header select:hover{
     max-width: 90%;
     
 }
-
+.spillOverskrift{
+    transition: 0.3s ease;
+}
 /* spill osv */
 
 #storBoks{
@@ -193,8 +197,38 @@ header select:hover{
 
 
 
+#tittelSymbol h1{
+    color:red;
+    
+    font-size: 40px;
+
+    margin: auto;
+    max-width:350px;
+    transition:0.5s ease;
+}
+
+
+
+
+#tittelSymbol h1:hover{
+    color:red;
+}
 /* trenger ikke siden ejg har fjernet coins for å fikse navnbar */
 /* .currentCoins{
     color: white;
      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
 } */
+
+#tittelSymbol .fa-fingerprint{
+    color:rgb(28, 144, 183);;
+    
+    font-size: 100px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#tittelSymbol{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
