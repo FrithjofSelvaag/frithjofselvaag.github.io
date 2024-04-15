@@ -12,11 +12,11 @@ let mainEl = document.querySelector('.spillboks')
 
 burgerEl.addEventListener('click', showNav)
 
-function showNav() {
+/* function showNav() {
     navEl.classList.toggle('show')
     selectEl.classList.toggle('show')
 
-}
+} */
 
 // ColorPalate
 let selectEl = document.querySelector('select')
@@ -31,11 +31,16 @@ let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
 let boksene = document.querySelectorAll('.spillboks div')
 
 let spillOverskriftEl=document.querySelector('.spillOverskrift')
+let leaderboardEl = document.querySelector("header nav a")
 
 selectEl.addEventListener("change", colorPalate)
 
 
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
 
+}
 function colorPalate(){
 
     let r = Math.floor(Math.random()*256)
@@ -53,16 +58,18 @@ function colorPalate(){
             selectEl.style.color='black'
             headerSkrift.style='black'
             chartBar.style.color = 'white'
+            leaderboardEl.style.color="black"
             /* spillOverskriftEl.style.color = 'black' */
             lorem.forEach(function(lorem) {
                 lorem.style.color = 'black'
             })
+            
 
-            selectEl.addEventListener('mouseenter',function(){
-                selectEl.color='rgba (0,0,0, 0.725)'
+            selectEl.addEventListener('mouseover',function(){
+                selectEl.color='rgba (0, 0, 0, 0.55)'
             })
-            selectEl.addEventListener('mouseleave',function(){
-                selectEl.color='rgba (0,0,0, 0.725)'
+            selectEl.addEventListener('mouseout',function(){
+                selectEl.color='rgba(0, 0, 0, 0.55)'
             })
             /* for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
@@ -97,19 +104,20 @@ function colorPalate(){
         spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
-        selectEl.style.coloe='white'
+        selectEl.style.color='white'
         header.style.backgroundColor = 'rgb(17, 17, 17)'
         /* h1El.style.color = 'white' */
         spillOverskriftEl.style.color = 'white'
-        headerSkrift.style='white'
+        headerSkrift.style.color='white'
+        leaderboardEl.style.color="white"
         chartBar.style.color = 'white'
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
         })
-        selectEl.addEventListener('mouseenter',function(){
+        selectEl.addEventListener('mouseover',function(){
             selectEl.color='rgba (255,255,255, 0.725)'
         })
-        selectEl.addEventListener('mouseleave',function(){
+        selectEl.addEventListener('mouseout',function(){
             selectEl.color='rgba (255,255,255, 0.725)'
         })
         for (let h = 0; h < boksene.length; h++) {
@@ -170,6 +178,10 @@ function colorPalate(){
                 })}
         }
 }
+
+
+
+
 
 if (!localStorage.teller) {
     localStorage.teller = 1

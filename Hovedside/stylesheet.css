@@ -26,9 +26,17 @@ header a {
 }
 header a:hover {
     background-color: none;
-    color: rgba(0,0,0, 0.725);
+    color: rgba(0,0,0, 0.55);
     border-radius: 10px;
 }
+header select:hover{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.55);
+}
+/* header select:hover, header select.show{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.55); 
+} */
 header .topnav a {
     font-size: 20px;
     font-weight: bold;
@@ -59,10 +67,6 @@ header select {
     height: 40px;
     text-align: center;
     margin-left: auto;
-}
-header select:hover{
-    cursor: pointer;
-    
 }
 
 
@@ -206,6 +210,7 @@ header select:hover{
     margin: auto;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 
