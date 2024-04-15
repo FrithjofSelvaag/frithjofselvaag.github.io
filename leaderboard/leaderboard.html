@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/Hovedside/stylesheet.css">
+
+    <style>
+
+    body{
+        font-family:"Roboto", sans-serif;
+    }
+        /* navbaren */  
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+header nav {
+    display: flex;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    padding: 20px;
+}
+header a:hover {
+    background-color: none;
+    color: rgba(0,0,0, 0.55);
+    border-radius: 10px; 
+}
+header .topnav a {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto;
+}
+header .topnav {
+    display: flex;
+    justify-content: space-between;
+}
+.fa-chart-bar {
+    color: black;
+    font-size: 30px;
+    padding: 5px 20px;
+    display: none;
+    cursor: pointer;
+}
+header select {
+    margin-right: 10px;
+    display: flex;
+    border-radius: 5px;
+    font-family: monospace; 
+    background-color: white;
+    color: black;
+    border-style: none;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+}
+header select:hover{
+    color: rgb(0, 0, 0, 0.55);
+}
+@media(max-width: 600px) {
+    header select {
+        display: none;
+    }
+    header nav {
+        display: none;
+        flex-direction: column;
+    }
+    header {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    header .topnav {
+        width: 100%;
+    }
+
+    .fa-chart-bar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    .topnav a {
+        margin-right: auto;
+    }
+    header nav.show {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    header select.show {
+        display: flex;
+        text-align: center;
+        border-radius: 5px;
+        font-family: monospace;
+        background-color: white;
+        color: black;
+        border-style: hidden;
+        width: 100px;
+        height: 40px;
+        margin-left: auto;
+    }
+    header select:hover.show{
+        color: rgb(0, 0, 0, 0.55);
+    }
+    .spillboks{
+        flex-direction: column;
+    }
+}
+.fa-chart-bar:hover {
+    color: black;
+    border-radius: 10px;
+}
+
+table {
+    margin: auto;
+    text-align: left;
+    font-size: 20px;
+    height: 100px;
+    width: 180px;
+}
+div {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+
+}
+    
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="topnav">
+            <a href="../Hovedside/index.html">HOME</a>
+            <i class="fa-regular fa-chart-bar fa-rotate-180"></i>
+        </div>
+        <nav>
+            <a href="/leaderboard/leaderboard.html">LEADERBOARDS</a>
+        </nav>
+
+        <p class="currentCoins">0 Coins</p>
+
+        <select>
+            <option value="white">Light Mode</option>
+            <option value="black">Dark Mode</option>
+        </select>
+    </header>
+    <div class="leaderboard">
+        <div class="sequence">
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="visual">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="reaction">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody class="tbody">
+                    <tr class="nr1">
+                    </tr>
+                    <tr class="nr2">
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script>
+        let selectEl = document.querySelector('select')
+        let body = document.body
+        let header = document.querySelector('header')
+
+
+
+        selectEl.addEventListener("change", colorPalate)
+
+        function colorPalate(){
+
+            if (selectEl.value === "white") {
+                header.style.backgroundColor = 'rgb(5, 163, 215)'
+                body.style.backgroundColor = 'white'
+                selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
+
+            }
+            else if (selectEl.value === "black") {
+                body.style.backgroundColor = 'black'
+                header.style.backgroundColor = 'indigo'
+                selectEl.style.backgroundColor = 'indigo'
+                
+            }
+        }
+
+        //local storage
+
+        let tbody = document.querySelector('.tbody')
+        let nr1 = document.querySelector('.nr1')
+        let nr2 = document.querySelector('.nr2')
+
+        function createNewScore(){
+            let tr = document.createElement('tr')
+            tbody.appendChild(tr)
+
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName'))
+            name.classList = ('name')
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore')))
+            number.classList = ('number')
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScore()
+        console.log(localStorage.getItem('playerName') + localStorage.getItem('highscore'))
+
+    </script>
+</body>
+</html>

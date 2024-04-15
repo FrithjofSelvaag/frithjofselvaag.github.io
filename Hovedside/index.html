@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Human Benchmark</title>
+    <!-- Roboto font:  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="stylesheet.css">
 
 </head>
 <body>
-      <header>
-    <div class="topnav">
-        <a href="index.html">HJEM</a>
+    <header id="header">
+        <div class="topnav">
+            <a href="index.html">HOME</a>
+            <i class="fa-regular fa-chart-bar fa-rotate-180"></i>
+        </div>
+        <nav>
+            <a href="/leaderboard/leaderboard.html">LEADERBOARDS</a>
+        </nav>
+        <p class="currentCoins">0 Coins</p>
+        <select>
+            <option value="white">Light Mode</option>
+            <option value="black">Dark Mode</option>
+            <option value="colors">Random</option>
+        </select>
+    </header>
 
-        <i class="fa-regular fa-chart-bar fa-rotate-180"></i>
-    </div>
-
-
-    <nav>
-        <a href="">vi skal ikke ha spillene her</a>
-        <a href="">Men er fint å ha muligheten</a>
-        <a href="">Vet egentlig ikke</a>
-        <a href="">hva vi skal bruke det til</a>
-    </nav>
-  </header>
-    <h1>Human Benchmark</h1>
-
-
+    <h1 style="text-align: center; font-size: 40px;">Human Benchmark</h1>
+    <main id="storBoks"> 
+    <main class="spillboks">
+        <div onclick="goToPage('../sequence-game/index.html')">
+            <h1 class="spillOverskrift">Sequence Memory</h1>
+            <h1>Remember an increasing sequnce pattern</h1>
+        </div>
+        <div onclick="goToPage('../visual-memory-game/index.html')"> 
+            <h1 class="spillOverskrift">Visual Memory</h1>
+            <h1>Remember an increasing number of blocks</h1>
+        </div>
+        <div onclick="goToPage('../Reaction_test/indext.html')">
+            <h1 class="spillOverskrift">Reaction Time</h1>
+            <h1>Test your visual reflexes</h1>
+        </div>
+    
+    
+        <div onclick="goToPage('../chimp-test/index.html')">
+            <h1 class="spillOverskrift">Chimp-test
+            </h1>
+            <h1>Remember an increasing number of blocks in order</h1>
+        </div>
+        <div>
+            <h1 class="spillOverskrift">Sequence Memory</h1>
+            <h1>Remember an increasing sequence pattern</h1>
+        </div>
+        <div>
+            <h1 class="spillOverskrift">Sequence Memory</h1>
+            <h1>Remember an increasing sequence pattern</h1>
+        </div>
+    
+    </main>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
