@@ -180,7 +180,7 @@ function colorPalate(){
 
 
 
-        else if (selectEl.value === "colors") {
+        /* else if (selectEl.value === "colors") {
 
             localStorage.teller = 3
 
@@ -216,7 +216,8 @@ function colorPalate(){
         }
 }
 
-
+ */
+}
 
 
 
@@ -231,15 +232,15 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
-else if (localStorage.teller == 3){
+/* else if (localStorage.teller == 3){
     selectEl.value = "colors"
     colorPalate()
-}
+} */
 
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
 
-let currentCoins = document.querySelector('.currentCoins')
+/* let currentCoins = document.querySelector('.currentCoins') */
 
 

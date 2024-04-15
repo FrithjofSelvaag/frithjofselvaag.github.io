@@ -372,3 +372,5 @@ function giPoints(){
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
+
+
