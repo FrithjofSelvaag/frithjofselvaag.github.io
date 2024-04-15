@@ -166,4 +166,4 @@ setTimeout(function(){
 
 let currentCoins = document.querySelector('.currentCoins')
 
-currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
+
