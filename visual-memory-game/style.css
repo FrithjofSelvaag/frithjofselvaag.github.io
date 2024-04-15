@@ -180,7 +180,11 @@ header select {
 header select:hover{
     color: rgb(0, 0, 0, 0.55);
 }
-@media(max-width: 600px) {
+
+
+
+/* media quary for endring  av navbar når mindre skjerm */
+/* @media(max-width: 600px) {
     header select {
         display: none;
     }
@@ -234,4 +238,4 @@ header select:hover{
 .fa-chart-bar:hover {
     color: black;
     border-radius: 10px;
-}
+} */

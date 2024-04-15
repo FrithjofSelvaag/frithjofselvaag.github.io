@@ -1,6 +1,8 @@
 body {
     background-color: white;
     margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
     font-family:"Roboto", sans-serif;
 }
 
@@ -60,17 +62,11 @@ header select:hover{
 }
 
 
-/* måtte ha denne før mediaquarien */
-#storBoks .spillboks {
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    /* grid-template-rows: repeat(1,1); */
-    gap:10px;
-    max-width: 90%;
-    
-}
 
+
+
+/* media quary for endring  av navbar når mindre skjerm */
 @media(max-width: 600px) {
 
     #storBoks .spillboks{
@@ -131,8 +127,18 @@ header select:hover{
     border-radius: 10px;
 }
 
+#storBoks .spillboks {
 
-
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-rows: repeat(1,1); */
+    gap:10px;
+    max-width: 90%;
+    
+}
+.spillOverskrift{
+    transition: 0.3s ease;
+}
 /* spill osv */
 
 #storBoks{
@@ -191,8 +197,24 @@ header select:hover{
 
 
 
+#tittelSymbol h1{
+    color:red;
+    
+    font-size: 40px;
 
-.currentCoins{
-    color: white;
-    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    margin: auto;
+    max-width:350px;
+    transition:0.5s ease;
 }
+
+
+
+
+#tittelSymbol h1:hover{
+    color:red;
+}
+/* trenger ikke siden ejg har fjernet coins for å fikse navnbar */
+/* .currentCoins{
+    color: white;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+} */

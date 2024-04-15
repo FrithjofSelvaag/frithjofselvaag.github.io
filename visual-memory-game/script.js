@@ -205,7 +205,7 @@ function valgt(){
                     bokserEls.forEach(function(boks){
                         boks.style.height =  '45px'
                     })
-                }if(level>=18){
+                }if(level>=18){   //så lenge det er gøy
                     document.write('congratulations You won')
                 }
                 

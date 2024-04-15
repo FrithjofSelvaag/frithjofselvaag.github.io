@@ -11,7 +11,9 @@
     <button class="start">Start game</button>
 
     <script>
-        let number; // Global variable to store the random number
+        let number;
+        let score = 0;
+        let digits = 1; // Antall sifre i det første tallet
 
         let startBtn = document.querySelector('.start');
         let instructionEl = document.querySelector('.instructions');
@@ -23,8 +25,14 @@
             numberRound();
         });
 
+        function createNumber(digits) {
+            let min = Math.pow(10, digits - 1);
+            let max = Math.pow(10, digits) - 1;
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
         function numberRound(){
-            number = Math.floor(Math.random() * 9); // Generate a random number between 0 and 9
+            number = createNumber(digits);
 
             let numberBox = document.createElement('div');
             numberBox.textContent = number;
@@ -53,30 +61,54 @@
                 let answer = guess.value;
 
                 if (answer === number.toString()) {
-                    alert("Correct answer!");
+                    score++;
+                    digits++; // Øker antallet sifre for neste tall
                     moveToNextPage();
                 } else {
-                    alert("Wrong answer!");
+                    moveToScoreScreen();
                 }
             });
         }
 
+        function moveToScoreScreen(){
+            // Fjern gjetteknappen og inndatafeltet
+            let guessButton = document.querySelector('button');
+            let guess = document.querySelector('input');
+            guessButton.remove();
+            guess.remove();
+
+            // Lag HTML-innhold for tapsskjermen
+            let scoreScreenContent = `
+                <h2>Game Over!</h2>
+                <p>Your score: ${score}</p>
+                <button class="restart">Restart Game</button>
+            `;
+
+            // Sett inn tapsskjermen i kroppen
+            document.body.innerHTML = scoreScreenContent;
+
+            // Lytt til restart-knappen
+            let restartBtn = document.querySelector('.restart');
+            restartBtn.addEventListener('click', function(){
+                restartBtn.remove();
+                score = 0;
+                digits = 1;
+                numberRound();
+            });
+        }
+
         function moveToNextPage() {
-            // Define the content of the next "page"
             let nextPageContent = `
                 <h2>Congratulations!</h2>
                 <p>You got the correct answer!</p>
                 <button class="next">Next Level</button>
             `;
 
-            // Replace the current content with the next "page" content
             document.body.innerHTML = nextPageContent;
 
-            // Add event listener for the "Next Level" button
             let nextBtn = document.querySelector('.next');
             nextBtn.addEventListener('click', function(){
-                // Call the function for the next "page"
-                // In this case, let's just start the numberRound again
+                nextBtn.remove();
                 numberRound();
             });
         }
