@@ -296,7 +296,6 @@ let currentCoins = document.querySelector(".currentCoins")
 let header = document.querySelector("#header")
 let selectEl = document.querySelector("select")
 let lenkene = document.querySelectorAll("a")
-let con = document.querySelector(".container")
 
 selectEl.addEventListener("change", colorPalate)
 
@@ -375,4 +374,3 @@ else if (localStorage.teller == 2){
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
-
