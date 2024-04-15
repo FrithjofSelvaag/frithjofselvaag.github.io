@@ -61,15 +61,7 @@ header select:hover{
 
 
 /* måtte ha denne før mediaquarien */
-#storBoks .spillboks {
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    /* grid-template-rows: repeat(1,1); */
-    gap:10px;
-    max-width: 90%;
-    
-}
 
 
 /* media quary for endring  av navbar når mindre skjerm */
@@ -133,7 +125,15 @@ header select:hover{
     border-radius: 10px;
 }
 
+#storBoks .spillboks {
 
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-rows: repeat(1,1); */
+    gap:10px;
+    max-width: 90%;
+    
+}
 
 /* spill osv */
 
@@ -193,8 +193,8 @@ header select:hover{
 
 
 
-
-.currentCoins{
+/* trenger ikke siden ejg har fjernet coins for å fikse navnbar */
+/* .currentCoins{
     color: white;
-    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-}
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+} */
