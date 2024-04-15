@@ -4,11 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number memory</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(43, 135, 209);
+            color: white;
+        
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; 
+            margin: 0px;
+            
+        }
+        button{
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: rgb(254, 217, 32);
+            transition: background-color 0.5s ease;
+            color: black;
+        }
+        button:hover {
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: white;
+            transition: background-color 0.5s ease;
+            color: black;
+        }
+
+        h1{
+            font-size: 80px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p{
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+
+        .congratulation{
+            display: none;
+        }
+
+
+
+    </style>
 </head>
 <body>
     <h1>Number memory</h1>
     <p class="instructions">Remember an increasingly larger number</p>
     <button class="start">Start game</button>
+    <div class="congratulation">Correct asnswer!</div>
+    <div class="conteiner">
+        <div class="progress">
+            <div class="progress-inner">
+            </div>
+        </div>
+    </div>
 
     <script>
         let number;
@@ -32,33 +107,77 @@
         }
 
         function numberRound(){
-            number = createNumber(digits);
+            console.log('running')
+            number = createNumber(digits)
 
-            let numberBox = document.createElement('div');
-            numberBox.textContent = number;
-            document.body.appendChild(numberBox);
+            let numberBox = document.createElement('div')
+            numberBox.textContent = number
+            document.body.appendChild(numberBox)
+    
+            numberBox.style.fontSize = "40px"
 
-            let timer = document.createElement('button');
-            timer.innerText = "Next";
-            document.body.appendChild(timer);
+            let progressBar = document.querySelector(".progress-inner")
+            let prog = document.querySelector('.progress')
+            timer()
+            console.log('ja')
+            function timer(){
+                let interval = 300
 
-            timer.addEventListener("click", function(){
-                numberBox.remove();
-                timer.remove();
-                guessRound();
-            });
+                let countdown = setInterval(()=>{
+                    interval--
+                    prog.style.display = 'flex'
+                    progressBar.style.display = 'flex'
+                    let progressWidth = interval / 300 * 100
+                    progressBar.style.backgroundColor = 'white'
+                    progressBar.style.position = 'absolute'
+                    progressBar.style.width = '100%'
+                    progressBar.style.height = '100%'
+
+                    prog.style.margin = 'auto'
+                    prog.style.border = 'solid black'
+                    prog.style.backgroundColor = ''
+                    prog.style.height = '20px'
+                    prog.style.marginTop = '20px'
+                    prog.style.width = '600px'
+                    prog.style.position = 'relative'
+
+                    
+                    if(interval > 0){
+                        progressBar.style.width = progressWidth + "%"
+                    }
+                    else{
+                        progressBar.style.width = "0%"
+                        clearInterval(countdown)
+                        numberBox.innerHTML = ''
+                        progressBar.style.display = 'none'
+                        prog.style.display = 'none'
+                        guessRound()
+                    }
+                }, 10.5)
+            }
         }
 
         function guessRound(){
             let guess = document.createElement('input');
             document.body.appendChild(guess);
 
+            guess.style.backgroundColor = "#246CBB"
+            guess.style.border = "solid #48A1EF 2px"
+            guess.style.width = "95%"
+            guess.style.height = "70px"
+            guess.style.textAlign = "center"
+            guess.style.fontSize = "40px"
+
+
             let guessButton = document.createElement('button');
             guessButton.innerText = "Guess";
             document.body.appendChild(guessButton);
 
             guessButton.addEventListener("click", function(){
-                let answer = guess.value;
+                let answer = guess.value
+
+                guess.style.display = "none"
+                guessButton.style.display = "none"
 
                 if (answer === number.toString()) {
                     score++;
@@ -71,18 +190,182 @@
         }
 
         function moveToScoreScreen(){
-            // Fjern gjetteknappen og inndatafeltet
-            let guessButton = document.querySelector('button');
-            let guess = document.querySelector('input');
-            guessButton.remove();
-            guess.remove();
-
-            // Lag HTML-innhold for tapsskjermen
-            let scoreScreenContent = `
-                <h2>Game Over!</h2>
-                <p>Your score: ${score}</p>
-                <button class="restart">Restart Game</button>
-            `;
+            score++
+                document.write(`
+                <h1 style="color: white;
+                text-align: center;
+                font-size: 22px;
+                padding-top: 80px;
+                font-family: Helvetica, Arial, sans-serif;
+                ">Number Memory</h1>
+                <h1 style="color: white;
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 0px;
+                font-size: 50px;
+                padding-top: 0px;
+                font-family: Helvetica, Arial, sans-serif;
+                ">Digits</h1>
+                <h1 style="color: white;
+                text-align: center;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-size: 100px;
+                padding-top: 0px;
+                font-family: Helvetica, Arial, sans-serif;
+                ">${score-1}</h1>
+                <h1 style="color: white;
+                text-align: center;
+                font-size: 22px;
+                padding-top: 0px;
+                font-family: Helvetica, Arial, sans-serif;
+                ">Are you mongo</h1>
+                `)
+    
+                let nyKnapp = document.createElement('button')
+                nyKnapp.textContent = ('Try Again')
+                nyKnapp.classList.add('knapp')
+                document.body.appendChild(nyKnapp)
+    
+                let nyKnapp2 = document.createElement('button')
+                nyKnapp2.textContent = ('Home')
+                nyKnapp2.classList.add('knapp')
+                document.body.appendChild(nyKnapp2)
+    
+                let nyKnapp3 = document.createElement('button')
+                nyKnapp3.textContent = ('Save Score')
+                nyKnapp3.classList.add('knapp')
+                document.body.appendChild(nyKnapp3)
+    
+                nyKnapp.addEventListener('mouseenter', function() {
+                    nyKnapp.style.backgroundColor = 'white'
+                })
+                nyKnapp.addEventListener('mouseleave', function() {
+                    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                })
+                nyKnapp.addEventListener('click', function(){
+                    location.reload()
+                })
+                nyKnapp2.addEventListener('mouseenter', function() {
+                    nyKnapp2.style.backgroundColor = 'white'
+                })
+                nyKnapp2.addEventListener('mouseleave', function() {
+                    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+                })
+                nyKnapp2.addEventListener('click', function(){
+                    window.location.href = '../Hovedside/index.html'
+                })
+                nyKnapp3.addEventListener('mouseenter', function() {
+                    nyKnapp3.style.backgroundColor = 'white'
+                })
+                nyKnapp3.addEventListener('mouseleave', function() {
+                    nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+                })
+                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+                nyKnapp.style.display = 'flex'
+                nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                nyKnapp.style.margin = 'auto'
+                nyKnapp.style.marginTop = '20px'
+                nyKnapp.style.width = '160px'
+                nyKnapp.style.height = '50px'
+                nyKnapp.style.justifyContent = 'center'
+                nyKnapp.style.alignItems = 'center'
+                nyKnapp.style.fontWeight = '40px'
+                nyKnapp.style.border = 'none'
+                nyKnapp.style.borderRadius = '5px'
+                nyKnapp.style.transition = 'background-color 0.5s ease'
+                nyKnapp.style.fontSize = '25px'
+                nyKnapp.style.fontFamily = 'Helvetica, Arial, sans-serif'
+    
+                nyKnapp2.style.display = 'flex'
+                nyKnapp2.style.margin = '20px auto'
+                nyKnapp2.style.width = '160px'
+                nyKnapp2.style.height = '50px'
+                nyKnapp2.style.justifyContent = 'center'
+                nyKnapp2.style.alignItems = 'center'
+                nyKnapp2.style.fontWeight = '40px'
+                nyKnapp2.style.border = 'none'
+                nyKnapp2.style.borderRadius = '5px'
+                nyKnapp2.style.transition = 'background-color 0.5s ease'
+                nyKnapp2.style.fontSize = '25px'
+                nyKnapp2.style.fontFamily = 'Helvetica, Arial, sans-serif'
+    
+                nyKnapp3.style.display = 'flex'
+                nyKnapp3.style.margin = '20px auto'
+                nyKnapp3.style.width = '160px'
+                nyKnapp3.style.height = '50px'
+                nyKnapp3.style.justifyContent = 'center'
+                nyKnapp3.style.alignItems = 'center'
+                nyKnapp3.style.fontWeight = '40px'
+                nyKnapp3.style.border = 'none'
+                nyKnapp3.style.borderRadius = '5px'
+                nyKnapp3.style.transition = 'background-color 0.5s ease'
+                nyKnapp3.style.fontSize = '25px'
+                nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
+                nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+    
+/*                 if(selectEl.value === "white"){
+                    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+                    document.body.style.transition = 'background-color 1s ease'
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
+                }
+                else if(selectEl.value === "black"){
+                    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+                    document.body.style.transition = 'background-color 1s ease'
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
+                } */
+                nyKnapp3.addEventListener('click', function(){
+                        document.body.innerHTML = ""
+                        document.write(`
+                        <h1 style="color: white;
+                        text-align: center;
+                        font-size: 22px;
+                        padding-top: 125px;
+                        font-family: Helvetica, Arial, sans-serif;
+                        ">Sqeuence Memory</h1>
+                        <h1 style="color: white;
+                        text-align: center;
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        font-size: 100px;
+                        padding-top: 0px;
+                        font-family: Helvetica, Arial, sans-serif;
+                        ">${score-1} Numbers</h1>
+                        <h1 style="color: white;
+                        text-align: center;
+                        font-size: 22px;
+                        padding-top: 0px;
+                        font-family: Helvetica, Arial, sans-serif;
+                        ">Write Your Name</h1>
+                        `)
+                        let labelEl = document.createElement('label')
+                        labelEl.classList.add('label')
+                        document.body.appendChild(labelEl)
+                        let inputEl = document.createElement('input')
+                        inputEl.classList.add('input')
+                        labelEl.appendChild(inputEl)
+    
+                        labelEl.style.color = 'white'
+                        labelEl.style.display = 'flex'
+                        labelEl.style.margin = 'auto'
+                        labelEl.style.justifyContent = 'center'
+                    
+                        inputEl.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter') {
+                                let playerName = String(inputEl.value)
+                                let highscore = level - 3
+                                localStorage.setItem('highscore', highscore)
+                                localStorage.setItem('playerName', playerName)
+                                console.log(localStorage.getItem('playerName'))
+                                console.log(localStorage.getItem('highscore'))
+                                window.location.href = '../leaderboard/leaderboard.html'
+                            }
+                        })
+                    })
 
             // Sett inn tapsskjermen i kroppen
             document.body.innerHTML = scoreScreenContent;
@@ -96,22 +379,34 @@
                 numberRound();
             });
         }
+let congratulation = document.querySelector('.congratulation')
+    function moveToNextPage(){
+        congratulation.style.display = "block"
 
-        function moveToNextPage() {
-            let nextPageContent = `
-                <h2>Congratulations!</h2>
-                <p>You got the correct answer!</p>
-                <button class="next">Next Level</button>
-            `;
-
-            document.body.innerHTML = nextPageContent;
-
-            let nextBtn = document.querySelector('.next');
+        /* ongrat = document.createElement("div")
+        document.body.appendChild(congrat)
+        congrat.innerText = "Correct answer"  */       
+            
+            let nextBtn = document.createElement('button')
+            
+            document.body.appendChild(nextBtn)
+            nextBtn.innerText = 'Next Round'
             nextBtn.addEventListener('click', function(){
-                nextBtn.remove();
-                numberRound();
+                nextBtn.remove()
+                congratulation.style.display = "none"
+                numberRound()
             });
         }
+
+if(!localStorage.getItem('score')){
+localStorage.setItem('score', 0)
+}
+function giPoints(){
+    let currentScore = localStorage.getItem('score')
+    let newScore = Number(currentScore) + Number(score)
+    localStorage.setItem('score', newScore)
+    console.log(newScore)
+}
     </script>
 </body>
 </html>
