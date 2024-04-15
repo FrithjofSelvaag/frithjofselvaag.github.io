@@ -1,7 +1,3 @@
-let currentCoins = document.querySelector('.currentCoins')
-
-currentCoins.innerHTML = `${localStorage.getItem('score')} Coins`
-
 let color = "white"
 let boksene = document.querySelectorAll('.tiles div')
 let knapp = document.querySelector('.knapp')
@@ -180,6 +176,7 @@ function sjekkRekkefolge() {
         if (klikkedeBokser[i] !== blinkBokser[i] && blinkBokser.includes(klikkedeBokser[i])){
             setTimeout(function(){
                 boksene.forEach(function(boks){
+                    boks.style.transition = 'background-color 1s ease'
                     boks.style.backgroundColor = 'red'
                 })
             }, 1)
@@ -204,10 +201,10 @@ function sjekkRekkefolge() {
                 }, 350)
                 }
                 else if(selectEl.value === "black"){
-                    document.body.style.backgroundColor = 'rgb(150, 75, 0)'
+                    document.body.style.backgroundColor = 'red'
                     boksene.forEach(function(boks){
                         boks.style.transition = 'background-color 1s ease'
-                        boks.style.backgroundColor = 'rgb(150, 75, 0)'
+                        boks.style.backgroundColor = 'red'
                         boks.style.border = 'none'
                     })
                     setTimeout(function(){
@@ -215,7 +212,7 @@ function sjekkRekkefolge() {
                         boksene.forEach(function(boks){
                             boks.style.backgroundColor = 'rgb(17, 17, 17)'
                         })
-                }, 300)
+                }, 350)
                 }
 
                 tallArray = []
@@ -260,10 +257,11 @@ function sjekkRekkefolge() {
                 }, 350)
                 }
                 else if(selectEl.value === "black"){
-                    document.body.style.backgroundColor = 'rgb(150, 75, 0)'
+                    document.body.transition = 'backgorund-color 1s ease'
+                    document.body.style.backgroundColor = 'red'
                     boksene.forEach(function(boks){
                         boks.style.transition = 'background-color 1s ease'
-                        boks.style.backgroundColor = 'rgb(150, 75, 0)'
+                        boks.style.backgroundColor = 'red'
                         boks.style.border = 'none'
                     })
                     setTimeout(function(){
@@ -596,7 +594,6 @@ function colorPalate(){
 
         localStorage.teller = 1
 
-        currentCoins.style.color = 'black'
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -627,7 +624,6 @@ function colorPalate(){
 
         localStorage.teller = 2
 
-        currentCoins.style.color = 'white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         selectEl.style.color = 'white'
@@ -689,7 +685,6 @@ function giPoints(){
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
-
 function sjekkSkjermStorrelse() {
     if (window.innerWidth < 730) {
         text.innerHTML = 'Skjermen er for liten, venligst bruk en pc'
