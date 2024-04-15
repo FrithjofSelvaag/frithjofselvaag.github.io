@@ -71,6 +71,8 @@ header select:hover{
     
 }
 
+
+/* media quary for endring  av navbar når mindre skjerm */
 @media(max-width: 600px) {
 
     #storBoks .spillboks{
