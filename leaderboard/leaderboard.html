@@ -313,6 +313,10 @@
         let nr2 = document.querySelector('.nr2')
 
         function createNewScoreSequence(){
+            if(Number(localStorage.getItem('highscore')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody.appendChild(tr)
             let name = document.createElement('td')
@@ -321,10 +325,16 @@
             number.textContent = Number((localStorage.getItem('highscore')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML = 'lvl ' + number.innerHTML
+            }
         }
         createNewScoreSequence()
 
         function createNewScoreVisual(){
+            if(Number(localStorage.getItem('highscore2')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody2.appendChild(tr)
             let name = document.createElement('td')
@@ -333,10 +343,16 @@
             number.textContent = Number((localStorage.getItem('highscore2')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML = 'lvl ' + number.innerHTML
+            }
         }
         createNewScoreVisual()
 
         function createNewScoreReaction(){
+            if(Number(localStorage.getItem('highscore3')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody3.appendChild(tr)
             let name = document.createElement('td')
@@ -345,10 +361,16 @@
             number.textContent = Number((localStorage.getItem('highscore3')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML += 'ms'
+            }
         }
         createNewScoreReaction()
 
         function createNewScoreChimp(){
+            if(Number(localStorage.getItem('highscore4')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody4.appendChild(tr)
             let name = document.createElement('td')
@@ -357,10 +379,16 @@
             number.textContent = Number((localStorage.getItem('highscore4')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML = 'nr ' + number.innerHTML
+            }
         }
         createNewScoreChimp()
 
         function createNewScoreNumber(){
+            if(Number(localStorage.getItem('highscore5')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody5.appendChild(tr)
             let name = document.createElement('td')
@@ -369,10 +397,16 @@
             number.textContent = Number((localStorage.getItem('highscore5')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML = 'lvl ' + number.innerHTML
+            }
         }
         createNewScoreNumber()
 
         function createNewScore(){
+            if(Number(localStorage.getItem('highscore6')) === 0){
+                return
+            }
+            else{
             let tr = document.createElement('tr')
             tbody6.appendChild(tr)
             let name = document.createElement('td')
@@ -381,6 +415,8 @@
             number.textContent = Number((localStorage.getItem('highscore6')))
             tr.appendChild(name)
             tr.appendChild(number)
+            number.innerHTML = 'lvl ' + number.innerHTML
+            }
         }
         createNewScore()
 

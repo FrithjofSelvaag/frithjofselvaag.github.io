@@ -484,7 +484,7 @@ function valgt(){
                             inputEl.addEventListener('keydown', function(e) {
                                 if (e.key === 'Enter') {
                                     let playerName = String(inputEl.value)
-                                    let highscore = level
+                                    let highscore = level - 1
                                     localStorage.setItem('highscore2', highscore)
                                     localStorage.setItem('playerName2', playerName)
                                     console.log(localStorage.getItem('playerName2'))

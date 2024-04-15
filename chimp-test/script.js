@@ -330,7 +330,7 @@ function sjekkRekkefolge() {
                     font-size: 15px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;">
-                    Chimps get 9 dumbers 90% of the time!
+                    Chimps get 9 numbers 90% of the time!
                     </h1>`)
                 }
     
@@ -681,7 +681,7 @@ if(!localStorage.getItem('score4')){
 }
 function giPoints(){
     let currentScore = localStorage.getItem('score4')
-    let newScore = Number(currentScore) + Number(level - 3)
+    let newScore = Number(currentScore) + Number(level - 1)
     localStorage.setItem('score4', newScore)
     console.log(newScore)
 }

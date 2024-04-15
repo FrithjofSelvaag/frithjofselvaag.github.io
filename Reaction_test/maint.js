@@ -186,7 +186,7 @@ let sluttSpill = () => {
    if(selectEl.value === "white"){
       nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
       nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.hovdMeny.style.transition = 'background-color 1s ease'
+      document.body.style.transition = 'background-color 1s ease'
       document.body.style.backgroundColor = 'rgb(43, 135, 209)'
   }
   else if(selectEl.value === "black"){
