@@ -468,10 +468,10 @@ function sjekkRekkefolge() {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
                                 let highscore = level - 3
-                                localStorage.setItem('highscore', highscore)
-                                localStorage.setItem('playerName', playerName)
-                                console.log(localStorage.getItem('playerName'))
-                                console.log(localStorage.getItem('highscore'))
+                                localStorage.setItem('highscore4', highscore)
+                                localStorage.setItem('playerName4', playerName)
+                                console.log(localStorage.getItem('playerName4'))
+                                console.log(localStorage.getItem('highscore4'))
                                 window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
@@ -676,13 +676,13 @@ setTimeout(function(){
 }, 100)
 
 //score oppsettet
-if(!localStorage.getItem('score')){
-    localStorage.setItem('score', 0)
+if(!localStorage.getItem('score4')){
+    localStorage.setItem('score4', 0)
 }
 function giPoints(){
-    let currentScore = localStorage.getItem('score')
+    let currentScore = localStorage.getItem('score4')
     let newScore = Number(currentScore) + Number(level - 3)
-    localStorage.setItem('score', newScore)
+    localStorage.setItem('score4', newScore)
     console.log(newScore)
 }
 function sjekkSkjermStorrelse() {

@@ -135,21 +135,13 @@
     .leaderboard {
         display: flex;
         justify-content: space-around;
-        
     }
-
+    .chimp, 
+    .number,
     .sequence,
     .visual,
     .reaction {
         width: 25%;
-    }
-    table {
-        margin: auto;
-        text-align: left;
-        font-size: 20px;
-        height: 100px;
-        width: 100%;
-        border-collapse: collapse;
     }
 
     th, td{
@@ -157,21 +149,25 @@
         text-align: left;
     }
 
-    tr{
-        height: 200px;
+    table{
         background-color: rgba(211, 211, 211, 0.192);
         max-width: 600px;
         display: flex;
-        margin: 8px;
-        margin-top: 10px;
+        flex-direction: column;
         border: 3px solid black;
         cursor: pointer;
         transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
         border-radius: 5px;
+        font-size: 20px;
+        height: 200px;
+        width: 100%;
     }
-
-    tr: > hover{
-
+    tr{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    h1{
+        text-align: center;
     }
 
 
@@ -185,11 +181,6 @@
             <a href="../Hovedside/index.html">HOME</a>
             <i class="fa-regular fa-chart-bar fa-rotate-180"></i>
         </div>
-        <nav>
-            <a href="/leaderboard/leaderboard.html">LEADERBOARDS</a>
-        </nav>
-
-        <p class="currentCoins">0 Coins</p>
 
         <select>
             <option value="white">Light Mode</option>
@@ -199,32 +190,86 @@
     <div class="leaderboard">
         <div class="sequence">
             <table> 
+                <h1>Sequence Memory</h1>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Score</th>
                     </tr>
                 </thead>
+                <tbody class="tbody">
+                </tbody>
             </table>
         </div>
         <div class="visual">
             <table>
+                <h1>visual Memory</h1>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Score</th>
                     </tr>
                 </thead>
+                <tbody class="tbody2">
+
+                </tbody>
             </table>
         </div>
         <div class="reaction">
             <table>
+                <h1>Reaction Time</h1>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Score</th>
                     </tr>
                 </thead>
+                <tbody class="tbody3">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="leaderboard">
+        <div class="chimp">
+            <table>
+                <h1>Chimp Test</h1>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody4">
+                        
+                </tbody>
+            </table>
+        </div>
+        <div class="number">
+            <table>
+                <h1>Number Memory</h1>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody5">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="reaction">
+            <table>
+                <h1>Reaction Time</h1>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody6">
+
+                </tbody>
             </table>
         </div>
     </div>
@@ -259,30 +304,85 @@
         //local storage
 
         let tbody = document.querySelector('.tbody')
+        let tbody2 = document.querySelector('.tbody2')
+        let tbody3 = document.querySelector('.tbody3')
+        let tbody4 = document.querySelector('.tbody4')
+        let tbody5 = document.querySelector('.tbody5')
+        let tbody6 = document.querySelector('.tbody6')
         let nr1 = document.querySelector('.nr1')
         let nr2 = document.querySelector('.nr2')
-        /*<tbody class="tbody">
-                    <tr class="nr1">
-                    </tr>
-                    <tr class="nr2">
-                    </tr>
-                </tbody>*/
+
+        function createNewScoreSequence(){
+            let tr = document.createElement('tr')
+            tbody.appendChild(tr)
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName'))
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore')))
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScoreSequence()
+
+        function createNewScoreVisual(){
+            let tr = document.createElement('tr')
+            tbody2.appendChild(tr)
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName2'))
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore2')))
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScoreVisual()
+
+        function createNewScoreReaction(){
+            let tr = document.createElement('tr')
+            tbody3.appendChild(tr)
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName3'))
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore3')))
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScoreReaction()
+
+        function createNewScoreChimp(){
+            let tr = document.createElement('tr')
+            tbody4.appendChild(tr)
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName4'))
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore4')))
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScoreChimp()
+
+        function createNewScoreNumber(){
+            let tr = document.createElement('tr')
+            tbody5.appendChild(tr)
+            let name = document.createElement('td')
+            name.textContent = (localStorage.getItem('playerName5'))
+            let number = document.createElement('td')
+            number.textContent = Number((localStorage.getItem('highscore5')))
+            tr.appendChild(name)
+            tr.appendChild(number)
+        }
+        createNewScoreNumber()
 
         function createNewScore(){
             let tr = document.createElement('tr')
-            tbody.appendChild(tr)
-
+            tbody6.appendChild(tr)
             let name = document.createElement('td')
-            name.textContent = (localStorage.getItem('playerName'))
-            name.classList = ('name')
+            name.textContent = (localStorage.getItem('playerName6'))
             let number = document.createElement('td')
-            number.textContent = Number((localStorage.getItem('highscore')))
-            number.classList = ('number')
+            number.textContent = Number((localStorage.getItem('highscore6')))
             tr.appendChild(name)
             tr.appendChild(number)
         }
         createNewScore()
-        console.log(localStorage.getItem('playerName') + localStorage.getItem('highscore'))
 
     </script>
 </body>

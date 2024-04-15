@@ -236,10 +236,10 @@ let sluttSpill = () => {
               if (e.key === 'Enter') {
                   let playerName = String(inputEl.value)
                   let highscore = averageResultat
-                  localStorage.setItem('highscore', highscore)
-                  localStorage.setItem('playerName', playerName)
-                  console.log(localStorage.getItem('playerName'))
-                  console.log(localStorage.getItem('highscore'))
+                  localStorage.setItem('highscore3', highscore)
+                  localStorage.setItem('playerName3', playerName)
+                  console.log(localStorage.getItem('playerName3'))
+                  console.log(localStorage.getItem('highscore3'))
                   window.location.href = '../leaderboard/leaderboard.html'
               }
           })

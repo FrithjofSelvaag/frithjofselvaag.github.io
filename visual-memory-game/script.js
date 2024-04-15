@@ -485,10 +485,10 @@ function valgt(){
                                 if (e.key === 'Enter') {
                                     let playerName = String(inputEl.value)
                                     let highscore = level
-                                    localStorage.setItem('highscore', highscore)
-                                    localStorage.setItem('playerName', playerName)
-                                    console.log(localStorage.getItem('playerName'))
-                                    console.log(localStorage.getItem('highscore'))
+                                    localStorage.setItem('highscore2', highscore)
+                                    localStorage.setItem('playerName2', playerName)
+                                    console.log(localStorage.getItem('playerName2'))
+                                    console.log(localStorage.getItem('highscore2'))
                                     window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
