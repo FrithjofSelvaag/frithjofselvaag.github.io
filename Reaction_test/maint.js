@@ -84,7 +84,7 @@ let sluttSpill = () => {
   font-size: 22px;
   padding-top: 125px;
   font-family: Helvetica, Arial, sans-serif;
-  ">Reaction Time</h1>
+  ">Reaction Time Test</h1>
   <h1 style="color: white;
   text-align: center;
   margin-top: 0px;
@@ -100,7 +100,7 @@ let sluttSpill = () => {
   font-family: Helvetica, Arial, sans-serif;
   ">Better Luck Next Time</h1>
   `)
-
+//Lager tre knapper(tre muligheter)
   let nyKnapp = document.createElement('button')
   nyKnapp.textContent = ('Try Again')
   nyKnapp.classList.add('knapp')
@@ -205,7 +205,7 @@ let sluttSpill = () => {
           font-size: 22px;
           padding-top: 125px;
           font-family: Helvetica, Arial, sans-serif;
-          ">Reaction Time</h1>
+          ">Reaction Time Test</h1>
           <h1 style="color: white;
           text-align: center;
           margin-top: 0px;
