@@ -94,7 +94,7 @@ function nesteLevel(){
             hviteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
             
         }
-        else if(selectEl.value =="black"){
+        else if(selectEl.value == "black"){
             hviteBokser[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
             
         }
@@ -132,7 +132,6 @@ function valgt(){
     }
 
 
-                                        //om fargen ikke er gitt noen verdi - noe den ikke er gjort før vi klikker noe,           //siden 
     
 
     
@@ -539,11 +538,23 @@ function valgt(){
                     nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
 
-                    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
-                        nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-                        document.body.style.transition = 'background-color 1s ease'
-                        setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
-                        setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
+                
+
+                        if(selectEl.value === "white"){
+                            nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                            nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+                            document.body.style.transition = 'background-color 1s ease'
+                            setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                            setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
+                        }
+                        else if(selectEl.value === "black"){
+                            nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                            nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+                            document.body.style.transition = 'background-color 1s ease'
+                            setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                            setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
+                        }
+
 
                         nyKnapp3.addEventListener('click', function(){
                             document.body.innerHTML = ""
@@ -669,17 +680,20 @@ function levelFlashTap(){
 //kaller på elementer fra DOM
 
 
-let selectEl=document.querySelector('header select')
+
 let bodyEl = document.querySelector('body')
-let header = document.querySelector('header')
-let leaderboardEl = document.querySelector('nav a')
-/* let homeEl = document.querySelector('header div a') */
+
+
 let lenkene = document.querySelectorAll('a') //trener knaskje ikke
 
 let headerEl = document.querySelector('header')
-let homeEl = document.querySelector("header a")
+let homeEl = document.querySelector("header div a")
+let leaderboardEl = document.querySelector('header nav a')
+let selectEl = document.querySelector('header select')
 
 selectEl.addEventListener("change", colorPalate)
+
+
 
 function colorPalate(){
 
@@ -687,32 +701,61 @@ function colorPalate(){
     console.log(`valgteBokser array: ${valgteBokser}`)
 
     if (selectEl.value === "white") {
+        //navbar farger
         
-        
-        header.style.backgroundColor="white"
+        headerEl.style.backgroundColor="white"
         homeEl.style.color="black"
+        leaderboardEl.style.color="black"
+        selectEl.style.backgroundColor="white"
+        selectEl.style.color="black"
         
+        bodyEl.style.backgroundColor="rgb(43, 135, 209)"
 
-        for(let i=0;i<bokserEls.length;i++){                            //setter inn her slik at 
+        //hover effekter: 
+        selectEl.addEventListener('mouseover',function(){
+            selectEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        selectEl.addEventListener('mouseout',function(){
+            selectEl.style.color="rgb(0, 0, 0)"
+        })
+        homeEl.addEventListener('mouseover', function(){
+            homeEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        homeEl.addEventListener('mouseout', function(){
+            homeEl.style.color="rgb(0, 0, 0)"
+        })
+        leaderboardEl.addEventListener("mouseover",function(){
+            leaderboardEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        leaderboardEl.addEventListener("mouseout",function(){
+            leaderboardEl.style.color="rgb(0, 0, 0)"
+        })
+
+
+        //beholder farge på bokser etter bytte
+
+        for(let i=0;i<bokserEls.length;i++){                             
             bokserEls[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
         } 
             
         for(let i = 0;i<valgteBokser.length;i++){      // Om hvitebokser har noe i seg vil disse boksene skifte farge til hvit om vi bytter til dark mode midt i et level
             valgteBokser[i].style.backgroundColor="white"
         }
-        for (let i=0;i<valgtFeil.length;i++){
+        for(let i=0;i<valgtFeil.length;i++){
             valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.5)"
         }
 
+
+
         localStorage.teller = 1
         
-        bodyEl.style.backgroundColor="rgb(43, 135, 209)"
+        
 
         for(let i=0;i<bokserKlikkesEl.length;i++){
         bokserKlikkesEl[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
         }
         
-        //hvite farger
+        
 
 
     }
@@ -720,20 +763,60 @@ function colorPalate(){
 
     else if(selectEl.value === "black") {
 
+        //navbar farger
+        headerEl.style.backgroundColor="black"
         homeEl.style.color="white"
-        header.style.backgroundColor="black"
+        leaderboardEl.style.color="white"
+        selectEl.style.backgroundColor="black"
+        selectEl.style.color="white"
+
+        
+        bodyEl.style.backgroundColor="rgb(17, 17, 17)"
+        
+
+        
+
+        //hover effekter: 
+        selectEl.addEventListener('mouseover',function(){
+            selectEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        selectEl.addEventListener('mouseout',function(){
+            selectEl.style.color="rgb(255, 255, 255)"
+        })
+        homeEl.addEventListener('mouseover', function(){
+            homeEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        homeEl.addEventListener('mouseout', function(){
+            homeEl.style.color="rgb(255, 255, 255)"
+        })
+        leaderboardEl.addEventListener("mouseover",function(){
+            leaderboardEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        leaderboardEl.addEventListener("mouseout",function(){
+            leaderboardEl.style.color="rgb(255, 255, 255)"
+        })
+        
+    
+        
+
+
+        
+        
+
+        //beholder farge på bokser etter bytte
         for(let i=0;i<bokserEls.length;i++){
             bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
         for(let i = 0;i<valgteBokser.length;i++){      // Om hvitebokser har noe i seg vil disse boksene skifte farge til hvit om vi bytter til dark mode midt i et level
                 valgteBokser[i].style.backgroundColor="white"
         }
-        for (let i=0;i<valgtFeil.length;i++){
+        for(let i=0;i<valgtFeil.length;i++){
             valgtFeil[i].style.backgroundColor="rgba(0, 100, 100, 0.5)"
         }
 
+
         localStorage.teller = 2
-        bodyEl.style.backgroundColor="rgb(17, 17, 17)"
+        
         for(let i=0;i<bokserEls.length;i++){
             bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
