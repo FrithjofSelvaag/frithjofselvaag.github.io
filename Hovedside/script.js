@@ -116,6 +116,7 @@ function colorPalate(){
 
 
     else if (selectEl.value === "black") {
+        
         tittelSymbolEl.style.backgroundColor="black"
         localStorage.teller = 2
         spillOverskriftEl.style.color='white'
