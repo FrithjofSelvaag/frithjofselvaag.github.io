@@ -90,15 +90,15 @@ function colorPalate(){
             })
             for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.transition = 'box-shadow 0.5s ease-in'
-                boksene[h].style.boxShadow = '0px 10px 10px 0px rgba(0, 0, 0, 0.15)'
+                boksene[h].style.transition = 'box-shadow 0.3s ease-in, transform 0.2s ease-in-out, background-color 1s ease-in-out'
+                boksene[h].style.boxShadow = '5px 10px 6px 0px rgba(0, 0, 0, 0.15)'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
             })}
         
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                  boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
                 })
@@ -115,6 +115,7 @@ function colorPalate(){
 
 
     else if (selectEl.value === "black") {
+        
         tittelSymbolEl.style.backgroundColor="black"
         localStorage.teller = 2
         spillOverskriftEl.style.color='white'
@@ -165,10 +166,10 @@ function colorPalate(){
             })}
             
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                 boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
-                });
+                })
                 boksene[i].addEventListener('mouseleave', function(){
                     spillNavn.style.color = "white"
                 })
@@ -237,6 +238,7 @@ else if (localStorage.teller == 2){
 } */
 
 setTimeout(function(){
+    spillOverskriftEl.style.transition = 'background-color 0.3s ease'
     document.body.style.transition = 'background-color 1s ease'
     header.style.transition = 'background-color 1s ease'
 }, 100)
