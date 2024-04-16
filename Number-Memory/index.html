@@ -5,21 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number memory</title>
 
-    <style>
+    <style> 
+        /* navbaren */  
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            width: 100%;
+            margin: 0;
+        }
+        header nav {
+            display: flex;
+        }
+
+        header a {
+            color: black;
+            text-decoration: none;
+            padding: 20px;
+        }
+        header a:hover {
+            background-color: none;
+            color: rgba(0,0,0, 0.55);
+            border-radius: 10px; 
+        }
+        header .topnav a {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        header .topnav {
+            display: flex;
+            justify-content: space-between;
+        }
+        .fa-chart-bar {
+            color: black;
+            font-size: 30px;
+            padding: 5px 20px;
+            display: none;
+            cursor: pointer;
+        }
+        header select {
+            margin-right: 10px;
+            display: flex;
+            border-radius: 5px;
+            font-family: monospace; 
+            background-color: white;
+            color: black;
+            border-style: none;
+            width: 110px;
+            height: 40px;
+            text-align: center;
+            margin-left: auto;
+        }
+        header select:hover{
+            color: rgb(0, 0, 0, 0.55);
+        }
+
         *{
             font-family: Arial, Helvetica, sans-serif;
-            background-color: rgb(43, 135, 209);
             color: white;
-        
         }
         body{
+            background-color: rgb(43, 135, 209);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh; 
             margin: 0px;
             
+        }
+        .conteiner {
+            margin-bottom: 20px;
         }
         button{
             margin: 20px;
@@ -59,7 +117,7 @@
 
         h1{
             font-size: 80px;
-            margin-top: 0;
+            margin-top: 100px;
             margin-bottom: 10px;
         }
 
@@ -77,6 +135,20 @@
     </style>
 </head>
 <body>
+    <header id="header">
+        <div class="topnav">
+            <a href="../Hovedside/index.html">HOME</a>
+            <!-- <i class="fa-regular fa-chart-bar fa-rotate-180"></i> --><!-- burger -->
+        </div>
+        <nav>
+            <a href="/leaderboard/leaderboard.html">LEADERBOARDS</a>
+        </nav>
+ 
+        <select>
+            <option value="white">Light Mode</option>
+            <option value="black">Dark Mode</option>
+        </select>
+    </header>
     <h1>Number memory</h1>
     <p class="instructions">Remember an increasingly larger number</p>
     <button class="start">Start game</button>
@@ -89,24 +161,25 @@
     </div>
 
     <script>
-        let number;
-        let score = 0;
-        let digits = 1; // Antall sifre i det første tallet
+        let selectEl = document.querySelector('select')
+        let number
+        let score = 0
+        let digits = 1 // Antall sifre i det første tallet
 
-        let startBtn = document.querySelector('.start');
-        let instructionEl = document.querySelector('.instructions');
+        let startBtn = document.querySelector('.start')
+        let instructionEl = document.querySelector('.instructions')
 
         startBtn.addEventListener("click", function(){
-            startBtn.remove();
-            instructionEl.remove();
+            startBtn.remove()
+            instructionEl.remove()
 
-            numberRound();
-        });
+            numberRound()
+        })
 
         function createNumber(digits) {
-            let min = Math.pow(10, digits - 1);
-            let max = Math.pow(10, digits) - 1;
-            return Math.floor(Math.random() * (max - min + 1) + min);
+            let min = Math.pow(10, digits - 1)
+            let max = Math.pow(10, digits) - 1
+            return Math.floor(Math.random() * (max - min + 1) + min)
         }
 
         function numberRound(){
@@ -161,35 +234,36 @@
         }
 
         function guessRound(){
-            let guess = document.createElement('input');
-            document.body.appendChild(guess);
-
-            guess.style.backgroundColor = "#246CBB"
-            guess.style.border = "solid #48A1EF 2px"
+            let guess = document.createElement('input')
+            document.body.appendChild(guess)
             guess.style.width = "95%"
             guess.style.height = "70px"
             guess.style.textAlign = "center"
             guess.style.fontSize = "40px"
+            if(selectEl.value === "white"){
+                guess.style.backgroundColor = "#246CBB"
+                guess.style.border = "solid #48A1EF 2px"
+            }
+            else if(selectEl.value === "black"){
+                guess.style.backgroundColor = "rgba(255, 255, 255, 0.1)"
+                guess.style.border = "solid rgba(255, 255, 255, 0.6) 2px"
+            }
 
+            guess.addEventListener("keydown", function(e){
+                if (e.key === 'Enter') {
+                    let answer = guess.value
 
-            let guessButton = document.createElement('button');
-            guessButton.innerText = "Guess";
-            document.body.appendChild(guessButton);
+                    guess.style.display = "none"
 
-            guessButton.addEventListener("click", function(){
-                let answer = guess.value
-
-                guess.style.display = "none"
-                guessButton.style.display = "none"
-
-                if (answer === number.toString()) {
-                    score++;
-                    digits++; // Øker antallet sifre for neste tall
-                    moveToNextPage();
-                } else {
-                    moveToScoreScreen();
+                    if (answer === number.toString()) {
+                        score++
+                        digits++ // Øker antallet sifre for neste tall
+                        moveToNextPage()
+                    } else {
+                        moveToScoreScreen()
+                    }
                 }
-            });
+            })  
         }
 
         function moveToScoreScreen(){
@@ -264,7 +338,6 @@
                 nyKnapp3.addEventListener('mouseleave', function() {
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
                 })
-                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
                 nyKnapp.style.display = 'flex'
                 nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                 nyKnapp.style.margin = 'auto'
@@ -307,20 +380,20 @@
                 nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
                 nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
     
-/*                 if(selectEl.value === "white"){
+                if(selectEl.value === "white"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
                     document.body.style.transition = 'background-color 1s ease'
-                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 0)
                     setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
                 }
                 else if(selectEl.value === "black"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
                     document.body.style.transition = 'background-color 1s ease'
-                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 0)
                     setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
-                } */
+                }
                 nyKnapp3.addEventListener('click', function(){
                         document.body.innerHTML = ""
                         document.write(`
@@ -360,28 +433,94 @@
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level - 3
-                                localStorage.setItem('highscore', highscore)
-                                localStorage.setItem('playerName', playerName)
-                                console.log(localStorage.getItem('playerName'))
-                                console.log(localStorage.getItem('highscore'))
+                                let highscore = score - 1
+                                localStorage.setItem('highscore5', highscore)
+                                localStorage.setItem('playerName5', playerName)
+                                console.log(localStorage.getItem('playerName5'))
+                                console.log(localStorage.getItem('highscore5'))
                                 window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
                     })
-
-            // Sett inn tapsskjermen i kroppen
-            document.body.innerHTML = scoreScreenContent;
-
-            // Lytt til restart-knappen
-            let restartBtn = document.querySelector('.restart');
-            restartBtn.addEventListener('click', function(){
-                restartBtn.remove();
-                score = 0;
-                digits = 1;
-                numberRound();
-            });
         }
+let lenkene = document.querySelectorAll('a')
+
+selectEl.addEventListener("change", colorPalate)
+
+function colorPalate(){
+
+if (selectEl.value === "white") {
+
+    localStorage.teller = 1
+
+    header.style.backgroundColor = 'white'
+    document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+    selectEl.style.backgroundColor = 'white'
+    selectEl.style.color = 'black'
+    lenkene.forEach(function(lenkene){
+        lenkene.style.color = 'black'
+
+        lenkene.addEventListener('mouseenter', function() {
+            lenkene.style.color = 'rgba(0,0,0, 0.55)'
+        })
+        lenkene.addEventListener('mouseleave', function() {
+            lenkene.style.color = 'black'
+        })
+    })
+
+        selectEl.addEventListener('mouseenter', function() {
+            selectEl.style.color = 'rgba(0,0,0, 0.55)'
+        })
+        selectEl.addEventListener('mouseleave', function() {
+            selectEl.style.color = 'black'
+        })
+    }
+
+else if (selectEl.value === "black") {
+
+    localStorage.teller = 2
+
+    document.body.style.backgroundColor = 'rgb(17, 17, 17)'
+    selectEl.style.backgroundColor = 'black'
+    selectEl.style.color = 'white'
+    header.style.backgroundColor = 'black'
+    lenkene.forEach(function(lenkene){
+        lenkene.style.color = 'white'
+
+        lenkene.addEventListener('mouseenter', function() {
+            lenkene.style.color = 'rgba(255,255,255, 0.55)'
+        })
+        lenkene.addEventListener('mouseleave', function() {
+            lenkene.style.color = 'white'
+        })
+    })
+
+    selectEl.addEventListener('mouseenter', function() {
+        selectEl.style.color = 'rgba(255,255,255, 0.55)'
+    })
+    selectEl.addEventListener('mouseleave', function() {
+        selectEl.style.color = 'white'
+    })
+}}
+
+if (!localStorage.teller) {
+    localStorage.teller = 1
+} 
+if(localStorage.teller == 1){
+    selectEl.value = "white"
+    colorPalate()
+}
+else if (localStorage.teller == 2){
+    selectEl.value = "black"
+    colorPalate()
+}
+setTimeout(function(){
+    document.body.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
+}, 100)
+
+
+
 let congratulation = document.querySelector('.congratulation')
     function moveToNextPage(){
         congratulation.style.display = "block"
