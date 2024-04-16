@@ -629,7 +629,7 @@ function levelFlash(){
                 
             }
             else if(selectEl.value == "black"){
-                document.body.style.backgroundColor="black"
+                document.body.style.backgroundColor="rgb(17, 17, 17)"
             }
     console.log('endrer farge tilbake nå') 
     }, 350)
@@ -649,7 +649,7 @@ function levelFlashTap(){
                 
             }
             else if(selectEl.value == "black"){
-                document.body.style.backgroundColor="black"
+                document.body.style.backgroundColor="rgb(17, 17, 17)"
             }
         console.log('endrer farge tilbake nå') 
     }, 350)
@@ -727,7 +727,7 @@ function colorPalate(){
         }
 
         localStorage.teller = 2
-        bodyEl.style.backgroundColor="150, 75, 0"
+        bodyEl.style.backgroundColor="rgb(17, 17, 17)"
         for(let i=0;i<bokserKlikkesEl.length;i++){
             bokserKlikkesEl[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
