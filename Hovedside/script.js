@@ -12,55 +12,89 @@ let mainEl = document.querySelector('.spillboks')
 
 burgerEl.addEventListener('click', showNav)
 
+/* function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+} */
+
+// ColorPalate
+let tittelSymbolEl = document.querySelector('#tittelSymbol')
+let selectEl = document.querySelector('header select')
+let body = document.body
+let h1El = document.querySelector('h1')
+let header = document.querySelector('header')
+let headerSkrift = document.querySelector('header a')
+let chartBar = document.querySelector('.fa-chart-bar')
+let nav = document.querySelector('nav a')
+let homeEl = document.querySelector('header a')
+
+let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
+let boksene = document.querySelectorAll('.spillboks div')
+
+let spillOverskriftEl=document.querySelector('.spillOverskrift')
+let leaderboardEl = document.querySelector("header nav a")
+
+selectEl.addEventListener("change", colorPalate)
+
+
 function showNav() {
     navEl.classList.toggle('show')
     selectEl.classList.toggle('show')
 
 }
-
-// ColorPalate
-let selectEl = document.querySelector('select')
-let body = document.body
-let h1El = document.querySelector('h1')
-let header = document.querySelector('header')
-let chartBar = document.querySelector('.fa-chart-bar')
-let nav = document.querySelector('nav a')
-let home = document.querySelector('div a')
-let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
-let boksene = document.querySelectorAll('.spillboks div')
-
-let spillOverskriftEl=document.querySelector('.spillOverskrift')
-
-selectEl.addEventListener("change", colorPalate)
-
-
-
 function colorPalate(){
 
     let r = Math.floor(Math.random()*256)
     let g = Math.floor(Math.random()*256)
     let b = Math.floor(Math.random()*256)
+    
 
     if (selectEl.value === "white") {
 
             localStorage.teller = 1
-
-            header.style.backgroundColor = 'rgb(5, 163, 215)'
+            tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
+            header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
             body.style.backgroundColor = 'white'
             /* h1El.style.color = 'white' */
-            selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
-            chartBar.style.color = 'white'
+            selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
+            selectEl.style.color='black'
+            headerSkrift.style='black'
+            chartBar.style.color = 'black'
+            leaderboardEl.style.color="black"
             /* spillOverskriftEl.style.color = 'black' */
             lorem.forEach(function(lorem) {
                 lorem.style.color = 'black'
             })
-            for (let h = 0; h < boksene.length; h++) {
+            leaderboardEl.addEventListener('mouseover',function(){
+                leaderboardEl.style.color="rgba(0, 0, 0, 0.55)"
+            })
+            leaderboardEl.addEventListener('mouseout',function(){
+                leaderboardEl.style.color="black"
+
+            })
+
+            homeEl.addEventListener('mouseover',function(){
+                homeEl.style.color="rgba(0, 0, 0, 0.55"
+            })
+            homeEl.addEventListener('mouseout',function(){
+                homeEl.style.color="black"
+            })
+            
+
+            selectEl.addEventListener('mouseover',function(){
+                selectEl.style.color="rgba(0, 0, 0, 0.55)"
+            })
+            selectEl.addEventListener('mouseout',function(){
+                selectEl.style.color="black"
+            })
+            /* for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = 'none'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })}
+            })} */
         
         
         
@@ -82,18 +116,47 @@ function colorPalate(){
 
 
     else if (selectEl.value === "black") {
-
+        tittelSymbolEl.style.backgroundColor="black"
         localStorage.teller = 2
         spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
-        selectEl.style.backgroundColor = 'black'
-        header.style.backgroundColor = 'black'
+        selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+        selectEl.style.color='white'
+        header.style.backgroundColor = 'rgb(17, 17, 17)'
         /* h1El.style.color = 'white' */
         spillOverskriftEl.style.color = 'white'
+        headerSkrift.style.color='white'
+        leaderboardEl.style.color="white"
         chartBar.style.color = 'white'
+
+
         lorem.forEach(function(lorem) {
             lorem.style.color = 'white'
         })
+        selectEl.addEventListener('mouseover',function(){
+            selectEl.style.color='rgba(255, 255, 255, 0.55)'
+        })
+        selectEl.addEventListener('mouseout',function(){
+            selectEl.style.color="white"
+        })
+
+        leaderboardEl.addEventListener('mouseover',function(){
+            leaderboardEl.style.color="rgba(255, 255, 255, 0.55)"
+
+        })
+
+        leaderboardEl.addEventListener('mouseout',function(){
+            leaderboardEl.style.color="white"
+
+        })
+        homeEl.addEventListener('mouseover',function(){
+            homeEl.style.color="rgba(255, 255, 255, 0.55"
+        })
+        homeEl.addEventListener('mouseout',function(){
+            homeEl.style.color="white"
+        })
+
+
         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 1)'
@@ -117,7 +180,7 @@ function colorPalate(){
 
 
 
-        else if (selectEl.value === "colors") {
+        /* else if (selectEl.value === "colors") {
 
             localStorage.teller = 3
 
@@ -153,6 +216,11 @@ function colorPalate(){
         }
 }
 
+ */
+}
+
+
+
 if (!localStorage.teller) {
     localStorage.teller = 1
 } 
@@ -164,15 +232,15 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
-else if (localStorage.teller == 3){
+/* else if (localStorage.teller == 3){
     selectEl.value = "colors"
     colorPalate()
-}
+} */
 
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
 
-let currentCoins = document.querySelector('.currentCoins')
+/* let currentCoins = document.querySelector('.currentCoins') */
 
 

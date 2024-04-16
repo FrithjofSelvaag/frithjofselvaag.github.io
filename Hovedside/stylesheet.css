@@ -1,3 +1,10 @@
+
+
+/* *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} */
 body {
     background-color: white;
     margin: 0px;
@@ -9,6 +16,7 @@ body {
 /* navbaren */  
 header {
     display: flex;
+    transition: background-color 1s ease;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(5, 163, 215);
@@ -19,15 +27,21 @@ header nav {
 }
 
 header a {
-    color: white;
+    /* color: white; */
+    color:black;
     text-decoration: none;
     padding: 20px;
 }
 header a:hover {
     background-color: none;
-    color: rgba(255, 255, 255, 0.725);
+    
     border-radius: 10px;
 }
+header select:hover{
+    cursor: pointer;
+    
+}
+
 header .topnav a {
     font-size: 20px;
     font-weight: bold;
@@ -38,7 +52,8 @@ header .topnav {
     justify-content: space-between;
 }
 .fa-chart-bar {
-    color: white;
+    /* color: white; */
+    color:black;
     font-size: 30px;
     padding: 5px 20px;
     display: none;
@@ -50,15 +65,13 @@ header select {
     border-radius: 5px;
     font-family: monospace; 
     background-color: rgb(5, 163, 215);
-    color: white;
+    /* color: white; */
+    color:white;
     border-style: none;
     width: 110px;
     height: 40px;
     text-align: center;
     margin-left: auto;
-}
-header select:hover{
-    color: rgb(255, 255, 255, 0.725);
 }
 
 
@@ -123,7 +136,7 @@ header select:hover{
     
 }
 .fa-chart-bar:hover {
-    color: white;
+    color: black;
     border-radius: 10px;
 }
 
@@ -182,7 +195,6 @@ header select:hover{
 
 #storBoks .spillboks div .spillOverskrift{
     font-size: 30px;
-    color: rgb(255, 0, 0);
     text-align: center;
     margin-bottom: 0px;
     margin-top:50px;
@@ -190,28 +202,23 @@ header select:hover{
     display: inline-block; 
     width: 100%;
 }
-#storBoks .spillBoks div:hover .spillOverskrift{
-    color: rgb(231, 63, 2);
-}
+
 
 
 
 
 
 #tittelSymbol h1{
-
     color:white;
     font-size: 70px;
     margin: auto;
     display: flex;
     justify-content: center;
+    text-align: center;
+    max-width: 90%;;
 }
 
-/* trenger ikke siden ejg har fjernet coins for å fikse navnbar */
-/* .currentCoins{
-    color: white;
-     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-} */
+
 
 #tittelSymbol .fa-fingerprint{
     color:white;
@@ -219,12 +226,30 @@ header select:hover{
     font-size: 100px;
     padding-bottom: 20px;
     display: flex;
-    
     justify-content: center;
 }
 #tittelSymbol{
+    transition: background-color 1s ease;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 20px;
-    background-color: rgb(5, 163, 215);
+    /* background-color: rgb(5, 163, 215); */
 }
+
+
+@media(max-width: 965px){
+    #storBoks .spillboks{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width: 600px){
+    #storBoks .spillboks{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+    #stprboks .spillboks div{
+        margin:0;
+        padding:0;
+    }
+}
+

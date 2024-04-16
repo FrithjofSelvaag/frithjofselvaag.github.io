@@ -484,11 +484,11 @@ function valgt(){
                             inputEl.addEventListener('keydown', function(e) {
                                 if (e.key === 'Enter') {
                                     let playerName = String(inputEl.value)
-                                    let highscore = level
-                                    localStorage.setItem('highscore', highscore)
-                                    localStorage.setItem('playerName', playerName)
-                                    console.log(localStorage.getItem('playerName'))
-                                    console.log(localStorage.getItem('highscore'))
+                                    let highscore = level - 1
+                                    localStorage.setItem('highscore2', highscore)
+                                    localStorage.setItem('playerName2', playerName)
+                                    console.log(localStorage.getItem('playerName2'))
+                                    console.log(localStorage.getItem('highscore2'))
                                     window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
@@ -542,13 +542,81 @@ function levelFlashTap(){
 
 
 
+// fargeendringer for black and white mode 
+
+//kaller på elementer fra DOM
 
 
- 
+let selectEl=document.querySelector('header select')
+let body = document.body
+let header = document.querySelector('header')
+let leaderboardEl = document.querySelector('nav a')
+let homeEl = document.querySelector('header div a')
+let lenkene = document.querySelectorAll('a') //trener knaskje ikke
 
 
-/*
-fiksa slik at man kan holde på evig eller stopper på et nivår
 
-endre fra i = 0 til let i = 0 i for løkker
-*/
+selectEl.addEventListener("change", colorPalate)
+
+function colorPalate(){
+
+    if (selectEl.value === "white") {
+
+        localStorage.teller = 1
+
+
+        //hvite farger
+
+
+    }
+
+
+    else if(selectEl.value === "black") {
+
+        localStorage.teller = 2
+
+
+        //svarte farger
+
+
+    }
+
+
+
+}
+
+//local storage, bevarer light/dark mode
+/* let h2El = document.querySelector('h2')
+let knappEl = document.getElementById('knapp') */   //hva gjør dette? du har ikke noe med id knapp eller h2 i din
+
+console.log(localStorage.teller)
+//hvis teller ikke eksisterer i localstorage skal den settes til 1
+if (!localStorage.teller) {
+    localStorage.teller = 1
+} 
+
+if(localStorage.teller == 1){
+    selectEl.value = "white"
+    colorPalate()
+}
+else if (localStorage.teller == 2){
+    selectEl.value = "black"
+    colorPalate()
+}
+
+setTimeout(function(){
+    document.body.style.transition = 'background-color 1s ease'
+}, 100)
+
+//score oppsettet
+/* if(!localStorage.getItem('score')){
+    localStorage.setItem('score', 0)
+}
+function giPoints(){
+    let currentScore = localStorage.getItem('score')
+    let newScore = Number(currentScore) + Number(level - 1)
+    localStorage.setItem('score', newScore)
+    console.log(newScore)
+} */
+
+

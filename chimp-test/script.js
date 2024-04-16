@@ -330,7 +330,7 @@ function sjekkRekkefolge() {
                     font-size: 15px;
                     padding-top: 0px;
                     font-family: Helvetica, Arial, sans-serif;">
-                    Chimps get 9 dumbers 90% of the time!
+                    Chimps get 9 numbers 90% of the time!
                     </h1>`)
                 }
     
@@ -467,11 +467,11 @@ function sjekkRekkefolge() {
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level - 3
-                                localStorage.setItem('highscore', highscore)
-                                localStorage.setItem('playerName', playerName)
-                                console.log(localStorage.getItem('playerName'))
-                                console.log(localStorage.getItem('highscore'))
+                                let highscore = level - 1
+                                localStorage.setItem('highscore4', highscore)
+                                localStorage.setItem('playerName4', playerName)
+                                console.log(localStorage.getItem('playerName4'))
+                                console.log(localStorage.getItem('highscore4'))
                                 window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
@@ -667,22 +667,22 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
-
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
     boksene.forEach(function(boksene){
         boksene.style.transition = 'background-color 1s ease'
     })
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 //score oppsettet
-if(!localStorage.getItem('score')){
-    localStorage.setItem('score', 0)
+if(!localStorage.getItem('score4')){
+    localStorage.setItem('score4', 0)
 }
 function giPoints(){
-    let currentScore = localStorage.getItem('score')
-    let newScore = Number(currentScore) + Number(level - 3)
-    localStorage.setItem('score', newScore)
+    let currentScore = localStorage.getItem('score4')
+    let newScore = Number(currentScore) + Number(level - 1)
+    localStorage.setItem('score4', newScore)
     console.log(newScore)
 }
 function sjekkSkjermStorrelse() {

@@ -140,7 +140,6 @@ let sluttSpill = () => {
   nyKnapp3.addEventListener('mouseleave', function() {
       nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
   })
-   document.body.style.backgroundColor = "rgb(43, 135, 209)" 
   nyKnapp.style.display = 'flex'
   nyKnapp.style.backgroundColor = "rgb(254, 217, 32)"
   nyKnapp.style.margin = 'auto'
@@ -186,7 +185,7 @@ let sluttSpill = () => {
    if(selectEl.value === "white"){
       nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
       nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.hovdMeny.style.transition = 'background-color 1s ease'
+      document.body.style.transition = 'background-color 1s ease'
       document.body.style.backgroundColor = 'rgb(43, 135, 209)'
   }
   else if(selectEl.value === "black"){
@@ -236,10 +235,10 @@ let sluttSpill = () => {
               if (e.key === 'Enter') {
                   let playerName = String(inputEl.value)
                   let highscore = averageResultat
-                  localStorage.setItem('highscore', highscore)
-                  localStorage.setItem('playerName', playerName)
-                  console.log(localStorage.getItem('playerName'))
-                  console.log(localStorage.getItem('highscore'))
+                  localStorage.setItem('highscore3', highscore)
+                  localStorage.setItem('playerName3', playerName)
+                  console.log(localStorage.getItem('playerName3'))
+                  console.log(localStorage.getItem('highscore3'))
                   window.location.href = '../leaderboard/leaderboard.html'
               }
           })
@@ -292,7 +291,6 @@ klikkBar.addEventListener("click", () => {
 });
 
 //Dark Mode
-let currentCoins = document.querySelector(".currentCoins")
 let header = document.querySelector("#header")
 let selectEl = document.querySelector("select")
 let lenkene = document.querySelectorAll("a")
@@ -305,7 +303,6 @@ function colorPalate(){
 
       localStorage.teller = 1
 
-      currentCoins.style.color = 'black'
       header.style.backgroundColor = 'white'
       hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
       selectEl.style.backgroundColor = 'white'
@@ -333,7 +330,6 @@ function colorPalate(){
 
       localStorage.teller = 2
 
-      currentCoins.style.color = 'white'
       hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
       selectEl.style.backgroundColor = 'black'
       selectEl.style.color = 'white'
@@ -357,6 +353,7 @@ function colorPalate(){
       })
   }}
 
+
   console.log(localStorage.teller)
 //hvis teller ikke eksisterer i localstorage skal den settes til 1
 if (!localStorage.teller) {
@@ -372,5 +369,6 @@ else if (localStorage.teller == 2){
 }
 
 setTimeout(function(){
-    document.body.style.transition = 'background-color 1s ease'
+    hovdMeny.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
 }, 100)
