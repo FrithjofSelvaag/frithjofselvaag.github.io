@@ -670,7 +670,7 @@ let leaderboardEl = document.querySelector('nav a')
 let homeEl = document.querySelector('header div a')
 let lenkene = document.querySelectorAll('a') //trener knaskje ikke
 let bokserKlikkesEl = document.querySelectorAll('.tiles div')
-
+let headerEl = document.querySelector('header')
 
 
 selectEl.addEventListener("change", colorPalate)
@@ -683,7 +683,7 @@ function colorPalate(){
     if (selectEl.value === "white") {
         
         
-            
+        header.style.backgroundColor
        
 
 
@@ -727,7 +727,7 @@ function colorPalate(){
         }
 
         localStorage.teller = 2
-        bodyEl.style.backgroundColor="black"
+        bodyEl.style.backgroundColor="150, 75, 0"
         for(let i=0;i<bokserKlikkesEl.length;i++){
             bokserKlikkesEl[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
