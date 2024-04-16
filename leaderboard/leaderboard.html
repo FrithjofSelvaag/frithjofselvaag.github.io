@@ -21,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     }
     header nav {
@@ -29,7 +29,6 @@
     }
 
     header a {
-        color: black;
         text-decoration: none;
         padding: 20px;
     }
@@ -201,7 +200,7 @@
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 20px;
-    background-color: rgb(99, 210, 247);
+    
 
 }
 
@@ -319,31 +318,32 @@
 
 
     <script>
-        kokEl = document.querySelectorAll('.leaderboard .p h1')
+        let kokEl = document.querySelectorAll('.leaderboard .p h1')
         for(let i=0;i<kokEl.length;i++){
-            kokEl[i].style.color="pink"
-        }
+                        kokEl[i].style.color="pink"
+                    }
         
         
         
         
-        selectEl.addEventListener("change", colorPalate)
-
+        
         // ColorPalate
-        let tittelSymbolEl = document.querySelector('#tittelSymbol')
+        
         let selectEl = document.querySelector('header select')
-        let body = document.body
+        
+        let body = document.querySelector('body')
         let h1El = document.querySelector('h1')
         let header = document.querySelector('header')
-        let headerSkrift = document.querySelector('header a')
         let chartBar = document.querySelector('.fa-chart-bar')
         let nav = document.querySelector('nav a')
         let homeEl = document.querySelector('header a')
+        let tittelSymbolEl = document.querySelector('#tittelSymbol')
+        
 
-        let lorem = document.querySelectorAll('.leaderboard div h1')
-        let boksene = document.querySelectorAll('.leaderboard div')
+        let lorem = document.querySelectorAll('.leaderboard .p th')
+        let leaderboard = document.querySelectorAll('.p table')
 
-        let spillOverskriftEl = document.querySelector('.spillOverskrift')
+        
 
         selectEl.addEventListener("change", colorPalate)
 
@@ -362,7 +362,7 @@
                 
             }*/
             if (selectEl.value === "white") {
-                
+
                     localStorage.teller = 1
                     tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
                     header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
@@ -370,15 +370,13 @@
                     /* h1El.style.color = 'white' */
                     selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
                     selectEl.style.color='black'
-                    headerSkrift.style='black'
-                    chartBar.style.color = 'black'
+                    homeEl.style.color = 'black'
+                    /* chartBar.style.color = 'black' */
                     /* spillOverskriftEl.style.color = 'black' */
+                    
                     lorem.forEach(function(lorem) {
                         lorem.style.color = 'black'
                     })
-
-                    
-                    
 
                     homeEl.addEventListener('mouseover',function(){
                         homeEl.style.color="rgba(0, 0, 0, 0.55"
@@ -386,6 +384,8 @@
                     homeEl.addEventListener('mouseout',function(){
                         homeEl.style.color="black"
                     })
+                    
+                    
 
 
                     selectEl.addEventListener('mouseover',function(){
@@ -394,6 +394,7 @@
                     selectEl.addEventListener('mouseout',function(){
                         selectEl.style.color="black"
                     })
+
                     for (let h = 0; h < leaderboard.length; h++) {
                     leaderboard[h].addEventListener('mouseover', function(){
                         leaderboard[h].style.transition = 'box-shadow 0.5s ease-in'
@@ -402,6 +403,8 @@
                     leaderboard[h].addEventListener('mouseout', function(){
                         leaderboard[h].style.boxShadow = 'none'
                     })}
+
+                    
                     }
 
 
@@ -410,44 +413,53 @@
 
 
                     else if (selectEl.value === "black") {
-                    tittelSymbolEl.style.backgroundColor="black"
-                    localStorage.teller = 2
-                    spillOverskriftEl.style.color='white'
-                    body.style.backgroundColor = 'rgb(17, 17, 17)'
-                    selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
-                    selectEl.style.color='white'
-                    header.style.backgroundColor = 'rgb(17, 17, 17)'
-                    /* h1El.style.color = 'white' */
-                    spillOverskriftEl.style.color = 'white'
-                    headerSkrift.style.color='white'
-                    chartBar.style.color = 'white'
-
-
-                    lorem.forEach(function(lorem) {
-                    lorem.style.color = 'white'
-                    })
-                    selectEl.addEventListener('mouseover',function(){
-                    selectEl.style.color='rgba(255, 255, 255, 0.55)'
-                    })
-                    selectEl.addEventListener('mouseout',function(){
-                    selectEl.style.color="white"
-                    })
-
-                    homeEl.addEventListener('mouseover',function(){
-                    homeEl.style.color="rgba(255, 255, 255, 0.55"
-                    })
-                    homeEl.addEventListener('mouseout',function(){
-                    homeEl.style.color="white"
-                    })
-
-
                     
+                        
+                        localStorage.teller = 2
+                        tittelSymbolEl.style.backgroundColor="black"
+                        header.style.backgroundColor = 'rgb(17, 17, 17)'
+                        body.style.backgroundColor = 'rgb(17, 17, 17)'
+                        selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+                        selectEl.style.color='white'
+                        homeEl.style.color='white'
+                        
+                        /* h1El.style.color = 'white' */
+                        
+                        spillOverskriftEl.style.color = 'white'
+                        
+                        /* chartBar.style.color = 'white' */
 
-                    
+
+                        lorem.forEach(function(lorem) {
+                        lorem.style.color = 'white'
+                        })
+                        selectEl.addEventListener('mouseover',function(){
+                        selectEl.style.color='rgba(255, 255, 255, 0.55)'
+                        })
+                        selectEl.addEventListener('mouseout',function(){
+                        selectEl.style.color="white"
+                        })
+
+                        homeEl.addEventListener('mouseover',function(){
+                        homeEl.style.color="rgba(255, 255, 255, 0.55"
+                        })
+                        homeEl.addEventListener('mouseout',function(){
+                        homeEl.style.color="white"
+                        })
                     }
 
-                            }
-
+        }
+        if (!localStorage.teller) {
+            localStorage.teller = 1
+        } 
+        if(localStorage.teller == 1){
+            selectEl.value = "white"
+            colorPalate()
+        }
+        else if (localStorage.teller == 2){
+            selectEl.value = "black"
+            colorPalate()
+        }
        
 
         
