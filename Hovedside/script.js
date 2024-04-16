@@ -90,7 +90,7 @@ function colorPalate(){
             })
             for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.transition = 'box-shadow 0.5s ease-in'
+                boksene[h].style.transition = 'box-shadow 0.3s ease-in, transform 0.2s ease-in-out, background-color 1s ease-in-out'
                 boksene[h].style.boxShadow = '5px 10px 6px 0px rgba(0, 0, 0, 0.15)'
             })
             boksene[h].addEventListener('mouseout', function(){
