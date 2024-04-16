@@ -98,7 +98,7 @@ function colorPalate(){
             })}
         
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                  boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
                 })
@@ -166,10 +166,10 @@ function colorPalate(){
             })}
             
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                 boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
-                });
+                })
                 boksene[i].addEventListener('mouseleave', function(){
                     spillNavn.style.color = "white"
                 })
