@@ -45,7 +45,6 @@ function startSpill(){
 
     for(h=0;h<bokserEls.length;h++){
         bokserEls[h].addEventListener('click',valgt)
-        bokserEls[h].farge = ''
     }
     
     erIOvergang=true
@@ -132,19 +131,19 @@ function valgt(){
 
     
     
-    if(hviteBokser.includes(this)){
+        if(hviteBokser.includes(this)){
         this.style.backgroundColor='white'
         this.classList.add("flipped")
         if(!valgteBokser.includes(this)){
             valgteBokser.push(this)
         }
-    }
+        }   
     
 
         if(hviteBokser.length===valgteBokser.length){
 
             levelFlash()
-            overgang=2
+            erIOvergang=2
             setTimeout(function(){
                 for(i=0;i<valgteBokser.length;i++){
                     
@@ -268,7 +267,6 @@ function valgt(){
 
                 for(let h=0;h<bokserEls.length;h++){
                     bokserEls[h].addEventListener('click',valgt)
-                    bokserEls[h].farge = ''
                 }
                 
                 console.log('kjørt lag bokser')
@@ -594,12 +592,11 @@ function valgt(){
         }
     }
         
-        
-        
     
     
-    this.farge=getComputedStyle(this).backgroundColor    // setter this.farge til fargen boksen har etterå ha blikk klikket på
-    /* fargeEtterKlikk = this.farge    */                      // setter denne fargen til en variabel
+    
+    
+
 
 
 
@@ -679,12 +676,27 @@ let bokserKlikkesEl = document.querySelectorAll('.tiles div')
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
-    
+
+    console.log(`valgFeil array: ${valgtFeil}`)
+    console.log(`valgteBokser array: ${valgteBokser}`)
 
     if (selectEl.value === "white") {
+        
+        
+            
+       
+
+
         for(let i=0;i<bokserEls.length;i++){                            //setter inn her slik at 
             bokserEls[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
-            } 
+        } 
+            
+        for(let i = 0;i<valgteBokser.length;i++){      // Om hvitebokser har noe i seg vil disse boksene skifte farge til hvit om vi bytter til dark mode midt i et level
+            valgteBokser[i].style.backgroundColor="white"
+        }
+        for (let i=0;i<valgtFeil.length;i++){
+            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.5)"
+        }
 
         localStorage.teller = 1
         
@@ -701,9 +713,18 @@ function colorPalate(){
 
 
     else if(selectEl.value === "black") {
+
+        
+
         for(let i=0;i<bokserEls.length;i++){
             bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
-            }
+        }
+        for(let i = 0;i<valgteBokser.length;i++){      // Om hvitebokser har noe i seg vil disse boksene skifte farge til hvit om vi bytter til dark mode midt i et level
+                valgteBokser[i].style.backgroundColor="white"
+        }
+        for (let i=0;i<valgtFeil.length;i++){
+            valgtFeil[i].style.backgroundColor="rgba(0, 100, 100, 0.5)"
+        }
 
         localStorage.teller = 2
         bodyEl.style.backgroundColor="black"
