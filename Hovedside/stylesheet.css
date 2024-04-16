@@ -50,7 +50,7 @@ header .topnav {
     justify-content: space-between;
 }
 .fa-chart-bar {
-    /* color: white; */
+    
     color:black;
     font-size: 30px;
     padding: 5px 20px;
@@ -78,7 +78,7 @@ header select {
 
 
 /* media quary for endring  av navbar når mindre skjerm */
-@media(max-width: 600px) {
+/* @media(max-width: 600px) {
 
     #storBoks .spillboks{
         display: flex;
@@ -133,6 +133,11 @@ header select {
     }
     
 }
+ */
+
+
+    
+
 .fa-chart-bar:hover {
     color: black;
     border-radius: 10px;
