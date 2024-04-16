@@ -302,7 +302,7 @@
         </div>
         <div class="p">
             <table>
-                <h1>Reaction Time</h1>
+                <h1>Verbal Memory</h1>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -319,18 +319,30 @@
 
 
     <script>
-        let selectEl = document.querySelector('select')
-        let body = document.body
-        let header = document.querySelector('header')
         
+        selectEl.addEventListener("change", colorPalate)
 
+        // ColorPalate
+        let tittelSymbolEl = document.querySelector('#tittelSymbol')
+        let selectEl = document.querySelector('header select')
+        let body = document.body
+        let h1El = document.querySelector('h1')
+        let header = document.querySelector('header')
+        let headerSkrift = document.querySelector('header a')
+        let chartBar = document.querySelector('.fa-chart-bar')
+        let nav = document.querySelector('nav a')
+        let homeEl = document.querySelector('header a')
 
+        let lorem = document.querySelectorAll('.leaderboard div h1')
+        let boksene = document.querySelectorAll('.leaderboard div')
+
+        let spillOverskriftEl = document.querySelector('.spillOverskrift')
 
         selectEl.addEventListener("change", colorPalate)
 
         function colorPalate(){
 
-            if (selectEl.value === "white") {
+            /*  if (selectEl.value === "white") {
                 header.style.backgroundColor = 'rgb(5, 163, 215)'
                 body.style.backgroundColor = 'white'
                 selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
@@ -341,8 +353,91 @@
                 header.style.backgroundColor = 'indigo'
                 selectEl.style.backgroundColor = 'indigo'
                 
-            }
-        }
+            }*/
+            if (selectEl.value === "white") {
+
+                    localStorage.teller = 1
+                    tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
+                    header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
+                    body.style.backgroundColor = 'white'
+                    /* h1El.style.color = 'white' */
+                    selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
+                    selectEl.style.color='black'
+                    headerSkrift.style='black'
+                    chartBar.style.color = 'black'
+                    /* spillOverskriftEl.style.color = 'black' */
+                    lorem.forEach(function(lorem) {
+                        lorem.style.color = 'black'
+                    })
+                    
+
+                    homeEl.addEventListener('mouseover',function(){
+                        homeEl.style.color="rgba(0, 0, 0, 0.55"
+                    })
+                    homeEl.addEventListener('mouseout',function(){
+                        homeEl.style.color="black"
+                    })
+
+
+                    selectEl.addEventListener('mouseover',function(){
+                        selectEl.style.color="rgba(0, 0, 0, 0.55)"
+                    })
+                    selectEl.addEventListener('mouseout',function(){
+                        selectEl.style.color="black"
+                    })
+                    for (let h = 0; h < leaderboard.length; h++) {
+                    leaderboard[h].addEventListener('mouseover', function(){
+                        leaderboard[h].style.transition = 'box-shadow 0.5s ease-in'
+                        leaderboard[h].style.boxShadow = '0px 10px 10px 0px rgba(0, 0, 0, 0.15)'
+                    })
+                    leaderboard[h].addEventListener('mouseout', function(){
+                        leaderboard[h].style.boxShadow = 'none'
+                    })}
+                    }
+
+
+
+
+
+
+                    else if (selectEl.value === "black") {
+                    tittelSymbolEl.style.backgroundColor="black"
+                    localStorage.teller = 2
+                    spillOverskriftEl.style.color='white'
+                    body.style.backgroundColor = 'rgb(17, 17, 17)'
+                    selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+                    selectEl.style.color='white'
+                    header.style.backgroundColor = 'rgb(17, 17, 17)'
+                    /* h1El.style.color = 'white' */
+                    spillOverskriftEl.style.color = 'white'
+                    headerSkrift.style.color='white'
+                    chartBar.style.color = 'white'
+
+
+                    lorem.forEach(function(lorem) {
+                    lorem.style.color = 'white'
+                    })
+                    selectEl.addEventListener('mouseover',function(){
+                    selectEl.style.color='rgba(255, 255, 255, 0.55)'
+                    })
+                    selectEl.addEventListener('mouseout',function(){
+                    selectEl.style.color="white"
+                    })
+
+                    homeEl.addEventListener('mouseover',function(){
+                    homeEl.style.color="rgba(255, 255, 255, 0.55"
+                    })
+                    homeEl.addEventListener('mouseout',function(){
+                    homeEl.style.color="white"
+                    })
+
+
+                    
+
+                    
+                    }
+
+                            }
 
        
 
@@ -449,7 +544,7 @@
         }
         createNewScoreNumber()
 
-        function createNewScore(){
+        function createNewScoreVerbal(){
             if(Number(localStorage.getItem('highscore6')) === 0){
                 return
             }
@@ -465,7 +560,7 @@
             number.innerHTML = 'lvl ' + number.innerHTML
             }
         }
-        createNewScore()
+        createNewScoreVerbal()
 
     </script>
 </body>
