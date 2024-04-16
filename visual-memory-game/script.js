@@ -697,8 +697,15 @@ selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
 
+
     console.log(`valgFeil array: ${valgtFeil}`)
     console.log(`valgteBokser array: ${valgteBokser}`)
+
+
+
+
+
+
 
     if (selectEl.value === "white") {
         //navbar farger
@@ -711,6 +718,7 @@ function colorPalate(){
         
         bodyEl.style.backgroundColor="rgb(43, 135, 209)"
 
+        
         //hover effekter: 
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color="rgba(0, 0, 0, 0.55)"
@@ -749,11 +757,6 @@ function colorPalate(){
 
         localStorage.teller = 1
         
-        
-
-        for(let i=0;i<bokserKlikkesEl.length;i++){
-        bokserKlikkesEl[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
-        }
         
         
 
@@ -817,11 +820,9 @@ function colorPalate(){
 
         localStorage.teller = 2
         
-        for(let i=0;i<bokserEls.length;i++){
-            bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
-        }
         
-        //svarte farger
+        
+        
 
 
     }
