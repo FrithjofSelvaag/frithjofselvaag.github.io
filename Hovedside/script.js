@@ -98,7 +98,7 @@ function colorPalate(){
             })}
         
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                  boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
                 })
@@ -166,10 +166,10 @@ function colorPalate(){
             })}
             
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift');
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')
                 boksene[i].addEventListener('mouseenter', function(){
                     spillNavn.style.color = "orange"
-                });
+                })
                 boksene[i].addEventListener('mouseleave', function(){
                     spillNavn.style.color = "white"
                 })
@@ -238,6 +238,7 @@ else if (localStorage.teller == 2){
 } */
 
 setTimeout(function(){
+    spillOverskriftEl.style.transition = 'background-color 0.3s ease'
     document.body.style.transition = 'background-color 1s ease'
     header.style.transition = 'background-color 1s ease'
 }, 100)

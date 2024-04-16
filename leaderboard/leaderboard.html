@@ -136,12 +136,7 @@
         display: flex;
         justify-content: space-around;
     }
-    .verbal,
-    .chimp, 
-    .number,
-    .sequence,
-    .visual,
-    .reaction {
+    .p {
         width: 25%;
     }
 
@@ -155,13 +150,19 @@
         max-width: 600px;
         display: flex;
         flex-direction: column;
-        border: 3px solid black;
+        
         cursor: pointer;
         transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
         border-radius: 5px;
         font-size: 20px;
-        height: 200px;
+        height: 100px;
         width: 100%;
+    }
+
+    .p > table:hover{
+        transform: translateY(-10px);
+        transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
+        background-color: rgba(169, 169, 169, 0.5);
     }
 
 
@@ -175,7 +176,34 @@
         text-align: center;
 
     }
-   
+
+    #tittelSymbol h1{
+    color:white;
+    font-size: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 90%;;
+}
+
+
+
+#tittelSymbol .fa-fingerprint{
+    color:rgb(4, 46, 130);
+    font-size: 100px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+#tittelSymbol{
+    transition: background-color 1s ease;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(99, 210, 247);
+
+}
 
     
     
@@ -193,8 +221,16 @@
             <option value="black">Dark Mode</option>
         </select>
     </header>
+
+    <main id="tittelSymbol">
+        <i class="fa-solid fa-fingerprint"></i>
+        <h1>Human Benchmark</h1>
+        
+    
+    </main>
+
     <div class="leaderboard">
-        <div class="sequence">
+        <div class="p">
             <table> 
                 <h1>Sequence Memory</h1>
                 <thead>
@@ -207,7 +243,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="visual">
+        <div class="p">
             <table>
                 <h1>Visual Memory</h1>
                 <thead>
@@ -221,7 +257,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="reaction">
+        <div class="p">
             <table>
                 <h1>Reaction Time</h1>
                 <thead>
@@ -235,8 +271,8 @@
             </table>
         </div>
     </div>
-    <div class="leaderboard">
-        <div class="chimp">
+    <div class ="leaderboard">
+        <div class="p">
             <table>
                 <h1>Chimp Test</h1>
                 <thead>
@@ -250,7 +286,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="number">
+        <div class="p">
             <table>
                 <h1>Number Memory</h1>
                 <thead>
@@ -264,7 +300,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="verbal">
+        <div class="p">
             <table>
                 <h1>Verbal Memory</h1>
                 <thead>
@@ -283,17 +319,30 @@
 
 
     <script>
-        let selectEl = document.querySelector('select')
+        
+        selectEl.addEventListener("change", colorPalate)
+
+        // ColorPalate
+        let tittelSymbolEl = document.querySelector('#tittelSymbol')
+        let selectEl = document.querySelector('header select')
         let body = document.body
+        let h1El = document.querySelector('h1')
         let header = document.querySelector('header')
+        let headerSkrift = document.querySelector('header a')
+        let chartBar = document.querySelector('.fa-chart-bar')
+        let nav = document.querySelector('nav a')
+        let homeEl = document.querySelector('header a')
 
+        let lorem = document.querySelectorAll('.leaderboard div h1')
+        let boksene = document.querySelectorAll('.leaderboard div')
 
+        let spillOverskriftEl = document.querySelector('.spillOverskrift')
 
         selectEl.addEventListener("change", colorPalate)
 
         function colorPalate(){
 
-            if (selectEl.value === "white") {
+            /*  if (selectEl.value === "white") {
                 header.style.backgroundColor = 'rgb(5, 163, 215)'
                 body.style.backgroundColor = 'white'
                 selectEl.style.backgroundColor = 'rgb(5, 163, 215)'
@@ -304,8 +353,95 @@
                 header.style.backgroundColor = 'indigo'
                 selectEl.style.backgroundColor = 'indigo'
                 
-            }
-        }
+            }*/
+            if (selectEl.value === "white") {
+
+                    localStorage.teller = 1
+                    tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
+                    header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
+                    body.style.backgroundColor = 'white'
+                    /* h1El.style.color = 'white' */
+                    selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
+                    selectEl.style.color='black'
+                    headerSkrift.style='black'
+                    chartBar.style.color = 'black'
+                    /* spillOverskriftEl.style.color = 'black' */
+                    lorem.forEach(function(lorem) {
+                        lorem.style.color = 'black'
+                    })
+                    
+
+                    homeEl.addEventListener('mouseover',function(){
+                        homeEl.style.color="rgba(0, 0, 0, 0.55"
+                    })
+                    homeEl.addEventListener('mouseout',function(){
+                        homeEl.style.color="black"
+                    })
+
+
+                    selectEl.addEventListener('mouseover',function(){
+                        selectEl.style.color="rgba(0, 0, 0, 0.55)"
+                    })
+                    selectEl.addEventListener('mouseout',function(){
+                        selectEl.style.color="black"
+                    })
+                    for (let h = 0; h < leaderboard.length; h++) {
+                    leaderboard[h].addEventListener('mouseover', function(){
+                        leaderboard[h].style.transition = 'box-shadow 0.5s ease-in'
+                        leaderboard[h].style.boxShadow = '0px 10px 10px 0px rgba(0, 0, 0, 0.15)'
+                    })
+                    leaderboard[h].addEventListener('mouseout', function(){
+                        leaderboard[h].style.boxShadow = 'none'
+                    })}
+                    }
+
+
+
+
+
+
+                    else if (selectEl.value === "black") {
+                    tittelSymbolEl.style.backgroundColor="black"
+                    localStorage.teller = 2
+                    spillOverskriftEl.style.color='white'
+                    body.style.backgroundColor = 'rgb(17, 17, 17)'
+                    selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+                    selectEl.style.color='white'
+                    header.style.backgroundColor = 'rgb(17, 17, 17)'
+                    /* h1El.style.color = 'white' */
+                    spillOverskriftEl.style.color = 'white'
+                    headerSkrift.style.color='white'
+                    chartBar.style.color = 'white'
+
+
+                    lorem.forEach(function(lorem) {
+                    lorem.style.color = 'white'
+                    })
+                    selectEl.addEventListener('mouseover',function(){
+                    selectEl.style.color='rgba(255, 255, 255, 0.55)'
+                    })
+                    selectEl.addEventListener('mouseout',function(){
+                    selectEl.style.color="white"
+                    })
+
+                    homeEl.addEventListener('mouseover',function(){
+                    homeEl.style.color="rgba(255, 255, 255, 0.55"
+                    })
+                    homeEl.addEventListener('mouseout',function(){
+                    homeEl.style.color="white"
+                    })
+
+
+                    
+
+                    
+                    }
+
+                            }
+
+       
+
+        
 
         //local storage
 
