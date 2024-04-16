@@ -136,11 +136,7 @@
         display: flex;
         justify-content: space-around;
     }
-    .chimp, 
-    .number,
-    .sequence,
-    .visual,
-    .reaction {
+    .p {
         width: 25%;
     }
 
@@ -161,6 +157,12 @@
         font-size: 20px;
         height: 200px;
         width: 100%;
+    }
+
+    .p > table:hover{
+        transform: translateY(-10px);
+        transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
+        background-color: rgba(211, 211, 211, 0.5);
     }
 
 
@@ -193,7 +195,7 @@
         </select>
     </header>
     <div class="leaderboard">
-        <div class="sequence">
+        <div class="p">
             <table> 
                 <h1>Sequence Memory</h1>
                 <thead>
@@ -206,7 +208,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="visual">
+        <div class="p">
             <table>
                 <h1>Visual Memory</h1>
                 <thead>
@@ -220,7 +222,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="reaction">
+        <div class="p">
             <table>
                 <h1>Reaction Time</h1>
                 <thead>
@@ -234,8 +236,8 @@
             </table>
         </div>
     </div>
-    <div class="leaderboard">
-        <div class="chimp">
+    <div class ="leaderboard">
+        <div class="p">
             <table>
                 <h1>Chimp Test</h1>
                 <thead>
@@ -249,7 +251,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="number">
+        <div class="p">
             <table>
                 <h1>Number Memory</h1>
                 <thead>
@@ -263,7 +265,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="reaction">
+        <div class="p">
             <table>
                 <h1>Reaction Time</h1>
                 <thead>
@@ -285,6 +287,7 @@
         let selectEl = document.querySelector('select')
         let body = document.body
         let header = document.querySelector('header')
+        
 
 
 
@@ -305,6 +308,10 @@
                 
             }
         }
+
+       
+
+        
 
         //local storage
 
