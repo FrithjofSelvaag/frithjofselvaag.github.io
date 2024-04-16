@@ -7,7 +7,10 @@ let levelEl = document.querySelector('#level')
 
 
 let erIOvergang = false
-
+setTimeout(function(){
+    document.body.style.transition.backgroundColor ="1s ease;"
+    
+},100)
 
 
 let tilesEl=document.querySelector('.tiles')
@@ -29,7 +32,10 @@ function lagBokser(n){
     }
     bokserEls=document.querySelectorAll('.tiles > div')
     
-
+    setTimeout(function(){
+        for(let i = 0;i<bokserEls.length;i++)
+        bokserEls[i].style.transition="transform 0.6s, background-color 0.2s ease"
+    },100)
     
 }
 lagBokser(9)
@@ -667,11 +673,11 @@ let selectEl=document.querySelector('header select')
 let bodyEl = document.querySelector('body')
 let header = document.querySelector('header')
 let leaderboardEl = document.querySelector('nav a')
-let homeEl = document.querySelector('header div a')
+/* let homeEl = document.querySelector('header div a') */
 let lenkene = document.querySelectorAll('a') //trener knaskje ikke
-let bokserKlikkesEl = document.querySelectorAll('.tiles div')
-let headerEl = document.querySelector('header')
 
+let headerEl = document.querySelector('header')
+let homeEl = document.querySelector("header a")
 
 selectEl.addEventListener("change", colorPalate)
 
@@ -683,9 +689,9 @@ function colorPalate(){
     if (selectEl.value === "white") {
         
         
-        header.style.backgroundColor
-       
-
+        header.style.backgroundColor="white"
+        homeEl.style.color="black"
+        
 
         for(let i=0;i<bokserEls.length;i++){                            //setter inn her slik at 
             bokserEls[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
@@ -714,8 +720,8 @@ function colorPalate(){
 
     else if(selectEl.value === "black") {
 
-        
-
+        homeEl.style.color="white"
+        header.style.backgroundColor="black"
         for(let i=0;i<bokserEls.length;i++){
             bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
@@ -728,8 +734,8 @@ function colorPalate(){
 
         localStorage.teller = 2
         bodyEl.style.backgroundColor="rgb(17, 17, 17)"
-        for(let i=0;i<bokserKlikkesEl.length;i++){
-            bokserKlikkesEl[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+        for(let i=0;i<bokserEls.length;i++){
+            bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
         }
         
         //svarte farger

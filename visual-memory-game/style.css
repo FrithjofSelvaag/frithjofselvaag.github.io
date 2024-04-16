@@ -1,7 +1,7 @@
 body {
     margin: 0;
     /* background-color: rgb(43, 135, 209); */
-    transition: background-color 1s ease;
+    /* transition: background-color 1s ease; */
     cursor:default;
     font-family:"Roboto", sans-serif;
 }
@@ -28,10 +28,12 @@ body {
     transform: rotateY(180deg);
 }
 
+
 .tiles div:hover{
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-       
+    box-shadow: 0px 0px 10px rgba(255, 255, 255,0.4);
 }
+
+
 /* klasse som aktiveres når en boks rister */
 .shake {
     animation: shake 0.5s ease;
@@ -131,7 +133,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    /* background-color: white; */
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 header nav {
@@ -139,7 +141,7 @@ header nav {
 }
 
 header a {
-    color: black;
+    /* color: black; */
     text-decoration: none;
     padding: 20px;
 }
