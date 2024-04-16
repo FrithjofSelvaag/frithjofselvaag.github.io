@@ -88,15 +88,14 @@ function colorPalate(){
             selectEl.addEventListener('mouseout',function(){
                 selectEl.style.color="black"
             })
-            /* for (let h = 0; h < boksene.length; h++) {
+            for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.boxShadow = 'none'
+                boksene[h].style.transition = 'box-shadow 0.5s ease-in'
+                boksene[h].style.boxShadow = '5px 10px 6px 0px rgba(0, 0, 0, 0.15)'
             })
             boksene[h].addEventListener('mouseout', function(){
                 boksene[h].style.boxShadow = 'none'
-            })} */
-        
-        
+            })}
         
             for (let i = 0; i < boksene.length; i++) {
                 let spillNavn = boksene[i].querySelector('.spillOverskrift');
@@ -240,6 +239,7 @@ else if (localStorage.teller == 2){
 
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 /* let currentCoins = document.querySelector('.currentCoins') */

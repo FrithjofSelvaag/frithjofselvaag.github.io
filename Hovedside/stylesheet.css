@@ -16,11 +16,9 @@ body {
 /* navbaren */  
 header {
     display: flex;
-    transition: background-color 1s ease;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(5, 163, 215);
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 header nav {
     display: flex;
