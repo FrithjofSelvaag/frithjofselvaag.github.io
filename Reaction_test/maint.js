@@ -186,7 +186,7 @@ let sluttSpill = () => {
    if(selectEl.value === "white"){
       nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
       nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.hovdMeny.style.transition = 'background-color 1s ease'
+      document.body.style.transition = 'background-color 1s ease'
       document.body.style.backgroundColor = 'rgb(43, 135, 209)'
   }
   else if(selectEl.value === "black"){
@@ -236,10 +236,10 @@ let sluttSpill = () => {
               if (e.key === 'Enter') {
                   let playerName = String(inputEl.value)
                   let highscore = averageResultat
-                  localStorage.setItem('highscore', highscore)
-                  localStorage.setItem('playerName', playerName)
-                  console.log(localStorage.getItem('playerName'))
-                  console.log(localStorage.getItem('highscore'))
+                  localStorage.setItem('highscore3', highscore)
+                  localStorage.setItem('playerName3', playerName)
+                  console.log(localStorage.getItem('playerName3'))
+                  console.log(localStorage.getItem('highscore3'))
                   window.location.href = '../leaderboard/leaderboard.html'
               }
           })
