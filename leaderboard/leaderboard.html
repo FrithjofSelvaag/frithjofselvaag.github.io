@@ -386,17 +386,18 @@
 
 
     <script>
-        let kokEl = document.querySelectorAll('.leaderboard .p h1')
-        for(let i=0;i<kokEl.length;i++){
-                        kokEl[i].style.color="pink"
-                    }
+        
+        
         
         
         
         
         
         // ColorPalate
-        
+        let kokEl = document.querySelectorAll('.leaderboard .p h1')
+        /* for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="pink"
+                    } */
         let selectEl = document.querySelector('header select')
         
         let body = document.querySelector('body')
@@ -430,6 +431,9 @@
                 
             }*/
             if (selectEl.value === "white") {
+                for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="black"
+                    }
 
                     localStorage.teller = 1
                     tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
@@ -481,19 +485,21 @@
 
 
                     else if (selectEl.value === "black") {
-                    
+                        for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="white"
+                    }
                         
                         localStorage.teller = 2
                         tittelSymbolEl.style.backgroundColor="black"
                         header.style.backgroundColor = 'rgb(17, 17, 17)'
                         body.style.backgroundColor = 'rgb(17, 17, 17)'
                         selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
-                        selectEl.style.color='white'
-                        homeEl.style.color='white'
+                        selectEl.style.color = 'white'
+                        homeEl.style.color= 'white'
                         
                         /* h1El.style.color = 'white' */
                         
-                        spillOverskriftEl.style.color = 'white'
+                        /* spillOverskriftEl.style.color = 'white' */
                         
                         /* chartBar.style.color = 'white' */
 
