@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbal Memory</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(43, 135, 209);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; 
+            margin: 0px;     
+        }
+
+        button{
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: rgb(254, 217, 32);
+            transition: background-color 0.5s ease;
+            color: black;
+        }
+
+        button:hover {
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: white;
+            transition: background-color 0.5s ease;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verbal memory</h1>
+    <p class="instruction">You will be shown cards, one at a time. If You´ve seen it, click SEEN, if it´s a new word, click NEW.</p>
+    <button class="start">Start</button>
+
+    <script>
+        let startBtn = document.querySelector(".start")
+        let instructionEl = document.querySelector(".instruction")
+
+        startBtn.addEventListener('click', function(){
+            startBtn.remove()
+            instructionEl.remove()
+
+            let wordBox = document.createElement("div")
+
+            let buttonBox = document.createElement("div")
+            document.body.appendChild(buttonBox)
+            buttonBox.style.display = "flex"
+            buttonBox.style.flexDirection = "row"
+
+            let newBtn = document.createElement("button")
+            newBtn.innerText = "NEW"
+            buttonBox.appendChild(newBtn)
+            
+
+            let seenBtn = document.createElement("button")
+            seenBtn.innerText = "SEEN"
+            buttonBox.appendChild(seenBtn)
+            })
+
+
+            newBtn.addEventListener("click", function() {
+        // Hent HTML-elementene
+     /*    let h1EL = document.querySelector("#randomWord"); // Hent elementet med id "randomWord" */
+
+        // Utfør AJAX-forespørselen for å hente det tilfeldige ordet
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.api-ninjas.com/v1/randomword',
+            headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ'},
+            contentType: 'application/json',
+            success: function(result) {
+                // Oppdater innholdet til <h1> med det tilfeldige ordet
+                wordBox.textContent = result.word;
+            },
+            error: function ajaxError(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+            }
+        });
+    });
+
+
+    </script>
+</body>
+</html>
