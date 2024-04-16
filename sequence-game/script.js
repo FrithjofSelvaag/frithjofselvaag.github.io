@@ -360,6 +360,7 @@ else if (localStorage.teller == 2){
 
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 //score oppsettet

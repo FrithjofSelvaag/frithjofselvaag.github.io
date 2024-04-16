@@ -667,12 +667,12 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
-
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
     boksene.forEach(function(boksene){
         boksene.style.transition = 'background-color 1s ease'
     })
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 //score oppsettet

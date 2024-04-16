@@ -60,7 +60,7 @@ function colorPalate(){
             selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
             selectEl.style.color='black'
             headerSkrift.style='black'
-            chartBar.style.color = 'white'
+            chartBar.style.color = 'black'
             leaderboardEl.style.color="black"
             /* spillOverskriftEl.style.color = 'black' */
             lorem.forEach(function(lorem) {
