@@ -202,7 +202,7 @@ function sjekkRekkefolge() {
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level
+                                let highscore = level - 1
                                 localStorage.setItem('highscore', highscore)
                                 localStorage.setItem('playerName', playerName)
                                 console.log(localStorage.getItem('playerName'))
