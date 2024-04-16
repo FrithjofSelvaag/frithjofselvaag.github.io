@@ -140,7 +140,6 @@ let sluttSpill = () => {
   nyKnapp3.addEventListener('mouseleave', function() {
       nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
   })
-   document.body.style.backgroundColor = "rgb(43, 135, 209)" 
   nyKnapp.style.display = 'flex'
   nyKnapp.style.backgroundColor = "rgb(254, 217, 32)"
   nyKnapp.style.margin = 'auto'
@@ -354,6 +353,7 @@ function colorPalate(){
       })
   }}
 
+
   console.log(localStorage.teller)
 //hvis teller ikke eksisterer i localstorage skal den settes til 1
 if (!localStorage.teller) {
@@ -369,5 +369,6 @@ else if (localStorage.teller == 2){
 }
 
 setTimeout(function(){
-    document.body.style.transition = 'background-color 1s ease'
+    hovdMeny.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
 }, 100)

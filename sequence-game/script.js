@@ -202,7 +202,7 @@ function sjekkRekkefolge() {
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level
+                                let highscore = level - 1
                                 localStorage.setItem('highscore', highscore)
                                 localStorage.setItem('playerName', playerName)
                                 console.log(localStorage.getItem('playerName'))
@@ -360,6 +360,7 @@ else if (localStorage.teller == 2){
 
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 //score oppsettet

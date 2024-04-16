@@ -16,6 +16,7 @@ body {
 /* navbaren */  
 header {
     display: flex;
+    transition: background-color 1s ease;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(5, 163, 215);
@@ -208,7 +209,6 @@ header select {
 
 
 #tittelSymbol h1{
-
     color:white;
     font-size: 70px;
     margin: auto;
@@ -229,6 +229,7 @@ header select {
     justify-content: center;
 }
 #tittelSymbol{
+    transition: background-color 1s ease;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 20px;

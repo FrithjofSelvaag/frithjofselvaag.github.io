@@ -467,7 +467,7 @@ function sjekkRekkefolge() {
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level - 3
+                                let highscore = level - 1
                                 localStorage.setItem('highscore4', highscore)
                                 localStorage.setItem('playerName4', playerName)
                                 console.log(localStorage.getItem('playerName4'))
@@ -667,12 +667,12 @@ else if (localStorage.teller == 2){
     selectEl.value = "black"
     colorPalate()
 }
-
 setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
     boksene.forEach(function(boksene){
         boksene.style.transition = 'background-color 1s ease'
     })
+    header.style.transition = 'background-color 1s ease'
 }, 100)
 
 //score oppsettet

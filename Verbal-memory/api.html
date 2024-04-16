@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="randomWord"></h1> <!-- Legg til id "randomWord" her -->
+</body>
+
+<script>
+    // Vent til siden er lastet
+    document.addEventListener("DOMContentLoaded", function() {
+        // Hent HTML-elementene
+        let h1EL = document.querySelector("#randomWord"); // Hent elementet med id "randomWord"
+
+        // Utfør AJAX-forespørselen for å hente det tilfeldige ordet
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.api-ninjas.com/v1/randomword',
+            headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ'},
+            contentType: 'application/json',
+            success: function(result) {
+                // Oppdater innholdet til <h1> med det tilfeldige ordet
+            
+            error: function ajaxError(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+            }
+        });
+    })
+</script>
+</html>
