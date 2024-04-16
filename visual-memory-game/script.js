@@ -45,6 +45,7 @@ function startSpill(){
 
     for(h=0;h<bokserEls.length;h++){
         bokserEls[h].addEventListener('click',valgt)
+        bokserEls[h].farge = ''
     }
     
     erIOvergang=true
@@ -82,8 +83,18 @@ function nesteLevel(){
 
     setTimeout(function(){
     for(i=0;i<hviteBokser.length;i++){
-        hviteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+
+        
+        if(selectEl.value == "white"){
+            hviteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+            
+        }
+        else if(selectEl.value =="black"){
+            hviteBokser[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+            
+        }
         hviteBokser[i].classList.remove("flipped")
+        
     }
         
         
@@ -114,6 +125,11 @@ function valgt(){
     if(erIOvergang){
         return
     }
+
+
+                                        //om fargen ikke er gitt noen verdi - noe den ikke er gjort før vi klikker noe,           //siden 
+    
+
     
     
     if(hviteBokser.includes(this)){
@@ -131,16 +147,32 @@ function valgt(){
             overgang=2
             setTimeout(function(){
                 for(i=0;i<valgteBokser.length;i++){
-                    valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                    
+                    if(selectEl.value == "white"){
+                        valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                        
+                    }
+                    else if(selectEl.value =="black"){
+                        valgteBokser[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                        
+                    }
                     valgteBokser[i].classList.remove("flipped")
                     
                 }
                 for(let i=0;i<valgtFeil.length;i++){
-                    valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"    
+                    if(selectEl.value == "white"){
+                        valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                        
+                    }
+                    else if(selectEl.value =="black"){
+                        valgtFeil[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                       
+                    }
                 }
                 valgteBokser = []
                 hviteBokser = []
                 valgtFeil=[]
+                
             },400)
             setTimeout(function(){
                 levelEl.innerHTML=`${level}`
@@ -156,6 +188,7 @@ function valgt(){
                 if(level<3){
                     antallBokser=9
                     lagBokser(antallBokser)
+                    
                 }
                 if(level>=3){
                     antallBokser=16
@@ -163,6 +196,7 @@ function valgt(){
                     tilesEl.style.gap = '10px'
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
+                    
                     bokserEls.forEach(function(boks){
                         boks.style.height = '90px'
                     })
@@ -175,6 +209,7 @@ function valgt(){
                     tilesEl.style.gap = '8px'
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
+                    
                     bokserEls.forEach(function(boks){
                         boks.style.height = '72px'
                     })
@@ -184,6 +219,7 @@ function valgt(){
                     tilesEl.style.gap = '6px'
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
+                    
                     bokserEls.forEach(function(boks){
                         boks.style.height = '60px'
                     })
@@ -193,6 +229,7 @@ function valgt(){
                     tilesEl.style.gap = '5px'
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
+                    
                     bokserEls.forEach(function(boks){
                         boks.style.height =  '51px'
                     })
@@ -202,21 +239,36 @@ function valgt(){
                     tilesEl.style.gap = '5px'
                     console.log(bokserEls.length)
                     lagBokser(antallBokser)
+                    
                     bokserEls.forEach(function(boks){
                         boks.style.height =  '45px'
                     })
                 }if(level>=18){   //så lenge det er gøy
-                    document.write('congratulations You won')
+                    document.write('Congratulations! You won')
                 }
                 
                 
-
+                
 
                 
                 bokserEls=document.querySelectorAll('.tiles > div') 
 
-                for(h=0;h<bokserEls.length;h++){
+                
+                if(selectEl.value=="white"){                                    //definerer fargen på boksene igjenn, nå som de er laget på nytt 
+                for(let i=0;i<bokserEls.length;i++){                            //Dette er eneste stedet de lages på nytt
+                    bokserEls[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                    }
+                }
+                else if(selectEl.value=="black"){                   
+                    for(let i=0;i<bokserEls.length;i++){
+                        bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                        }
+                }
+
+
+                for(let h=0;h<bokserEls.length;h++){
                     bokserEls[h].addEventListener('click',valgt)
+                    bokserEls[h].farge = ''
                 }
                 
                 console.log('kjørt lag bokser')
@@ -243,12 +295,21 @@ function valgt(){
         
         if(!valgtFeil.includes(this)){
         valgtFeil.push(this)
-        this.style.backgroundColor='rgba(200, 7, 15, 0.7'
+        this.style.backgroundColor='rgba(200, 7, 15, 0.7)'
         
         let feilBoks = this
 
         setTimeout(function(){
-        feilBoks.style.backgroundColor="rgba(0, 0, 0, 0.5)"
+            
+        
+        if(selectEl.value == "white"){
+            feilBoks.style.backgroundColor="rgba(0, 0, 0, 0.5)"
+            
+        }
+        else if(selectEl.value =="black"){
+            feilBoks.style.backgroundColor="rgba(0, 100, 100, 0.5)"
+           
+        }
         },200)
 
         //risteeffekt kun for de to første feilene.
@@ -285,16 +346,34 @@ function valgt(){
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
-                            valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            
+                            if(selectEl.value == "white"){
+                                valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                                
+                            }
+                            else if(selectEl.value =="black"){
+                                valgteBokser[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                               
+                            }
                             valgteBokser[i].classList.remove("flipped") 
                         }
                         for(let i=0;i<valgtFeil.length;i++){
-                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            if(selectEl.value == "white"){
+                                valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                                
+                            }
+                            else if(selectEl.value == "black"){
+                                valgtFeil[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                               
+                            }
                             
                         }
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
+                    
+
+
                 }, 400)
                     setTimeout(function(){
                     
@@ -306,16 +385,33 @@ function valgt(){
                     
                     setTimeout(function(){
                         for(let i=0;i<valgteBokser.length;i++){
-                            valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
-                            valgteBokser[i].classList.remove("flipped") 
+
+                            if(selectEl.value == "white"){
+                                valgteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                                
+                            }
+                            else if(selectEl.value =="black"){
+                                valgteBokser[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+                            
+                        }
+                        valgteBokser[i].classList.remove("flipped") 
                         }
                         for(let i=0;i<valgtFeil.length;i++){
-                            valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                            if(selectEl.value == "white"){
+                                valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+                                
+                            }
+                            else if(selectEl.value == "black"){
+                                valgtFeil[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
                             
+                        }
                         }
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
+
+                    
+                
                 }, 400)
                     setTimeout(function(){
                     
@@ -502,7 +598,8 @@ function valgt(){
         
     
     
-
+    this.farge=getComputedStyle(this).backgroundColor    // setter this.farge til fargen boksen har etterå ha blikk klikket på
+    /* fargeEtterKlikk = this.farge    */                      // setter denne fargen til en variabel
 
 
 
@@ -520,9 +617,24 @@ function levelFlash(){
         console.log(`level i levelFlash: ${level}`)
         console.log(`nåværende level: ${level}`)
         document.body.style.transition = 'background-color 1s ease'
-        document.body.style.backgroundColor = 'rgb(70, 190, 255)'
-        setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'
-        console.log('endrer farge tilbake nå') 
+
+        
+        if(selectEl.value == "white"){
+            document.body.style.backgroundColor = 'rgb(70, 190, 255)'
+            
+        }
+        else if(selectEl.value == "black"){
+            document.body.style.backgroundColor="rgb(150, 75, 0)"
+        }
+        setTimeout(function(){
+            if(selectEl.value == "white"){
+                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+                
+            }
+            else if(selectEl.value == "black"){
+                document.body.style.backgroundColor="black"
+            }
+    console.log('endrer farge tilbake nå') 
     }, 350)
 }
 
@@ -534,7 +646,14 @@ function levelFlashTap(){
         console.log(`nåværende level: ${level}`)
         document.body.style.transition = 'background-color 1s ease'
         document.body.style.backgroundColor = 'red'
-        setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+        setTimeout(function(){
+            if(selectEl.value == "white"){
+                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+                
+            }
+            else if(selectEl.value == "black"){
+                document.body.style.backgroundColor="black"
+            }
         console.log('endrer farge tilbake nå') 
     }, 350)
 }
@@ -548,23 +667,33 @@ function levelFlashTap(){
 
 
 let selectEl=document.querySelector('header select')
-let body = document.body
+let bodyEl = document.querySelector('body')
 let header = document.querySelector('header')
 let leaderboardEl = document.querySelector('nav a')
 let homeEl = document.querySelector('header div a')
 let lenkene = document.querySelectorAll('a') //trener knaskje ikke
+let bokserKlikkesEl = document.querySelectorAll('.tiles div')
 
 
 
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
+    
 
     if (selectEl.value === "white") {
+        for(let i=0;i<bokserEls.length;i++){                            //setter inn her slik at 
+            bokserEls[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+            } 
 
         localStorage.teller = 1
+        
+        bodyEl.style.backgroundColor="rgb(43, 135, 209)"
 
-
+        for(let i=0;i<bokserKlikkesEl.length;i++){
+        bokserKlikkesEl[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
+        }
+        
         //hvite farger
 
 
@@ -572,10 +701,16 @@ function colorPalate(){
 
 
     else if(selectEl.value === "black") {
+        for(let i=0;i<bokserEls.length;i++){
+            bokserEls[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+            }
 
         localStorage.teller = 2
-
-
+        bodyEl.style.backgroundColor="black"
+        for(let i=0;i<bokserKlikkesEl.length;i++){
+            bokserKlikkesEl[i].style.backgroundColor="rgba(255, 255, 255, 0.153)"
+        }
+        
         //svarte farger
 
 

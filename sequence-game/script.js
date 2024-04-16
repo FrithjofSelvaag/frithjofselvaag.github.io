@@ -291,11 +291,11 @@ function colorPalate(){
         lenkene.forEach(function(lenkene){
             lenkene.style.color = 'black'
 
-            lenkene.addEventListener('mouseenter', function() {
+            leacnkene.addEventListener('mouseenter', function() {
                 lenkene.style.color = 'rgba(0,0,0, 0.55)'
             })
             lenkene.addEventListener('mouseleave', function() {
-                lenkene.style.color = 'black'
+                lenkene.style.color = 'blk'
             })
         })
         boksene.forEach(function(boksene){
@@ -364,14 +364,14 @@ setTimeout(function(){
 }, 100)
 
 //score oppsettet
-if(!localStorage.getItem('score')){
+/* if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
 }
-function giPoints(){
+ function giPoints(){                                     trenger ikke
     let currentScore = localStorage.getItem('score')
     let newScore = Number(currentScore) + Number(level - 1)
     localStorage.setItem('score', newScore)
     console.log(newScore)
-}
+} */ 
 
 
