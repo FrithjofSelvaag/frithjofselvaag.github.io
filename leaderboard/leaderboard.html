@@ -136,6 +136,7 @@
         display: flex;
         justify-content: space-around;
     }
+    .verbal,
     .chimp, 
     .number,
     .sequence,
@@ -263,9 +264,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="reaction">
+        <div class="verbal">
             <table>
-                <h1>Reaction Time</h1>
+                <h1>Verbal Memory</h1>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -407,7 +408,7 @@
         }
         createNewScoreNumber()
 
-        function createNewScore(){
+        function createNewScoreVerbal(){
             if(Number(localStorage.getItem('highscore6')) === 0){
                 return
             }
@@ -423,7 +424,7 @@
             number.innerHTML = 'lvl ' + number.innerHTML
             }
         }
-        createNewScore()
+        createNewScoreVerbal()
 
     </script>
 </body>
