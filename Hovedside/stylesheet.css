@@ -178,7 +178,6 @@ header select {
 
 #storBoks .spillboks > div:hover {
     transform: translateY(-10px);
-    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
     background-color: rgba(211, 211, 211, 0.5);
 }
 #storBoks .spillboks > div > h1{
