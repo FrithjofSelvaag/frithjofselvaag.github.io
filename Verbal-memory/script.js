@@ -6,7 +6,7 @@ let word
 let scoreBoxEl = document.querySelector("#scoreBox")
 let lifeBoxEl = document.querySelector("#lifeBox")
 
-$(document).ready(function() {
+$(document).ready(function(){
     let newBtn
     let seenBtn
 
