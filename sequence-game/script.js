@@ -51,7 +51,7 @@ function sjekkRekkefolge() {
                 text-align: center;
                 font-size: 22px;
                 padding-top: 125px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Sqeuence Memory</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -59,13 +59,13 @@ function sjekkRekkefolge() {
                 margin-bottom: 0px;
                 font-size: 100px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Level ${level}</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Better Luck Next Time</h1>
                 `)
     
@@ -170,7 +170,7 @@ function sjekkRekkefolge() {
                         text-align: center;
                         font-size: 22px;
                         padding-top: 125px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Sqeuence Memory</h1>
                         <h1 style="color: white;
                         text-align: center;
@@ -178,13 +178,13 @@ function sjekkRekkefolge() {
                         margin-bottom: 0px;
                         font-size: 100px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Level ${level}</h1>
                         <h1 style="color: white;
                         text-align: center;
                         font-size: 22px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')

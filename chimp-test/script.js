@@ -298,7 +298,7 @@ function sjekkRekkefolge() {
                 text-align: center;
                 font-size: 22px;
                 padding-top: 80px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family:Roboto, sans-serif;
                 ">Chimp Test</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -306,7 +306,7 @@ function sjekkRekkefolge() {
                 margin-bottom: 0px;
                 font-size: 50px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Numbers</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -314,13 +314,13 @@ function sjekkRekkefolge() {
                 margin-bottom: 0px;
                 font-size: 100px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">${level-1}</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Can You Do Better Than a Chimp?</h1>
                 `)
                 if(monkey === 1){
@@ -329,7 +329,7 @@ function sjekkRekkefolge() {
                     text-align: center;
                     font-size: 15px;
                     padding-top: 0px;
-                    font-family: Helvetica, Arial, sans-serif;">
+                    font-family: Roboto, sans-serif;">
                     Chimps get 9 numbers 90% of the time!
                     </h1>`)
                 }
@@ -435,7 +435,7 @@ function sjekkRekkefolge() {
                         text-align: center;
                         font-size: 22px;
                         padding-top: 125px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Sqeuence Memory</h1>
                         <h1 style="color: white;
                         text-align: center;
@@ -443,13 +443,13 @@ function sjekkRekkefolge() {
                         margin-bottom: 0px;
                         font-size: 100px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">${level-1} Numbers</h1>
                         <h1 style="color: white;
                         text-align: center;
                         font-size: 22px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')
