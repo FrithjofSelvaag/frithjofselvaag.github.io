@@ -292,7 +292,7 @@ if (selectEl.value === "white") {
 localStorage.teller = 1
 
 header.style.backgroundColor = 'white'
-document.main.style.backgroundColor = 'rgb(43, 135, 209)'
+document.body.style.backgroundColor = 'rgb(43, 135, 209)'
 selectEl.style.backgroundColor = 'white'
 selectEl.style.color = 'black'
 lenkene.forEach(function(lenkene){
@@ -318,7 +318,7 @@ else if (selectEl.value === "black") {
 
 localStorage.teller = 2
 
-document.main.style.backgroundColor = 'rgb(17, 17, 17)'
+document.body.style.backgroundColor = 'rgb(17, 17, 17)'
 selectEl.style.backgroundColor = 'black'
 selectEl.style.color = 'white'
 header.style.backgroundColor = 'black'
