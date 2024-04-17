@@ -888,7 +888,7 @@ function colorPalate(){
 
     if (selectEl.value === "white") {
         //navbar farger
-        
+        burgerEl.style.color="white"
         headerEl.style.backgroundColor="white"
         homeEl.style.color="black"
         leaderboardEl.style.color="black"
@@ -899,6 +899,13 @@ function colorPalate(){
 
         
         //hover effekter: 
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(0, 0, 0)"
+        })
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color="rgba(0, 0, 0, 0.55)"
         })
@@ -946,6 +953,7 @@ function colorPalate(){
     else if(selectEl.value === "black") {
 
         //navbar farger
+        burgerEl.style.color="white"
         headerEl.style.backgroundColor="black"
         homeEl.style.color="white"
         leaderboardEl.style.color="white"
@@ -959,6 +967,13 @@ function colorPalate(){
         
 
         //hover effekter: 
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(255, 255, 255)"
+        })
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color="rgba(255, 255, 255, 0.55)"
         })

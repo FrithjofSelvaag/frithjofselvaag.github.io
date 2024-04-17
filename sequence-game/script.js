@@ -268,6 +268,8 @@ for (let h = 0; h < boksene.length; h++) {
     }})
 }
 
+
+
 //FARGEENDRING TIL BLACK OG WHITE MODE!
 let selectEl = document.querySelector('select')
 let body = document.body
@@ -275,6 +277,21 @@ let header = document.querySelector('header')
 let nav = document.querySelector('nav a')
 let home = document.querySelector('div a')
 let lenkene = document.querySelectorAll('a')
+
+
+
+// for responsiv burger
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
 
 selectEl.addEventListener("change", colorPalate)
 
@@ -284,6 +301,8 @@ function colorPalate(){
 
         localStorage.teller = 1
 
+
+        burgerEl.style.color="black"
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -300,9 +319,18 @@ function colorPalate(){
                 lenkene.style.color = 'black'
             })
         })
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(0, 0, 0)"
+        })
+
         boksene.forEach(function(boksene){
             boksene.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
         })
+        
 
             selectEl.addEventListener('mouseenter', function() {
                 selectEl.style.color = 'rgba(0,0,0, 0.55)'
@@ -316,22 +344,30 @@ function colorPalate(){
 
         localStorage.teller = 2
 
+        burgerEl.style.color="white"
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         selectEl.style.color = 'white'
         header.style.backgroundColor = 'black'
         lenkene.forEach(function(lenkene){
-            lenkene.style.color = 'white'
+        lenkene.style.color = 'white'
 
-            lenkene.addEventListener('mouseenter', function() {
-                lenkene.style.color = 'rgba(255,255,255, 0.55)'
-            })
-            lenkene.addEventListener('mouseleave', function() {
-                lenkene.style.color = 'white'
-            })
+        lenkene.addEventListener('mouseenter', function() {
+        lenkene.style.color = 'rgba(255,255,255, 0.55)'
+        })
+        lenkene.addEventListener('mouseleave', function() {
+        lenkene.style.color = 'white'
+        })
         })
         boksene.forEach(function(boksene){
             boksene.style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
+        })
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(255, 255, 255)"
         })
 
         selectEl.addEventListener('mouseenter', function() {
