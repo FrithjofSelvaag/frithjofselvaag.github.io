@@ -1,58 +1,198 @@
-let color = "white"
-let boksene = document.querySelectorAll('div div')
-let knapp = document.querySelector('.knapp')
-let text = document.querySelector('#text')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbal Memory</title>
 
-let blinkBokser = []
-let klikkedeBokser = []
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(43, 135, 209);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0px;
+        }
 
-knapp.addEventListener('click', sequenceBlink)
+        button {
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: rgb(254, 217, 32);
+            transition: background-color 0.5s ease;
+            color: black;
+        }
 
-let level = 1
+        button:hover {
+            margin: 20px;
+            display: flex;
+            width: 160px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 25px;
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: white;
+            transition: background-color 0.5s ease;
+            color: black;
+            cursor: pointer;
+        }
+        .buttonBox {
+            display: flex;
+            flex-direction: row;
+        }
 
-let j = 0
-function sequenceBlink(){
-    knapp.style.display = 'none'
-    if (j < level) {
-        let i = Math.floor(Math.random() * boksene.length)
-        let boks = boksene[i]
-        blinkBokser.push(boks)
+        #wordBox{
+            height: 20px;
+        }
 
-        let g = 0
+        #scoreBox{
+            display: none;
+        }
 
-        setTimeout(function rekkefolgen(){
-            if(g < level){
-                setTimeout(function(){blinkBokser[g].style.backgroundColor = 'white'}, 150)
-                setTimeout(function(){
+        #lifeBox{
+            display: none;
+        }
 
-                    if(selectEl.value === "black"){
-                        blinkBokser[g].style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
-                    }
-                    else if(selectEl.value === "white"){
-                        blinkBokser[g].style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-                    }
-                    g++
-                    rekkefolgen()
-                }, 600)
-            }}, 100)
+    </style>
+</head>
+<body>
+    <h1>Verbal memory</h1>
+    <p class="instruction">You will be shown cards, one at a time. If You´ve seen it, click SEEN, if it´s a new word, click NEW.</p>
+    <button class="start">Start</button>
+    <div id="wordBox"></div>
+    <div class="buttonBox"></div>
+    <div id="scoreBox">Score: 0</div>
+    <div id="lifeBox">Lives: 3</div>
 
-        j++
-        sequenceBlink()
-    }
-}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let lives = 3;
+        let score = 0;
+        let wordsArray = [];
+        let word;
+        let scoreBoxEl = document.querySelector("#scoreBox")
+        let lifeBoxEl = document.querySelector("#lifeBox")
 
-function sjekkRekkefolge() {
-    if(knapp.style.display === 'none'){
-        for (let i = 0; i < klikkedeBokser.length; i++) {
-            if (klikkedeBokser[i] !== blinkBokser[i]) {
-                giPoints()
+        $(document).ready(function() {
+            let newBtn;
+            let seenBtn;
+
+
+            function getRandomWord() {
+                let random = Math.floor(Math.random() * 3);
+                $('#wordBox').text('');
+
+                if (random === 0 && wordsArray.length > 0) {
+                    let arrRandom = Math.floor(Math.random() * wordsArray.length);
+                    word = wordsArray[arrRandom];
+                    $('#wordBox').text(word);
+                } else {
+                    $.ajax({
+                        method: 'GET',
+                        url: 'https://api.api-ninjas.com/v1/randomword',
+                        headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ' },
+                        contentType: 'application/json',
+                        success: function(result) {
+                            let newWord = result.word;
+                            $('#wordBox').text(newWord);
+                            word = newWord; // Oppdaterer word til det nye ordet
+                        },
+                        error: function ajaxError(jqXHR) {
+                            console.error('Error: ', jqXHR.responseText);
+                        }
+                    });
+                }
+            }
+
+            $('.start').on('click', function() {
+                $('.instruction').remove();
+                $('.start').remove();
+
+
+                scoreBoxEl.style.display = "block"
+                lifeBoxEl.style.display = "block"
+
+                newBtn = $('<button>New</button>').appendTo('.buttonBox');
+                seenBtn = $('<button>Seen</button>').appendTo('.buttonBox');
+
+                updateScoreAndLives();
+                getRandomWord();
+            });
+
+            $('.buttonBox').on('click', 'button:contains("New")', function() {
+                if (wordsArray.includes(word)) {
+                    lives--;
+                    updateScoreAndLives();
+                    checkGameOver();
+                    
+                } else {
+                    score++;
+                    updateScoreAndLives()
+                    wordsArray.push(word); // Legg til det nye ordet i arrayet
+                }
+                getRandomWord();
+            });
+
+            $('.buttonBox').on('click', 'button:contains("Seen")', function() {
+                if (wordsArray.includes(word)) {
+                    score++;
+                    updateScoreAndLives();
+                } else {
+                    lives--;
+                    updateScoreAndLives();
+                    checkGameOver();
+                }
+                getRandomWord();
+            });
+
+            function updateScoreAndLives() {
+                $('#scoreBox').text('Score: ' + score);
+                $('#lifeBox').text('Lives: ' + lives);
+            }
+
+            function checkGameOver() {
+                if (lives === 0) {
+                    moveToScoreScreen();
+                }
+            }
+
+            function moveToScoreScreen() {
+                /* scoreBoxEl.style.display = "none"
+                lifeBoxEl.style.display = "none"
+                wordBoxEl.style.display = "none"
+                buttonBoxEl.style.display = "none" */
+                
                 document.write(`
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
-                padding-top: 125px;
+                padding-top: 80px;
                 font-family: Helvetica, Arial, sans-serif;
-                ">Sqeuence Memory</h1>
+                ">Verbal Memory</h1>
+                <h1 style="color: white;
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 0px;
+                font-size: 50px;
+                padding-top: 0px;
+                font-family: Helvetica, Arial, sans-serif;
+                ">Words</h1>
                 <h1 style="color: white;
                 text-align: center;
                 margin-top: 0px;
@@ -60,14 +200,17 @@ function sjekkRekkefolge() {
                 font-size: 100px;
                 padding-top: 0px;
                 font-family: Helvetica, Arial, sans-serif;
-                ">Level ${level}</h1>
+                ">${score-1}</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
                 padding-top: 0px;
                 font-family: Helvetica, Arial, sans-serif;
-                ">Better Luck Next Time</h1>
+                ">Good Job</h1>
                 `)
+
+                document.body.style.backgroundColor = 'rgb(43, 135, 209)';
+
     
                 let nyKnapp = document.createElement('button')
                 nyKnapp.textContent = ('Try Again')
@@ -109,6 +252,7 @@ function sjekkRekkefolge() {
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
                 })
                 nyKnapp.style.display = 'flex'
+                nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                 nyKnapp.style.margin = 'auto'
                 nyKnapp.style.marginTop = '20px'
                 nyKnapp.style.width = '160px'
@@ -153,14 +297,14 @@ function sjekkRekkefolge() {
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
                     document.body.style.transition = 'background-color 1s ease'
-                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 0)
                     setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
                 }
                 else if(selectEl.value === "black"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
                     document.body.style.transition = 'background-color 1s ease'
-                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 10)
+                    setTimeout(function(){document.body.style.backgroundColor = 'red'}, 0)
                     setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
                 }
                 nyKnapp3.addEventListener('click', function(){
@@ -179,7 +323,7 @@ function sjekkRekkefolge() {
                         font-size: 100px;
                         padding-top: 0px;
                         font-family: Helvetica, Arial, sans-serif;
-                        ">Level ${level}</h1>
+                        ">${score-1} Words</h1>
                         <h1 style="color: white;
                         text-align: center;
                         font-size: 22px;
@@ -202,178 +346,20 @@ function sjekkRekkefolge() {
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
                                 let playerName = String(inputEl.value)
-                                let highscore = level - 1
-                                localStorage.setItem('highscore', highscore)
-                                localStorage.setItem('playerName', playerName)
-                                console.log(localStorage.getItem('playerName'))
-                                console.log(localStorage.getItem('highscore'))
+                                let highscore = score - 1
+                                localStorage.setItem('highscore5', highscore)
+                                localStorage.setItem('playerName5', playerName)
+                                console.log(localStorage.getItem('playerName5'))
+                                console.log(localStorage.getItem('highscore5'))
                                 window.location.href = '../leaderboard/leaderboard.html'
                             }
                         })
-                    })}}
-                
-        if (klikkedeBokser.length === blinkBokser.length) {
-            let match = true
-            for (let i = 0; i < klikkedeBokser.length; i++) {
-                if (klikkedeBokser[i] !== blinkBokser[i]) {
-                    match = false
-                    return
-                }}
-    
-            if (match === true) {
-                console.log('Du har trykket på klossene i riktig rekkefølge!')
-                level +=1
-                document.body.style.transition = 'background-color 1s ease'
-    
-                if (selectEl.value === "white"){
-                    document.body.style.backgroundColor = 'rgb(70, 190, 255)'
-                    setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 350)
-                }
-                else if(selectEl.value === "black"){
-                    document.body.style.backgroundColor = 'rgb(150, 75, 0)'
-                    setTimeout(function(){document.body.style.backgroundColor = 'rgb(17, 17, 17)'}, 300)
-                }
-    
-                text.innerHTML = level
-    
-                setTimeout(function(){
-                    sequenceBlink()
-                }, 400)
+                    })
+        
             }
-    
-            klikkedeBokser = []
-        }
-    }
-
-}
-
-for (let h = 0; h < boksene.length; h++) {
-
-    boksene[h].addEventListener('click', function() {
-        if(knapp.style.display === 'none'){
-        setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgba(255, 255, 255, 1)'
-        }, 0)
-
-        if(selectEl.value === "white"){
-        setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-        }, 80)}
-        else if(selectEl.value === "black"){
-        setTimeout(function(){
-            boksene[h].style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
-        }, 80)}
-            klikkedeBokser.push(boksene[h])
-            sjekkRekkefolge()
-    }})
-}
-
-//FARGEENDRING TIL BLACK OG WHITE MODE!
-let selectEl = document.querySelector('select')
-let body = document.body
-let header = document.querySelector('header')
-let nav = document.querySelector('nav a')
-let home = document.querySelector('div a')
-let lenkene = document.querySelectorAll('a')
-
-selectEl.addEventListener("change", colorPalate)
-
-function colorPalate(){
-
-    if (selectEl.value === "white") {
-
-        localStorage.teller = 1
-
-        header.style.backgroundColor = 'white'
-        body.style.backgroundColor = 'rgb(43, 135, 209)'
-        selectEl.style.backgroundColor = 'white'
-        selectEl.style.color = 'black'
-        lenkene.forEach(function(lenkene){
-        lenkene.style.color = 'black'
-
-
-
-            lenkene.addEventListener('mouseenter', function() {
-                lenkene.style.color = 'rgba(0,0,0, 0.55)'
-            })
-            lenkene.addEventListener('mouseleave', function() {
-                lenkene.style.color = 'black'
-            })
-        })
-        boksene.forEach(function(boksene){
-            boksene.style.backgroundColor = 'rgba(0, 0, 0, 0.153)'
-        })
-
-            selectEl.addEventListener('mouseenter', function() {
-                selectEl.style.color = 'rgba(0,0,0, 0.55)'
-            })
-            selectEl.addEventListener('mouseleave', function() {
-                selectEl.style.color = 'black'
-            })
-        }
-
-    else if (selectEl.value === "black") {
-
-        localStorage.teller = 2
-
-        body.style.backgroundColor = 'rgb(17, 17, 17)'
-        selectEl.style.backgroundColor = 'black'
-        selectEl.style.color = 'white'
-        header.style.backgroundColor = 'black'
-        lenkene.forEach(function(lenkene){
-            lenkene.style.color = 'white'
-
-            lenkene.addEventListener('mouseenter', function() {
-                lenkene.style.color = 'rgba(255,255,255, 0.55)'
-            })
-            lenkene.addEventListener('mouseleave', function() {
-                lenkene.style.color = 'white'
-            })
-        })
-        boksene.forEach(function(boksene){
-            boksene.style.backgroundColor = 'rgba(90, 90, 90, 0.3)'
-        })
-
-        selectEl.addEventListener('mouseenter', function() {
-            selectEl.style.color = 'rgba(255,255,255, 0.55)'
-        })
-        selectEl.addEventListener('mouseleave', function() {
-            selectEl.style.color = 'white'
-        })
-    }}
-
-//local storage, bevarer light/dark mode
-let h2El = document.querySelector('h2')
-let knappEl = document.getElementById('knapp')
-
-console.log(localStorage.teller)
-//hvis teller ikke eksisterer i localstorage skal den settes til 1
-if (!localStorage.teller) {
-    localStorage.teller = 1
-} 
-if(localStorage.teller == 1){
-    selectEl.value = "white"
-    colorPalate()
-}
-else if (localStorage.teller == 2){
-    selectEl.value = "black"
-    colorPalate()
-}
-
-setTimeout(function(){
-    document.body.style.transition = 'background-color 1s ease'
-    header.style.transition = 'background-color 1s ease'
-}, 100)
-
-//score oppsettet
-if(!localStorage.getItem('score')){
-    localStorage.setItem('score', 0)
-}
- function giPoints(){
-    let currentScore = localStorage.getItem('score')
-    let newScore = Number(currentScore) + Number(level - 1)
-    localStorage.setItem('score', newScore)
-    console.log(newScore)
-} 
+        });
+    </script>
+</body>
+</html>
 
 
