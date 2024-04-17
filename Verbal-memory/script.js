@@ -26,9 +26,9 @@ $(document).ready(function() {
                 headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ' },
                 contentType: 'application/json',
                 success: function(result) {
-                    let newWord = result.word;
-                    $('#wordBox').text(newWord);
-                    word = newWord; // Oppdaterer word til det nye ordet
+                    let newWord = result.word
+                    $('#wordBox').text(newWord)
+                    word = newWord // Oppdaterer word til det nye ordet
                 },
                 error: function ajaxError(jqXHR) {
                     console.error('Error: ', jqXHR.responseText)
@@ -270,10 +270,10 @@ $(document).ready(function() {
                     if (e.key === 'Enter') {
                         let playerName = String(inputEl.value).substring(0, 8)
                         let highscore = score - 1
-                        localStorage.setItem('highscore5', highscore)
-                        localStorage.setItem('playerName5', playerName)
-                        console.log(localStorage.getItem('playerName5'))
-                        console.log(localStorage.getItem('highscore5'))
+                        localStorage.setItem('highscore6', highscore)
+                        localStorage.setItem('playerName6', playerName)
+                        console.log(localStorage.getItem('playerName6'))
+                        console.log(localStorage.getItem('highscore6'))
                         window.location.href = '../leaderboard/leaderboard.html'
                     }
                 })
@@ -291,12 +291,21 @@ function colorPalate(){
 
             localStorage.teller = 1
 
+<<<<<<< HEAD
             header.style.backgroundColor = 'white'
             document.body.style.backgroundColor = 'rgb(43, 135, 209)'
             selectEl.style.backgroundColor = 'white'
             selectEl.style.color = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'black'
+=======
+header.style.backgroundColor = 'white'
+document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+selectEl.style.backgroundColor = 'white'
+selectEl.style.color = 'black'
+lenkene.forEach(function(lenkene){
+lenkene.style.color = 'black'
+>>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(0,0,0, 0.55)'
@@ -318,12 +327,21 @@ function colorPalate(){
 
             localStorage.teller = 2
 
+<<<<<<< HEAD
             document.body.style.backgroundColor = 'rgb(17, 17, 17)'
             selectEl.style.backgroundColor = 'black'
             selectEl.style.color = 'white'
             header.style.backgroundColor = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'white'
+=======
+document.body.style.backgroundColor = 'rgb(17, 17, 17)'
+selectEl.style.backgroundColor = 'black'
+selectEl.style.color = 'white'
+header.style.backgroundColor = 'black'
+lenkene.forEach(function(lenkene){
+lenkene.style.color = 'white'
+>>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(255,255,255, 0.55)'

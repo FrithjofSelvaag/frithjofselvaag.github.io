@@ -1,10 +1,9 @@
+let number
+let score = 0
+let digits = 1 // Antall sifre i det første tallet
 let selectEl = document.querySelector('select')
-        let number
-        let score = 0
-        let digits = 1 // Antall sifre i det første tallet
-
-        let startBtn = document.querySelector('.start')
-        let instructionEl = document.querySelector('.instructions')
+let startBtn = document.querySelector('.start')
+let instructionEl = document.querySelector('.instructions')
 
         startBtn.addEventListener("click", function(){
             startBtn.remove()
@@ -282,6 +281,22 @@ let selectEl = document.querySelector('select')
         }
 let lenkene = document.querySelectorAll('a')
 
+
+// for responsiv burger
+
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
+
+
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
@@ -289,7 +304,7 @@ function colorPalate(){
 if (selectEl.value === "white") {
 
     localStorage.teller = 1
-
+    burgerEl.style.color="black"
     header.style.backgroundColor = 'white'
     document.body.style.backgroundColor = 'rgb(43, 135, 209)'
     selectEl.style.backgroundColor = 'white'
@@ -314,9 +329,10 @@ if (selectEl.value === "white") {
     }
 
 else if (selectEl.value === "black") {
-
+    
     localStorage.teller = 2
 
+    burgerEl.style.color="white"
     document.body.style.backgroundColor = 'rgb(17, 17, 17)'
     selectEl.style.backgroundColor = 'black'
     selectEl.style.color = 'white'
