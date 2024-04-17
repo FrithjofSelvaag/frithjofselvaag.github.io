@@ -5,7 +5,7 @@ let sluttSkjerm = document.querySelector(".slutt-skjerm");
 let reaksjonTidTekst = document.querySelector(".slutt-skjerm .reaksjon-tid-tekst");
 let spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn");
 let Home = document.querySelector(".slutt-skjerm .homeBtn");
-let saveS = document.querySelector(".slutt-skjerm ")
+
 
 //Variabler brukt i funksjoner
 let klokke;
