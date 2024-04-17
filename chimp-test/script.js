@@ -466,7 +466,7 @@ function sjekkRekkefolge() {
                     
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
-                                let playerName = String(inputEl.value)
+                                let playerName = String(inputEl.value).substring(0, 8);
                                 let highscore = level - 1
                                 localStorage.setItem('highscore4', highscore)
                                 localStorage.setItem('playerName4', playerName)

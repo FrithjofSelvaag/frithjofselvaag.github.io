@@ -1,24 +1,24 @@
 let selectEl = document.querySelector('select')
-let lives = 3;
-let score = 0;
-let wordsArray = [];
-let word;
+let lives = 3
+let score = 0
+let wordsArray = []
+let word
 let scoreBoxEl = document.querySelector("#scoreBox")
 let lifeBoxEl = document.querySelector("#lifeBox")
 
 $(document).ready(function() {
-    let newBtn;
-    let seenBtn;
+    let newBtn
+    let seenBtn
 
 
     function getRandomWord() {
-        let random = Math.floor(Math.random() * 3);
-        $('#wordBox').text('');
+        let random = Math.floor(Math.random() * 3)
+        $('#wordBox').text('')
 
         if (random === 0 && wordsArray.length > 0) {
-            let arrRandom = Math.floor(Math.random() * wordsArray.length);
-            word = wordsArray[arrRandom];
-            $('#wordBox').text(word);
+            let arrRandom = Math.floor(Math.random() * wordsArray.length)
+            word = wordsArray[arrRandom]
+            $('#wordBox').text(word)
         } else {
             $.ajax({
                 method: 'GET',
@@ -31,61 +31,61 @@ $(document).ready(function() {
                     word = newWord; // Oppdaterer word til det nye ordet
                 },
                 error: function ajaxError(jqXHR) {
-                    console.error('Error: ', jqXHR.responseText);
+                    console.error('Error: ', jqXHR.responseText)
                 }
-            });
+            })
         }
     }
 
     $('.start').on('click', function() {
-        $('.instruction').remove();
-        $('.start').remove();
+        $('.instruction').remove()
+        $('.start').remove()
 
 
         scoreBoxEl.style.display = "block"
         lifeBoxEl.style.display = "block"
 
-        newBtn = $('<button>New</button>').appendTo('.buttonBox');
-        seenBtn = $('<button>Seen</button>').appendTo('.buttonBox');
+        newBtn = $('<button>New</button>').appendTo('.buttonBox')
+        seenBtn = $('<button>Seen</button>').appendTo('.buttonBox')
 
-        updateScoreAndLives();
-        getRandomWord();
-    });
+        updateScoreAndLives()
+        getRandomWord()
+    })
 
     $('.buttonBox').on('click', 'button:contains("New")', function() {
         if (wordsArray.includes(word)) {
-            lives--;
-            updateScoreAndLives();
-            checkGameOver();
+            lives--
+            updateScoreAndLives()
+            checkGameOver()
             
         } else {
             score++;
             updateScoreAndLives()
-            wordsArray.push(word); // Legg til det nye ordet i arrayet
+            wordsArray.push(word) // Legg til det nye ordet i arrayet
         }
-        getRandomWord();
-    });
+        getRandomWord()
+    })
 
     $('.buttonBox').on('click', 'button:contains("Seen")', function() {
         if (wordsArray.includes(word)) {
-            score++;
-            updateScoreAndLives();
+            score++
+            updateScoreAndLives()
         } else {
-            lives--;
-            updateScoreAndLives();
-            checkGameOver();
+            lives--
+            updateScoreAndLives()
+            checkGameOver()
         }
-        getRandomWord();
-    });
+        getRandomWord()
+    })
 
     function updateScoreAndLives() {
-        $('#scoreBox').text('Score: ' + score);
-        $('#lifeBox').text('Lives: ' + lives);
+        $('#scoreBox').text('Score: ' + score)
+        $('#lifeBox').text('Lives: ' + lives)
     }
 
     function checkGameOver() {
         if (lives === 0) {
-            moveToScoreScreen();
+            moveToScoreScreen()
         }
     }
 
@@ -262,7 +262,7 @@ $(document).ready(function() {
             
                 inputEl.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter') {
-                        let playerName = String(inputEl.value)
+                        let playerName = String(inputEl.value).substring(0, 8);
                         let highscore = score - 1
                         localStorage.setItem('highscore5', highscore)
                         localStorage.setItem('playerName5', playerName)
