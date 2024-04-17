@@ -841,14 +841,36 @@ function levelFlashTap(){
 let bodyEl = document.querySelector('body')
 
 
-let lenkene = document.querySelectorAll('a') //trener knaskje ikke
 
 let headerEl = document.querySelector('header')
 let homeEl = document.querySelector("header div a")
 let leaderboardEl = document.querySelector('header nav a')
+
+
+// for responsiv burger
 let selectEl = document.querySelector('header select')
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
+
+
+
 
 selectEl.addEventListener("change", colorPalate)
+
+
+
+
+
+
 
 
 

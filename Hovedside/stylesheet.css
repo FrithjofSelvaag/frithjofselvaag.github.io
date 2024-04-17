@@ -1,11 +1,7 @@
 
 
-/* *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-} */
-body{
+
+/* body{                         felles css for alle 
 
     margin: 0px;
     padding: 0px;
@@ -13,7 +9,7 @@ body{
     font-family:"Roboto", sans-serif;
 }
 
-/* navbaren */  
+
 header {
     display: flex;
     justify-content: space-between;
@@ -49,8 +45,6 @@ header .topnav {
     justify-content: space-between;
 }
 .fa-chart-bar {
-    
-    
     font-size: 30px;
     padding: 5px 20px;
     display: none;
@@ -73,8 +67,8 @@ header select {
 
 
 
-/* media quary for endring  av navbar når mindre skjerm */   
- @media(max-width: 359px) {     /* navbar respoisvitet */
+ 
+ @media(max-width: 359px) {     
 
     
     header select {
@@ -111,7 +105,7 @@ header select {
     header select.show {
         display: flex;
         text-align: center;
-        /* align-items: center; */
+        
         border-radius: 5px;
         font-family: monospace;
         background-color: rgb(5, 163, 215);
@@ -126,6 +120,11 @@ header select {
     }
     
 }
+
+ */
+
+
+
 
 
 
