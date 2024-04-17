@@ -270,10 +270,10 @@ $(document).ready(function() {
                     if (e.key === 'Enter') {
                         let playerName = String(inputEl.value).substring(0, 8)
                         let highscore = score - 1
-                        localStorage.setItem('highscore5', highscore)
-                        localStorage.setItem('playerName5', playerName)
-                        console.log(localStorage.getItem('playerName5'))
-                        console.log(localStorage.getItem('highscore5'))
+                        localStorage.setItem('highscore6', highscore)
+                        localStorage.setItem('playerName6', playerName)
+                        console.log(localStorage.getItem('playerName6'))
+                        console.log(localStorage.getItem('highscore6'))
                         window.location.href = '../leaderboard/leaderboard.html'
                     }
                 })
