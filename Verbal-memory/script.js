@@ -37,6 +37,7 @@ $(document).ready(function() {
         }
     }
 
+    //startknapp
     $('.start').on('click', function() {
         $('.instruction').remove()
         $('.start').remove()
@@ -52,6 +53,7 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+        //newknapp
     $('.buttonBox').on('click', 'button:contains("New")', function() {
         if (wordsArray.includes(word)) {
             lives--
@@ -66,6 +68,7 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+    //seenknapp
     $('.buttonBox').on('click', 'button:contains("Seen")', function() {
         if (wordsArray.includes(word)) {
             score++
@@ -78,17 +81,20 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+    //oppdateres score og liv
     function updateScoreAndLives() {
         $('#scoreBox').text('Score: ' + score)
         $('#lifeBox').text('Lives: ' + lives)
     }
 
+    //sjekker hvis 
     function checkGameOver() {
         if (lives === 0) {
             moveToScoreScreen()
         }
     }
 
+    //score screen
     function moveToScoreScreen() {
         /* scoreBoxEl.style.display = "none"
         lifeBoxEl.style.display = "none"
@@ -274,8 +280,9 @@ $(document).ready(function() {
             })
     }
 
-    let lenkene = document.querySelectorAll('a')
+let lenkene = document.querySelectorAll('a')
 
+//dark mode og light mode
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
@@ -351,13 +358,7 @@ header.style.transition = 'background-color 1s ease'
 }, 100)
 
 
-    if(!localStorage.getItem('score')){
+if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
-        }
-        function giPoints(){
-            let currentScore = localStorage.getItem('score')
-            let newScore = Number(currentScore) + Number(score)
-            localStorage.setItem('score', newScore)
-        
         }
 });
