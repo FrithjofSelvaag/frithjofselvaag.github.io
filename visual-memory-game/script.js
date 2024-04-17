@@ -752,9 +752,9 @@ function seier(){
         ">Write Your Name</h1>
         `)
         let labelEl = document.createElement('label')
-        labelEl.classList.add('label')
+        
         document.body.appendChild(labelEl)
-        let inputEl = document.createElement('input')
+        
         inputEl.classList.add('input')
         labelEl.appendChild(inputEl)
 
@@ -765,7 +765,7 @@ function seier(){
     
         inputEl.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
-                let playerName = String(inputEl.value).substring(0, 10);
+                let playerName = String(inputEl.value).substring(0, 8);
                 let highscore = level - 1
                 localStorage.setItem('highscore2', highscore)
                 localStorage.setItem('playerName2', playerName)

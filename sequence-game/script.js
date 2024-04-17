@@ -188,10 +188,10 @@ function sjekkRekkefolge() {
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')
-                        labelEl.classList.add('label')
+                        
                         document.body.appendChild(labelEl)
                         let inputEl = document.createElement('input')
-                        inputEl.classList.add('input')
+                        
                         labelEl.appendChild(inputEl)
     
                         labelEl.style.color = 'white'
@@ -201,7 +201,7 @@ function sjekkRekkefolge() {
                     
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
-                                let playerName = String(inputEl.value).substring(0, 10);
+                                let playerName = String(inputEl.value).substring(0, 8);
                                 let highscore = level - 1
                                 localStorage.setItem('highscore', highscore)
                                 localStorage.setItem('playerName', playerName)
@@ -247,6 +247,7 @@ function sjekkRekkefolge() {
 
 }
 
+
 for (let h = 0; h < boksene.length; h++) {
 
     boksene[h].addEventListener('click', function() {
@@ -281,6 +282,7 @@ let lenkene = document.querySelectorAll('a')
 
 
 // for responsiv burger
+
 let navEl = document.querySelector('nav')
 let burgerEl = document.querySelector('.fa-chart-bar')
 

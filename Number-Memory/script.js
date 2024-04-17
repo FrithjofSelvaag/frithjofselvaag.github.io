@@ -1,40 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number memory</title>
-
-   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header id="header">
-        <div class="topnav">
-            <a href="../Hovedside/index.html">HOME</a>
-            <!-- <i class="fa-regular fa-chart-bar fa-rotate-180"></i> --><!-- burger -->
-        </div>
-        <nav>
-            <a href="/leaderboard/leaderboard.html">LEADERBOARDS</a>
-        </nav>
- 
-        <select>
-            <option value="white">Light Mode</option>
-            <option value="black">Dark Mode</option>
-        </select>
-    </header>
-    <h1>Number memory</h1>
-    <p class="instructions">Remember an increasingly larger number</p>
-    <button class="start">Start game</button>
-    <div class="congratulation">Correct asnswer!</div>
-    <div class="conteiner">
-        <div class="progress">
-            <div class="progress-inner">
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let selectEl = document.querySelector('select')
+let selectEl = document.querySelector('select')
         let number
         let score = 0
         let digits = 1 // Antall sifre i det første tallet
@@ -305,7 +269,7 @@
                     
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
-                                let playerName = String(inputEl.value).substring(0, 10);
+                                let playerName = String(inputEl.value).substring(0, 8);
                                 let highscore = score - 1
                                 localStorage.setItem('highscore5', highscore)
                                 localStorage.setItem('playerName5', playerName)
@@ -422,7 +386,3 @@ function giPoints(){
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>

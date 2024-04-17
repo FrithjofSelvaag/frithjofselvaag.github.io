@@ -278,7 +278,7 @@ let sluttSpill = () => {
 
     inputEl.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
-        let playerName = String(inputEl.value).substring(0, 10);
+        let playerName = String(inputEl.value).substring(0, 8);
         let highscore = gjennomsnitt
         localStorage.setItem('highscore3', highscore)
         localStorage.setItem('playerName3', playerName)
@@ -295,6 +295,24 @@ let header = document.querySelector("#header")
 let selectEl = document.querySelector("select")
 let lenkene = document.querySelectorAll("a")
 
+
+
+
+
+//for responsiv burger
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
+
+
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate() {
@@ -303,6 +321,8 @@ function colorPalate() {
 
     localStorage.teller = 1
 
+
+    burgerEl.style.color="black"
     header.style.backgroundColor = 'white'
     hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
     selectEl.style.backgroundColor = 'white'
@@ -318,6 +338,15 @@ function colorPalate() {
         lenkene.style.color = 'black'
       })
     })
+
+
+  burgerEl.addEventListener('mouseover',function(){
+      burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+  })
+  burgerEl.addEventListener('mouseout',function(){
+      burgerEl.style.color="rgb(0, 0, 0)"
+  })
+
     selectEl.addEventListener('mouseenter', function () {
       selectEl.style.color = 'rgba(0,0,0, 0.55)'
     })
@@ -330,6 +359,8 @@ function colorPalate() {
 
     localStorage.teller = 2
 
+
+    burgerEl.style.color="black"
     hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
     selectEl.style.backgroundColor = 'black'
     selectEl.style.color = 'white'
@@ -345,6 +376,14 @@ function colorPalate() {
         lenkene.style.color = 'white'
       })
     })
+
+    burgerEl.addEventListener('mouseover',function(){
+      burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+  })
+  burgerEl.addEventListener('mouseout',function(){
+      burgerEl.style.color="rgb(0, 0, 0)"
+  })
+  
     selectEl.addEventListener('mouseenter', function () {
       selectEl.style.color = 'rgba(255,255,255, 0.55)'
     })
