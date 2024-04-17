@@ -59,13 +59,10 @@
             font-family: Arial, Helvetica, sans-serif;
             margin: none;
         }
-<<<<<<< HEAD
         body{
-=======
 
 /*         .main {
             font-family: Arial, Helvetica, sans-serif;
->>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
             background-color: rgb(43, 135, 209);
             color: white;
             display: flex;
@@ -73,13 +70,11 @@
             align-items: center;
             flex-direction: column;
             margin: 0px;
-<<<<<<< HEAD
             text-align: center;
             
         }
 
         button{
-=======
 
         } */
 
@@ -93,7 +88,6 @@
     
 
         button {
->>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
             margin: 20px;
             display: flex;
             width: 160px;

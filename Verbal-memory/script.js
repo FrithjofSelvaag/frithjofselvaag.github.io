@@ -291,21 +291,18 @@ function colorPalate(){
 
             localStorage.teller = 1
 
-<<<<<<< HEAD
             header.style.backgroundColor = 'white'
             document.body.style.backgroundColor = 'rgb(43, 135, 209)'
             selectEl.style.backgroundColor = 'white'
             selectEl.style.color = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'black'
-=======
 header.style.backgroundColor = 'white'
 document.body.style.backgroundColor = 'rgb(43, 135, 209)'
 selectEl.style.backgroundColor = 'white'
 selectEl.style.color = 'black'
 lenkene.forEach(function(lenkene){
 lenkene.style.color = 'black'
->>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(0,0,0, 0.55)'
@@ -327,21 +324,18 @@ lenkene.style.color = 'black'
 
             localStorage.teller = 2
 
-<<<<<<< HEAD
             document.body.style.backgroundColor = 'rgb(17, 17, 17)'
             selectEl.style.backgroundColor = 'black'
             selectEl.style.color = 'white'
             header.style.backgroundColor = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'white'
-=======
 document.body.style.backgroundColor = 'rgb(17, 17, 17)'
 selectEl.style.backgroundColor = 'black'
 selectEl.style.color = 'white'
 header.style.backgroundColor = 'black'
 lenkene.forEach(function(lenkene){
 lenkene.style.color = 'white'
->>>>>>> b1209b882f8d6eb8405bd813152f7b2f50ce48d6
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(255,255,255, 0.55)'
