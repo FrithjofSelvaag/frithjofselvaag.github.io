@@ -590,10 +590,8 @@ function valgt(){
                             ">Write Your Name</h1>
                             `)
                             let labelEl = document.createElement('label')
-                            labelEl.classList.add('label')
                             document.body.appendChild(labelEl)
                             let inputEl = document.createElement('input')
-                            inputEl.classList.add('input')
                             labelEl.appendChild(inputEl)
 
                             labelEl.style.color = 'white'
@@ -750,11 +748,11 @@ function seier(){
         font-family: Roboto, sans-serif;
         "<h1>Write Your Name</h1>`)
         let labelEl = document.createElement('label')
-        
         document.body.appendChild(labelEl)
-        
-        inputEl.classList.add('input')
+        let inputEl = document.createElement('input')
         labelEl.appendChild(inputEl)
+
+        
 
         labelEl.style.color = 'white'
         labelEl.style.display = 'flex'
