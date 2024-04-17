@@ -10,13 +10,14 @@ let mainDivEl = document.querySelector('.spillboks div')
 let mainEl = document.querySelector('.spillboks')
 
 
-/* burgerEl.addEventListener('click', showNav) */
+burgerEl.addEventListener('click', showNav)
 
-/* function showNav() {
+function showNav() {
     navEl.classList.toggle('show')
     selectEl.classList.toggle('show')
+    
 
-} */
+}
 
 // ColorPalate
 let tittelSymbolEl = document.querySelector('#tittelSymbol')
@@ -25,7 +26,7 @@ let body = document.body
 let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
 let headerSkrift = document.querySelector('header a')
-let chartBar = document.querySelector('.fa-chart-bar')
+
 let nav = document.querySelector('nav a')
 
 let homeEl = document.querySelector("header div a")
@@ -60,7 +61,7 @@ function colorPalate(){
     if (selectEl.value === "white") {
 
             
-            
+            burgerEl.style.color="black"
             homeEl.style.color="black"
             tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
             header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
@@ -129,6 +130,8 @@ function colorPalate(){
         
 
     else if (selectEl.value === "black") {
+
+        burgerEl.style.color="white"
         homeEl.style.color="white"
         
         tittelSymbolEl.style.backgroundColor="black"

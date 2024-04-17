@@ -39,14 +39,14 @@ header .topnav {
     display: flex;
     justify-content: space-between;
 }
-/* .fa-chart-bar {
+.fa-chart-bar {
     
     color:black;
     font-size: 30px;
     padding: 5px 20px;
     display: none;
     cursor: pointer;
-} */
+}
 header select {
     margin-right: 10px;
     display: flex;
@@ -58,3 +58,71 @@ header select {
     text-align: center;
     margin-left: auto;
 }
+
+
+/* media quary for endring  av navbar når mindre skjerm */
+/* @media(max-width: 359px) {
+
+    header select {
+        display: none;
+    }
+    header nav {
+        display: none;
+        flex-direction: column;
+    }
+    header {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    header .topnav {
+        width: 100%;
+    }
+
+    .fa-chart-bar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    .topnav a {
+        margin-right: auto;
+    }
+    header nav.show {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    header select.show {
+        display: flex;
+        text-align: center;
+        border-radius: 5px;
+        font-family: monospace;
+        background-color: rgb(5, 163, 215);
+        color: white;
+        border-style: hidden;
+        width: 100px;
+        height: 40px;
+        margin-left: auto;
+    }
+    header select:hover.show{
+        color: rgb(255, 255, 255, 0.725);
+    }
+    
+}
+ */
+
+
+    
+
+/* .fa-chart-bar:hover {
+    color: black;
+    border-radius: 10px;
+} */
+
+
+
+
+
+
