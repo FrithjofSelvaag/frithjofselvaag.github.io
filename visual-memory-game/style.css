@@ -112,7 +112,9 @@
     /* font-family: Arial, Helvetica, sans-serif; */
     padding-left: 40px;
 }
-
+header{
+    min-width: 400px;
+}
 #Heart1 {
     color:red;
     font-size: 30px;
