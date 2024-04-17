@@ -22,7 +22,7 @@ body {
   place-items: center;
   font-size: 32px;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-  color: #fff;
+  color: white;
 }
 
 .slutt-skjerm,
@@ -34,7 +34,7 @@ body {
   top: 0;
   left: 0;
   background-color: rgb(43, 135, 209);
-  color: #fff;
+  color: white;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   text-align: center;
 }
@@ -84,11 +84,11 @@ body {
   font-weight: 900;
   letter-spacing: 4px;
   cursor: pointer;
-  color: #111;
+  color: rgb(17, 17, 17);
 }
 
 .spill-igjen-btn:hover, .homeBtn:hover, .saveScore:hover{
-  background-color: #fff;
+  background-color: white;
 }
 
 .spill-igjen-btn, .saveScore{
