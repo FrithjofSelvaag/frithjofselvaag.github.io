@@ -25,9 +25,9 @@ let selectEl = document.querySelector('header select')
 let body = document.body
 let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
-/* let headerSkrift = document.querySelector('header a') */
 
-/* let nav = document.querySelector('nav a') */
+
+
 
 let homeEl = document.querySelector("header div a")
 let boksTekstEl = document.querySelectorAll('#storBoks .spillboks div h1')   //tekst inni boksene
@@ -60,11 +60,11 @@ function colorPalate(){
             burgerEl.style.color="black"
             homeEl.style.color="black"
             leaderboardEl.style.color="black"
-            header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
+            header.style.backgroundColor = 'white'
             tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
             body.style.backgroundColor = 'white'
             selectEl.style.color='black'
-            selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
+            selectEl.style.backgroundColor ='white' 
             boksTekstEl.forEach(function(boksTekstEl) {
                 boksTekstEl.style.color = 'black'
             })

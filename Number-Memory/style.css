@@ -3,13 +3,14 @@
 header{
     min-width: 300px;
 }
+
+
 body{
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0px;
     text-align: center;
     
 }
@@ -34,21 +35,8 @@ button{
 }
 
 button:hover {
-    margin: 20px;
-    display: flex;
-    width: 160px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    font-weight: 40px;
-    border: none;
-    border-radius: 5px;
-    font-size: 25px;
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: white;
-    transition: background-color 0.5s ease;
-    color: black;
-    cursor: pointer;
+   background-color: white;
+   cursor: pointer;
 }
 
 
