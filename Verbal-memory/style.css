@@ -61,7 +61,6 @@
         }
         body{
 
-/*         .main {
             font-family: Arial, Helvetica, sans-serif;
             background-color: rgb(43, 135, 209);
             color: white;
@@ -74,19 +73,11 @@
             
         }
 
-        button{
-
-        } */}
-
         body{
-/*             box-sizing: border-box; */
             background-color: rgb(43, 135, 209);
 
         }
-
         
-    
-
         button {
             margin: 20px;
             display: flex;
