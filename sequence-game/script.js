@@ -247,6 +247,7 @@ function sjekkRekkefolge() {
 
 }
 
+
 for (let h = 0; h < boksene.length; h++) {
 
     boksene[h].addEventListener('click', function() {
@@ -281,6 +282,7 @@ let lenkene = document.querySelectorAll('a')
 
 
 // for responsiv burger
+
 let navEl = document.querySelector('nav')
 let burgerEl = document.querySelector('.fa-chart-bar')
 
