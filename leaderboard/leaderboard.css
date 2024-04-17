@@ -1,0 +1,272 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* navbaren */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+}
+
+header nav {
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+    padding: 20px;
+}
+
+header a:hover {
+    background-color: none;
+    color: rgba(0, 0, 0, 0.55);
+    border-radius: 10px;
+}
+
+header .topnav a {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+header .topnav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-chart-bar {
+    color: black;
+    font-size: 30px;
+    padding: 5px 20px;
+    display: none;
+    cursor: pointer;
+}
+
+header select {
+    margin-right: 10px;
+    display: flex;
+    border-radius: 5px;
+    font-family: monospace;
+    background-color: white;
+    color: black;
+    border-style: none;
+    width: 110px;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+}
+
+header select:hover {
+    color: rgb(0, 0, 0, 0.55);
+}
+
+
+/* @media(max-width: 600px) {
+header select {
+    display: none;
+}
+header nav {
+    display: none;
+    flex-direction: column;
+}
+header {
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+header .topnav {
+    width: 100%;
+}
+
+.fa-chart-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+.topnav a {
+    margin-right: auto;
+}
+header nav.show {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+header select.show {
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    font-family: monospace;
+    background-color: white;
+    color: black;
+    border-style: hidden;
+    width: 100px;
+    height: 40px;
+    margin-left: auto;
+}
+header select:hover.show{
+    color: rgb(0, 0, 0, 0.55);
+}
+.spillboks{
+    flex-direction: column;
+}
+}
+.fa-chart-bar:hover {
+color: black;
+border-radius: 10px;
+} */
+
+/*aaaaaaah*/
+.leaderboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px;
+}
+
+.p {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+table {
+    background-color: rgba(211, 211, 211, 0.192);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 100px;
+    width: 100%;
+}
+
+.p>table:hover {
+    transform: translateY(-10px);
+    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
+    background-color: rgba(169, 169, 169, 0.5);
+}
+
+
+
+
+tr {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+#tittelSymbol h1 {
+    color: white;
+    font-size: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 90%;
+    ;
+}
+
+
+
+#tittelSymbol .fa-fingerprint {
+    color: white;
+    font-size: 100px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#tittelSymbol {
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+
+
+}
+
+/* @media(max-width:1077){
+.leaderboard{
+max-width: 90%;
+width:90%;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+
+
+
+}
+.p{
+width: 20%;
+
+} */
+
+@media(max-width:879px) {
+
+    .leaderboard {
+        display: flex;
+        margin: auto;
+        align-items: center;
+        flex-direction: column;
+        max-width: 90%;
+        width: 90%
+    }
+
+    .p {
+        width: 100%;
+    }
+
+    #tittelSymbol h1 {
+        max-width: 90%;
+    }
+
+    table {
+        align-items: center;
+    }
+
+}
+
+@media(max-width:350px) {
+    #tittelSymbol h1 {
+        font-size: 50px;
+    }
+}
+
+@media(max-width:250px) {
+    #tittelSymbol h1 {
+        font-size: 30px;
+    }
+}
+
+/* @media(max-width: 965px){
+#storBoks .spillboks{
+grid-template-columns: repeat(2,1fr);
+}
+}
+@media(max-width: 600px){
+#storBoks .spillboks{
+grid-template-columns: repeat(1,1fr);
+}
+
+#stprboks .spillboks div{
+margin:0;
+padding:0;
+}
+} */

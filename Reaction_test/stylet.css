@@ -102,12 +102,12 @@ body {
 }
 
 /* navbaren */  
-header {
+/* header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  
 }
 header nav {
   display: flex;
@@ -156,7 +156,7 @@ header select:hover{
   color: rgb(0, 0, 0, 0.55);
 }
 
-
+ */
 
 /* media quary for endring  av navbar når mindre skjerm 
 @media(max-width: 600px) {
@@ -237,17 +237,5 @@ header select:hover{
   .slutt-skjerm .spill-igjen-btn, .homeBtn, .saveScore {
     font-size: 16px; /* Justerer fontstørrelsen for knapper */
   }
-
-  header {
-    flex-direction: column; /* Endrer retningen på header-elementet for bedre plassering av innhold */
-  }
-
-  header a {
-    padding: 10px; /* Reduserer padding på lenker for bedre plassering */
-  }
-
-  header select {
-    margin: 10px auto; /* Justerer marginen for select-elementet for bedre plassering */
-    width: 80%; /* Reduserer bredden på select-elementet */
-  }
+  
 } 

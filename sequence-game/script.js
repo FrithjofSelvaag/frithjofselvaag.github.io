@@ -188,10 +188,10 @@ function sjekkRekkefolge() {
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')
-                        labelEl.classList.add('label')
+                        
                         document.body.appendChild(labelEl)
                         let inputEl = document.createElement('input')
-                        inputEl.classList.add('input')
+                        
                         labelEl.appendChild(inputEl)
     
                         labelEl.style.color = 'white'
@@ -247,6 +247,7 @@ function sjekkRekkefolge() {
 
 }
 
+
 for (let h = 0; h < boksene.length; h++) {
 
     boksene[h].addEventListener('click', function() {
@@ -281,6 +282,7 @@ let lenkene = document.querySelectorAll('a')
 
 
 // for responsiv burger
+
 let navEl = document.querySelector('nav')
 let burgerEl = document.querySelector('.fa-chart-bar')
 
@@ -402,7 +404,7 @@ setTimeout(function(){
 }, 100)
 
 //score oppsettet
-if(!localStorage.getItem('score')){
+/* if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
 }
  function giPoints(){
@@ -410,6 +412,6 @@ if(!localStorage.getItem('score')){
     let newScore = Number(currentScore) + Number(level - 1)
     localStorage.setItem('score', newScore)
     console.log(newScore)
-} 
+}  */
 
 
