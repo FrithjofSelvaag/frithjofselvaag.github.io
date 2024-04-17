@@ -1,10 +1,18 @@
-let selectEl = document.querySelector('select')
+let selectEl = document.querySelector('header select')
 let lives = 3
 let score = 0
 let wordsArray = []
 let word
 let scoreBoxEl = document.querySelector("#scoreBox")
 let lifeBoxEl = document.querySelector("#lifeBox")
+
+
+setTimeout(function(){
+
+    document.body.style.transition = 'backgroundColor 1s ease'
+    headerEl.style.transition = 'backgroundColor 1s ease'
+
+},100)
 
 $(document).ready(function(){
     let newBtn
@@ -132,7 +140,7 @@ $(document).ready(function(){
         ">Good Job</h1>
         `)
 
-        document.body.style.backgroundColor = 'rgb(43, 135, 209)';
+        
 
 
         let nyKnapp = document.createElement('button')
@@ -280,79 +288,154 @@ $(document).ready(function(){
             })
     }
 
-let lenkene = document.querySelectorAll('a')
 
+})
+/* let lenkene = document.querySelectorAll('a') */
+
+/* let selectEl = document.querySelector('header select') */
+let headerEl = document.querySelector('header')
+let homeEl = document.querySelector("header div a")
+let leaderboardEl = document.querySelector('header nav a')
+// for responsiv burger
+
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
 //dark mode og light mode
+
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
 
-        if (selectEl.value === "white") {
+        if (selectEl.value === "white"){
 
-            localStorage.teller = 1
+            
 
-            header.style.backgroundColor = 'white'
+            
+            selectEl.style.color="black"
+            selectEl.style.backgroundColor="white"
+
+            burgerEl.style.color="black"
+            leaderboardEl.style.color="black"
+            headerEl.style.backgroundColor = "white"
+            homeEl.style.color="black"
+
+
             document.body.style.backgroundColor = 'rgb(43, 135, 209)'
-            selectEl.style.backgroundColor = 'white'
-            selectEl.style.color = 'black'
-            lenkene.forEach(function(lenkene){
-                lenkene.style.color = 'black'
-                header.style.backgroundColor = 'white'
-                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
-                selectEl.style.backgroundColor = 'white'
-                selectEl.style.color = 'black'
-                lenkene.forEach(function(lenkene){
-                lenkene.style.color = 'black'
-                
-
-                lenkene.addEventListener('mouseenter', function() {
-                    lenkene.style.color = 'rgba(0,0,0, 0.55)'
+            
+            
+            
+            document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+            
+            /* lenkene.forEach(function(lenkene){
+            lenkene.style.color = 'black'
+            lenkene.addEventListener('mouseenter', function() {
+                    lenkene.style.color = 'rgba(0, 0, 0, 0.55)'
                 })
                 lenkene.addEventListener('mouseleave', function() {
                     lenkene.style.color = 'black'
                 })
-            })
-
+                }) */
+                //hover effekter
+                
                 selectEl.addEventListener('mouseenter', function() {
-                    selectEl.style.color = 'rgba(0,0,0, 0.55)'
+                    selectEl.style.color = 'rgba(0, 0, 0, 0.55)'
                 })
                 selectEl.addEventListener('mouseleave', function() {
-                    selectEl.style.color = 'black'
+                    selectEl.style.color = "black"
                 })
-            })
-        }
-        else if (selectEl.value === "black") {
+                burgerEl.addEventListener('mouseover', function() {
+                    burgerEl.style.color = 'rgba(0, 0, 0, 0.55)'
+                })
+                burgerEl.addEventListener('mouseout', function() {
+                    burgerEl.style.color = 'rgb(0, 0, 0)'
+                })
+                homeEl.addEventListener('mouseenter', function() {
+                    homeEl.style.color = 'rgba(0, 0, 0, 0.55)'
+                })
+                homeEl.addEventListener('mouseleave', function() {
+                    homeEl.style.color = 'rgb(0, 0, 0)'
+                })
+                leaderboardEl.addEventListener('mouseenter', function() {
+                    leaderboardEl.style.color = 'rgba(0, 0, 0, 0.55)'
+                })
+                leaderboardEl.addEventListener('mouseleave', function() {
+                    leaderboardEl.style.color = 'rgb(0, 0, 0)'
+                })
 
-            localStorage.teller = 2
+                localStorage.teller = 1
+            }
+        
+        else if(selectEl.value === "black") {
 
+
+            selectEl.style.color="white"
+            selectEl.style.backgroundColor="black"
+            leaderboardEl.style.color="white"
+            burgerEl.style.color="white"
+            homeEl.style.color="white"
+            headerEl.style.backgroundColor = "black"
             document.body.style.backgroundColor = 'rgb(17, 17, 17)'
-            selectEl.style.backgroundColor = 'black'
-            selectEl.style.color = 'white'
-            header.style.backgroundColor = 'black'
-            lenkene.forEach(function(lenkene){
-                lenkene.style.color = 'white'
-                document.body.style.backgroundColor = 'rgb(17, 17, 17)'
-                selectEl.style.backgroundColor = 'black'
-                selectEl.style.color = 'white'
-                header.style.backgroundColor = 'black'
-                lenkene.forEach(function(lenkene){
-                lenkene.style.color = 'white'
+            headerEl.style.backgroundColor = "black"
+            selectEl.style.backgroundColor="rgb(0, 0, 0)"
+            document.body.style.backgroundColor = 'rgb(17, 17, 17)'
+           
+            
+        
+            /*lenkene.forEach(function(lenkene){
+            lenkene.style.color = 'white'
 
-                lenkene.addEventListener('mouseenter', function() {
-                    lenkene.style.color = 'rgba(255,255,255, 0.55)'
-                })
-                lenkene.addEventListener('mouseleave', function() {
-                    lenkene.style.color = 'white'
-                })
+            lenkene.addEventListener('mouseenter', function() {
+                lenkene.style.color = 'rgba(255,255,255, 0.55)'
+            })
+            lenkene.addEventListener('mouseleave', function() {
+                lenkene.style.color = 'white'
+            })
+            }) */
+
+            //hover effekter
+
+            burgerEl.addEventListener('mouseenter',function(){
+                burgerEl.style.color="rgba(255, 255, 255, 0.55)"
+            })
+            burgerEl.addEventListener('mouseleave',function(){
+                burgerEl.style.color="rgb(255, 255, 255)"
             })
 
-            selectEl.addEventListener('mouseenter', function() {
-                selectEl.style.color = 'rgba(255,255,255, 0.55)'
+            selectEl.addEventListener('mouseenter', function(){
+                selectEl.style.color="rgba(255, 255, 255, 0.55)"
             })
             selectEl.addEventListener('mouseleave', function() {
-                selectEl.style.color = 'white'
+                selectEl.style.color="white"
             })
-        }}
+
+
+            
+
+            homeEl.addEventListener('mouseenter',function(){
+                homeEl.style.color="rgba(255, 255, 255, 0.55)"
+            })
+            homeEl.addEventListener('mouseleave',function(){
+                homeEl.style.color="rgb(255, 255, 255)"
+            })
+
+            leaderboardEl.addEventListener('mouseenter',function(){
+                leaderboardEl.style.color="rgba(255, 255, 255, 0.55)"
+            })
+            leaderboardEl.addEventListener('mouseleave',function(){
+                leaderboardEl.style.color="rgb(255, 255, 255)"
+            })
+            
+            localStorage.teller = 2
+        }
+    }
 
         if (!localStorage.teller) {
             localStorage.teller = 1
@@ -365,15 +448,11 @@ function colorPalate(){
             selectEl.value = "black"
             colorPalate()
         }
-        setTimeout(function(){
-            document.body.style.transition = 'background-color 1s ease'
-            header.style.transition = 'background-color 1s ease'
-        }, 100)
+        
 
 
-if(!localStorage.getItem('score')){
-    localStorage.setItem('score', 0)
-        }
-}
 
-})
+
+
+
+/* colorPalate() */

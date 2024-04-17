@@ -281,6 +281,9 @@ let instructionEl = document.querySelector('.instructions')
         }
 let lenkene = document.querySelectorAll('a')
 
+let headerEl = document.querySelector('header')
+let homeEl = document.querySelector("header div a")
+let leaderboardEl = document.querySelector('header nav a')
 
 // for responsiv burger
 
@@ -320,12 +323,30 @@ if (selectEl.value === "white") {
         })
     })
 
-        selectEl.addEventListener('mouseenter', function() {
-            selectEl.style.color = 'rgba(0,0,0, 0.55)'
-        })
-        selectEl.addEventListener('mouseleave', function() {
-            selectEl.style.color = 'black'
-        })
+    selectEl.addEventListener('mouseenter', function() {
+        selectEl.style.color = 'rgba(0,0,0, 0.55)'
+    })
+    selectEl.addEventListener('mouseleave', function() {
+        selectEl.style.color = 'black'
+    })
+    burgerEl.addEventListener('mouseenter', function() {
+        burgerEl.style.color = 'rgba(0,0,0, 0.55)'
+    })
+    burgerEl.addEventListener('mouseleave', function() {
+        burgerEl.style.color = 'black'
+    })
+    homeEl.addEventListener('mouseenter', function() {
+        homeEl.style.color = 'rgba(0,0,0, 0.55)'
+    })
+    homeEl.addEventListener('mouseleave', function() {
+        homeEl.style.color = 'black'
+    })
+    leaderboardEl.addEventListener('mouseenter', function() {
+        leaderboardEl.style.color = 'rgba(0,0,0, 0.55)'
+    })
+    leaderboardEl.addEventListener('mouseleave', function() {
+        leaderboardEl.style.color = 'black'
+    })
     }
 
 else if (selectEl.value === "black") {
@@ -347,13 +368,33 @@ else if (selectEl.value === "black") {
             lenkene.style.color = 'white'
         })
     })
+    //hover effekter
 
     selectEl.addEventListener('mouseenter', function() {
-        selectEl.style.color = 'rgba(255,255,255, 0.55)'
+        selectEl.style.color = 'rgba(255, 255, 255, 0.55)'
     })
     selectEl.addEventListener('mouseleave', function() {
         selectEl.style.color = 'white'
     })
+    burgerEl.addEventListener('mouseenter', function() {
+        burgerEl.style.color = 'rgba(255, 255, 255, 0.55)'
+    })
+    burgerEl.addEventListener('mouseleave', function() {
+        burgerEl.style.color = 'white'
+    })
+    homeEl.addEventListener('mouseenter', function() {
+        homeEl.style.color = 'rgba(255, 255, 255, 0.55)'
+    })
+    homeEl.addEventListener('mouseleave', function() {
+        homeEl.style.color = 'white'
+    })
+    leaderboardEl.addEventListener('mouseenter', function() {
+        leaderboardEl.style.color = 'rgba(255, 255, 255, 0.55)'
+    })
+    leaderboardEl.addEventListener('mouseleave', function() {
+        leaderboardEl.style.color = 'black'
+    })
+    
 }}
 
 if (!localStorage.teller) {
