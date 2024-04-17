@@ -70,7 +70,17 @@
             flex-direction: column;
             height: 100vh;
             margin: 0px;
+
         }
+
+        body{
+            box-sizing: border-box;
+            background-color: rgb(43, 135, 209);
+
+        }
+
+        
+    
 
         button {
             margin: 20px;
