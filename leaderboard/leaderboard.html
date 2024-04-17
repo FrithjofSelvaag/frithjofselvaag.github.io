@@ -13,8 +13,13 @@
 
 <style>
 
+
+
     body{
         font-family:"Roboto", sans-serif;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
     }
     /* navbaren */  
     header {
@@ -74,7 +79,7 @@
     }
 
 
-    @media(max-width: 600px) {
+    /* @media(max-width: 600px) {
         header select {
             display: none;
         }
@@ -128,7 +133,7 @@
     .fa-chart-bar:hover {
         color: black;
         border-radius: 10px;
-    }
+    } */
 
     /*aaaaaaah*/
     .leaderboard {
@@ -203,8 +208,71 @@
     
 
 }
+/* @media(max-width:1077){
+    .leaderboard{
+        max-width: 90%;
+        width:90%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+        
 
+
+    }
+    .p{
+        width: 20%;
+        
+    } */
+
+@media(max-width:684px){
+
+    .leaderboard {
+        display: flex;
+        margin:auto;
+        align-items: center;
+        flex-direction: column;
+        max-width: 90%;
+        width:90%
+        
+        
+    }
+
+    .p {
+        width: 100%;
+
+}
+#tittelSymbol h1{
+    max-width: 90%;
+
+}
+
+}
+@media(max-width:350px){
+    #tittelSymbol h1{
+        font-size: 50px;
+    }
+}
+@media(max-width:250px){
+    #tittelSymbol h1{
+        font-size: 30px;
+    }
+}
+
+/* @media(max-width: 965px){
+    #storBoks .spillboks{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width: 600px){
+    #storBoks .spillboks{
+        grid-template-columns: repeat(1,1fr);
+    }
     
+    #stprboks .spillboks div{
+        margin:0;
+        padding:0;
+    }
+} */
     
 </style>
 </head>
@@ -318,17 +386,18 @@
 
 
     <script>
-        let kokEl = document.querySelectorAll('.leaderboard .p h1')
-        for(let i=0;i<kokEl.length;i++){
-                        kokEl[i].style.color="pink"
-                    }
+        
+        
         
         
         
         
         
         // ColorPalate
-        
+        let kokEl = document.querySelectorAll('.leaderboard .p h1')
+        /* for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="pink"
+                    } */
         let selectEl = document.querySelector('header select')
         
         let body = document.querySelector('body')
@@ -362,6 +431,9 @@
                 
             }*/
             if (selectEl.value === "white") {
+                for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="black"
+                    }
 
                     localStorage.teller = 1
                     tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
@@ -413,19 +485,21 @@
 
 
                     else if (selectEl.value === "black") {
-                    
+                        for(let i=0;i<kokEl.length;i++){
+                        kokEl[i].style.color="white"
+                    }
                         
                         localStorage.teller = 2
                         tittelSymbolEl.style.backgroundColor="black"
                         header.style.backgroundColor = 'rgb(17, 17, 17)'
                         body.style.backgroundColor = 'rgb(17, 17, 17)'
                         selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
-                        selectEl.style.color='white'
-                        homeEl.style.color='white'
+                        selectEl.style.color = 'white'
+                        homeEl.style.color= 'white'
                         
                         /* h1El.style.color = 'white' */
                         
-                        spillOverskriftEl.style.color = 'white'
+                        /* spillOverskriftEl.style.color = 'white' */
                         
                         /* chartBar.style.color = 'white' */
 
@@ -586,3 +660,4 @@
     </script>
 </body>
 </html>
+

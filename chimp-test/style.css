@@ -3,7 +3,9 @@
 }
 body {
     margin: 0px;
-    background-color: rgb(43, 135, 209);
+    padding: 0px;
+    box-sizing: border-box;
+    /* background-color: rgb(43, 135, 209); */
     cursor:default;
     font-family:"Roboto", sans-serif;
 
