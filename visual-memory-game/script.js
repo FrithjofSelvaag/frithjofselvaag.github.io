@@ -763,7 +763,7 @@ function seier(){
     
         inputEl.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
-                let playerName = String(inputEl.value).substring(0, 8);
+                let playerName = String(inputEl.value).substring(0, 8)
                 let highscore = level - 1
                 localStorage.setItem('highscore2', highscore)
                 localStorage.setItem('playerName2', playerName)
