@@ -2,8 +2,7 @@ let hovdMeny = document.querySelector(".hovd-meny");
 let klikkBar = document.querySelector(".klikkbar");
 let beskjed = document.querySelector(".klikkbar .mld");
 let sluttSkjerm = document.querySelector(".slutt-skjerm");
-let reaksjonTidTekst = document.querySelector(
-  ".slutt-skjerm .reaksjon-tid-tekst");
+let reaksjonTidTekst = document.querySelector(".slutt-skjerm .reaksjon-tid-tekst");
 let spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn");
 let Home = document.querySelector(".slutt-skjerm .homeBtn");
 let saveS = document.querySelector(".slutt-skjerm ")
@@ -27,21 +26,17 @@ let i = () => {
 
 i();
 
-//Trykk nå(grønn)
-let setGrønnFarge = () => {
-  klikkBar.style.backgroundColor = "#32cd32";
-  beskjed.innerHTML = "Click Now!";
-  beskjed.style.color = "#111";
-  //Definerer linje 105(klikkbar funksjon)
-  grønnAktivert = true;
-  tidNå = Date.now();
-};
+//Startsiden(lytter, starter spillet)
+hovdMeny.addEventListener("click", () => {
+  hovdMeny.classList.remove("active");
+  startSpill();
+});
 
 //Start spillet
 let startSpill = () => {
-  klikkBar.style.backgroundColor = "#c1121f";
+  klikkBar.style.backgroundColor = "rgb(193, 18, 31)";
   beskjed.innerHTML = "Wait For the Green Color...";
-  beskjed.style.color = "#fff";
+  beskjed.style.color = "white";
 
   //Klokke(timer)
   let tilfeldigTall = Math.floor(Math.random() * 1000 + 2000);
@@ -54,11 +49,61 @@ let startSpill = () => {
   console.log("Tilfeldig tall: ", tilfeldigTall)
 };
 
+//Trykk nå(grønn)
+let setGrønnFarge = () => {
+  klikkBar.style.backgroundColor = "rgb(50, 205, 50)";
+  beskjed.innerHTML = "Click Now!";
+  beskjed.style.color = "rgb(17, 17, 17)";
+  //Definerer linje 105(klikkbar funksjon)
+  grønnAktivert = true;
+  tidNå = Date.now();
+};
 
-hovdMeny.addEventListener("click", () => {
-  hovdMeny.classList.remove("active");
-  startSpill();
+
+//Underveis i testen(sender bruker til funksjon "arkiverReaksjonsTid")
+klikkBar.addEventListener("click", () => {
+  if (grønnAktivert) {
+    let clickTime = Date.now();
+    let reaksjonTid = clickTime - tidNå;
+    console.log("Reaksjons tid: ", reaksjonTid);
+    aktiverReaksjonsTid(reaksjonTid);
+    return;
+  }
+
+  //Fortsetter spillet 
+  if (ventPåStart) {
+    startSpill();
+    return;
+  }
+
+  //
+  if (ventPåGrønn) {
+    aktiverForTidlig();
+  }
 });
+
+//Resultat(middlertidlig og avsluttende)
+let aktiverReaksjonsTid = (rt) => {
+  klikkBar.style.backgroundColor = "rgb(250, 240, 202)";
+  beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Click to Continiue.`;
+  grønnAktivert = false;
+  ventPåStart = true;
+  resultat.push(rt);
+  console.log("Resultater: ", resultat);
+
+  if (resultat.length >= 3) {
+    sluttSpill();
+  }
+};
+
+//Trykket for tidlig
+let aktiverForTidlig = () => {
+  klikkBar.style.backgroundColor = "rgb(250, 240, 202)";
+  beskjed.innerHTML = "Too Early! Click to Continue";
+  beskjed.style.color = "rgb(17, 17, 17)";
+  ventPåStart = true;
+  clearTimeout(klokke);
+};
 
 //Slutt spillet
 let sluttSpill = () => {
@@ -72,11 +117,11 @@ let sluttSpill = () => {
   });
 
   //Utregning av gjennomsnittstid(siste oppgitte tall)
-  let averageResultat = Math.round(total / resultat.length);
+  let gjennomsnitt = Math.round(total / resultat.length);
   console.log("Total: ", total);
-  console.log("Avarage Result: ", averageResultat);
+  console.log("Avarage Result: ", gjennomsnitt);
 
-  reaksjonTidTekst.innerHTML = `${averageResultat} ms`;
+  reaksjonTidTekst.innerHTML = `${gjennomsnitt} ms`;
 
   document.write(`
   <h1 style="color: white;
@@ -92,7 +137,7 @@ let sluttSpill = () => {
   font-size: 100px;
   padding-top: 0px;
   font-family: Helvetica, Arial, sans-serif;
-  ">${averageResultat}ms</h1>
+  ">${gjennomsnitt}ms</h1>
   <h1 style="color: white;
   text-align: center;
   font-size: 22px;
@@ -100,7 +145,7 @@ let sluttSpill = () => {
   font-family: Helvetica, Arial, sans-serif;
   ">Better Luck Next Time</h1>
   `)
-//Lager tre knapper(tre muligheter)
+  //Lager tre knapper(tre muligheter)
   let nyKnapp = document.createElement('button')
   nyKnapp.textContent = ('Try Again')
   nyKnapp.classList.add('knapp')
@@ -116,29 +161,29 @@ let sluttSpill = () => {
   nyKnapp3.classList.add('knapp')
   document.body.appendChild(nyKnapp3)
 
-  nyKnapp.addEventListener('mouseenter', function() {
-      nyKnapp.style.backgroundColor = 'white'
+  nyKnapp.addEventListener('mouseenter', function () {
+    nyKnapp.style.backgroundColor = 'white'
   })
-  nyKnapp.addEventListener('mouseleave', function() {
-      nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+  nyKnapp.addEventListener('mouseleave', function () {
+    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
   })
-  nyKnapp.addEventListener('click', function(){
-      location.reload()
+  nyKnapp.addEventListener('click', function () {
+    location.reload()
   })
-  nyKnapp2.addEventListener('mouseenter', function() {
-      nyKnapp2.style.backgroundColor = 'white'
+  nyKnapp2.addEventListener('mouseenter', function () {
+    nyKnapp2.style.backgroundColor = 'white'
   })
-  nyKnapp2.addEventListener('mouseleave', function() {
-      nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+  nyKnapp2.addEventListener('mouseleave', function () {
+    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
   })
-  nyKnapp2.addEventListener('click', function(){
-      window.location.href = '../Hovedside/index.html'
+  nyKnapp2.addEventListener('click', function () {
+    window.location.href = '../Hovedside/index.html'
   })
-  nyKnapp3.addEventListener('mouseenter', function() {
-      nyKnapp3.style.backgroundColor = 'white'
+  nyKnapp3.addEventListener('mouseenter', function () {
+    nyKnapp3.style.backgroundColor = 'white'
   })
-  nyKnapp3.addEventListener('mouseleave', function() {
-      nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+  nyKnapp3.addEventListener('mouseleave', function () {
+    nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
   })
   nyKnapp.style.display = 'flex'
   nyKnapp.style.backgroundColor = "rgb(254, 217, 32)"
@@ -182,22 +227,22 @@ let sluttSpill = () => {
   nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
   nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
 
-   if(selectEl.value === "white"){
-      nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
-      nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.body.style.transition = 'background-color 1s ease'
-      document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+  if (selectEl.value === "white") {
+    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+    document.body.style.transition = 'background-color 1s ease'
+    document.body.style.backgroundColor = 'rgb(43, 135, 209)'
   }
-  else if(selectEl.value === "black"){
-      nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
-      nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
-      document.body.style.transition = 'background-color 1s ease'
-      document.body.style.backgroundColor = 'black'
-  } 
-  
-  nyKnapp3.addEventListener('click', function(){
-          document.body.innerHTML = ""
-          document.write(`
+  else if (selectEl.value === "black") {
+    nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+    nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+    document.body.style.transition = 'background-color 1s ease'
+    document.body.style.backgroundColor = 'black'
+  }
+
+  nyKnapp3.addEventListener('click', function () {
+    document.body.innerHTML = ""
+    document.write(`
           <h1 style="color: white;
           text-align: center;
           font-size: 22px;
@@ -211,7 +256,7 @@ let sluttSpill = () => {
           font-size: 100px;
           padding-top: 0px;
           font-family: Helvetica, Arial, sans-serif;
-          ">${averageResultat}ms</h1>
+          ">${gjennomsnitt}ms</h1>
           <h1 style="color: white;
           text-align: center;
           font-size: 22px;
@@ -219,76 +264,31 @@ let sluttSpill = () => {
           font-family: Helvetica, Arial, sans-serif;
           ">Write Your Name</h1>
           `)
-          let labelEl = document.createElement('label')
-          labelEl.classList.add('label')
-          document.body.appendChild(labelEl)
-          let inputEl = document.createElement('input')
-          inputEl.classList.add('input')
-          labelEl.appendChild(inputEl)
+    let labelEl = document.createElement('label')
+    labelEl.classList.add('label')
+    document.body.appendChild(labelEl)
+    let inputEl = document.createElement('input')
+    inputEl.classList.add('input')
+    labelEl.appendChild(inputEl)
 
-          labelEl.style.color = 'white'
-          labelEl.style.display = 'flex'
-          labelEl.style.margin = 'auto'
-          labelEl.style.justifyContent = 'center'
-      
-          inputEl.addEventListener('keydown', function(e) {
-              if (e.key === 'Enter') {
-                  let playerName = String(inputEl.value)
-                  let highscore = averageResultat
-                  localStorage.setItem('highscore3', highscore)
-                  localStorage.setItem('playerName3', playerName)
-                  console.log(localStorage.getItem('playerName3'))
-                  console.log(localStorage.getItem('highscore3'))
-                  window.location.href = '../leaderboard/leaderboard.html'
-              }
-          })
-      })
+    labelEl.style.color = 'white'
+    labelEl.style.display = 'flex'
+    labelEl.style.margin = 'auto'
+    labelEl.style.justifyContent = 'center'
+
+    inputEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        let playerName = String(inputEl.value)
+        let highscore = gjennomsnitt
+        localStorage.setItem('highscore3', highscore)
+        localStorage.setItem('playerName3', playerName)
+        console.log(localStorage.getItem('playerName3'))
+        console.log(localStorage.getItem('highscore3'))
+        window.location.href = '../leaderboard/leaderboard.html'
+      }
+    })
+  })
 }
-
-//Resultat(middlertidlig og avsluttende)
-let aktiverReaksjonsTid = (rt) => {
-  klikkBar.style.backgroundColor = "#faf0ca";
-  beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Click to Continiue.`;
-  grønnAktivert = false;
-  ventPåStart = true;
-  resultat.push(rt);
-  console.log("Resultater: ", resultat);
-
-  if (resultat.length >= 3) {
-    sluttSpill();
-  }
-};
-
-//Trykket for tidlig
-let aktiverForTidlig = () => {
-  klikkBar.style.backgroundColor = "#faf0ca";
-  beskjed.innerHTML = "Too Early! Click to Continue";
-  beskjed.style.color = "#111";
-  ventPåStart = true;
-  clearTimeout(klokke);
-};
-
-//Underveis i testen(sender bruker til funksjon "arkiverReaksjonsTid")
-klikkBar.addEventListener("click", () => {
-  if (grønnAktivert) {
-    let clickTime = Date.now();
-    let reaksjonTid = clickTime - tidNå;
-    console.log("Reaksjons tid: ", reaksjonTid);
-    aktiverReaksjonsTid(reaksjonTid);
-    return;
-  }
-
-  //Fortsetter spillet 
-  if (ventPåStart) {
-    startSpill();
-    return;
-  }
-
-  //
-  if (ventPåGrønn) {
-    aktiverForTidlig();
-  }
-});
 
 //Dark Mode
 let header = document.querySelector("#header")
@@ -297,78 +297,79 @@ let lenkene = document.querySelectorAll("a")
 
 selectEl.addEventListener("change", colorPalate)
 
-function colorPalate(){
+function colorPalate() {
 
-  if (selectEl.value === "white")   {
+  if (selectEl.value === "white") {
 
-      localStorage.teller = 1
+    localStorage.teller = 1
 
-      header.style.backgroundColor = 'white'
-      hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
-      selectEl.style.backgroundColor = 'white'
-      selectEl.style.color = 'black'
+    header.style.backgroundColor = 'white'
+    hovdMeny.style.backgroundColor = 'rgb(43, 135, 209)'
+    selectEl.style.backgroundColor = 'white'
+    selectEl.style.color = 'black'
 
-      lenkene.forEach(function(lenkene){
-          lenkene.style.color = 'black'
+    lenkene.forEach(function (lenkene) {
+      lenkene.style.color = 'black'
 
-          lenkene.addEventListener('mouseenter', function() {
-              lenkene.style.color = 'rgba(0,0,0, 0.55)'
-          })
-          lenkene.addEventListener('mouseleave', function() {
-              lenkene.style.color = 'black'
-          })
+      lenkene.addEventListener('mouseenter', function () {
+        lenkene.style.color = 'rgba(0,0,0, 0.55)'
       })
-          selectEl.addEventListener('mouseenter', function() {
-              selectEl.style.color = 'rgba(0,0,0, 0.55)'
-          })
-          selectEl.addEventListener('mouseleave', function() {
-              selectEl.style.color = 'black'
-          })
-      }
+      lenkene.addEventListener('mouseleave', function () {
+        lenkene.style.color = 'black'
+      })
+    })
+    selectEl.addEventListener('mouseenter', function () {
+      selectEl.style.color = 'rgba(0,0,0, 0.55)'
+    })
+    selectEl.addEventListener('mouseleave', function () {
+      selectEl.style.color = 'black'
+    })
+  }
 
   else if (selectEl.value === "black") {
 
-      localStorage.teller = 2
+    localStorage.teller = 2
 
-      hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
-      selectEl.style.backgroundColor = 'black'
+    hovdMeny.style.backgroundColor = 'rgb(17, 17, 17)'
+    selectEl.style.backgroundColor = 'black'
+    selectEl.style.color = 'white'
+    header.style.backgroundColor = 'black'
+
+    lenkene.forEach(function (lenkene) {
+      lenkene.style.color = 'white'
+
+      lenkene.addEventListener('mouseenter', function () {
+        lenkene.style.color = 'rgba(255,255,255, 0.55)'
+      })
+      lenkene.addEventListener('mouseleave', function () {
+        lenkene.style.color = 'white'
+      })
+    })
+    selectEl.addEventListener('mouseenter', function () {
+      selectEl.style.color = 'rgba(255,255,255, 0.55)'
+    })
+    selectEl.addEventListener('mouseleave', function () {
       selectEl.style.color = 'white'
-      header.style.backgroundColor = 'black'
-      
-      lenkene.forEach(function(lenkene){
-          lenkene.style.color = 'white'
-
-          lenkene.addEventListener('mouseenter', function() {
-              lenkene.style.color = 'rgba(255,255,255, 0.55)'
-          })
-          lenkene.addEventListener('mouseleave', function() {
-              lenkene.style.color = 'white'
-          })
-      })
-      selectEl.addEventListener('mouseenter', function() {
-          selectEl.style.color = 'rgba(255,255,255, 0.55)'
-      })
-      selectEl.addEventListener('mouseleave', function() {
-          selectEl.style.color = 'white'
-      })
-  }}
+    })
+  }
+}
 
 
-  console.log(localStorage.teller)
+console.log(localStorage.teller)
 //hvis teller ikke eksisterer i localstorage skal den settes til 1
 if (!localStorage.teller) {
-    localStorage.teller = 1
-} 
-if(localStorage.teller == 1){
-    selectEl.value = "white"
-    colorPalate()
+  localStorage.teller = 1
 }
-else if (localStorage.teller == 2){
-    selectEl.value = "black"
-    colorPalate()
+if (localStorage.teller == 1) {
+  selectEl.value = "white"
+  colorPalate()
+}
+else if (localStorage.teller == 2) {
+  selectEl.value = "black"
+  colorPalate()
 }
 
-setTimeout(function(){
-    hovdMeny.style.transition = 'background-color 1s ease'
-    header.style.transition = 'background-color 1s ease'
+setTimeout(function () {
+  hovdMeny.style.transition = 'background-color 1s ease'
+  header.style.transition = 'background-color 1s ease'
 }, 100)
