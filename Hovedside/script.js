@@ -10,13 +10,14 @@ let mainDivEl = document.querySelector('.spillboks div')
 let mainEl = document.querySelector('.spillboks')
 
 
-/* burgerEl.addEventListener('click', showNav) */
+burgerEl.addEventListener('click', showNav)
 
-/* function showNav() {
+function showNav() {
     navEl.classList.toggle('show')
     selectEl.classList.toggle('show')
+    
 
-} */
+}
 
 // ColorPalate
 let tittelSymbolEl = document.querySelector('#tittelSymbol')
@@ -24,9 +25,9 @@ let selectEl = document.querySelector('header select')
 let body = document.body
 let h1El = document.querySelector('h1')
 let header = document.querySelector('header')
-let headerSkrift = document.querySelector('header a')
-let chartBar = document.querySelector('.fa-chart-bar')
-let nav = document.querySelector('nav a')
+/* let headerSkrift = document.querySelector('header a') */
+
+/* let nav = document.querySelector('nav a') */
 
 let homeEl = document.querySelector("header div a")
 let boksTekstEl = document.querySelectorAll('#storBoks .spillboks div h1')   //tekst inni boksene
@@ -45,37 +46,34 @@ setTimeout(function(){
 selectEl.addEventListener("change", colorPalate)
 
 
-function showNav() {
-    navEl.classList.toggle('show')
-    selectEl.classList.toggle('show')
 
-}
 function colorPalate(){
 
-    let r = Math.floor(Math.random()*256)
+    /* let r = Math.floor(Math.random()*256)
     let g = Math.floor(Math.random()*256)
-    let b = Math.floor(Math.random()*256)
+    let b = Math.floor(Math.random()*256) */
     
 
     if (selectEl.value === "white") {
 
-            
-            
+            //farger i javascript
+            burgerEl.style.color="black"
             homeEl.style.color="black"
-            tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
-            header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
-            body.style.backgroundColor = 'white'
-            /* h1El.style.color = 'white' */
-            selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
-            selectEl.style.color='black'
-            headerSkrift.style='black'
-            /* chartBar.style.color = 'black' */
             leaderboardEl.style.color="black"
-            /* spillOverskriftEl.style.color = 'black' */
+            header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
+            tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
+            body.style.backgroundColor = 'white'
+            selectEl.style.color='black'
+            selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
             boksTekstEl.forEach(function(boksTekstEl) {
                 boksTekstEl.style.color = 'black'
             })
-            leaderboardEl.addEventListener('mouseover',function(){
+            
+            
+            
+            
+            //hover effekter i javascript
+            leaderboardEl.addEventListener('mouseover',function(){  
                 leaderboardEl.style.color="rgba(0, 0, 0, 0.55)"
             })
             leaderboardEl.addEventListener('mouseout',function(){
@@ -118,36 +116,31 @@ function colorPalate(){
                 })
             }
 
+
+            //husker fargen
             localStorage.teller = 1
         
-        }
-        
-        
-        
-
-
+    }
         
 
     else if (selectEl.value === "black") {
+
+        burgerEl.style.color="white"
         homeEl.style.color="white"
-        
+        leaderboardEl.style.color="white"
         tittelSymbolEl.style.backgroundColor="black"
-        localStorage.teller = 2
-        spillOverskriftEl.style.color='white'
         body.style.backgroundColor = 'rgb(17, 17, 17)'
-        selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
+        selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' 
         selectEl.style.color='white'
         header.style.backgroundColor = 'rgb(17, 17, 17)'
-        /* h1El.style.color = 'white' */
-        spillOverskriftEl.style.color = 'white'
-        headerSkrift.style.color='white'
-        leaderboardEl.style.color="white"
-        /* chartBar.style.color = 'white' */
-
-
+        
         boksTekstEl.forEach(function(boksTekstEl) {
             boksTekstEl.style.color = 'white'
         })
+            
+
+
+        //legger til hover effekter i javascript:
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color='rgba(255, 255, 255, 0.55)'
         })
@@ -172,6 +165,7 @@ function colorPalate(){
         })
 
 
+
         for (let h = 0; h < boksene.length; h++) {
             boksene[h].addEventListener('mouseover', function(){
                 boksene[h].style.boxShadow = '0px 0px 20px rgba(255, 255, 255, 1)'
@@ -189,7 +183,10 @@ function colorPalate(){
                     spillNavn.style.color = "white"
                 })
             }
-        }
+
+            //husker fargen
+            localStorage.teller = 2
+    }
 
 
 

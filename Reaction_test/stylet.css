@@ -22,7 +22,7 @@ body {
   place-items: center;
   font-size: 32px;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-  color: #fff;
+  color: white;
 }
 
 .slutt-skjerm,
@@ -34,7 +34,7 @@ body {
   top: 0;
   left: 0;
   background-color: rgb(43, 135, 209);
-  color: #fff;
+  color: white;
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   text-align: center;
 }
@@ -84,11 +84,11 @@ body {
   font-weight: 900;
   letter-spacing: 4px;
   cursor: pointer;
-  color: #111;
+  color: rgb(17, 17, 17);
 }
 
 .spill-igjen-btn:hover, .homeBtn:hover, .saveScore:hover{
-  background-color: #fff;
+  background-color: white;
 }
 
 .spill-igjen-btn, .saveScore{
@@ -156,60 +156,98 @@ header select:hover{
   color: rgb(0, 0, 0, 0.55);
 }
 
-/* media quary for endring  av navbar når mindre skjerm */
-/* @media(max-width: 600px) {
+
+
+/* media quary for endring  av navbar når mindre skjerm 
+@media(max-width: 600px) {
   header select {
-      display: none;
+    display: none; 
   }
   header nav {
-      display: none;
-      flex-direction: column;
+    display: none;
+    flex-direction: column;
   }
   header {
-      flex-direction: column;
-      padding-bottom: 10px;
+    flex-direction: column;
+    padding-bottom: 10px;
   }
 
   header .topnav {
-      width: 100%;
+    width: 100%;
   }
 
   .fa-chart-bar {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
   }
   .topnav a {
-      margin-right: auto;
+    margin-right: auto;
   }
   header nav.show {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
   }
   header select.show {
-      display: flex;
-      text-align: center;
-      border-radius: 5px;
-      font-family: monospace;
-      background-color: white;
-      color: black;
-      border-style: hidden;
-      width: 100px;
-      height: 40px;
-      margin-left: auto;
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    font-family: monospace;
+    background-color: white;
+    color: black;
+    border-style: hidden;
+    width: 100px;
+    height: 40px;
+    margin-left: auto;
   }
   header select:hover.show{
-      color: rgb(0, 0, 0, 0.55);
+    color: rgb(0, 0, 0, 0.55);
   }
-  .spillboks{
-      flex-direction: column;
-  }
+   .spillboks{
+    flex-direction: column;
+  } 
 }
-.fa-chart-bar:hover {
+ .fa-chart-bar:hover {
   color: black;
-  border-radius: 10px;
-}
- */
+  border-radius: 10px; 
+} 
+*/
+
+@media(max-width: 343px) {
+  /* Stilendringer for skjermer smalere enn 343px */
+  .reaksjon-tid-container .container {
+    max-width: 90%; /* Reduserer maksimal bredde for bedre visning på små skjermer */
+  }
+
+  .hovd-meny h1 {
+    font-size: 50px; /* Justerer fontstørrelsen for overskriften */
+  }
+
+  .reaksjon-tid-container .container p {
+    font-size: 16px; /* Justerer fontstørrelsen for paragrafer */
+  }
+
+  .reaksjon-tid-tekst {
+    font-size: 60px; /* Justerer fontstørrelsen for reaksjonstidsteksten */
+  }
+
+  .slutt-skjerm .spill-igjen-btn, .homeBtn, .saveScore {
+    font-size: 16px; /* Justerer fontstørrelsen for knapper */
+  }
+
+  header {
+    flex-direction: column; /* Endrer retningen på header-elementet for bedre plassering av innhold */
+  }
+
+  header a {
+    padding: 10px; /* Reduserer padding på lenker for bedre plassering */
+  }
+
+  header select {
+    margin: 10px auto; /* Justerer marginen for select-elementet for bedre plassering */
+    width: 80%; /* Reduserer bredden på select-elementet */
+  }
+} 

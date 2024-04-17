@@ -1,10 +1,9 @@
-body {
+/* body {
     margin: 0;
-    /* background-color: rgb(43, 135, 209); */
-    /* transition: background-color 1s ease; */
+
     cursor:default;
     font-family:"Roboto", sans-serif;
-}
+} */
 
 .tiles {
     margin: 10px auto 50px;
@@ -91,8 +90,11 @@ body {
     flex-direction: row;
     gap: 10px;
     justify-content: center;
-     align-items:center; 
+    align-items:center; 
 }
+
+
+
 
 #level{
     font-size: 40px;
@@ -126,15 +128,33 @@ body {
 
 
 
+/* @media(max-width:397px){
+    .tiles div{
+        height:90px;
+        width: 90px;
+       
+    }
 
+    .tiles{
+
+    margin: 20px ;
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 8px;
+    padding-top: 0px;  
+    max-width: 90%;
+    }
+    
+} */
 
 /* navbaren */  
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    
 }
 header nav {
     display: flex;
@@ -155,13 +175,13 @@ header .topnav {
     display: flex;
     justify-content: space-between;
 }
-/* .fa-chart-bar {
+.fa-chart-bar {
     color: black;
     font-size: 30px;
     padding: 5px 20px;
     display: none;
     cursor: pointer;
-} */
+}
 header select {
     margin-right: 10px;
     display: flex;
@@ -175,11 +195,11 @@ header select {
     text-align: center;
     margin-left: auto;
 }
+ */
 
 
 
 
-/* media quary for endring  av navbar når mindre skjerm */
 /* @media(max-width: 600px) {
     header select {
         display: none;

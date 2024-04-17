@@ -1,11 +1,7 @@
 
 
-/* *{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-} */
-body{
+
+/* body{                         felles css for alle 
 
     margin: 0px;
     padding: 0px;
@@ -13,7 +9,7 @@ body{
     font-family:"Roboto", sans-serif;
 }
 
-/* navbaren */  
+
 header {
     display: flex;
     justify-content: space-between;
@@ -48,14 +44,12 @@ header .topnav {
     display: flex;
     justify-content: space-between;
 }
-/* .fa-chart-bar {
-    
-    color:black;
+.fa-chart-bar {
     font-size: 30px;
     padding: 5px 20px;
     display: none;
     cursor: pointer;
-} */
+}
 header select {
     margin-right: 10px;
     display: flex;
@@ -73,14 +67,10 @@ header select {
 
 
 
-/* media quary for endring  av navbar når mindre skjerm */
-/* @media(max-width: 600px) {
+ 
+ @media(max-width: 359px) {     
 
-    #storBoks .spillboks{
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
-    }
+    
     header select {
         display: none;
     }
@@ -115,6 +105,7 @@ header select {
     header select.show {
         display: flex;
         text-align: center;
+        
         border-radius: 5px;
         font-family: monospace;
         background-color: rgb(5, 163, 215);
@@ -122,22 +113,18 @@ header select {
         border-style: hidden;
         width: 100px;
         height: 40px;
-        margin-left: auto;
+        margin:auto;
     }
     header select:hover.show{
         color: rgb(255, 255, 255, 0.725);
     }
     
 }
+
  */
 
 
-    
 
-/* .fa-chart-bar:hover {
-    color: black;
-    border-radius: 10px;
-} */
 
 
 
@@ -253,3 +240,14 @@ header select {
     }
 }
 
+@media(max-width:350px) {
+    #tittelSymbol h1 {
+        font-size: 50px;
+    }
+}
+
+@media(max-width:250px) {
+    #tittelSymbol h1 {
+        font-size: 30px;
+    }
+}

@@ -64,6 +64,8 @@ function nesteLevel(){
     setTimeout(function(){
         erIOvergang = false
     },1200)
+
+
     let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
 
@@ -149,6 +151,11 @@ function valgt(){
 
             levelFlash()
             erIOvergang=2
+            if(level==16){
+                
+                seier() 
+                return
+            }
             setTimeout(function(){
                 for(i=0;i<valgteBokser.length;i++){
                     
@@ -247,12 +254,12 @@ function valgt(){
                     bokserEls.forEach(function(boks){
                         boks.style.height =  '45px'
                     })
-                }if(level>=18){   //så lenge det er gøy
-                    document.write('Congratulations! You won')
                 }
+
                 
+            
                 
-                
+
 
                 
                 bokserEls=document.querySelectorAll('.tiles > div') 
@@ -282,10 +289,12 @@ function valgt(){
 
             setTimeout(
                 nesteLevel,1400)
-            
-    
-        }
 
+
+
+
+        }
+        
 
     
 
@@ -604,7 +613,7 @@ function valgt(){
                             }
                         })
                 
-                })//slutt på ny skjerm
+                })//slutt på ny skjerm etter lagre
             },50)//slutt på setTimeout løkke
         }
     }
@@ -621,6 +630,154 @@ function valgt(){
 
 
 
+}
+
+function seier(){
+                    
+    document.write(`
+    <h1 style="color: white;
+    text-align: center;
+    font-size: 90px;
+    padding-top: 125px;
+    font-family: Roboto", sans-serif;
+    ">Congratulations! You won!</h1>
+
+    <h2 style="color: white;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 0px;
+    font-family: Roboto", sans-serif;
+    ">Remember to save your score!</h1>
+
+    >
+    `) 
+
+    
+
+    let lagreKnapp = document.createElement('button')
+    lagreKnapp.textContent = ('Save Score')
+    lagreKnapp.classList.add('knapp')
+    document.body.appendChild(lagreKnapp)
+
+
+    let hjemKnapp = document.createElement('button')
+    hjemKnapp.textContent = ('Home')
+    hjemKnapp.classList.add('knapp')
+    document.body.appendChild(hjemKnapp)
+
+
+    hjemKnapp.addEventListener('mouseenter', function() {
+        hjemKnapp.style.backgroundColor = 'white'
+    })
+    hjemKnapp.addEventListener('mouseleave', function() {
+        hjemKnapp.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+    })
+    hjemKnapp.addEventListener('click', function(){
+        window.location.href = '../Hovedside/index.html'
+    })
+
+    lagreKnapp.addEventListener('mouseenter', function() {
+        lagreKnapp.style.backgroundColor = 'white'
+    })
+    lagreKnapp.addEventListener('mouseleave', function() {
+        lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+    })
+    
+
+    hjemKnapp.style.display = 'flex'
+    hjemKnapp.style.margin = '20px auto'
+    hjemKnapp.style.width = '160px'
+    hjemKnapp.style.height = '50px'
+    hjemKnapp.style.justifyContent = 'center'
+    hjemKnapp.style.alignItems = 'center'
+    hjemKnapp.style.fontWeight = '40px'
+    hjemKnapp.style.border = 'none'
+    hjemKnapp.style.borderRadius = '5px'
+    hjemKnapp.style.transition = 'background-color 0.5s ease'
+    hjemKnapp.style.fontSize = '30px'
+    hjemKnapp.style.fontFamily = 'Roboto", sans-serif'
+
+
+    lagreKnapp.style.display = 'flex'
+    lagreKnapp.style.margin = '20px auto'
+    lagreKnapp.style.width = '300px'
+    lagreKnapp.style.height = '70px'
+    lagreKnapp.style.justifyContent = 'center'
+    lagreKnapp.style.alignItems = 'center'
+    lagreKnapp.style.fontWeight = '40px'
+    lagreKnapp.style.border = 'none'
+    lagreKnapp.style.borderRadius = '5px'
+    lagreKnapp.style.transition = 'background-color 0.5s ease'
+    lagreKnapp.style.fontSize = '40px'
+    lagreKnapp.style.fontFamily = 'Roboto", sans-serif'
+    lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+
+    if(selectEl.value === "white"){
+        
+        hjemKnapp.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+        document.body.style.transition = 'background-color 1s ease'
+        setTimeout(function(){document.body.style.backgroundColor = 'green'}, 10)
+        setTimeout(function(){document.body.style.backgroundColor = 'rgb(43, 135, 209)'}, 200)
+    }
+    else if(selectEl.value === "black"){
+        hjemKnapp.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
+        document.body.style.transition = 'background-color 1s ease'
+        setTimeout(function(){document.body.style.backgroundColor = 'green'}, 10)
+        setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
+    }
+    
+
+    lagreKnapp.addEventListener('click', function(){
+        document.body.innerHTML = ""
+        document.write(`
+        <h1 style="color: white;
+        text-align: center;
+        font-size: 22px;
+        padding-top: 125px;
+        font-family: Roboto", sans-serif;
+        ">Visual Memory</h1>
+        <h1 style="color: white;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 100px;
+        padding-top: 0px;
+        font-family: Roboto", sans-serif;
+        ">Level ${level}</h1>
+        <h1 style="color: white;
+        text-align: center;
+        font-size: 22px;
+        padding-top: 0px;
+        font-family: Helvetica, Arial, sans-serif;
+        ">Write Your Name</h1>
+        `)
+        let labelEl = document.createElement('label')
+        labelEl.classList.add('label')
+        document.body.appendChild(labelEl)
+        let inputEl = document.createElement('input')
+        inputEl.classList.add('input')
+        labelEl.appendChild(inputEl)
+
+        labelEl.style.color = 'white'
+        labelEl.style.display = 'flex'
+        labelEl.style.margin = 'auto'
+        labelEl.style.justifyContent = 'center'
+    
+        inputEl.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                let playerName = String(inputEl.value)
+                let highscore = level - 1
+                localStorage.setItem('highscore2', highscore)
+                localStorage.setItem('playerName2', playerName)
+                console.log(localStorage.getItem('playerName2'))
+                console.log(localStorage.getItem('highscore2'))
+                window.location.href = '../leaderboard/leaderboard.html'
+        }
+    })
+
+})
+          //så lenge det er gøy
+        
 }
 
 function levelFlash(){
@@ -684,14 +841,36 @@ function levelFlashTap(){
 let bodyEl = document.querySelector('body')
 
 
-let lenkene = document.querySelectorAll('a') //trener knaskje ikke
 
 let headerEl = document.querySelector('header')
 let homeEl = document.querySelector("header div a")
 let leaderboardEl = document.querySelector('header nav a')
+
+
+// for responsiv burger
 let selectEl = document.querySelector('header select')
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
+
+
+
 
 selectEl.addEventListener("change", colorPalate)
+
+
+
+
+
+
 
 
 
@@ -709,7 +888,7 @@ function colorPalate(){
 
     if (selectEl.value === "white") {
         //navbar farger
-        
+        burgerEl.style.color="white"
         headerEl.style.backgroundColor="white"
         homeEl.style.color="black"
         leaderboardEl.style.color="black"
@@ -720,6 +899,13 @@ function colorPalate(){
 
         
         //hover effekter: 
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(0, 0, 0)"
+        })
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color="rgba(0, 0, 0, 0.55)"
         })
@@ -767,6 +953,7 @@ function colorPalate(){
     else if(selectEl.value === "black") {
 
         //navbar farger
+        burgerEl.style.color="white"
         headerEl.style.backgroundColor="black"
         homeEl.style.color="white"
         leaderboardEl.style.color="white"
@@ -780,6 +967,13 @@ function colorPalate(){
         
 
         //hover effekter: 
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(255, 255, 255)"
+        })
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color="rgba(255, 255, 255, 0.55)"
         })
