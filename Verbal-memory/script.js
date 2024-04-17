@@ -262,7 +262,7 @@ $(document).ready(function() {
             
                 inputEl.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter') {
-                        let playerName = String(inputEl.value).substring(0, 8);
+                        let playerName = String(inputEl.value).substring(0, 8)
                         let highscore = score - 1
                         localStorage.setItem('highscore5', highscore)
                         localStorage.setItem('playerName5', playerName)

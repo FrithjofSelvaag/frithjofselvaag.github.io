@@ -278,7 +278,7 @@ let sluttSpill = () => {
 
     inputEl.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
-        let playerName = String(inputEl.value).substring(0, 8);
+        let playerName = String(inputEl.value).substring(0, 8)
         let highscore = gjennomsnitt
         localStorage.setItem('highscore3', highscore)
         localStorage.setItem('playerName3', playerName)
