@@ -128,7 +128,7 @@ let sluttSpill = () => {
   text-align: center;
   font-size: 22px;
   padding-top: 125px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   ">Reaction Time Test</h1>
   <h1 style="color: white;
   text-align: center;
@@ -136,13 +136,13 @@ let sluttSpill = () => {
   margin-bottom: 0px;
   font-size: 100px;
   padding-top: 0px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   ">${gjennomsnitt}ms</h1>
   <h1 style="color: white;
   text-align: center;
   font-size: 22px;
   padding-top: 0px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   ">Better Luck Next Time</h1>
   `)
   //Lager tre knapper(tre muligheter)
@@ -247,7 +247,7 @@ let sluttSpill = () => {
           text-align: center;
           font-size: 22px;
           padding-top: 125px;
-          font-family: Helvetica, Arial, sans-serif;
+          font-family: Roboto, sans-serif;
           ">Reaction Time Test</h1>
           <h1 style="color: white;
           text-align: center;
@@ -255,13 +255,13 @@ let sluttSpill = () => {
           margin-bottom: 0px;
           font-size: 100px;
           padding-top: 0px;
-          font-family: Helvetica, Arial, sans-serif;
+          font-family: Roboto, sans-serif;
           ">${gjennomsnitt}ms</h1>
           <h1 style="color: white;
           text-align: center;
           font-size: 22px;
           padding-top: 0px;
-          font-family: Helvetica, Arial, sans-serif;
+          font-family: Roboto, sans-serif;
           ">Write Your Name</h1>
           `)
     let labelEl = document.createElement('label')
@@ -383,7 +383,7 @@ function colorPalate() {
   burgerEl.addEventListener('mouseout',function(){
       burgerEl.style.color="rgb(0, 0, 0)"
   })
-  
+
     selectEl.addEventListener('mouseenter', function () {
       selectEl.style.color = 'rgba(255,255,255, 0.55)'
     })

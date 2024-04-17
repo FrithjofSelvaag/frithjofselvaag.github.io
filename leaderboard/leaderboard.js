@@ -51,7 +51,7 @@ function colorPalate() {
             selectEl.style.color = "black"
         })
 
-        for (let h = 0; h < leaderboard.length; h++) {
+/*         for (let h = 0; h < leaderboard.length; h++) {
             leaderboard[h].addEventListener('mouseover', function () {
                 leaderboard[h].style.transition = 'box-shadow 0.5s ease-in'
                 leaderboard[h].style.boxShadow = '0px 10px 10px 0px rgba(0, 0, 0, 0.15)'
@@ -59,7 +59,7 @@ function colorPalate() {
             leaderboard[h].addEventListener('mouseout', function () {
                 leaderboard[h].style.boxShadow = 'none'
             })
-        }
+        } */
     }
 
     else if (selectEl.value === "black") {

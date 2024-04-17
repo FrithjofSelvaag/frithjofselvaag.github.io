@@ -151,7 +151,7 @@ function valgt(){
 
             levelFlash()
             erIOvergang=2
-            if(level==16){
+            if(level==2){
                 
                 seier() 
                 return
@@ -449,7 +449,7 @@ function valgt(){
                     text-align: center;
                     font-size: 22px;
                     padding-top: 125px;
-                    font-family: Helvetica, Arial, sans-serif;
+                    font-family: Roboto, sans-serif;
                     ">Visual Memory</h1>
                     <h1 style="color: white;
                     text-align: center;
@@ -457,13 +457,13 @@ function valgt(){
                     margin-bottom: 0px;
                     font-size: 100px;
                     padding-top: 0px;
-                    font-family: Helvetica, Arial, sans-serif;
+                    font-family: Roboto, sans-serif;
                     ">Level ${level}</h1>
                     <h1 style="color: white;
                     text-align: center;
                     font-size: 22px;
                     padding-top: 0px;
-                    font-family: Helvetica, Arial, sans-serif;
+                    font-family: Roboto, sans-serif;
                     ">Better Luck Next Time</h1>
                     `)
 
@@ -572,7 +572,7 @@ function valgt(){
                             text-align: center;
                             font-size: 22px;
                             padding-top: 125px;
-                            font-family: Helvetica, Arial, sans-serif;
+                            font-family: Roboto, sans-serif;
                             ">Visual Memory</h1>
                             <h1 style="color: white;
                             text-align: center;
@@ -580,13 +580,13 @@ function valgt(){
                             margin-bottom: 0px;
                             font-size: 100px;
                             padding-top: 0px;
-                            font-family: Helvetica, Arial, sans-serif;
+                            font-family: Roboto, sans-serif;
                             ">Level ${level}</h1>
                             <h1 style="color: white;
                             text-align: center;
                             font-size: 22px;
                             padding-top: 0px;
-                            font-family: Helvetica, Arial, sans-serif;
+                            font-family: Roboto, sans-serif;
                             ">Write Your Name</h1>
                             `)
                             let labelEl = document.createElement('label')
@@ -639,18 +639,17 @@ function seier(){
     text-align: center;
     font-size: 90px;
     padding-top: 125px;
-    font-family: Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     ">Congratulations! You won!</h1>
 
     <h2 style="color: white;
     text-align: center;
     font-size: 40px;
     padding-top: 0px;
-    font-family: Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     ">Remember to save your score!</h1>
 
-    >
-    `) 
+    >`) 
 
     
 
@@ -734,7 +733,7 @@ function seier(){
         text-align: center;
         font-size: 22px;
         padding-top: 125px;
-        font-family: Roboto", sans-serif;
+        font-family: Roboto, sans-serif;
         ">Visual Memory</h1>
         <h1 style="color: white;
         text-align: center;
@@ -742,15 +741,14 @@ function seier(){
         margin-bottom: 0px;
         font-size: 100px;
         padding-top: 0px;
-        font-family: Roboto", sans-serif;
+        font-family: Roboto, sans-serif;
         ">Level ${level}</h1>
         <h1 style="color: white;
         text-align: center;
         font-size: 22px;
         padding-top: 0px;
-        font-family: Helvetica, Arial, sans-serif;
-        ">Write Your Name</h1>
-        `)
+        font-family: Roboto, sans-serif;
+        "<h1>Write Your Name</h1>`)
         let labelEl = document.createElement('label')
         
         document.body.appendChild(labelEl)
