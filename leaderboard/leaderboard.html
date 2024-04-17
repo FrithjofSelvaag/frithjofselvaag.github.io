@@ -211,7 +211,7 @@
         }
 
         #tittelSymbol {
-            transition: background-color 1s ease;
+            
             padding-top: 30px;
             padding-bottom: 30px;
             margin-bottom: 20px;
@@ -423,6 +423,13 @@
         let nav = document.querySelector('nav a')
         let homeEl = document.querySelector('header a')
         let tittelSymbolEl = document.querySelector('#tittelSymbol')
+
+        setTimeout(function(){
+            tittelSymbolEl.style.transition="backgroundColor 1s ease;"
+        },10)
+            
+        
+        
 
 
         let lorem = document.querySelectorAll('.leaderboard .p th')
