@@ -45,7 +45,7 @@ function sjekkRekkefolge() {
     if(knapp.style.display === 'none'){
         for (let i = 0; i < klikkedeBokser.length; i++) {
             if (klikkedeBokser[i] !== blinkBokser[i]) {
-                giPoints()
+                /* giPoints() */
                 document.write(`
                 <h1 style="color: white;
                 text-align: center;
