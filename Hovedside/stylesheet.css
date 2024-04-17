@@ -162,7 +162,7 @@ header select {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 1s ease-in-out;
     border-radius: 5px;
 }
 
@@ -218,7 +218,7 @@ header select {
     justify-content: center;
 }
 #tittelSymbol{
-    transition: background-color 1s ease;
+    /* transition: background-color 1s ease; */
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 20px;

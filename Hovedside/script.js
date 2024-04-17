@@ -35,6 +35,13 @@ let boksene = document.querySelectorAll('.spillboks div')
 let spillOverskriftEl=document.querySelector('.spillOverskrift')
 let leaderboardEl = document.querySelector("header nav a")
 
+
+setTimeout(function(){
+    tittelSymbolEl.style.transition="background-color 1s ease"
+    },100)
+
+
+
 selectEl.addEventListener("change", colorPalate)
 
 
@@ -89,14 +96,17 @@ function colorPalate(){
             selectEl.addEventListener('mouseout',function(){
                 selectEl.style.color="black"
             })
-            for (let h = 0; h < boksene.length; h++) {
-            boksene[h].addEventListener('mouseover', function(){
-                boksene[h].style.transition = 'box-shadow 0.3s ease-in, transform 0.2s ease-in-out, background-color 1s ease-in-out'
-                boksene[h].style.boxShadow = '5px 10px 6px 0px rgba(0, 0, 0, 0.15)'
-            })
-            boksene[h].addEventListener('mouseout', function(){
-                boksene[h].style.boxShadow = 'none'
-            })}
+            setTimeout(function(){
+                for (let h = 0; h < boksene.length; h++) {
+                    boksene[h].addEventListener('mouseover', function(){
+                        boksene[h].style.transition = 'box-shadow 0.3s ease-in, transform 0.2s ease-in-out, background-color 1s ease-in-out'
+                        boksene[h].style.boxShadow = '5px 10px 6px 0px rgba(0, 0, 0, 0.15)'
+                    })
+                    boksene[h].addEventListener('mouseout', function(){
+                        boksene[h].style.boxShadow = 'none'
+                    })}
+            },100)
+            
         
             for (let i = 0; i < boksene.length; i++) {
                 let spillNavn = boksene[i].querySelector('.spillOverskrift')
