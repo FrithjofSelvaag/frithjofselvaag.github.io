@@ -289,13 +289,15 @@ function colorPalate(){
         selectEl.style.backgroundColor = 'white'
         selectEl.style.color = 'black'
         lenkene.forEach(function(lenkene){
-            lenkene.style.color = 'black'
+        lenkene.style.color = 'black'
+
+
 
             lenkene.addEventListener('mouseenter', function() {
                 lenkene.style.color = 'rgba(0,0,0, 0.55)'
             })
             lenkene.addEventListener('mouseleave', function() {
-                lenkene.style.color = 'blk'
+                lenkene.style.color = 'black'
             })
         })
         boksene.forEach(function(boksene){
