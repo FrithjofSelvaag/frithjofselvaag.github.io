@@ -151,7 +151,7 @@ function valgt(){
 
             levelFlash()
             erIOvergang=2
-            if(level==2){
+            if(level==16){
                 
                 seier() 
                 return
@@ -256,12 +256,7 @@ function valgt(){
                     })
                 }
 
-                if(level>=2){
-                    
-                    
-                                    //så lenge det er gøy
-                        
-                }
+                
             
                 
 
@@ -664,7 +659,7 @@ function seier(){
     lagreKnapp.classList.add('knapp')
     document.body.appendChild(lagreKnapp)
 
-    
+
     let hjemKnapp = document.createElement('button')
     hjemKnapp.textContent = ('Home')
     hjemKnapp.classList.add('knapp')
