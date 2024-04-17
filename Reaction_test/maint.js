@@ -1,127 +1,127 @@
-let hovdMeny = document.querySelector(".hovd-meny");
-let klikkBar = document.querySelector(".klikkbar");
-let beskjed = document.querySelector(".klikkbar .mld");
-let sluttSkjerm = document.querySelector(".slutt-skjerm");
-let reaksjonTidTekst = document.querySelector(".slutt-skjerm .reaksjon-tid-tekst");
-let spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn");
-let Home = document.querySelector(".slutt-skjerm .homeBtn");
+let hovdMeny = document.querySelector(".hovd-meny")
+let klikkBar = document.querySelector(".klikkbar")
+let beskjed = document.querySelector(".klikkbar .mld")
+let sluttSkjerm = document.querySelector(".slutt-skjerm")
+let reaksjonTidTekst = document.querySelector(".slutt-skjerm .reaksjon-tid-tekst")
+let spillIgjenBtn = document.querySelector(".slutt-skjerm .spill-igjen-btn")
+let Home = document.querySelector(".slutt-skjerm .homeBtn")
 
 
 //Variabler brukt i funksjoner
-let klokke;
-let grønnAktivert;
-let tidNå;
-let ventPåStart;
-let ventPåGrønn;
-let resultat;
+let klokke
+let grønnAktivert
+let tidNå
+let ventPåStart
+let ventPåGrønn
+let resultat
 
 //Default variabelverdier
 let i = () => {
-  grønnAktivert = false;
-  ventPåStart = false;
-  ventPåGrønn = false;
+  grønnAktivert = false
+  ventPåStart = false
+  ventPåGrønn = false
   //Tømmer array
-  resultat = [];
-};
+  resultat = []
+}
 
-i();
+i()
 
 //Startsiden(lytter, starter spillet)
 hovdMeny.addEventListener("click", () => {
-  hovdMeny.classList.remove("active");
-  startSpill();
-});
+  hovdMeny.classList.remove("active")
+  startSpill()
+})
 
 //Start spillet
 let startSpill = () => {
-  klikkBar.style.backgroundColor = "rgb(193, 18, 31)";
-  beskjed.innerHTML = "Wait For the Green Color...";
-  beskjed.style.color = "white";
+  klikkBar.style.backgroundColor = "rgb(193, 18, 31)"
+  beskjed.innerHTML = "Wait For the Green Color..."
+  beskjed.style.color = "white"
 
   //Klokke(timer)
-  let tilfeldigTall = Math.floor(Math.random() * 1000 + 2000);
+  let tilfeldigTall = Math.floor(Math.random() * 1000 + 2000)
   //setGrønnFarge kommer etter "tilfeldigTall" sek
-  klokke = setTimeout(setGrønnFarge, tilfeldigTall);
+  klokke = setTimeout(setGrønnFarge, tilfeldigTall)
 
-  ventPåStart = false;
-  ventPåGrønn = true;
+  ventPåStart = false
+  ventPåGrønn = true
 
   console.log("Tilfeldig tall: ", tilfeldigTall)
-};
+}
 
 //Trykk nå(grønn)
 let setGrønnFarge = () => {
-  klikkBar.style.backgroundColor = "rgb(50, 205, 50)";
-  beskjed.innerHTML = "Click Now!";
-  beskjed.style.color = "rgb(17, 17, 17)";
+  klikkBar.style.backgroundColor = "rgb(50, 205, 50)"
+  beskjed.innerHTML = "Click Now!"
+  beskjed.style.color = "rgb(17, 17, 17)"
   //Definerer linje 105(klikkbar funksjon)
-  grønnAktivert = true;
-  tidNå = Date.now();
+  grønnAktivert = true
+  tidNå = Date.now()
 };
 
 
 //Underveis i testen(sender bruker til funksjon "arkiverReaksjonsTid")
 klikkBar.addEventListener("click", () => {
   if (grønnAktivert) {
-    let clickTime = Date.now();
-    let reaksjonTid = clickTime - tidNå;
-    console.log("Reaksjons tid: ", reaksjonTid);
-    aktiverReaksjonsTid(reaksjonTid);
-    return;
+    let clickTime = Date.now()
+    let reaksjonTid = clickTime - tidNå
+    console.log("Reaksjons tid: ", reaksjonTid)
+    aktiverReaksjonsTid(reaksjonTid)
+    return
   }
 
   //Fortsetter spillet 
   if (ventPåStart) {
-    startSpill();
-    return;
+    startSpill()
+    return
   }
 
   //
   if (ventPåGrønn) {
-    aktiverForTidlig();
+    aktiverForTidlig()
   }
-});
+})
 
 //Resultat(middlertidlig og avsluttende)
 let aktiverReaksjonsTid = (rt) => {
-  klikkBar.style.backgroundColor = "rgb(250, 240, 202)";
-  beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Click to Continiue.`;
-  grønnAktivert = false;
-  ventPåStart = true;
-  resultat.push(rt);
-  console.log("Resultater: ", resultat);
+  klikkBar.style.backgroundColor = "rgb(250, 240, 202)"
+  beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Click to Continiue.`
+  grønnAktivert = false
+  ventPåStart = true
+  resultat.push(rt)
+  console.log("Resultater: ", resultat)
 
   if (resultat.length >= 3) {
-    sluttSpill();
+    sluttSpill()
   }
-};
+}
 
 //Trykket for tidlig
 let aktiverForTidlig = () => {
-  klikkBar.style.backgroundColor = "rgb(250, 240, 202)";
-  beskjed.innerHTML = "Too Early! Click to Continue";
-  beskjed.style.color = "rgb(17, 17, 17)";
-  ventPåStart = true;
-  clearTimeout(klokke);
-};
+  klikkBar.style.backgroundColor = "rgb(250, 240, 202)"
+  beskjed.innerHTML = "Too Early! Click to Continue"
+  beskjed.style.color = "rgb(17, 17, 17)"
+  ventPåStart = true
+  clearTimeout(klokke)
+}
 
 //Slutt spillet
 let sluttSpill = () => {
-  sluttSkjerm.classList.add("active");
-  clearTimeout(klokke);
+  sluttSkjerm.classList.add("active")
+  clearTimeout(klokke)
 
-  let total = 0;
+  let total = 0
 
   resultat.forEach((s) => {
-    total += s;
-  });
+    total += s
+  })
 
   //Utregning av gjennomsnittstid(siste oppgitte tall)
-  let gjennomsnitt = Math.round(total / resultat.length);
-  console.log("Total: ", total);
-  console.log("Avarage Result: ", gjennomsnitt);
+  let gjennomsnitt = Math.round(total / resultat.length)
+  console.log("Total: ", total)
+  console.log("Avarage Result: ", gjennomsnitt)
 
-  reaksjonTidTekst.innerHTML = `${gjennomsnitt} ms`;
+  reaksjonTidTekst.innerHTML = `${gjennomsnitt} ms`
 
   document.write(`
   <h1 style="color: white;
@@ -278,7 +278,7 @@ let sluttSpill = () => {
 
     inputEl.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
-        let playerName = String(inputEl.value).substring(0, 8);
+        let playerName = String(inputEl.value).substring(0, 8)
         let highscore = gjennomsnitt
         localStorage.setItem('highscore3', highscore)
         localStorage.setItem('playerName3', playerName)
