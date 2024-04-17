@@ -402,7 +402,7 @@ setTimeout(function(){
 }, 100)
 
 //score oppsettet
-if(!localStorage.getItem('score')){
+/* if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
 }
  function giPoints(){
@@ -410,6 +410,6 @@ if(!localStorage.getItem('score')){
     let newScore = Number(currentScore) + Number(level - 1)
     localStorage.setItem('score', newScore)
     console.log(newScore)
-} 
+}  */
 
 
