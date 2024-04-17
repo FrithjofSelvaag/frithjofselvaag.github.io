@@ -296,9 +296,6 @@ let selectEl = document.querySelector("select")
 let lenkene = document.querySelectorAll("a")
 
 
-
-
-
 //for responsiv burger
 let navEl = document.querySelector('nav')
 let burgerEl = document.querySelector('.fa-chart-bar')
@@ -311,8 +308,6 @@ function showNav() {
 
 }
 
-
-
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate() {
@@ -320,7 +315,6 @@ function colorPalate() {
   if (selectEl.value === "white") {
 
     localStorage.teller = 1
-
 
     burgerEl.style.color="black"
     header.style.backgroundColor = 'white'
