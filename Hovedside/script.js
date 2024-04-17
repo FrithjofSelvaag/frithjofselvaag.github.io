@@ -10,7 +10,7 @@ let mainDivEl = document.querySelector('.spillboks div')
 let mainEl = document.querySelector('.spillboks')
 
 
-burgerEl.addEventListener('click', showNav)
+/* burgerEl.addEventListener('click', showNav) */
 
 /* function showNav() {
     navEl.classList.toggle('show')
@@ -27,9 +27,9 @@ let header = document.querySelector('header')
 let headerSkrift = document.querySelector('header a')
 let chartBar = document.querySelector('.fa-chart-bar')
 let nav = document.querySelector('nav a')
-let homeEl = document.querySelector('header a')
 
-let lorem = document.querySelectorAll('#storBoks .spillboks div h1')
+let homeEl = document.querySelector("header div a")
+let boksTekstEl = document.querySelectorAll('#storBoks .spillboks div h1')   //tekst inni boksene
 let boksene = document.querySelectorAll('.spillboks div')
 
 let spillOverskriftEl=document.querySelector('.spillOverskrift')
@@ -52,7 +52,9 @@ function colorPalate(){
 
     if (selectEl.value === "white") {
 
-            localStorage.teller = 1
+            
+            
+            homeEl.style.color="black"
             tittelSymbolEl.style.backgroundColor="rgb(5, 163, 215)"
             header.style.backgroundColor = 'white'/* 'rgb(5, 163, 215)' */
             body.style.backgroundColor = 'white'
@@ -60,11 +62,11 @@ function colorPalate(){
             selectEl.style.backgroundColor ='white' /* rgb(5, 163, 215)' */
             selectEl.style.color='black'
             headerSkrift.style='black'
-            chartBar.style.color = 'black'
+            /* chartBar.style.color = 'black' */
             leaderboardEl.style.color="black"
             /* spillOverskriftEl.style.color = 'black' */
-            lorem.forEach(function(lorem) {
-                lorem.style.color = 'black'
+            boksTekstEl.forEach(function(boksTekstEl) {
+                boksTekstEl.style.color = 'black'
             })
             leaderboardEl.addEventListener('mouseover',function(){
                 leaderboardEl.style.color="rgba(0, 0, 0, 0.55)"
@@ -81,7 +83,6 @@ function colorPalate(){
                 homeEl.style.color="black"
             })
             
-
             selectEl.addEventListener('mouseover',function(){
                 selectEl.style.color="rgba(0, 0, 0, 0.55)"
             })
@@ -106,6 +107,8 @@ function colorPalate(){
                     spillNavn.style.color = "black"
                 })
             }
+
+            localStorage.teller = 1
         
         }
         
@@ -113,8 +116,10 @@ function colorPalate(){
         
 
 
+        
 
     else if (selectEl.value === "black") {
+        homeEl.style.color="white"
         
         tittelSymbolEl.style.backgroundColor="black"
         localStorage.teller = 2
@@ -127,11 +132,11 @@ function colorPalate(){
         spillOverskriftEl.style.color = 'white'
         headerSkrift.style.color='white'
         leaderboardEl.style.color="white"
-        chartBar.style.color = 'white'
+        /* chartBar.style.color = 'white' */
 
 
-        lorem.forEach(function(lorem) {
-            lorem.style.color = 'white'
+        boksTekstEl.forEach(function(boksTekstEl) {
+            boksTekstEl.style.color = 'white'
         })
         selectEl.addEventListener('mouseover',function(){
             selectEl.style.color='rgba(255, 255, 255, 0.55)'
@@ -166,8 +171,8 @@ function colorPalate(){
             })}
             
             for (let i = 0; i < boksene.length; i++) {
-                let spillNavn = boksene[i].querySelector('.spillOverskrift')
-                boksene[i].addEventListener('mouseenter', function(){
+                let spillNavn = boksene[i].querySelector('.spillOverskrift')  // henter overskrift for hver av boksene for hver av boksene spillnavn er navn for boksene[i]
+                boksene[i].addEventListener('mouseenter', function(){         // lager hover for disse oversrkitene 
                     spillNavn.style.color = "orange"
                 })
                 boksene[i].addEventListener('mouseleave', function(){
@@ -200,8 +205,8 @@ function colorPalate(){
             r = Math.floor(Math.random()*256)
             g = Math.floor(Math.random()*256)
             b = Math.floor(Math.random()*256)
-            lorem.forEach(function(lorem) {
-                lorem.style.color = `rgb(${g},${b},${r})`
+            boksTekstEl.forEach(function(boksTekstEl) {
+                boksTekstEl.style.color = `rgb(${g},${b},${r})`
             })
             r = Math.floor(Math.random()*256)
             g = Math.floor(Math.random()*256)
