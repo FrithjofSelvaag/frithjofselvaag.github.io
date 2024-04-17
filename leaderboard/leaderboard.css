@@ -153,11 +153,11 @@ table {
     width: 100%;
 }
 
-.p>table:hover {
+/* .p>table:hover {
     transform: translateY(-10px);
     transition: transform 0.2s ease-in-out, background-color 1s ease-in-out;
     background-color: rgba(169, 169, 169, 0.5);
-}
+} */
 
 
 
