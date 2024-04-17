@@ -1,17 +1,10 @@
-
-
-
 let buttonEl=document.querySelector('#StartKnapp')
-
 let levelEl = document.querySelector('#level')
-
-
 let erIOvergang = false
 setTimeout(function(){
     document.body.style.transition.backgroundColor ="1s ease;"
     
 },100)
-
 
 let tilesEl=document.querySelector('.tiles')
 let bokserEls=document.querySelectorAll('.tiles > div')
@@ -20,7 +13,6 @@ let level=1
 let hviteBokser =[] 
 
 buttonEl.addEventListener('click',startSpill)
-
 
 function lagBokser(n){
     tilesEl.innerHTML=''
@@ -44,7 +36,6 @@ console.log(`BokserEls: ${bokserEls}`)
 console.log(bokserEls)
 console.log(`BokserEls lengde: ${bokserEls.length}`)
 
-
 function startSpill(){
     buttonEl.style.display = 'none'
     
@@ -57,20 +48,14 @@ function startSpill(){
     nesteLevel()
 }
 
-
 function nesteLevel(){
-    
     
     setTimeout(function(){
         erIOvergang = false
     },1200)
 
-
     let klikkeBokser = level+2   //antall bokser som blir hvite
     console.log(`Klikkebokser(antall bokser som skal lyse): ${klikkeBokser}`)
-
-
-
 
     while(hviteBokser.length<klikkeBokser){
         let a=Math.floor(Math.random()*bokserEls.length)
@@ -79,19 +64,14 @@ function nesteLevel(){
         }
         console.log(`boksene som legges inn i hviteBokse: ${bokserEls[a]}`)
     }
-
-
-                                                   
+                                             
     for(i=0;i<hviteBokser.length;i++){
         hviteBokser[i].style.backgroundColor="white"
         hviteBokser[i].classList.add("flipped")
         
     }
-
     setTimeout(function(){
-    for(i=0;i<hviteBokser.length;i++){
-
-        
+    for(i=0;i<hviteBokser.length;i++){ 
         if(selectEl.value == "white"){
             hviteBokser[i].style.backgroundColor="rgba(0, 0, 0, 0.153)"
             
@@ -102,21 +82,10 @@ function nesteLevel(){
         }
         hviteBokser[i].classList.remove("flipped")
         
-    }
-        
-        
+    }    
     },1000)
-
-
-
-
-
 } 
     
-
-
-
-
 let hjerteEnEl =document.querySelector('#Heart1')
 let hjerteToEl =document.querySelector('#Heart2')
 let hjerteTreEl =document.querySelector('#Heart3')
@@ -132,26 +101,19 @@ function valgt(){
     if(erIOvergang){
         return
     }
-
-
-    
-
-    
-    
-        if(hviteBokser.includes(this)){
+    if(hviteBokser.includes(this)){
         this.style.backgroundColor='white'
         this.classList.add("flipped")
         if(!valgteBokser.includes(this)){
             valgteBokser.push(this)
         }
-        }   
-    
+    }   
 
         if(hviteBokser.length===valgteBokser.length){
 
             levelFlash()
             erIOvergang=2
-            if(level==2){
+            if(level==16){
                 
                 seier() 
                 return
@@ -256,12 +218,6 @@ function valgt(){
                     })
                 }
 
-                
-            
-                
-
-
-                
                 bokserEls=document.querySelectorAll('.tiles > div') 
 
                 
@@ -289,20 +245,8 @@ function valgt(){
 
             setTimeout(
                 nesteLevel,1400)
-
-
-
-
-        }
+    }
         
-
-    
-
-
-
-    
-    
-
     else if(!hviteBokser.includes(this)){
         
         if(!valgtFeil.includes(this)){
@@ -313,7 +257,6 @@ function valgt(){
 
         setTimeout(function(){
             
-        
         if(selectEl.value == "white"){
             feilBoks.style.backgroundColor="rgba(0, 0, 0, 0.5)"
             
@@ -341,18 +284,14 @@ function valgt(){
             }
         }
         
-        
         console.log(`antall feil dette livet:${valgtFeil.length}`)
     }   
     
         if (valgtFeil.length==3){
             livTapt.push(1)
             levelFlashTap()
-            
-            
-            
-            //resterter levelet.
 
+            //resterter levelet.
                 if (livTapt.length==1){ 
                     hjerteEnEl.style.color = 'rgb(140, 0, 0)'
                     
@@ -383,10 +322,7 @@ function valgt(){
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
-                    
-
-
-                }, 400)
+                    }, 400)
                     setTimeout(function(){
                     
                     nesteLevel()
@@ -421,9 +357,6 @@ function valgt(){
                     hviteBokser = []
                     valgteBokser = []
                     valgtFeil = []
-
-                    
-                
                 }, 400)
                     setTimeout(function(){
                     
@@ -432,12 +365,9 @@ function valgt(){
                 }
                 if (livTapt.length==3){
                     hjerteTreEl.style.color = 'rgb(140, 0, 0)'
-                }
-
-
-            
-            
+                }  
         }
+
         if(livTapt.length===3){
 
             setTimeout(function(){
@@ -615,19 +545,6 @@ function valgt(){
             },50)//slutt på setTimeout løkke
         }
     }
-        
-    
-    
-    
-    
-
-
-
-
-
-
-
-
 }
 
 function seier(){
@@ -648,20 +565,15 @@ function seier(){
     ">Remember to save your score!</h1>
 
     >`) 
-
-    
-
     let lagreKnapp = document.createElement('button')
     lagreKnapp.textContent = ('Save Score')
     lagreKnapp.classList.add('knapp')
     document.body.appendChild(lagreKnapp)
 
-
     let hjemKnapp = document.createElement('button')
     hjemKnapp.textContent = ('Home')
     hjemKnapp.classList.add('knapp')
     document.body.appendChild(hjemKnapp)
-
 
     hjemKnapp.addEventListener('mouseenter', function() {
         hjemKnapp.style.backgroundColor = 'white'
@@ -680,7 +592,6 @@ function seier(){
         lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
     })
     
-
     hjemKnapp.style.display = 'flex'
     hjemKnapp.style.margin = '20px auto'
     hjemKnapp.style.width = '160px'
@@ -693,7 +604,6 @@ function seier(){
     hjemKnapp.style.transition = 'background-color 0.5s ease'
     hjemKnapp.style.fontSize = '30px'
     hjemKnapp.style.fontFamily = 'Roboto", sans-serif'
-
 
     lagreKnapp.style.display = 'flex'
     lagreKnapp.style.margin = '20px auto'
@@ -723,7 +633,6 @@ function seier(){
         setTimeout(function(){document.body.style.backgroundColor = 'black'}, 200)
     }
     
-
     lagreKnapp.addEventListener('click', function(){
         document.body.innerHTML = ""
         document.write(`
@@ -751,8 +660,6 @@ function seier(){
         document.body.appendChild(labelEl)
         let inputEl = document.createElement('input')
         labelEl.appendChild(inputEl)
-
-        
 
         labelEl.style.color = 'white'
         labelEl.style.display = 'flex'
@@ -826,8 +733,6 @@ function levelFlashTap(){
 }
 
 
-
-
 // fargeendringer for black and white mode 
 
 //kaller på elementer fra DOM
@@ -835,14 +740,9 @@ function levelFlashTap(){
 
 
 let bodyEl = document.querySelector('body')
-
-
-
 let headerEl = document.querySelector('header')
 let homeEl = document.querySelector("header div a")
 let leaderboardEl = document.querySelector('header nav a')
-
-
 // for responsiv burger
 let selectEl = document.querySelector('header select')
 let navEl = document.querySelector('nav')
@@ -856,32 +756,12 @@ function showNav() {
 
 }
 
-
-
-
-
 selectEl.addEventListener("change", colorPalate)
-
-
-
-
-
-
-
-
-
 function colorPalate(){
 
 
     console.log(`valgFeil array: ${valgtFeil}`)
     console.log(`valgteBokser array: ${valgteBokser}`)
-
-
-
-
-
-
-
     if (selectEl.value === "white") {
         //navbar farger
         burgerEl.style.color="white"
@@ -920,8 +800,6 @@ function colorPalate(){
         leaderboardEl.addEventListener("mouseout",function(){
             leaderboardEl.style.color="rgb(0, 0, 0)"
         })
-
-
         //beholder farge på bokser etter bytte
 
         for(let i=0;i<bokserEls.length;i++){                             
@@ -934,16 +812,9 @@ function colorPalate(){
         for(let i=0;i<valgtFeil.length;i++){
             valgtFeil[i].style.backgroundColor="rgba(0, 0, 0, 0.5)"
         }
-
-
-
         localStorage.teller = 1
         
-        
-        
-
-
-    }
+        }
 
 
     else if(selectEl.value === "black") {
@@ -959,9 +830,6 @@ function colorPalate(){
         
         bodyEl.style.backgroundColor="rgb(17, 17, 17)"
         
-
-        
-
         //hover effekter: 
 
         burgerEl.addEventListener('mouseover',function(){
@@ -988,13 +856,7 @@ function colorPalate(){
         leaderboardEl.addEventListener("mouseout",function(){
             leaderboardEl.style.color="rgb(255, 255, 255)"
         })
-        
-    
-        
-
-
-        
-        
+         
 
         //beholder farge på bokser etter bytte
         for(let i=0;i<bokserEls.length;i++){
@@ -1009,22 +871,8 @@ function colorPalate(){
 
 
         localStorage.teller = 2
-        
-        
-        
-        
-
-
     }
-
-
-
 }
-
-//local storage, bevarer light/dark mode
-/* let h2El = document.querySelector('h2')
-let knappEl = document.getElementById('knapp') */   //hva gjør dette? du har ikke noe med id knapp eller h2 i din
-
 console.log(localStorage.teller)
 //hvis teller ikke eksisterer i localstorage skal den settes til 1
 if (!localStorage.teller) {
@@ -1044,15 +892,6 @@ setTimeout(function(){
     document.body.style.transition = 'background-color 1s ease'
 }, 100)
 
-//score oppsettet
-/* if(!localStorage.getItem('score')){
-    localStorage.setItem('score', 0)
-}
-function giPoints(){
-    let currentScore = localStorage.getItem('score')
-    let newScore = Number(currentScore) + Number(level - 1)
-    localStorage.setItem('score', newScore)
-    console.log(newScore)
-} */
+
 
 
