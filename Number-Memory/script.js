@@ -110,7 +110,7 @@ let selectEl = document.querySelector('select')
                 text-align: center;
                 font-size: 22px;
                 padding-top: 80px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Number Memory</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -118,7 +118,7 @@ let selectEl = document.querySelector('select')
                 margin-bottom: 0px;
                 font-size: 50px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Digits</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -126,13 +126,13 @@ let selectEl = document.querySelector('select')
                 margin-bottom: 0px;
                 font-size: 100px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">${score-1}</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">The avarage person can remember 7 digits at a time</h1>
                 `)
     
@@ -238,7 +238,7 @@ let selectEl = document.querySelector('select')
                         text-align: center;
                         font-size: 22px;
                         padding-top: 125px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Sqeuence Memory</h1>
                         <h1 style="color: white;
                         text-align: center;
@@ -246,13 +246,13 @@ let selectEl = document.querySelector('select')
                         margin-bottom: 0px;
                         font-size: 100px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">${score-1} Numbers</h1>
                         <h1 style="color: white;
                         text-align: center;
                         font-size: 22px;
                         padding-top: 0px;
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: Roboto, sans-serif;
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')

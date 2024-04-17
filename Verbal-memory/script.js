@@ -100,7 +100,7 @@ $(document).ready(function() {
         text-align: center;
         font-size: 22px;
         padding-top: 80px;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: Roboto, sans-serif;
         ">Verbal Memory</h1>
         <h1 style="color: white;
         text-align: center;
@@ -108,7 +108,7 @@ $(document).ready(function() {
         margin-bottom: 0px;
         font-size: 50px;
         padding-top: 0px;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: Roboto, sans-serif;
         ">Words</h1>
         <h1 style="color: white;
         text-align: center;
@@ -116,13 +116,13 @@ $(document).ready(function() {
         margin-bottom: 0px;
         font-size: 100px;
         padding-top: 0px;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: Roboto, sans-serif;
         ">${score-1}</h1>
         <h1 style="color: white;
         text-align: center;
         font-size: 22px;
         padding-top: 0px;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: Roboto, sans-serif;
         ">Good Job</h1>
         `)
 
@@ -231,7 +231,7 @@ $(document).ready(function() {
                 text-align: center;
                 font-size: 22px;
                 padding-top: 125px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Verbal Memory</h1>
                 <h1 style="color: white;
                 text-align: center;
@@ -239,13 +239,13 @@ $(document).ready(function() {
                 margin-bottom: 0px;
                 font-size: 100px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">${score-1} Numbers</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
                 padding-top: 0px;
-                font-family: Helvetica, Arial, sans-serif;
+                font-family: Roboto, sans-serif;
                 ">Write Your Name</h1>
                 `)
                 let labelEl = document.createElement('label')
