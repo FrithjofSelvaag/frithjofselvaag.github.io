@@ -26,9 +26,9 @@ $(document).ready(function() {
                 headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ' },
                 contentType: 'application/json',
                 success: function(result) {
-                    let newWord = result.word;
-                    $('#wordBox').text(newWord);
-                    word = newWord; // Oppdaterer word til det nye ordet
+                    let newWord = result.word
+                    $('#wordBox').text(newWord)
+                    word = newWord // Oppdaterer word til det nye ordet
                 },
                 error: function ajaxError(jqXHR) {
                     console.error('Error: ', jqXHR.responseText)
