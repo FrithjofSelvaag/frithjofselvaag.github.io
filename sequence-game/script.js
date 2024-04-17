@@ -188,10 +188,10 @@ function sjekkRekkefolge() {
                         ">Write Your Name</h1>
                         `)
                         let labelEl = document.createElement('label')
-                        labelEl.classList.add('label')
+                        
                         document.body.appendChild(labelEl)
                         let inputEl = document.createElement('input')
-                        inputEl.classList.add('input')
+                        
                         labelEl.appendChild(inputEl)
     
                         labelEl.style.color = 'white'
