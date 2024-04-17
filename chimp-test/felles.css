@@ -9,8 +9,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    
     
 }
 header nav {
@@ -90,12 +88,14 @@ header select {
     .topnav a {
         margin-right: auto;
     }
+    
     header nav.show {
         display: flex;
         flex-direction: column;
         text-align: center;
         width: 100%;
     }
+
     header select.show {
         display: flex;
         text-align: center;
