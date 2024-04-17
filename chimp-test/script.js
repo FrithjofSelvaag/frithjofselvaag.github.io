@@ -578,7 +578,22 @@ function timer(){
 
 
 //FARGEENDRING TIL BLACK OG WHITE MODE!
-let selectEl = document.querySelector('select')
+
+
+
+let selectEl = document.querySelector('header select')
+let navEl = document.querySelector('nav')
+let burgerEl = document.querySelector('.fa-chart-bar')
+
+burgerEl.addEventListener('click', showNav)
+
+function showNav() {
+    navEl.classList.toggle('show')
+    selectEl.classList.toggle('show')
+
+}
+
+
 let body = document.body
 let header = document.querySelector('header')
 let nav = document.querySelector('nav a')
@@ -593,7 +608,7 @@ function colorPalate(){
     if (selectEl.value === "white") {
 
         localStorage.teller = 1
-
+        burgerEl.style.color="black"
         header.style.backgroundColor = 'white'
         body.style.backgroundColor = 'rgb(43, 135, 209)'
         selectEl.style.backgroundColor = 'white'
@@ -612,18 +627,27 @@ function colorPalate(){
             boksene.style.backgroundColor = 'rgb(43, 135, 209)'
         })
 
-            selectEl.addEventListener('mouseenter', function() {
-                selectEl.style.color = 'rgba(0,0,0, 0.55)'
-            })
-            selectEl.addEventListener('mouseleave', function() {
-                selectEl.style.color = 'black'
-            })
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(0, 0, 0, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(0, 0, 0)"
+        })
+
+        selectEl.addEventListener('mouseenter', function() {
+            selectEl.style.color = 'rgba(0,0,0, 0.55)'
+        })
+         selectEl.addEventListener('mouseleave', function() {
+            selectEl.style.color = 'black'
+        })
         }
 
     else if (selectEl.value === "black") {
 
         localStorage.teller = 2
 
+        burgerEl.style.color="white"
         body.style.backgroundColor = 'rgb(17, 17, 17)'
         selectEl.style.backgroundColor = 'black'
         selectEl.style.color = 'white'
@@ -640,6 +664,13 @@ function colorPalate(){
         })
         boksene.forEach(function(boksene){
             boksene.style.backgroundColor = 'rgb(17, 17, 17)'
+        })
+
+        burgerEl.addEventListener('mouseover',function(){
+            burgerEl.style.color="rgba(255, 255, 255, 0.55)"
+        })
+        burgerEl.addEventListener('mouseout',function(){
+            burgerEl.style.color="rgb(255, 255, 255)"
         })
 
         selectEl.addEventListener('mouseenter', function() {

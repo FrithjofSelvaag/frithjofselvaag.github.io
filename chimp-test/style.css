@@ -2,13 +2,12 @@
     font-family:"Roboto", sans-serif;
 }
 body {
-    margin: 0px;
+    /* margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    /* background-color: rgb(43, 135, 209); */
-    cursor:default;
-    font-family:"Roboto", sans-serif;
+    font-family:"Roboto", sans-serif; */
 
+    cursor:default;
 }
 #Heart1 {
     color:red;
@@ -104,12 +103,12 @@ body {
 
 
 /* navbaren */  
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    
 }
 header nav {
     display: flex;
@@ -156,7 +155,7 @@ header select {
 }
 header select:hover{
     color: rgb(0, 0, 0, 0.55);
-}
+} */
 
 /* media quary for endring  av navbar når mindre skjerm */
 /* @media(max-width: 600px) {
