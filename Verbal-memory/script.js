@@ -297,12 +297,13 @@ function colorPalate(){
             selectEl.style.color = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'black'
-header.style.backgroundColor = 'white'
-document.body.style.backgroundColor = 'rgb(43, 135, 209)'
-selectEl.style.backgroundColor = 'white'
-selectEl.style.color = 'black'
-lenkene.forEach(function(lenkene){
-lenkene.style.color = 'black'
+                header.style.backgroundColor = 'white'
+                document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+                selectEl.style.backgroundColor = 'white'
+                selectEl.style.color = 'black'
+                lenkene.forEach(function(lenkene){
+                lenkene.style.color = 'black'
+                
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(0,0,0, 0.55)'
@@ -318,8 +319,8 @@ lenkene.style.color = 'black'
                 selectEl.addEventListener('mouseleave', function() {
                     selectEl.style.color = 'black'
                 })
-            }
-
+            })
+        }
         else if (selectEl.value === "black") {
 
             localStorage.teller = 2
@@ -330,12 +331,12 @@ lenkene.style.color = 'black'
             header.style.backgroundColor = 'black'
             lenkene.forEach(function(lenkene){
                 lenkene.style.color = 'white'
-document.body.style.backgroundColor = 'rgb(17, 17, 17)'
-selectEl.style.backgroundColor = 'black'
-selectEl.style.color = 'white'
-header.style.backgroundColor = 'black'
-lenkene.forEach(function(lenkene){
-lenkene.style.color = 'white'
+                document.body.style.backgroundColor = 'rgb(17, 17, 17)'
+                selectEl.style.backgroundColor = 'black'
+                selectEl.style.color = 'white'
+                header.style.backgroundColor = 'black'
+                lenkene.forEach(function(lenkene){
+                lenkene.style.color = 'white'
 
                 lenkene.addEventListener('mouseenter', function() {
                     lenkene.style.color = 'rgba(255,255,255, 0.55)'
@@ -373,4 +374,6 @@ lenkene.style.color = 'white'
 if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
         }
-});
+}
+
+})
