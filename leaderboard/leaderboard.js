@@ -225,3 +225,9 @@ function createNewScoreVerbal() {
     }
 }
 createNewScoreVerbal()
+
+setTimeout(function(){
+    tittelSymbolEl.style.transition = 'background-color 0.3s ease'
+    document.body.style.transition = 'background-color 1s ease'
+    header.style.transition = 'background-color 1s ease'
+}, 100)
