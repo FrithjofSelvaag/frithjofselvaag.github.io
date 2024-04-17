@@ -287,75 +287,75 @@ selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
 
-if (selectEl.value === "white") {
+        if (selectEl.value === "white") {
 
-localStorage.teller = 1
+            localStorage.teller = 1
 
-header.style.backgroundColor = 'white'
-document.main.style.backgroundColor = 'rgb(43, 135, 209)'
-selectEl.style.backgroundColor = 'white'
-selectEl.style.color = 'black'
-lenkene.forEach(function(lenkene){
-lenkene.style.color = 'black'
+            header.style.backgroundColor = 'white'
+            document.body.style.backgroundColor = 'rgb(43, 135, 209)'
+            selectEl.style.backgroundColor = 'white'
+            selectEl.style.color = 'black'
+            lenkene.forEach(function(lenkene){
+                lenkene.style.color = 'black'
 
-lenkene.addEventListener('mouseenter', function() {
-    lenkene.style.color = 'rgba(0,0,0, 0.55)'
-})
-lenkene.addEventListener('mouseleave', function() {
-    lenkene.style.color = 'black'
-})
-})
+                lenkene.addEventListener('mouseenter', function() {
+                    lenkene.style.color = 'rgba(0,0,0, 0.55)'
+                })
+                lenkene.addEventListener('mouseleave', function() {
+                    lenkene.style.color = 'black'
+                })
+            })
 
-selectEl.addEventListener('mouseenter', function() {
-    selectEl.style.color = 'rgba(0,0,0, 0.55)'
-})
-selectEl.addEventListener('mouseleave', function() {
-    selectEl.style.color = 'black'
-})
-}
+                selectEl.addEventListener('mouseenter', function() {
+                    selectEl.style.color = 'rgba(0,0,0, 0.55)'
+                })
+                selectEl.addEventListener('mouseleave', function() {
+                    selectEl.style.color = 'black'
+                })
+            }
 
-else if (selectEl.value === "black") {
+        else if (selectEl.value === "black") {
 
-localStorage.teller = 2
+            localStorage.teller = 2
 
-document.main.style.backgroundColor = 'rgb(17, 17, 17)'
-selectEl.style.backgroundColor = 'black'
-selectEl.style.color = 'white'
-header.style.backgroundColor = 'black'
-lenkene.forEach(function(lenkene){
-lenkene.style.color = 'white'
+            document.body.style.backgroundColor = 'rgb(17, 17, 17)'
+            selectEl.style.backgroundColor = 'black'
+            selectEl.style.color = 'white'
+            header.style.backgroundColor = 'black'
+            lenkene.forEach(function(lenkene){
+                lenkene.style.color = 'white'
 
-lenkene.addEventListener('mouseenter', function() {
-    lenkene.style.color = 'rgba(255,255,255, 0.55)'
-})
-lenkene.addEventListener('mouseleave', function() {
-    lenkene.style.color = 'white'
-})
-})
+                lenkene.addEventListener('mouseenter', function() {
+                    lenkene.style.color = 'rgba(255,255,255, 0.55)'
+                })
+                lenkene.addEventListener('mouseleave', function() {
+                    lenkene.style.color = 'white'
+                })
+            })
 
-selectEl.addEventListener('mouseenter', function() {
-selectEl.style.color = 'rgba(255,255,255, 0.55)'
-})
-selectEl.addEventListener('mouseleave', function() {
-selectEl.style.color = 'white'
-})
-}}
+            selectEl.addEventListener('mouseenter', function() {
+                selectEl.style.color = 'rgba(255,255,255, 0.55)'
+            })
+            selectEl.addEventListener('mouseleave', function() {
+                selectEl.style.color = 'white'
+            })
+        }}
 
-if (!localStorage.teller) {
-localStorage.teller = 1
-} 
-if(localStorage.teller == 1){
-selectEl.value = "white"
-colorPalate()
-}
-else if (localStorage.teller == 2){
-selectEl.value = "black"
-colorPalate()
-}
-setTimeout(function(){
-document.body.style.transition = 'background-color 1s ease'
-header.style.transition = 'background-color 1s ease'
-}, 100)
+        if (!localStorage.teller) {
+            localStorage.teller = 1
+        } 
+        if(localStorage.teller == 1){
+            selectEl.value = "white"
+            colorPalate()
+        }
+        else if (localStorage.teller == 2){
+            selectEl.value = "black"
+            colorPalate()
+        }
+        setTimeout(function(){
+            document.body.style.transition = 'background-color 1s ease'
+            header.style.transition = 'background-color 1s ease'
+        }, 100)
 
 
 if(!localStorage.getItem('score')){

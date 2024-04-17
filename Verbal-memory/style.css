@@ -1,6 +1,6 @@
 
-          /* navbaren */  
-          header {
+
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -11,7 +11,7 @@
         header nav {
             display: flex;
         }
-
+        
         header a {
             color: black;
             text-decoration: none;
@@ -54,35 +54,24 @@
         header select:hover{
             color: rgb(0, 0, 0, 0.55);
         }
-
+        
         *{
             font-family: Arial, Helvetica, sans-serif;
-            color: white;
+            margin: none;
         }
-
-        .main {
-            font-family: Arial, Helvetica, sans-serif;
+        body{
             background-color: rgb(43, 135, 209);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
             margin: 0px;
-
+            text-align: center;
+            
         }
 
-        body{
-            box-sizing: border-box;
-            background-color: rgb(43, 135, 209);
-
-        }
-
-        
-    
-
-        button {
+        button{
             margin: 20px;
             display: flex;
             width: 160px;
@@ -98,7 +87,6 @@
             transition: background-color 0.5s ease;
             color: black;
         }
-
         button:hover {
             margin: 20px;
             display: flex;
@@ -116,6 +104,18 @@
             color: black;
             cursor: pointer;
         }
+        
+        h1{
+            font-size: 80px;
+            margin-top: 100px;
+            margin-bottom: 10px;
+        }
+        
+        p{
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+
         .buttonBox {
             display: flex;
             flex-direction: row;
@@ -132,3 +132,5 @@
         #lifeBox{
             display: none;
         }
+
+        

@@ -386,3 +386,25 @@ function giPoints(){
     localStorage.setItem('score', newScore)
     console.log(newScore)
 }
+
+function sjekkSkjermStorrelse() {
+    if (window.innerWidth < 600) {
+        prog.style.display = 'flex'
+        progressBar.style.display = 'flex'
+        progressWidth = interval / 300 * 100
+        progressBar.style.backgroundColor = 'white'
+        progressBar.style.position = 'absolute'
+        progressBar.style.width = '100%'
+        progressBar.style.height = '100%'
+
+        prog.style.margin = 'auto'
+        prog.style.border = 'solid black'
+        prog.style.backgroundColor = ''
+        prog.style.height = '20px'
+        prog.style.marginTop = '20px'
+        prog.style.width = '200px'
+        prog.style.position = 'relative'
+    }
+}
+
+
