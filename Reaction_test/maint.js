@@ -15,7 +15,7 @@ let ventPåStart
 let ventPåGrønn
 let resultat
 
-//Default variabelverdier
+//Default variabelverdier(nullstiller)
 let i = () => {
   grønnAktivert = false
   ventPåStart = false
@@ -87,7 +87,7 @@ let aktiverReaksjonsTid = (rt) => {
   klikkBar.style.backgroundColor = "rgb(250, 240, 202)"
   beskjed.innerHTML = `<div class='reaksjon-tid-tekst'>${rt} ms</div>Click to Continiue.`
   grønnAktivert = false
-  ventPåStart = true
+  ventPåStart = true //Bruker blir sendt til 73
   resultat.push(rt)
   console.log("Resultater: ", resultat)
 
