@@ -26,9 +26,9 @@ $(document).ready(function() {
                 headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ' },
                 contentType: 'application/json',
                 success: function(result) {
-                    let newWord = result.word;
-                    $('#wordBox').text(newWord);
-                    word = newWord; // Oppdaterer word til det nye ordet
+                    let newWord = result.word
+                    $('#wordBox').text(newWord)
+                    word = newWord // Oppdaterer word til det nye ordet
                 },
                 error: function ajaxError(jqXHR) {
                     console.error('Error: ', jqXHR.responseText)
@@ -37,6 +37,7 @@ $(document).ready(function() {
         }
     }
 
+    //startknapp
     $('.start').on('click', function() {
         $('.instruction').remove()
         $('.start').remove()
@@ -52,6 +53,7 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+        //newknapp
     $('.buttonBox').on('click', 'button:contains("New")', function() {
         if (wordsArray.includes(word)) {
             lives--
@@ -66,6 +68,7 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+    //seenknapp
     $('.buttonBox').on('click', 'button:contains("Seen")', function() {
         if (wordsArray.includes(word)) {
             score++
@@ -78,17 +81,20 @@ $(document).ready(function() {
         getRandomWord()
     })
 
+    //oppdateres score og liv
     function updateScoreAndLives() {
         $('#scoreBox').text('Score: ' + score)
         $('#lifeBox').text('Lives: ' + lives)
     }
 
+    //sjekker hvis 
     function checkGameOver() {
         if (lives === 0) {
             moveToScoreScreen()
         }
     }
 
+    //score screen
     function moveToScoreScreen() {
         /* scoreBoxEl.style.display = "none"
         lifeBoxEl.style.display = "none"
@@ -274,8 +280,9 @@ $(document).ready(function() {
             })
     }
 
-    let lenkene = document.querySelectorAll('a')
+let lenkene = document.querySelectorAll('a')
 
+//dark mode og light mode
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate(){
@@ -285,7 +292,7 @@ if (selectEl.value === "white") {
 localStorage.teller = 1
 
 header.style.backgroundColor = 'white'
-document.main.style.backgroundColor = 'rgb(43, 135, 209)'
+document.body.style.backgroundColor = 'rgb(43, 135, 209)'
 selectEl.style.backgroundColor = 'white'
 selectEl.style.color = 'black'
 lenkene.forEach(function(lenkene){
@@ -311,7 +318,7 @@ else if (selectEl.value === "black") {
 
 localStorage.teller = 2
 
-document.main.style.backgroundColor = 'rgb(17, 17, 17)'
+document.body.style.backgroundColor = 'rgb(17, 17, 17)'
 selectEl.style.backgroundColor = 'black'
 selectEl.style.color = 'white'
 header.style.backgroundColor = 'black'
@@ -351,13 +358,7 @@ header.style.transition = 'background-color 1s ease'
 }, 100)
 
 
-    if(!localStorage.getItem('score')){
+if(!localStorage.getItem('score')){
     localStorage.setItem('score', 0)
-        }
-        function giPoints(){
-            let currentScore = localStorage.getItem('score')
-            let newScore = Number(currentScore) + Number(score)
-            localStorage.setItem('score', newScore)
-        
         }
 });
