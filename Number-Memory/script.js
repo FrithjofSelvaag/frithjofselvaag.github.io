@@ -76,6 +76,7 @@ let instructionEl = document.querySelector('.instructions')
             guess.style.height = "70px"
             guess.style.textAlign = "center"
             guess.style.fontSize = "40px"
+            guess.style.color = 'white'
             if(selectEl.value === "white"){
                 guess.style.backgroundColor = "#246CBB"
                 guess.style.border = "solid #48A1EF 2px"

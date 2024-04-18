@@ -1,9 +1,17 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 /* navbaren */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 
 header nav {
@@ -57,7 +65,6 @@ header select {
 header select:hover {
     color: rgb(0, 0, 0, 0.55);
 }
-
 
 .leaderboard {
     display: grid;
@@ -137,6 +144,21 @@ h1 {
 
 }
 
+/* @media(max-width:1077){
+.leaderboard{
+max-width: 90%;
+width:90%;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+
+
+
+}
+.p{
+width: 20%;
+
+} */
 
 @media(max-width:879px) {
 
@@ -175,3 +197,18 @@ h1 {
     }
 }
 
+/* @media(max-width: 965px){
+#storBoks .spillboks{
+grid-template-columns: repeat(2,1fr);
+}
+}
+@media(max-width: 600px){
+#storBoks .spillboks{
+grid-template-columns: repeat(1,1fr);
+}
+
+#stprboks .spillboks div{
+margin:0;
+padding:0;
+}
+} */
