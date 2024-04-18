@@ -49,12 +49,12 @@ let startSpill = () => {
   console.log("Tilfeldig tall: ", tilfeldigTall)
 }
 
-//Trykk nå(grønn)
+//Trykk nå(Grønn skjerm)
 let setGrønnFarge = () => {
   klikkBar.style.backgroundColor = "rgb(50, 205, 50)"
   beskjed.innerHTML = "Click Now!"
   beskjed.style.color = "rgb(17, 17, 17)"
-  //Definerer linje 105(klikkbar funksjon)
+  //Definerer linje 65(klikkbar funksjon)
   grønnAktivert = true
   tidNå = Date.now()
 };
