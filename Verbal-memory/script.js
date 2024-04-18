@@ -131,7 +131,7 @@ $(document).ready(function(){
         font-size: 100px;
         padding-top: 0px;
         font-family: Roboto, sans-serif;
-        ">${score-1}</h1>
+        ">${score}</h1>
         <h1 style="color: white;
         text-align: center;
         font-size: 22px;
@@ -254,7 +254,7 @@ $(document).ready(function(){
                 font-size: 100px;
                 padding-top: 0px;
                 font-family: Roboto, sans-serif;
-                ">${score-1} Numbers</h1>
+                ">${score} Numbers</h1>
                 <h1 style="color: white;
                 text-align: center;
                 font-size: 22px;
