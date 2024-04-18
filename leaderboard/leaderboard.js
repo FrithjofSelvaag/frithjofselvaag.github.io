@@ -20,11 +20,14 @@ let leaderboard = document.querySelectorAll('.p table')
 selectEl.addEventListener("change", colorPalate)
 
 function colorPalate() {
-
     if (selectEl.value === "white") {
         for (let i = 0; i < kokEl.length; i++) {
             kokEl[i].style.color = "black"
         }
+        let tbodyTr = document.querySelectorAll('tbody tr')
+        tbodyTr.forEach(function(boks){
+            boks.style.color = 'black'
+        })
         localStorage.teller = 1
         tittelSymbolEl.style.backgroundColor = "rgb(5, 163, 215)"
         header.style.backgroundColor = 'white'
@@ -66,6 +69,10 @@ function colorPalate() {
         for (let i = 0; i < kokEl.length; i++) {
             kokEl[i].style.color = "white"
         }
+        let tbodyTr = document.querySelectorAll('tbody tr')
+        tbodyTr.forEach(function(boks){
+            boks.style.color = 'white'
+        })
         localStorage.teller = 2
         tittelSymbolEl.style.backgroundColor = "black"
         header.style.backgroundColor = 'rgb(17, 17, 17)'
@@ -73,6 +80,7 @@ function colorPalate() {
         selectEl.style.backgroundColor = 'rgb(17, 17, 17) ' // bedre med helt svart her?
         selectEl.style.color = 'white'
         homeEl.style.color = 'white'
+
 
         lorem.forEach(function (lorem) {
             lorem.style.color = 'white'
@@ -132,6 +140,7 @@ function createNewScoreSequence() {
         tr.appendChild(name)
         tr.appendChild(number)
         number.innerHTML = 'lvl ' + number.innerHTML
+
     }
 }
 createNewScoreSequence()
@@ -167,6 +176,7 @@ function createNewScoreReaction() {
         number.textContent = Number((localStorage.getItem('highscore3')))
         tr.appendChild(name)
         tr.appendChild(number)
+        
         number.innerHTML += 'ms'
     }
 }
