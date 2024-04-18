@@ -108,6 +108,8 @@ function sjekkRekkefolge() {
                 nyKnapp3.addEventListener('mouseleave', function() {
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
                 })
+
+                /* nyKnapp.classList.add("fin-knapp") */
                 nyKnapp.style.display = 'flex'
                 nyKnapp.style.margin = 'auto'
                 nyKnapp.style.marginTop = '20px'
