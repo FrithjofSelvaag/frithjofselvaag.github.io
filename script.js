@@ -15,8 +15,6 @@ burgerEl.addEventListener('click', showNav)
 function showNav() {
     navEl.classList.toggle('show')
     selectEl.classList.toggle('show')
-    
-
 }
 
 // ColorPalate
