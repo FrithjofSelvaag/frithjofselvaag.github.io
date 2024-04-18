@@ -32,6 +32,9 @@ button{
     background-color: rgb(254, 217, 32);
     transition: background-color 0.5s ease;
     color: black;
+    padding-top:10px;
+    padding-bottom:10px;
+
 }
 
 button:hover {
