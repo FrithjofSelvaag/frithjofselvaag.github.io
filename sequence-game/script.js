@@ -200,10 +200,11 @@ function sjekkRekkefolge() {
                         labelEl.style.display = 'flex'
                         labelEl.style.margin = 'auto'
                         labelEl.style.justifyContent = 'center'
+                        inputEl.maxLength="8"
                     
                         inputEl.addEventListener('keydown', function(e) {
                             if (e.key === 'Enter') {
-                                let playerName = String(inputEl.value).substring(0, 8)
+                                let playerName = String(inputEl.value)/* .substring(0, 8)   trenger ikke denne når vi har maxLength*/
                                 let highscore = level - 1
                                 localStorage.setItem('highscore', highscore)
                                 localStorage.setItem('playerName', playerName)

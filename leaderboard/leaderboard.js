@@ -147,9 +147,11 @@ createNewScoreSequence()
 
 function createNewScoreVisual() {
     if (Number(localStorage.getItem('highscore2')) === 0) {
+        console.log("stopper lagring")
         return
     }
     else {
+        console.log("tar inn lagring")
         let tr = document.createElement('tr')
         tbody2.appendChild(tr)
         let name = document.createElement('td')

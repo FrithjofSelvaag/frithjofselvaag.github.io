@@ -528,10 +528,12 @@ function valgt(){
                             labelEl.style.display = 'flex'
                             labelEl.style.margin = 'auto'
                             labelEl.style.justifyContent = 'center'
+                            inputEl.maxLength="8"
                         
                             inputEl.addEventListener('keydown', function(e) {
                                 if (e.key === 'Enter') {
-                                    let playerName = String(inputEl.value).substring(0, 8)
+                                    console.log("lagres")
+                                    let playerName = String(inputEl.value)/* .substring(0, 8)   trenger ikke denne når vi har maxLength*/
                                     let highscore = level - 1
                                     localStorage.setItem('highscore2', highscore)
                                     localStorage.setItem('playerName2', playerName)
@@ -665,9 +667,11 @@ function seier(){
         labelEl.style.display = 'flex'
         labelEl.style.margin = 'auto'
         labelEl.style.justifyContent = 'center'
+        inputEl.maxLength="8"
     
         inputEl.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
+                console.log("lagres")
                 let playerName = String(inputEl.value).substring(0, 8)
                 let highscore = level - 1
                 localStorage.setItem('highscore2', highscore)
