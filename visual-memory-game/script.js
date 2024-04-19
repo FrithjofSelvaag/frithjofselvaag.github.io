@@ -428,7 +428,7 @@ function valgt(){
                         nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
                     })
                     nyKnapp2.addEventListener('click', function(){
-                        window.location.href = '../Hovedside/index.html'
+                        window.location.href = '../index.html'
                     })
                     nyKnapp3.addEventListener('mouseenter', function() {
                         nyKnapp3.style.backgroundColor = 'white'
@@ -582,7 +582,7 @@ function seier(){
         hjemKnapp.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
     })
     hjemKnapp.addEventListener('click', function(){
-        window.location.href = '../Hovedside/index.html'
+        window.location.href = '../index.html'
     })
 
     lagreKnapp.addEventListener('mouseenter', function() {
