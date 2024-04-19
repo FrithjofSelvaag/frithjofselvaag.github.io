@@ -197,6 +197,12 @@ width: 20%;
     }
 }
 
+
+footer{
+    margin-bottom: 100px;
+  }
+
+
 /* @media(max-width: 965px){
 #storBoks .spillboks{
 grid-template-columns: repeat(2,1fr);
