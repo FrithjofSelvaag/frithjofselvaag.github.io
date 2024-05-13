@@ -336,17 +336,17 @@ function sjekkRekkefolge() {
     
                 let nyKnapp = document.createElement('button')
                 nyKnapp.textContent = ('Try Again')
-                nyKnapp.classList.add('knapp')
+                nyKnapp.classList.add('sknapp')
                 document.body.appendChild(nyKnapp)
     
                 let nyKnapp2 = document.createElement('button')
                 nyKnapp2.textContent = ('Home')
-                nyKnapp2.classList.add('knapp')
+                nyKnapp2.classList.add('sknapp2')
                 document.body.appendChild(nyKnapp2)
     
                 let nyKnapp3 = document.createElement('button')
                 nyKnapp3.textContent = ('Save Score')
-                nyKnapp3.classList.add('knapp')
+                nyKnapp3.classList.add('sknapp')
                 document.body.appendChild(nyKnapp3)
     
                 nyKnapp.addEventListener('mouseenter', function() {
@@ -372,7 +372,7 @@ function sjekkRekkefolge() {
                 })
                 nyKnapp3.addEventListener('mouseleave', function() {
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
-                })
+                })/* 
                 nyKnapp.style.display = 'flex'
                 nyKnapp.style.margin = 'auto'
                 nyKnapp.style.marginTop = '20px'
@@ -413,7 +413,7 @@ function sjekkRekkefolge() {
                 nyKnapp3.style.fontSize = '25px'
                 nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
                 nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
-    
+     */
                 if(selectEl.value === "white"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
