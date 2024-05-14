@@ -5,6 +5,9 @@ let wordsArray = []
 let word
 let scoreBoxEl = document.querySelector("#scoreBox")
 let lifeBoxEl = document.querySelector("#lifeBox")
+let i = 0
+let newWordArr = []
+
 
 
 setTimeout(function(){
@@ -18,6 +21,28 @@ $(document).ready(function(){
     let newBtn
     let seenBtn
 
+    function loadWords(){
+        for(i = 0; i < 100; i++){
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/randomword',
+                headers: { 'X-Api-Key': 'WxhXhzEDI0PBhz7iunnMSw==aoL5wWYaz2tIv5vQ' },
+                contentType: 'application/json',
+                success: function(result) {
+                    newWordArr.push(result.word)
+                    /* $('#wordBox').text(newWord) */
+                    /* word = newWord */ // Oppdaterer word til det nye ordet
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText)
+                }
+            })
+        }
+            
+
+        }
+
+
 
     function getRandomWord() {
         let random = Math.floor(Math.random() * 3)
@@ -28,6 +53,8 @@ $(document).ready(function(){
             word = wordsArray[arrRandom]
             $('#wordBox').text(word)
         } else {
+
+
             $.ajax({
                 method: 'GET',
                 url: 'https://api.api-ninjas.com/v1/randomword',
@@ -49,6 +76,8 @@ $(document).ready(function(){
     $('.start').on('click', function() {
         $('.instruction').remove()
         $('.start').remove()
+
+        loadWords()
 
 
         scoreBoxEl.style.display = "block"
