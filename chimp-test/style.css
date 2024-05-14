@@ -91,3 +91,7 @@ body {
     font-size: 40px;
     color: rgb(163, 163, 163);
 }
+header{
+    min-width: 718px;
+}
+

@@ -333,20 +333,18 @@ function sjekkRekkefolge() {
                     Chimps get 9 numbers 90% of the time!
                     </h1>`)
                 }
-    
+     
                 let nyKnapp = document.createElement('button')
                 nyKnapp.textContent = ('Try Again')
-                nyKnapp.classList.add('knapp')
                 document.body.appendChild(nyKnapp)
-    
+
                 let nyKnapp2 = document.createElement('button')
                 nyKnapp2.textContent = ('Home')
-                nyKnapp2.classList.add('knapp')
                 document.body.appendChild(nyKnapp2)
     
                 let nyKnapp3 = document.createElement('button')
                 nyKnapp3.textContent = ('Save Score')
-                nyKnapp3.classList.add('knapp')
+                nyKnapp3.classList.add('sknapp')
                 document.body.appendChild(nyKnapp3)
     
                 nyKnapp.addEventListener('mouseenter', function() {
@@ -373,47 +371,33 @@ function sjekkRekkefolge() {
                 nyKnapp3.addEventListener('mouseleave', function() {
                     nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
                 })
-                nyKnapp.style.display = 'flex'
-                nyKnapp.style.margin = 'auto'
-                nyKnapp.style.marginTop = '20px'
-                nyKnapp.style.width = '160px'
-                nyKnapp.style.height = '50px'
-                nyKnapp.style.justifyContent = 'center'
-                nyKnapp.style.alignItems = 'center'
-                nyKnapp.style.fontWeight = '40px'
-                nyKnapp.style.border = 'none'
-                nyKnapp.style.borderRadius = '5px'
-                nyKnapp.style.transition = 'background-color 0.5s ease'
-                nyKnapp.style.fontSize = '25px'
-                nyKnapp.style.fontFamily = 'Helvetica, Arial, sans-serif'
-    
-                nyKnapp2.style.display = 'flex'
-                nyKnapp2.style.margin = '20px auto'
-                nyKnapp2.style.width = '160px'
-                nyKnapp2.style.height = '50px'
-                nyKnapp2.style.justifyContent = 'center'
-                nyKnapp2.style.alignItems = 'center'
-                nyKnapp2.style.fontWeight = '40px'
-                nyKnapp2.style.border = 'none'
-                nyKnapp2.style.borderRadius = '5px'
-                nyKnapp2.style.transition = 'background-color 0.5s ease'
-                nyKnapp2.style.fontSize = '25px'
-                nyKnapp2.style.fontFamily = 'Helvetica, Arial, sans-serif'
-    
-                nyKnapp3.style.display = 'flex'
-                nyKnapp3.style.margin = '20px auto'
-                nyKnapp3.style.width = '160px'
-                nyKnapp3.style.height = '50px'
-                nyKnapp3.style.justifyContent = 'center'
-                nyKnapp3.style.alignItems = 'center'
-                nyKnapp3.style.fontWeight = '40px'
-                nyKnapp3.style.border = 'none'
-                nyKnapp3.style.borderRadius = '5px'
-                nyKnapp3.style.transition = 'background-color 0.5s ease'
-                nyKnapp3.style.fontSize = '25px'
-                nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
+                
+                let knapper = [nyKnapp, nyKnapp2, nyKnapp3]
+
+                for(i=0;i<knapper.length;i++){
+                    knapper[i].style.display='flex'
+                    knapper[i].style.width='160px'
+                    knapper[i].style.height = '50px'
+                    knapper[i].style.justifyContent = 'center'
+                    knapper[i].style.alignItems = 'center'
+                    knapper[i].style.fontWeight = '40px'
+                    knapper[i].style.border = 'none'
+                    knapper[i].style.borderRadius = '5px'
+                    knapper[i].style.transition = 'background-color 0.5s ease'
+                    knapper[i].style.fontSize = '25px'
+                    knapper[i].style.fontFamily = 'Helvetica, Arial, sans-serif'
+                    knapper[i].style.margin = '20px auto'
+                }
+                
+            
+                /* det som ikke er felles:  */
+                
+                nyKnapp3.style.marginBottom = '50px'
                 nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
-    
+
+
+
+
                 if(selectEl.value === "white"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
                     nyKnapp2.style.backgroundColor = 'rgba(255, 255, 255, 0.400)'
@@ -722,7 +706,7 @@ function sjekkSkjermStorrelse() {
         text.innerHTML = 'Skjermen er for liten, venligst bruk en pc'
         text.style.textAlign = 'center'
         text.style.marginTop = '200px'
-        text.style.marginBottom = '1000px'
+        text.style.marginBottom = '3000px'
     }
     if (window.innerWidth > 730) {
         text.innerHTML = ''

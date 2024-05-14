@@ -113,7 +113,7 @@ function valgt(){
 
             levelFlash()
             erIOvergang=2
-            if(level==16){
+            if(level==2){
                 
                 seier() 
                 return
@@ -399,17 +399,14 @@ function valgt(){
 
                     let nyKnapp = document.createElement('button')  //prøv igjenn knapp
                     nyKnapp.textContent = ('Try Again')
-                    nyKnapp.classList.add('knapp')
                     document.body.appendChild(nyKnapp)
 
                     let nyKnapp2 = document.createElement('button')
                     nyKnapp2.textContent = ('Home')
-                    nyKnapp2.classList.add('knapp')
                     document.body.appendChild(nyKnapp2)
 
                     let nyKnapp3 = document.createElement('button')
                     nyKnapp3.textContent = ('Save Score')
-                    nyKnapp3.classList.add('knapp')
                     document.body.appendChild(nyKnapp3)
 
                     nyKnapp.addEventListener('mouseenter', function() {
@@ -436,46 +433,30 @@ function valgt(){
                     nyKnapp3.addEventListener('mouseleave', function() {
                         nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
                     })
-                    nyKnapp.style.display = 'flex'
-                    nyKnapp.style.margin = 'auto'
-                    nyKnapp.style.marginTop = '20px'
-                    nyKnapp.style.width = '160px'
-                    nyKnapp.style.height = '50px'
-                    nyKnapp.style.justifyContent = 'center'
-                    nyKnapp.style.alignItems = 'center'
-                    nyKnapp.style.fontWeight = '40px'
-                    nyKnapp.style.border = 'none'
-                    nyKnapp.style.borderRadius = '5px'
-                    nyKnapp.style.transition = 'background-color 0.5s ease'
-                    nyKnapp.style.fontSize = '25px'
-                    nyKnapp.style.fontFamily = 'Helvetica, Arial, sans-serif'
 
-                    nyKnapp2.style.display = 'flex'
-                    nyKnapp2.style.margin = '20px auto'
-                    nyKnapp2.style.width = '160px'
-                    nyKnapp2.style.height = '50px'
-                    nyKnapp2.style.justifyContent = 'center'
-                    nyKnapp2.style.alignItems = 'center'
-                    nyKnapp2.style.fontWeight = '40px'
-                    nyKnapp2.style.border = 'none'
-                    nyKnapp2.style.borderRadius = '5px'
-                    nyKnapp2.style.transition = 'background-color 0.5s ease'
-                    nyKnapp2.style.fontSize = '25px'
-                    nyKnapp2.style.fontFamily = 'Helvetica, Arial, sans-serif'
+                let knapper = [nyKnapp, nyKnapp2, nyKnapp3]
 
-                    nyKnapp3.style.display = 'flex'
-                    nyKnapp3.style.margin = '20px auto'
-                    nyKnapp3.style.width = '160px'
-                    nyKnapp3.style.height = '50px'
-                    nyKnapp3.style.justifyContent = 'center'
-                    nyKnapp3.style.alignItems = 'center'
-                    nyKnapp3.style.fontWeight = '40px'
-                    nyKnapp3.style.border = 'none'
-                    nyKnapp3.style.borderRadius = '5px'
-                    nyKnapp3.style.transition = 'background-color 0.5s ease'
-                    nyKnapp3.style.fontSize = '25px'
-                    nyKnapp3.style.fontFamily = 'Helvetica, Arial, sans-serif'
-                    nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+                for(i=0;i<knapper.length;i++){
+                    knapper[i].style.display='flex'
+                    knapper[i].style.width='160px'
+                    knapper[i].style.height = '50px'
+                    knapper[i].style.justifyContent = 'center'
+                    knapper[i].style.alignItems = 'center'
+                    knapper[i].style.fontWeight = '40px'
+                    knapper[i].style.border = 'none'
+                    knapper[i].style.borderRadius = '5px'
+                    knapper[i].style.transition = 'background-color 0.5s ease'
+                    knapper[i].style.fontSize = '25px'
+                    knapper[i].style.fontFamily = 'Helvetica, Arial, sans-serif'
+                    knapper[i].style.margin = '20px auto'
+                }
+                
+            
+                /* det som ikke er felles:  */
+                
+                nyKnapp3.style.marginBottom = '50px'
+                nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
+
 
                 
 
@@ -557,7 +538,7 @@ function seier(){
     font-size: 90px;
     padding-top: 125px;
     font-family: Roboto, sans-serif;
-    ">Congratulations! You won!</h1>
+    ">Well done! You won!</h1>
 
     <h2 style="color: white;
     text-align: center;
@@ -569,12 +550,10 @@ function seier(){
     >`) 
     let lagreKnapp = document.createElement('button')
     lagreKnapp.textContent = ('Save Score')
-    lagreKnapp.classList.add('knapp')
     document.body.appendChild(lagreKnapp)
 
     let hjemKnapp = document.createElement('button')
     hjemKnapp.textContent = ('Home')
-    hjemKnapp.classList.add('knapp')
     document.body.appendChild(hjemKnapp)
 
     hjemKnapp.addEventListener('mouseenter', function() {
@@ -593,33 +572,56 @@ function seier(){
     lagreKnapp.addEventListener('mouseleave', function() {
         lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
     })
-    
-    hjemKnapp.style.display = 'flex'
-    hjemKnapp.style.margin = '20px auto'
-    hjemKnapp.style.width = '160px'
-    hjemKnapp.style.height = '50px'
-    hjemKnapp.style.justifyContent = 'center'
-    hjemKnapp.style.alignItems = 'center'
-    hjemKnapp.style.fontWeight = '40px'
-    hjemKnapp.style.border = 'none'
-    hjemKnapp.style.borderRadius = '5px'
-    hjemKnapp.style.transition = 'background-color 0.5s ease'
-    hjemKnapp.style.fontSize = '30px'
-    hjemKnapp.style.fontFamily = 'Roboto", sans-serif'
+    let sluttKnapper = [lagreKnapp, hjemKnapp]
 
-    lagreKnapp.style.display = 'flex'
-    lagreKnapp.style.margin = '20px auto'
-    lagreKnapp.style.width = '300px'
-    lagreKnapp.style.height = '70px'
-    lagreKnapp.style.justifyContent = 'center'
-    lagreKnapp.style.alignItems = 'center'
-    lagreKnapp.style.fontWeight = '40px'
-    lagreKnapp.style.border = 'none'
-    lagreKnapp.style.borderRadius = '5px'
-    lagreKnapp.style.transition = 'background-color 0.5s ease'
-    lagreKnapp.style.fontSize = '40px'
-    lagreKnapp.style.fontFamily = 'Roboto", sans-serif'
-    lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+                for(i=0;i<sluttKnapper.length;i++){ 
+                    sluttKnapper[i].style.display='flex'
+                    sluttKnapper[i].style.margin = '20px auto'
+                    sluttKnapper[i].style.height = '50px'
+                    sluttKnapper[i].style.justifyContent = 'center'
+                    sluttKnapper[i].style.alignItems = 'center'
+                    sluttKnapper[i].style.fontWeight = '40px'
+                    sluttKnapper[i].style.border = 'none'
+                    sluttKnapper[i].style.borderRadius = '5px'
+                    sluttKnapper[i].style.transition = 'background-color 0.5s ease'
+                    sluttKnapper[i].style.fontSize = '25px'
+                    sluttKnapper[i].style.fontFamily = 'Roboto, sans-serif'
+                    
+                }
+                
+            
+                /* det som ikke er felles:  */
+                lagreKnapp.style.marginBottom = '40px'
+                hjemKnapp.style.marginBottom = '50px'
+                
+                hjemKnapp.style.width = '160px'
+                lagreKnapp.style.width = '300px'
+                hjemKnapp.style.height = '50px'
+                lagreKnapp.style.height = '70px'
+                hjemKnapp.style.fontSize = '30px'
+                lagreKnapp.style.fontSize = '40px'
+                lagreKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     if(selectEl.value === "white"){
         
