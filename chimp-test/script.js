@@ -233,12 +233,8 @@ function sjekkRekkefolge() {
                     sequenceBlink2()
                     timer()
                     }, 2500)
-                }
-            }else if(hjerteArr.length === 2){
+                }} else if(hjerteArr.length === 2){
                 hjerteToEl.style.color = 'rgb(140, 0, 0)'
-                hjerteArr.splice(0,1)
-
-                hjerteEnEl.style.color = 'rgb(140, 0, 0)'
                 hjerteArr.splice(0,1)
 
                 if (selectEl.value === "white"){
@@ -292,7 +288,6 @@ function sjekkRekkefolge() {
                     }, 2500)
                 }
             }else{
-                giPoints()
                 document.write(`
                 <h1 style="color: white;
                 text-align: center;
@@ -388,15 +383,11 @@ function sjekkRekkefolge() {
                     knapper[i].style.fontFamily = 'Helvetica, Arial, sans-serif'
                     knapper[i].style.margin = '20px auto'
                 }
-                
             
                 /* det som ikke er felles:  */
                 
                 nyKnapp3.style.marginBottom = '50px'
                 nyKnapp3.style.backgroundColor = 'rgb(254, 217, 32)'
-
-
-
 
                 if(selectEl.value === "white"){
                     nyKnapp.style.backgroundColor = 'rgb(254, 217, 32)'
